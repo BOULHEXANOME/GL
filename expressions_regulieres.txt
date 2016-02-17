@@ -1,0 +1,40 @@
+Expressions de la forme : /expression/
+Priorité croissante.
+var: 
+	/var /
+const:
+	/const /
+ecrire:
+	/ecrire /
+lire:
+	/lire /
+identifiant (id):
+	/[a-zA-Z][a-zA-Z0-9]*/
+valeur entière (val):
+	/[0-9]+/
+OU valeur décimale (val):
+	/[0-9]+(\.[0-9]+)?/
+affectation dans la partie instruction (:=):
+	/:=/
+affectation dans la partie déclarative (=):
+	/=/
+point virgule (;):
+	/;/
+virgule (,):
+	/,/
+opA (+ ou -):
+	/(-|\+)/
+plus (+):
+	/\+/
+moins (-):
+	/-/
+opM (* ou /):
+	/(/|\*)/
+diviser (/):
+	/\// ou /// ??
+multiplier (*):
+	/\*/
+parenthèse ouvrante (():
+	/(/
+parenthèse fermante ()):
+	/)/
