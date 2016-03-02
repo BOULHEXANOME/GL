@@ -1,1 +1,6 @@
 .idea/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+GL
+Makefile
