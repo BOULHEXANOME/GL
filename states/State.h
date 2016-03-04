@@ -8,15 +8,15 @@
 #include "../statemachine.h"
 
 class State {
-  public:
-    State(int s) : state(s) {};
-    virtual ~State() {};
+    public:
+        State(int s) : state(s) {};
+        virtual ~State() {};
 
-    virtual bool transition(Automaton & automaton, std::shared_ptr<Symbol> s) = 0; // fction de transition entre les états
-    int state() { return state; }
+        virtual bool transition(Automaton & automaton, std::shared_ptr<Symbol> s) = 0; // fction de transition entre les états
+        int state() { return state; }
 
-  protected:
-    int state;
+    protected:
+        int state;
 };
 
 #endif
