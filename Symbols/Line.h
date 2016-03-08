@@ -17,33 +17,49 @@ protected:
     Type typeOfLine;
 
 public:
+
+    /***********************/
+    /***** Contructors *****/
+    /***********************/
+    Line(Type typeOfLine) : typeOfLine(typeOfLine) { }
     Line(const std::list<Symbol> &symbols, Type typeOfLine) : symbols(symbols), typeOfLine(typeOfLine) { }
+    Line() { }
+    /***********************/
+    /*** End Contructors ***/
+    /***********************/
 
-    Line() : {}{}
+    /***********************/
+    /*** Getters/Setters ***/
 
 
-    const std::list<Symbol> &Line::getSymbols() const
+/***********************/
+    const std::list<Symbol> & getSymbols() const
     {
         return symbols;
     }
 
-    void Line::setSymbols(const std::list<Symbol> &symbols)
+    void setSymbols(const std::list<Symbol> & symbols)
     {
         this->symbols = symbols;
     }
 
-    void Line::addSymbol(Symbol symbolsToAdd)
+    void addSymbol(Symbol & symbolsToAdd)
     {
         this->symbols.push_back(symbolsToAdd);
     }
 
-    const Type &getTypeOfLine() const {
+    const Type & getTypeOfLine() const
+    {
         return typeOfLine;
     }
 
-    void setTypeOfLine(const Type &typeOfLine) {
+    void setTypeOfLine(const Type &typeOfLine)
+    {
         Line::typeOfLine = typeOfLine;
     }
+    /***********************/
+    /* End Getters/Setters */
+    /***********************/
 };
 
 
