@@ -1,6 +1,7 @@
 .idea/
 CMakeFiles/
+**.csv
 CMakeCache.txt
 cmake_install.cmake
-GL
+lut
 Makefile
