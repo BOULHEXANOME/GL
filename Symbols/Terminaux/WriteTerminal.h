@@ -10,6 +10,8 @@
 
 class Write : public Symbol {
 
+public:
+    Write() { }
 };
 
 
