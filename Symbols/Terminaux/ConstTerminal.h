@@ -10,6 +10,8 @@
 
 class ConstTerminal : public Symbol{
 
+public:
+    ConstTerminal() { }
 };
 
 

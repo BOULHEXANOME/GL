@@ -10,6 +10,8 @@
 
 class AffectInstructTerminal : public Symbol{
 
+public:
+    AffectInstructTerminal() { }
 };
 
 
