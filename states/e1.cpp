@@ -1,25 +1,25 @@
 #include "E1.h"
-bool transitionRead() {
+bool transitionRead(Automaton & automaton, Symbol & s) {
 	automaton.setState(s, E6());
 	return true;
 }
 
-bool transitionWrite() {
+bool transitionWrite(Automaton & automaton, Symbol & s) {
 	automaton.setState(s, E9());
 	return true;
 }
 
-bool transitionId() {
+bool transitionId(Automaton & automaton, Symbol & s) {
 	automaton.setState(s, E11());
 	return true;
 }
 
-bool transitionConst() {
+bool transitionConst(Automaton & automaton, Symbol & s) {
 	automaton.setState(s, E7());
 	return true;
 }
 
-bool transitionVar() {
+bool transitionVar(Automaton & automaton, Symbol & s) {
 	automaton.setState(s, E2());
 	return true;
 }

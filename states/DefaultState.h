@@ -54,24 +54,24 @@ class DefaultState : public State
         ~State() {};
         
         bool transition(Automaton & automaton, Symbol & s);
-        bool transitionPlus();
-        bool transitionMinus();
-        bool transitionMultiply();
-        bool transitionDivide();
-        bool transitionWrite();
-        bool transitionRead();
-        bool transitionAffectDeclare();
-        bool transitionAffectInstruct();
-        bool transitionOpenParenthesis();
-        bool transitionCloseParenthesis();
-        bool transitionVar();
-        bool transitionVal();
-        bool transitionDollar();
-        bool transitionConst();
-        bool transitionComma();
-        bool transitionSemilicon();
-        bool transitionId();
-        bool transitionError();
+        bool transitionPlus(Automaton & automaton, Symbol & s);
+        bool transitionMinus(Automaton & automaton, Symbol & s);
+        bool transitionMultiply(Automaton & automaton, Symbol & s);
+        bool transitionDivide(Automaton & automaton, Symbol & s);
+        bool transitionWrite(Automaton & automaton, Symbol & s);
+        bool transitionRead(Automaton & automaton, Symbol & s);
+        bool transitionAffectDeclare(Automaton & automaton, Symbol & s);
+        bool transitionAffectInstruct(Automaton & automaton, Symbol & s);
+        bool transitionOpenParenthesis(Automaton & automaton, Symbol & s);
+        bool transitionCloseParenthesis(Automaton & automaton, Symbol & s);
+        bool transitionVar(Automaton & automaton, Symbol & s);
+        bool transitionVal(Automaton & automaton, Symbol & s);
+        bool transitionDollar(Automaton & automaton, Symbol & s);
+        bool transitionConst(Automaton & automaton, Symbol & s);
+        bool transitionComma(Automaton & automaton, Symbol & s);
+        bool transitionSemilicon(Automaton & automaton, Symbol & s);
+        bool transitionId(Automaton & automaton, Symbol & s);
+        bool transitionError(Automaton & automaton, Symbol & s);
 };
 
 #endif

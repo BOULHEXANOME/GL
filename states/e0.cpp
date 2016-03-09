@@ -1,7 +1,4 @@
-#include "e0.h"
-
-#include "e1.h"
-#include "../ast/symboltype.h"
+#include "E0.h"
 
 bool E0::transition (Automaton & automaton, std::shared_ptr<Symbol> s)
 {
@@ -14,4 +11,35 @@ bool E0::transition (Automaton & automaton, std::shared_ptr<Symbol> s)
     {
         return false;
     }
+}
+
+bool transitionD(Automaton & automaton, Symbol & s) {
+	automaton.setState(s, E1());
+	return true;
+}
+
+bool transitionRead(Automaton & automaton, Symbol & s) {
+	automaton.popState();
+	automaton.setState(new D(), E0());
+	return true;
+}
+
+bool transitionWrite(Automaton & automaton, Symbol & s) {
+	automaton.setState(new D(), E0());
+	return true;
+}
+
+bool transitionId(Automaton & automaton, Symbol & s) {
+	automaton.setState(new D(), E0());
+	return true;
+}
+
+bool transitionConst(Automaton & automaton, Symbol & s) {
+	automaton.setState(new D(), E0());
+	return true;
+}
+
+bool transitionVar(Automaton & automaton, Symbol & s) {
+	automaton.setState(new D(), E0());
+	return true;
 }

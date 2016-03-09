@@ -2,130 +2,130 @@ bool DefaultState::transition (Automaton & automaton, Symbol & s) {
 
 	switch(s->getType()) {
 		case PLUS :
-			transitionPlus();
+			transitionPlus(Automaton & automaton, Symbol & s);
 			return true;
 		case MINUS :
-			transitionMinus();
+			transitionMinus(Automaton & automaton, Symbol & s);
 			return true;
 		case MULTIPLY :
-			transitionMultiply();
+			transitionMultiply(Automaton & automaton, Symbol & s);
 			return true;
 		case DIVIDE :
-			transitionDivide();
+			transitionDivide(Automaton & automaton, Symbol & s);
 			return true;
 		case WRITE :
-			transitionWrite();
+			transitionWrite(Automaton & automaton, Symbol & s);
 			return true;
 		case READ :
-			transitionRead();
+			transitionRead(Automaton & automaton, Symbol & s);
 			return true;
 		case AFFECTDECLARE :
-			transitionAffectDeclare();
+			transitionAffectDeclare(Automaton & automaton, Symbol & s);
 			return true;
 		case AFFECTINSTRUCT :
-			transitionAffectInstruct();
+			transitionAffectInstruct(Automaton & automaton, Symbol & s);
 			return true;
 		case OPENPARENTHESIS :
-			transitionOpenParenthesis();
+			transitionOpenParenthesis(Automaton & automaton, Symbol & s);
 			return true;
 		case CLOSEPARENTHESIS :
-			transitionCloseParenthesis();
+			transitionCloseParenthesis(Automaton & automaton, Symbol & s);
 			return true;
 		case VAR :
-			transitionVar();
+			transitionVar(Automaton & automaton, Symbol & s);
 			return true;
 		case VAL :
-			transitionVal();
+			transitionVal(Automaton & automaton, Symbol & s);
 			return true;
 		case DOLLAR :
-			transitionDollar();
+			transitionDollar(Automaton & automaton, Symbol & s);
 			return true;
 		case COMMA :
-			transitionComma();
+			transitionComma(Automaton & automaton, Symbol & s);
 			return true;
 		case SEMICOLON :
-			transitionSemicolon();
+			transitionSemicolon(Automaton & automaton, Symbol & s);
 			return true;
 		case ID :
-			transitionId();
+			transitionId(Automaton & automaton, Symbol & s);
 			return true;
 		case ERROR :
-			transitionError();
+			transitionError(Automaton & automaton, Symbol & s);
 			return true;
 		default :
 			return false;
     }
 }
 
-bool transitionPlus() {
+bool transitionPlus(Automaton & automaton, Symbol & s) {
 	return false;
 }
 
-bool transitionMinus(){
+bool transitionMinus(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionMultiply(){
+bool transitionMultiply(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionDivide(){
+bool transitionDivide(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionWrite(){
+bool transitionWrite(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionRead(){
+bool transitionRead(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionAffectDeclare(){
+bool transitionAffectDeclare(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionAffectInstruct(){
+bool transitionAffectInstruct(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionOpenParenthesis(){
+bool transitionOpenParenthesis(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionCloseParenthesis(){
+bool transitionCloseParenthesis(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionVar(){
+bool transitionVar(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionVal(){
+bool transitionVal(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionDollar(){
+bool transitionDollar(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionConst(){
+bool transitionConst(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionComma(){
+bool transitionComma(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionSemilicon(){
+bool transitionSemilicon(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionId(){
+bool transitionId(Automaton & automaton, Symbol & s){
 	return false;
 }
 
-bool transitionError(){
+bool transitionError(Automaton & automaton, Symbol & s){
 	return false;
 }
 
