@@ -25,7 +25,7 @@ void Automaton::createAndDeleteSomeLines()
     // var myVar=10;
     // before automaton (after lexer) :
     Line declaractionBefore = Line();
-    VarTerminal varTerminal = VarTerminal("myVar");
+    VarTerminal varTerminal = VarTerminal();
     AffectDeclareTerminal equalSign = AffectDeclareTerminal();
     Number toAffect = Number(10);
     declaractionBefore.addSymbol(varTerminal);
@@ -42,7 +42,7 @@ void Automaton::createAndDeleteSomeLines()
     // myVar := 5 * (1 + 3) - myVar;
     // before automaton (after lexer) :
     Line operationsBefore = Line();
-    VarTerminal varTerminal1 = VarTerminal("myVar");
+    VarTerminal varTerminal1 = VarTerminal();
     AffectInstructTerminal theAffectationSign = AffectInstructTerminal();
     Number numberFive = Number(5);
     MultiplyTerminal multSign = MultiplyTerminal();
@@ -52,7 +52,7 @@ void Automaton::createAndDeleteSomeLines()
     Number numberThree = Number(3);
     ParenthesisTerminal closingParenthesis = ParenthesisTerminal(TypeOfParenthesis::closing);
     MinusTerminal minusSign = MinusTerminal();
-    VarTerminal varTerminal2 = VarTerminal("myVar"); // pour l'instant on ne sait pas que c'est la meme que au dessus
+    VarTerminal varTerminal2 = VarTerminal(); // pour l'instant on ne sait pas que c'est la meme que au dessus
     operationsBefore.addSymbol(varTerminal1);
     operationsBefore.addSymbol(theAffectationSign);
     operationsBefore.addSymbol(numberFive);
