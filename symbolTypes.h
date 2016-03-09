@@ -21,7 +21,7 @@ const int VAL = 12;
 const int DOLLAR = 13;
 const int CONST = 14;
 const int COMMA = 15;
-const int SEMILOCON = 16;
+const int SEMICOLON = 16;
 const int ID = 17;
 const int ERROR = 18;
 
