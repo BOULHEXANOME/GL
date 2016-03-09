@@ -14,7 +14,7 @@ private:
     Expression toWrite;
 public:
 
-    Write(const Expression &toWrite) : toWrite(toWrite) { }
+    Write(const Expression & toWrite) : toWrite(toWrite) { }
 
     /***********************/
     /*** Getters/Setters ***/
@@ -24,7 +24,7 @@ public:
         return toWrite;
     }
 
-    void setToWrite(const Expression &toWrite)
+    void setToWrite(const Expression & toWrite)
     {
         Write::toWrite = toWrite;
     }

@@ -30,9 +30,7 @@ public:
 
     /***********************/
     /*** Getters/Setters ***/
-
-
-/***********************/
+    /***********************/
     const std::list<Symbol> & getSymbols() const
     {
         return symbols;

@@ -9,6 +9,7 @@
 class Symbol {
 
 public:
+    virtual int getType() = 0;
 };
 
 

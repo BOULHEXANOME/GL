@@ -8,7 +8,8 @@
 
 #include "../Symbol.h"
 
-class AffectDeclareTerminal : public Symbol{
+class AffectDeclareTerminal : public Symbol
+{
 
 };
 
