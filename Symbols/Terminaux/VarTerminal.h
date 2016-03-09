@@ -7,30 +7,12 @@
 
 
 #include "../Symbol.h"
-#include <string>
 
 class VarTerminal : public Symbol{
-private:
-    std::string theName;
 public:
 
-    VarTerminal(const std::string & theName) : theName(theName) { }
+    VarTerminal() { }
 
-    /***********************/
-    /*** Getters/Setters ***/
-    /***********************/
-    const std::string & getTheName() const
-    {
-        return theName;
-    }
-
-    void setTheName(const std::string & theName)
-    {
-        VarTerminal::theName = theName;
-    }
-    /***********************/
-    /* End Getters/Setters */
-    /***********************/
 };
 
 

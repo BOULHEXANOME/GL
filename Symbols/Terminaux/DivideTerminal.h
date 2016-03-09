@@ -10,6 +10,8 @@
 
 class DivideTerminal : public Symbol{
 
+public:
+    DivideTerminal() { }
 };
 
 
