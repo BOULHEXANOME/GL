@@ -12,6 +12,7 @@ class Write : public Symbol {
 
 public:
     Write() { }
+    virtual int getType();
 };
 
 

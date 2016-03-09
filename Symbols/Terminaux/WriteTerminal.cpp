@@ -3,3 +3,7 @@
 //
 
 #include "WriteTerminal.h"
+
+int Write::getType() {
+    return WRITE;
+}

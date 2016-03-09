@@ -3,3 +3,7 @@
 //
 
 #include "Dollar.h"
+
+int Dollar::getType() {
+    return DOLLAR;
+}

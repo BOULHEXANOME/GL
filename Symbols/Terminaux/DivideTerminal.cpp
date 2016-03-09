@@ -3,3 +3,7 @@
 //
 
 #include "DivideTerminal.h"
+
+int DivideTerminal::getType() {
+    return DIVIDE;
+}

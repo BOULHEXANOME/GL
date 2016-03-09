@@ -12,6 +12,7 @@ class MultiplyTerminal : public Symbol{
 
 public:
     MultiplyTerminal() { }
+    virtual int getType();
 };
 
 

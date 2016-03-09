@@ -31,6 +31,8 @@ public:
     /***********************/
     /* End Getters/Setters */
     /***********************/
+
+    virtual int getType();
 };
 
 #endif //GL_IDTERMINAL_H

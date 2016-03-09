@@ -3,3 +3,7 @@
 //
 
 #include "Coma.h"
+
+int Coma::getType() {
+    return COMMA;
+}

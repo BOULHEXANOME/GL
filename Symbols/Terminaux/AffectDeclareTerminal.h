@@ -11,6 +11,9 @@
 class AffectDeclareTerminal : public Symbol
 {
 
+public:
+    AffectDeclareTerminal() { }
+    virtual int getType();
 };
 
 

@@ -3,3 +3,7 @@
 //
 
 #include "ConstTerminal.h"
+
+int ConstTerminal::getType() {
+    return CONST;
+}

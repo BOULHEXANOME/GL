@@ -12,6 +12,7 @@ class ReadTerminal : public Symbol{
 
 public:
     ReadTerminal() { }
+    virtual int getType();
 };
 
 

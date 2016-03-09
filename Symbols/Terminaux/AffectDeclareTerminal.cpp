@@ -3,3 +3,7 @@
 //
 
 #include "AffectDeclareTerminal.h"
+
+int AffectDeclareTerminal::getType() {
+    return AFFECTDECLARE;
+}

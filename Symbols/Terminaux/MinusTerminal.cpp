@@ -3,3 +3,7 @@
 //
 
 #include "MinusTerminal.h"
+
+int MinusTerminal::getType() {
+    return MINUS;
+}

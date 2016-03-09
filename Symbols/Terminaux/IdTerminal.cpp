@@ -3,3 +3,7 @@
 //
 
 #include "IdTerminal.h"
+
+int IdTerminal::getType() {
+    return ID;
+}

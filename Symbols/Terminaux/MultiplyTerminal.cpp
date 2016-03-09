@@ -3,3 +3,7 @@
 //
 
 #include "MultiplyTerminal.h"
+
+int MultiplyTerminal::getType() {
+    return MULTIPLY;
+}

@@ -12,6 +12,7 @@ class Coma : public Symbol {
 
 public:
     Coma() { }
+    virtual int getType();
 };
 
 

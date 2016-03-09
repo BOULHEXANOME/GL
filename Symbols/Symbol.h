@@ -10,10 +10,7 @@
 class Symbol {
 
 public:
-    virtual int getType()
-    {
-        return NON_TERMINAL;
-    }
+    virtual int getType();
 };
 
 

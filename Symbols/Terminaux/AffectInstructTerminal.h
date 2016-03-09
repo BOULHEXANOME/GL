@@ -8,10 +8,12 @@
 
 #include "../Symbol.h"
 
-class AffectInstructTerminal : public Symbol{
+class AffectInstructTerminal : public Symbol
+{
 
 public:
     AffectInstructTerminal() { }
+    virtual int getType();
 };
 
 

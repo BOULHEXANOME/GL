@@ -3,3 +3,8 @@
 //
 
 #include "Semicolon.h"
+
+int Semicolon::getType()
+{
+    return SEMICOLON;
+}

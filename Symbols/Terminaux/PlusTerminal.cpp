@@ -3,3 +3,7 @@
 //
 
 #include "PlusTerminal.h"
+
+int PlusTerminal::getType() {
+    return PLUS;
+}

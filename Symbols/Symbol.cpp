@@ -3,3 +3,8 @@
 //
 
 #include "Symbol.h"
+
+int Symbol::getType()
+{
+    return NON_TERMINAL;
+}

@@ -3,3 +3,7 @@
 //
 
 #include "SyntaxError.h"
+
+int SyntaxError::getType() {
+    return ERROR;
+}

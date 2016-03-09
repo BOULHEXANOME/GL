@@ -10,6 +10,9 @@
 
 class PlusTerminal : public Symbol {
 
+public:
+    PlusTerminal() { }
+    virtual int getType();
 };
 
 

@@ -3,3 +3,7 @@
 //
 
 #include "ReadTerminal.h"
+
+int ReadTerminal::getType() {
+    return READ;
+}
