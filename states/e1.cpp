@@ -1,3 +1,4 @@
+#include "E1.h"
 bool transitionRead() {
 	automaton.setState(s, E6());
 	return true;
