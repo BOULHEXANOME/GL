@@ -5,6 +5,7 @@
 #ifndef GL_SYMBOLTYPES_H
 #define GL_SYMBOLTYPES_H
 
+//Terminaux
 const int PLUS = 1;
 const int MINUS = 2;
 const int MULTIPLY = 3;
@@ -23,5 +24,20 @@ const int COMMA = 15;
 const int SEMICOLON = 16;
 const int ID = 17;
 const int ERROR = 18;
+
+//Non terminaux
+const int P = 19;
+const int D = 20;
+const int D_PRIME = 21;
+const int ID_LISTE = 22;
+const int AFF = 23;
+const int I = 24;
+const int I_Prime = 25;
+const int E = 26;
+const int T = 27;
+const int F = 28;
+const int OPA = 29;
+const int OPM = 30;
+
 
 #endif //GL_SYMBOLTYPES_H
