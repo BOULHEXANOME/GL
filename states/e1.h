@@ -1,13 +1,17 @@
 #ifndef E1_H
 #define E1_H
 
-#include "State.h"
+#include "DefaultState.h"
 
-class E1 : public State
+class E1 : public DefaultState
 {
     public:
         E1() : State(1) {};
-        bool transition(Automaton & automaton, std::shared_ptr<Symbol> s);
+        bool transitionRead();
+		bool transitionWrite();
+		bool transitionId();
+		bool transitionConst();
+		bool transitionVar();
 };
 
 #endif

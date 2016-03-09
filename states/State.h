@@ -9,11 +9,11 @@
 
 class State {
     public:
-        //State(int s) : state(s) {};
-        //virtual ~State() {};
+        virtual State(int s) : state(s) {};
+        virtual ~State() {};
+        int state() { return state; }
 
         virtual bool transition(Automaton & automaton, Symbol & s) = 0; // fction de transition entre les états
-        int state() { return state; }
         virtual bool transitionPlus() = 0;
         virtual bool transitionMinus() = 0;
         virtual bool transitionMultiply() = 0;

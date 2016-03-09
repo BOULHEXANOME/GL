@@ -1,12 +1,6 @@
-#include "e1.h"
-
-
-
 bool DefaultState::transition (Automaton & automaton, Symbol & s) {
 
-	switch(s->getType())
-    {
-
+	switch(s->getType()) {
 		case PLUS :
 			transitionPlus();
 			return true;
@@ -62,3 +56,77 @@ bool DefaultState::transition (Automaton & automaton, Symbol & s) {
 			return false;
     }
 }
+
+bool transitionPlus() {
+	return false;
+}
+
+bool transitionMinus(){
+	return false;
+}
+
+bool transitionMultiply(){
+	return false;
+}
+
+bool transitionDivide(){
+	return false;
+}
+
+bool transitionWrite(){
+	return false;
+}
+
+bool transitionRead(){
+	return false;
+}
+
+bool transitionAffectDeclare(){
+	return false;
+}
+
+bool transitionAffectInstruct(){
+	return false;
+}
+
+bool transitionOpenParenthesis(){
+	return false;
+}
+
+bool transitionCloseParenthesis(){
+	return false;
+}
+
+bool transitionVar(){
+	return false;
+}
+
+bool transitionVal(){
+	return false;
+}
+
+bool transitionDollar(){
+	return false;
+}
+
+bool transitionConst(){
+	return false;
+}
+
+bool transitionComma(){
+	return false;
+}
+
+bool transitionSemilicon(){
+	return false;
+}
+
+bool transitionId(){
+	return false;
+}
+
+bool transitionError(){
+	return false;
+}
+
+

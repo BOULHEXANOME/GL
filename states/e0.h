@@ -1,9 +1,9 @@
 #ifndef E0_H
 #define E0_H
 
-#include "State.h"
+#include "DefaultState.h"
 
-class E0 : public State
+class E0 : public DefaultState
 {
     public:
         E0() : State(0) {};
