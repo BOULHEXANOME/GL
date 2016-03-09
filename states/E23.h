@@ -1,15 +1,15 @@
-#ifndef E18_H
-#define E18_H
+#ifndef E23_H
+#define E23_H
 
 #include "DefaultState.h"
 
-class E18 : public DefaultState
+class E23 : public DefaultState
 {
     public:
-        E18() : State(18) {};
+        E23() : State(23) {};
+		bool transitionOpA(Automaton * automaton, Symbol * s);
 		bool transitionPlus(Automaton * automaton, Symbol * s);
 		bool transitionMinus(Automaton * automaton, Symbol * s);
-		bool transitionOpA(Automaton * automaton, Symbol * s);
 		bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 
