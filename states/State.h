@@ -10,7 +10,7 @@
 class State {
     public:
         //State(int s) : state(s) {};
-        virtual ~State() {};
+        //virtual ~State() {};
 
         virtual bool transition(Automaton & automaton, Symbol & s) = 0; // fction de transition entre les états
         int state() { return state; }
@@ -31,6 +31,7 @@ class State {
         virtual bool transitionComma() = 0;
         virtual bool transitionSemilicon() = 0;
         virtual bool transitionId() = 0;
+        virtual bool transitionError() = 0;
 
     protected:
         int state;
