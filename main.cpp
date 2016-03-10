@@ -3,6 +3,7 @@
 #include <getopt.h>
 #include <string.h>
 #include "Automaton.h"
+#include "Lexer.h"
 
 #define MIN_ARGS 2
 #define MAX_ARGS 5
@@ -91,6 +92,20 @@ int main(int argc, char **argv) {
 	if(!file_exists(file_path)) {
 		cerr << "Erreur a l'ouverture du fichier " << file_path << endl;
 		exit(ERROR_BAD_INPUT);
+	} else {
+		
+		// Instanciation du Lexer -> A changer de place possiblement
+		Lexer lexer = new Lexer(file_path);
+		
+		// Parcourt le fichier et ajoute les symboles à la pile
+		do {
+			Symbol symbol = lexer.getSymbol();
+			
+			// Ajouter le symbole à la pile des symboles
+			//symbolsStack.push(symbol);
+
+		} while(symbol->getType() != SymbolType::END);
+		
 	}
 
 	if(opt_analyse) {
