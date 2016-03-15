@@ -9,6 +9,8 @@
 class Symbol {
 
 public:
+    Symbol(){}
+    virtual ~Symbol(){}
 };
 
 

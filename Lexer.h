@@ -2,6 +2,11 @@
 #define LEXER_H
 
 #include <string>
+#include <iostream>
+
+#include "Symbols/Symbol.h"
+#include "regex"
+
 
 using namespace std;
 
@@ -10,7 +15,7 @@ class Lexer
     public:
         Lexer();
         Lexer(std::string nom_fic);
-        *Symbol getSymbol();
+        Symbol *getSymbol();
         virtual ~Lexer();
     protected:
     private:
