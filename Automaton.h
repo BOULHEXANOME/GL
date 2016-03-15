@@ -11,13 +11,13 @@
 class Automaton {
 private:
     std::list<Line> programLines;
-public:
+    Automaton() { }
 
+public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
-    void operator=(Automaton const&) = delete;
 
-    Automaton() { }
+    void operator=(Automaton const&) = delete;
 
     /***********************/
     /*** Getters/Setters ***/
