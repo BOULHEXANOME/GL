@@ -14,8 +14,8 @@ private:
     Programm programLines;
 
     Automaton() { }
-public:
 
+public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
     void operator=(Automaton const&) = delete;
