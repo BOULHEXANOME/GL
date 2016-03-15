@@ -8,18 +8,26 @@
 
 #include "BinaryExpression.h"
 
-class MinusExpression : public BinaryExpression{
+class MinusExpression : public BinaryExpression
+{
 
 public:
     /***********************/
     /***** Contructors *****/
     /***********************/
-    MinusExpression(const Expression & leftExpr, const Expression & rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
+    MinusExpression(Expression * leftExpr, Expression * rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
     /***********************/
     /*** End Contructors ***/
     /***********************/
 
 
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
+    /***********************/
 };
 
 

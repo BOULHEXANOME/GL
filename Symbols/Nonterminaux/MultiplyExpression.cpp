@@ -3,3 +3,8 @@
 //
 
 #include "MultiplyExpression.h"
+
+std::string MultiplyExpression::print() const
+{
+    return leftExpr->print() + " * " + rigthExpr->print();
+}

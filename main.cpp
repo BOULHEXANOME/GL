@@ -43,7 +43,8 @@ int main(int argc, char **argv) {
 	bool opt_optimize = false;
 	string file_path;
 
-    if (argc < MIN_ARGS) {
+    if (argc < MIN_ARGS)
+    {
         default_behaviour();
         /*
 		print_usage();
@@ -51,7 +52,8 @@ int main(int argc, char **argv) {
 		 */
 	}
     
-	if (argc > MAX_ARGS) {
+	if (argc > MAX_ARGS)
+    {
 		print_usage();
 		exit(ERROR_TOO_MANY_ARGS);
 	}
@@ -60,7 +62,8 @@ int main(int argc, char **argv) {
     
     int opt,a,b,c;
     
-    while ((opt = getopt(argc,argv,"paeo")) != EOF) {
+    while ((opt = getopt(argc,argv,"paeo")) != EOF)
+    {
         switch(opt)
         {
             case 'p': 
@@ -93,29 +96,32 @@ int main(int argc, char **argv) {
         }
 	}
   
-	if(!file_exists(file_path)) {
+	if(!file_exists(file_path))
+    {
 		cerr << "Erreur a l'ouverture du fichier " << file_path << endl;
 		exit(ERROR_BAD_INPUT);
 	}
 
-	if(opt_analyse) {
+	if(opt_analyse)
+    {
 
 	}
 
-	if(opt_optimize) {
+	if(opt_optimize)
+    {
 
 	}
 
-	if(opt_print) {
+	if(opt_print)
+    {
+        Automaton::instance().printCode();
+	}
+
+	if(opt_execute)
+    {
 
 	}
 
-	if(opt_execute) {
-
-	}
-
-
-    //Automaton::instance().createAndDeleteSomeLines();
     return 0;
 }
 

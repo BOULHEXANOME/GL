@@ -6,11 +6,21 @@
 #define GL_SYMBOL_H
 
 #include "../symbolTypes.h"
+#include <iostream>
 
 class Symbol {
 
 public:
-    virtual int getType();
+    virtual int getType() const;
+    virtual std::string print() const;
+
+    /************************/
+    /** Override operators **/
+    /************************/
+    friend std::ostream & operator<<(std::ostream& os, const Symbol & s);
+    /************************/
+    /*End Override operators /
+    /************************/
 };
 
 

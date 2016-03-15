@@ -4,6 +4,7 @@
 
 #include "ConstTerminal.h"
 
-int ConstTerminal::getType() {
+int ConstTerminal::getType() const
+{
     return CONST;
 }

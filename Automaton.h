@@ -10,7 +10,8 @@
 
 class Automaton {
 private:
-    std::list<Line> programLines;
+    typedef std::list<Line> Programm;
+    Programm programLines;
 
     Automaton() { }
 public:

@@ -8,11 +8,12 @@
 
 #include "../Symbol.h"
 
-class Dollar : public Symbol{
+class Dollar : public Symbol
+{
 
 public:
     Dollar() { }
-    virtual int getType();
+    virtual int getType() const;
 };
 
 

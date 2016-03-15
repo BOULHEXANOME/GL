@@ -3,3 +3,8 @@
 //
 
 #include "AffectInstruct.h"
+
+std::string AffectInstruct::print() const
+{
+    return variableToChange->print() + " := " + expressionToAffect->print();
+}

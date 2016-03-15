@@ -5,7 +5,7 @@
 #include <iostream>
 #include "ParenthesisTerminal.h"
 
-int ParenthesisTerminal::getType()
+int ParenthesisTerminal::getType() const
 {
     if(this->typeOfParenthesis == TypeOfParenthesis::closing)
         return CLOSEPARENTHESIS;

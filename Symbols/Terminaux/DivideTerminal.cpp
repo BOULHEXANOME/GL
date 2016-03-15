@@ -4,6 +4,7 @@
 
 #include "DivideTerminal.h"
 
-int DivideTerminal::getType() {
+int DivideTerminal::getType() const
+{
     return DIVIDE;
 }
