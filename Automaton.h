@@ -59,6 +59,12 @@ public:
     void printCode();
 
     /*
+     * Method used to analyse the code in memory, and eventually
+     * alert the user if errors occurs
+     */
+    void analyse();
+
+    /*
      * Method singleton
      */
     static Automaton & instance()

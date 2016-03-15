@@ -119,3 +119,8 @@ void Automaton::printCode()
         std::cout << (*cLineIterator) << ";" << std::endl;
     }
 }
+
+void Automaton::analyse()
+{
+    // TODO
+}
