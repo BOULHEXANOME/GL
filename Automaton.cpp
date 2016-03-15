@@ -2,6 +2,7 @@
 // Created by hdelval on 08/03/16.
 //
 
+#include <iostream>
 #include "Automaton.h"
 #include "Symbols/Nonterminaux/Variable.h"
 #include "Symbols/Nonterminaux/Number.h"
@@ -76,4 +77,35 @@ void Automaton::createAndDeleteSomeLines()
     AffectInstruct instructAffectResult = AffectInstruct(varToSubstract, finalExpression);
     operationsAfter.addSymbol(instructAffectResult);
 
+}
+
+
+void Automaton::createSomeLines()
+{
+    // var myVar=10;
+    Line declaractionAfter = Line(Type::declaration);
+    Variable declarationVar = Variable("myVar");
+    Number toAffect = Number(10); // already set
+    AffectVarDeclare declarationAction = AffectVarDeclare(declarationVar, toAffect);
+    declaractionAfter.addSymbol(declarationAction);
+
+    // myVar := 5 * (1 + 3) - myVar;
+    Line operationsAfter = Line(Type::instruction);
+    Number opRigthPlus = Number(3);
+    Number opLeftPlus = Number(1);
+    Number opLeftMult = Number(5);
+    Variable varToSubstract = Variable("myVar");
+    PlusExpression instructAdd = PlusExpression(opLeftPlus, opRigthPlus);
+    MultiplyExpression instructMult = MultiplyExpression(opLeftMult, instructAdd);
+    MinusExpression finalExpression = MinusExpression(instructMult, varToSubstract);
+    AffectInstruct instructAffectResult = AffectInstruct(varToSubstract, finalExpression);
+    operationsAfter.addSymbol(instructAffectResult);
+
+    this->programLines.push_back(declaractionAfter);
+    this->programLines.push_back(operationsAfter);
+}
+
+void Automaton::printCode()
+{
+    std::cout << "coucou" << std::endl;
 }

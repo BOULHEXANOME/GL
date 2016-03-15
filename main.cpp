@@ -12,6 +12,8 @@
 #define ERROR_BAD_INPUT 1
 #define ERROR_INCORRECT_PROGRAM 1
 
+void default_behaviour();
+
 using namespace std;
 
 void print_usage() {
@@ -40,10 +42,13 @@ int main(int argc, char **argv) {
 	bool opt_execute = false; 
 	bool opt_optimize = false;
 	string file_path;
-    
+
     if (argc < MIN_ARGS) {
+        default_behaviour();
+        /*
 		print_usage();
 		exit(ERROR_NOT_ENOUGH_ARGS);
+		 */
 	}
     
 	if (argc > MAX_ARGS) {
@@ -112,5 +117,11 @@ int main(int argc, char **argv) {
 
     //Automaton::instance().createAndDeleteSomeLines();
     return 0;
+}
+
+void default_behaviour()
+{
+    Automaton::instance().createSomeLines();
+    Automaton::instance().printCode();
 }
 
