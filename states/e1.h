@@ -6,7 +6,8 @@
 class E1 : public DefaultState
 {
     public:
-        E1() : State(1) {};
+        E1():E1(){this->state = 1;};
+        ~E1();
         bool transitionRead(Automaton * automaton, Symbol * s);
 		bool transitionWrite(Automaton * automaton, Symbol * s);
 		bool transitionId(Automaton * automaton, Symbol * s);

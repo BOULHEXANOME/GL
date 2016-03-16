@@ -6,7 +6,7 @@
 class E15 : public DefaultState
 {
     public:
-        E15() : State(15) {};
+        E15() : E15() {this->state = 15;};
 		bool transitionSemilocon(Automaton * automaton, Symbol * s);
 };
 

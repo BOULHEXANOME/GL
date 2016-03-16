@@ -2,7 +2,7 @@
 #define DEFAULTSTATE_H
 
 #include "State.h"
-#include "E0.h"
+/*#include "E0.h"
 #include "E1.h"
 #include "E2.h"
 #include "E3.h"
@@ -45,13 +45,13 @@
 #include "E40.h"
 #include "E41.h"
 #include "E42.h"
-#include "E43.h"
+#include "E43.h"*/
 
 class DefaultState : public State
 {
     public:
-        DefaultState() : State(-1) {};
-        ~State() {};
+        DefaultState();
+        ~DefaultState();
         
         bool transition(Automaton * automaton, Symbol * s);
         bool transitionPlus(Automaton * automaton, Symbol * s);

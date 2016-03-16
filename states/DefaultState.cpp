@@ -94,123 +94,130 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
     }
 }
 
-bool transitionPlus(Automaton * automaton, Symbol * s) {
+bool DefaultState::transitionPlus(Automaton * automaton, Symbol * s) {
 	return false;
 }
 
-bool transitionMinus(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionMinus(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionMultiply(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionMultiply(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionDivide(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionDivide(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionWrite(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionWrite(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionRead(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionRead(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionAffectDeclare(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionAffectDeclare(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionAffectInstruct(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionAffectInstruct(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionOpenParenthesis(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionOpenParenthesis(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionCloseParenthesis(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionCloseParenthesis(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionVar(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionVar(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionVal(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionVal(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionDollar(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionDollar(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionConst(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionConst(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionComma(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionComma(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionSemilicon(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionSemilicon(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionId(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionError(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionP(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionP(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionD(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionD(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionD_Prime(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionD_Prime(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionId_Liste(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionId_Liste(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionAff(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionAff(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionI(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionI(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionI_Prime(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionI_Prime(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionE(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionE(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionT(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionT(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionF(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionF(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionOpA(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionOpA(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool transitionOpM(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionOpM(Automaton * automaton, Symbol * s){
 	return false;
 }
 
+DefaultState::DefaultState(){
+	this->state = -1;
+}
+
+DefaultState::~DefaultState(){
+	
+}

@@ -6,7 +6,7 @@
 class E2 : public DefaultState
 {
     public:
-        E2() : State(2) {};
+        E1() : E1() {this->state = 1;};
 		bool transitionId_Liste(Automaton * automaton, Symbol * s);
 		bool transitionId(Automaton * automaton, Symbol * s);
 };

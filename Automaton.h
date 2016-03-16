@@ -7,15 +7,26 @@
 
 
 #include "Symbols/Line.h"
+#include "States/DefaultState.h"
 
 class Automaton {
 private:
     typedef std::list<Line> Programm;
     Programm programLines;
-
+	
     Automaton() { }
 
 public:
+
+	//Liste de symboles lus par le lexer
+	std::list <Symbol*> programme;
+	//Pile de symbole utilisée par l'automate
+	std::list <Symbol*> symbols;
+	//Pile d'etat de l'automate
+	std::list <DefaultState*> states;
+	//Etat courant de l'automate (haut de la pile d'etat) => choix de conception actuel a modifier peut-etre
+	DefaultState *CurrentState;
+	
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
     void operator=(Automaton const&) = delete;
@@ -52,6 +63,8 @@ public:
      */
     void createAndDeleteSomeLines();
     void createSomeLines();
+    
+    void testStates();
 
     /*
      * Method used to print the code in memory
@@ -61,6 +74,18 @@ public:
     /*
      * Method singleton
      */
+     
+    /*
+     * Method
+     */
+    void pushState(Symbol * s, DefaultState * e);
+    Symbol* popSymbol();
+    void popState();
+    void accept();
+    
+    /*
+     * 
+     */ 
     static Automaton & instance()
     {
         static Automaton automatonInstance;
