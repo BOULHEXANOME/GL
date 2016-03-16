@@ -4,6 +4,7 @@
 #include <string.h>
 #include "Automaton.h"
 #include "Lexer.h"
+#include "Symbols/Symbol.h"
 
 #define MIN_ARGS 2
 #define MAX_ARGS 5
@@ -95,11 +96,12 @@ int main(int argc, char **argv) {
 	} else {
 		
 		// Instanciation du Lexer -> A changer de place possiblement
-		Lexer lexer = new Lexer(file_path);
+		Lexer lexer(file_path);
+		Symbol* symbol;
 		
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
-			Symbol symbol = lexer.getSymbol();
+			symbol = lexer.getSymbol();
 			
 			// Ajouter le symbole à la pile des symboles
 			//symbolsStack.push(symbol);

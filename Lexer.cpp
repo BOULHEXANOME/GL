@@ -57,7 +57,7 @@ Lexer::Lexer(std::string path) {
   //m_char = 1;
 }
 
-std::shared_ptr<SymbolType::Symbol> Lexer::getSymbol() {
+Symbol* Lexer::getSymbol() {
 
 /*
   if(currentSymbol) {
@@ -65,6 +65,9 @@ std::shared_ptr<SymbolType::Symbol> Lexer::getSymbol() {
   } */
 
   trim();
+  
+  // Le symbole à renvoyer
+  //Symbol* currentSymbol;
   
   // Parcourt la liste des Regex : pour chaque regex :
   for(const auto& reg: regexesList) {
@@ -89,7 +92,7 @@ std::shared_ptr<SymbolType::Symbol> Lexer::getSymbol() {
 			
             case SymbolType::PV:	
                 //std::cout << "Instanciation du pt virgule" << std::endl;
-                Symbol semicolon = new Semicolon();
+                currentSymbol = new Semicolon();
                 break;
                 
             default:
@@ -131,8 +134,8 @@ std::shared_ptr<SymbolType::Symbol> Lexer::getSymbol() {
   return unknown;
   */
 
-  std::shared_ptr<SymbolType::Symbol> error;
-  return error;
+  //std::shared_ptr<SymbolType::Symbol> error;
+  return currentSymbol;
 
 }
 
