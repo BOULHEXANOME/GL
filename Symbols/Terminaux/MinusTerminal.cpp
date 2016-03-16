@@ -4,6 +4,7 @@
 
 #include "MinusTerminal.h"
 
-int MinusTerminal::getType() {
+int MinusTerminal::getType() const
+{
     return MINUS;
 }

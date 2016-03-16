@@ -9,7 +9,8 @@
 #include "../Symbol.h"
 #include <string>
 
-class SyntaxError : public Symbol{
+class SyntaxError : public Symbol
+{
 private:
     std::string theWrongSymbol;
 private:
@@ -35,7 +36,7 @@ public:
     /* End Getters/Setters */
     /***********************/
 
-    virtual int getType();
+    virtual int getType() const;
 };
 
 

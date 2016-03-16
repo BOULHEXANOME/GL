@@ -9,7 +9,8 @@
 #include "../Symbol.h"
 #include <string>
 
-class IdTerminal : public Symbol{
+class IdTerminal : public Symbol
+{
 private:
     std::string theName;
 public:
@@ -32,7 +33,7 @@ public:
     /* End Getters/Setters */
     /***********************/
 
-    virtual int getType();
+    virtual int getType() const;
 };
 
 #endif //GL_IDTERMINAL_H

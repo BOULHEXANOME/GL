@@ -10,38 +10,39 @@
 #include "Number.h"
 #include "Variable.h"
 
-class AffectVarDeclare: public Symbol {
+class AffectVarDeclare: public Symbol
+{
 private:
-    Number numberToAffect;
-    Variable variableToDeclare;
+    Number *numberToAffect;
+    Variable *variableToDeclare;
     bool isEmpty = true;
 public:
 
-    AffectVarDeclare(const Variable & variableToDeclare,
-                     const Number & numberToAffect) : numberToAffect(numberToAffect),
-                                                      variableToDeclare(variableToDeclare) { isEmpty = false; }
-    AffectVarDeclare(const Variable & variableToDeclare) : numberToAffect(Number(0)),
-                                                      variableToDeclare(variableToDeclare) { isEmpty = true; }
+    AffectVarDeclare(Variable * variableToDeclare,
+                      Number * numberToAffect) : numberToAffect(numberToAffect),
+                                                 variableToDeclare(variableToDeclare) { isEmpty = false; }
+    AffectVarDeclare(Variable * variableToDeclare) : numberToAffect(new Number(0)),
+                                                     variableToDeclare(variableToDeclare) { isEmpty = true; }
 
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const Variable & getVariableToDeclare() const
+    Variable * getVariableToDeclare() const
     {
         return variableToDeclare;
     }
 
-    void setVariableToDeclare(const Variable & variableToDeclare)
+    void setVariableToDeclare(Variable * variableToDeclare)
     {
-        AffectVarDeclare::variableToDeclare = variableToDeclare;
+        this->variableToDeclare = variableToDeclare;
     }
 
-    const Number & getNumberToAffect() const
+    Number * getNumberToAffect() const
     {
         return numberToAffect;
     }
 
-    void setNumberToAffect(const Number & numberToAffect)
+    void setNumberToAffect(Number * numberToAffect)
     {
         AffectVarDeclare::numberToAffect = numberToAffect;
         isEmpty = false;
@@ -52,6 +53,14 @@ public:
     }
     /***********************/
     /* End Getters/Setters */
+    /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
     /***********************/
 };
 

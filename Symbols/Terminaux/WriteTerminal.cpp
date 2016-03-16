@@ -4,6 +4,7 @@
 
 #include "WriteTerminal.h"
 
-int WriteTerminal::getType() {
+int WriteTerminal::getType() const
+{
     return WRITE;
 }

@@ -9,7 +9,8 @@
 #include "Expression.h"
 #include <string>
 
-class StockageUnit : public Expression{
+class StockageUnit : public Expression
+{
 protected:
     std::string theName;
 
@@ -26,6 +27,14 @@ public:
     virtual void setTheName(std::string theName) = 0;
     /***********************/
     /* End Getters/Setters */
+    /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
     /***********************/
 };
 

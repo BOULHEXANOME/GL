@@ -10,40 +10,48 @@
 #include "Expression.h"
 #include "Variable.h"
 
-class AffectInstruct : public Symbol{
+class AffectInstruct : public Symbol
+{
 private:
-    Expression expressionToAffect;
-    Variable variableToChange;
+    Expression* expressionToAffect;
+    Variable* variableToChange;
 public:
-
+    AffectInstruct(Variable * variableToChange,
+                   Expression * expressionToAffect) : expressionToAffect(expressionToAffect),
+                                                      variableToChange(variableToChange) { }
     /***********************/
     /*** Getters/Setters ***/
-    AffectInstruct(const Variable & variableToChange,
-                   const Expression & expressionToAffect) : expressionToAffect(expressionToAffect),
-                                                            variableToChange(variableToChange) { }
+    /***********************/
 
-/***********************/
-    const Expression & getExpressionToAffect() const
+    Expression * getExpressionToAffect() const
     {
         return expressionToAffect;
     }
 
-    void setExpressionToAffect(const Expression & expressionToAffect)
+    void setExpressionToAffect(Expression * expressionToAffect)
     {
         AffectInstruct::expressionToAffect = expressionToAffect;
     }
 
-    const Variable & getVariableToChange() const
+    Variable * getVariableToChange() const
     {
         return variableToChange;
     }
 
-    void setVariableToChange(const Variable & variableToChange)
+    void setVariableToChange(Variable * variableToChange)
     {
         AffectInstruct::variableToChange = variableToChange;
     }
     /***********************/
     /* End Getters/Setters */
+    /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
     /***********************/
 };
 

@@ -3,3 +3,8 @@
 //
 
 #include "PlusExpression.h"
+
+std::string PlusExpression::print() const
+{
+    return leftExpr->print() + " + " + rigthExpr->print();
+}

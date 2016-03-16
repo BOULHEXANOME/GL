@@ -4,7 +4,7 @@
 
 #include "Semicolon.h"
 
-int Semicolon::getType()
+int Semicolon::getType() const
 {
     return SEMICOLON;
 }

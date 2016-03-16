@@ -8,7 +8,8 @@
 
 #include "Expression.h"
 
-class Number : public Expression{
+class Number : public Expression
+{
 private:
     int theValue;
 
@@ -31,6 +32,13 @@ public:
     /* End Getters/Setters */
     /***********************/
 
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
+    /***********************/
 };
 
 

@@ -8,11 +8,12 @@
 
 #include "../Symbol.h"
 
-class Coma : public Symbol {
+class Coma : public Symbol
+{
 
 public:
     Coma() { }
-    virtual int getType();
+    virtual int getType() const;
 };
 
 

@@ -11,25 +11,33 @@
 
 class Write : public Symbol{
 private:
-    Expression toWrite;
+    Expression * toWrite;
 public:
 
-    Write(const Expression & toWrite) : toWrite(toWrite) { }
+    Write(Expression * toWrite) : toWrite(toWrite) { }
 
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const Expression & getToWrite() const
+    Expression * getToWrite() const
     {
         return toWrite;
     }
 
-    void setToWrite(const Expression & toWrite)
+    void setToWrite(Expression * toWrite)
     {
         Write::toWrite = toWrite;
     }
     /***********************/
     /* End Getters/Setters */
+    /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
     /***********************/
 };
 
