@@ -3,6 +3,7 @@
 
 #include <string>
 #include <memory>
+#include "Symbols/Symbol.h"
 //#include "ast/symbol.h"
 
 
@@ -20,7 +21,7 @@ class Lexer {
 	
   public:
     Lexer(std::string path);
-    std::shared_ptr<SymbolType::Symbol> getSymbol();
+    Symbol* getSymbol();
     void shift();
   
   private:
