@@ -3,3 +3,8 @@
 //
 
 #include "StockageUnit.h"
+
+std::string StockageUnit::print() const
+{
+    return theName;
+}

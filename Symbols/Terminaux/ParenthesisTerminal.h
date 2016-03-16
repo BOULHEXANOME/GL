@@ -10,7 +10,8 @@
 
 enum TypeOfParenthesis {opening, closing};
 
-class ParenthesisTerminal : public Symbol {
+class ParenthesisTerminal : public Symbol
+{
 private:
     TypeOfParenthesis typeOfParenthesis;
 
@@ -32,6 +33,8 @@ public:
     /***********************/
     /* End Getters/Setters */
     /***********************/
+
+    virtual int getType() const;
 };
 
 

@@ -3,3 +3,8 @@
 //
 
 #include "AffectInstructTerminal.h"
+
+int AffectInstructTerminal::getType() const
+{
+    return AFFECTINSTRUCT;
+}

@@ -3,3 +3,8 @@
 //
 
 #include "VarTerminal.h"
+
+int VarTerminal::getType() const
+{
+    return VAR;
+}

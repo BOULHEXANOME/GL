@@ -10,14 +10,15 @@
 
 class Automaton {
 private:
-    std::list<Line> programLines;
-public:
+    typedef std::list<Line> Programm;
+    Programm programLines;
 
+    Automaton() { }
+
+public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
     void operator=(Automaton const&) = delete;
-
-    Automaton() { }
 
     /***********************/
     /*** Getters/Setters ***/
@@ -50,6 +51,12 @@ public:
      * (just to test)
      */
     void createAndDeleteSomeLines();
+    void createSomeLines();
+
+    /*
+     * Method used to print the code in memory
+     */
+    void printCode();
 
     /*
      * Method singleton

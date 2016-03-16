@@ -3,3 +3,8 @@
 //
 
 #include "Read.h"
+
+std::string ReadTerminal::print() const
+{
+    return "lire " + variableToReadFromUser->print();
+}

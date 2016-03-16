@@ -8,18 +8,26 @@
 
 #include "BinaryExpression.h"
 
-class MultiplyExpression : public BinaryExpression{
+class MultiplyExpression : public BinaryExpression
+{
 
 public:
     /***********************/
     /***** Contructors *****/
     /***********************/
-    MultiplyExpression(const Expression & leftExpr, const Expression & rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
+    MultiplyExpression(Expression * leftExpr, Expression * rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
     /***********************/
     /*** End Contructors ***/
     /***********************/
 
 
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
+    /***********************/
 };
 
 #endif //GL_MULTIPLYEXPRESSION_H
