@@ -8,7 +8,8 @@
 
 #include "../Symbol.h"
 
-class Expression : public Symbol{
+class Expression : public Symbol
+{
 
 };
 

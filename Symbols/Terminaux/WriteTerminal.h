@@ -8,8 +8,12 @@
 
 #include "../Symbol.h"
 
-class Write : public Symbol {
+class Write : public Symbol
+{
 
+public:
+    Write() { }
+    virtual int getType() const ;
 };
 
 

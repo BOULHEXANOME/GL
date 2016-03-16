@@ -6,6 +6,7 @@
 #define GL_SYMBOLTYPES_H
 
 //Terminaux
+const int NON_TERMINAL = 0;
 const int PLUS = 1;
 const int MINUS = 2;
 const int MULTIPLY = 3;

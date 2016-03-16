@@ -3,3 +3,8 @@
 //
 
 #include "MinusExpression.h"
+
+std::string MinusExpression::print() const
+{
+    return leftExpr->print() + " - " + rigthExpr->print();
+}

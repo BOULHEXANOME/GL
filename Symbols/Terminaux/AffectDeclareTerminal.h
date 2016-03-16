@@ -8,8 +8,12 @@
 
 #include "../Symbol.h"
 
-class AffectDeclareTerminal : public Symbol{
+class AffectDeclareTerminal : public Symbol
+{
 
+public:
+    AffectDeclareTerminal() { }
+    virtual int getType() const;
 };
 
 

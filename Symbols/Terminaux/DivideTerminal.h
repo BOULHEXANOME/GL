@@ -8,8 +8,12 @@
 
 #include "../Symbol.h"
 
-class DivideTerminal : public Symbol{
+class DivideTerminal : public Symbol
+{
 
+public:
+    DivideTerminal() { }
+    virtual int getType() const;
 };
 
 

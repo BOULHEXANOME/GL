@@ -7,11 +7,19 @@
 
 #include "BinaryExpression.h"
 
-class DivideExpression : public BinaryExpression{
+class DivideExpression : public BinaryExpression
+{
 
 public:
-    DivideExpression(const Expression & leftExpr, const Expression & rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
+    DivideExpression(Expression * leftExpr, Expression*& rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
 
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
+    /***********************/
 };
 
 #endif //GL_DIVIDEEXPRESSION_H

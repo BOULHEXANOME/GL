@@ -3,3 +3,8 @@
 //
 
 #include "AffectDeclareTerminal.h"
+
+int AffectDeclareTerminal::getType() const
+{
+    return AFFECTDECLARE;
+}
