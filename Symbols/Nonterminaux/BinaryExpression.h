@@ -41,8 +41,21 @@ public:
     {
         BinaryExpression::leftExpr = leftExpr;
     }
+    /*************************/
+    /** End Getters/Setters **/
+    /*************************/
+    
     /***********************/
-    /* End Getters/Setters */
+    /******* Methods *******/
+    /***********************/
+
+    /*
+     * To optimize the code
+     */
+    virtual Symbol optimize();
+
+    /***********************/
+    /***** End Methods *****/
     /***********************/
 
 };

@@ -17,6 +17,7 @@ public:
     /******** Methods ******/
     /***********************/
     virtual std::string print() const;
+    virtual Symbol optimize();
     /***********************/
     /****** End Methods ****/
     /***********************/

@@ -10,7 +10,19 @@
 
 class Expression : public Symbol
 {
+public:
+    /***********************/
+    /******* Methods *******/
+    /***********************/
 
+    /*
+     * To optimize the code
+     */
+    virtual Symbol optimize();
+
+    /***********************/
+    /***** End Methods *****/
+    /***********************/
 };
 
 

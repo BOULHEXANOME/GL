@@ -15,9 +15,9 @@ std::ostream & operator<<(std::ostream &os, const Line &line)
 }
 
 
-void optimize() {
+void Line::optimize() {
 	for(Line::ListOfSymbols::const_iterator cSymbolIterator = line.symbols.begin() ; cSymbolIterator != line.symbols.end() ; ++cSymbolIterator)
 	{
-		
+		cSymbolIterator->optimize();
 	}
 }

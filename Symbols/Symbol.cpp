@@ -18,6 +18,7 @@ std::string Symbol::print() const
     return "unknown";
 }
 
-void optimize() {
-	
+Symbol Symbol::optimize() {
+	return this;
+	// retourner un truc par défaut (sera surchargé dans Plus/Minus/Mult/DivExpression)
 }

@@ -50,7 +50,7 @@ public:
     /************************/
     friend std::ostream & operator<<(std::ostream& os, const Symbol & s);
     /**************************/
-    /** End Override operators /
+    /**End Override operators**/
     /**************************/
     
     
@@ -61,7 +61,7 @@ public:
     /*
      * To optimize the code
      */
-    void optimize();
+    virtual Symbol optimize();
 
     /***********************/
     /***** End Methods *****/
