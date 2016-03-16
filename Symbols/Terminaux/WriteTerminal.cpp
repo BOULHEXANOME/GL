@@ -4,6 +4,6 @@
 
 #include "WriteTerminal.h"
 
-int Write::getType() {
+int WriteTerminal::getType() {
     return WRITE;
 }

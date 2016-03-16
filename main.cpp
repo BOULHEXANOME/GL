@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
 		
 		// Instanciation du Lexer -> A changer de place possiblement
 		Lexer lexer(file_path);
-		Symbol* symbol;
+		Symbol* symbol;		
 		
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
 			// Ajouter le symbole à la pile des symboles
 			//symbolsStack.push(symbol);
 
-		} while(symbol->getType() != SymbolType::END);
+		} while(symbol->getType() != DOLLAR);
 		
 	}
 
