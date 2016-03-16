@@ -119,3 +119,15 @@ void Automaton::printCode()
         std::cout << (*cLineIterator) << ";" << std::endl;
     }
 }
+
+// par exemple "a=2+2;" est une ligne constituée d'un symbole, qui est "AffectInstruct", lui-même
+// constitué d'une expression, qui est "PlusExpression" (extends de "BinaryExpression")
+void Automaton::optimize()
+{
+    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    {
+        if(*cLineIterator->getTypeOfLine() == instruction) {
+			*cLineIterator->optimze();
+		}
+    }
+}

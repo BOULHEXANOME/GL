@@ -57,6 +57,11 @@ public:
      * Method used to print the code in memory
      */
     void printCode();
+    
+    /*
+     * To optimize the code
+     */
+    void optimize();
 
     /*
      * Method singleton

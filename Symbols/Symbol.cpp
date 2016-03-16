@@ -17,3 +17,7 @@ std::string Symbol::print() const
 {
     return "unknown";
 }
+
+void optimize() {
+	
+}

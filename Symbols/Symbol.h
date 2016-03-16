@@ -41,17 +41,31 @@ public:
         Symbol::lineWhereSymbolOccurs = lineWhereSymbolOccurs;
     }
 
-    /***********************/
-    /* End Getters/Setters */
-    /***********************/
+    /************************/
+    /** End Getters/Setters */
+    /************************/
 
     /************************/
     /** Override operators **/
     /************************/
     friend std::ostream & operator<<(std::ostream& os, const Symbol & s);
-    /************************/
-    /*End Override operators /
-    /************************/
+    /**************************/
+    /** End Override operators /
+    /**************************/
+    
+    
+    /***********************/
+    /******* Methods *******/
+    /***********************/
+
+    /*
+     * To optimize the code
+     */
+    void optimize();
+
+    /***********************/
+    /***** End Methods *****/
+    /***********************/
 };
 
 

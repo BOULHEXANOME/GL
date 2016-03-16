@@ -13,3 +13,11 @@ std::ostream & operator<<(std::ostream &os, const Line &line)
     }
     return os;
 }
+
+
+void optimize() {
+	for(Line::ListOfSymbols::const_iterator cSymbolIterator = line.symbols.begin() ; cSymbolIterator != line.symbols.end() ; ++cSymbolIterator)
+	{
+		
+	}
+}
