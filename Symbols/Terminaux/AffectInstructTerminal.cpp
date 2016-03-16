@@ -4,6 +4,7 @@
 
 #include "AffectInstructTerminal.h"
 
-int AffectInstructTerminal::getType() {
+int AffectInstructTerminal::getType() const
+{
     return AFFECTINSTRUCT;
 }

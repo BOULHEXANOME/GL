@@ -4,6 +4,7 @@
 
 #include "SyntaxError.h"
 
-int SyntaxError::getType() {
+int SyntaxError::getType() const
+{
     return ERROR;
 }

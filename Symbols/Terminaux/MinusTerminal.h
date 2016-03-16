@@ -8,11 +8,12 @@
 
 #include "../Symbol.h"
 
-class MinusTerminal : public Symbol {
+class MinusTerminal : public Symbol
+{
 
 public:
     MinusTerminal() { }
-    virtual int getType();
+    virtual int getType() const;
 };
 
 

@@ -13,7 +13,8 @@ enum Type {declaration, instruction};
 
 class Line {
 protected:
-    std::list<Symbol> symbols;
+    typedef std::list<Symbol*> ListOfSymbols;
+    ListOfSymbols symbols;
     Type typeOfLine;
 
 public:
@@ -22,7 +23,7 @@ public:
     /***** Contructors *****/
     /***********************/
     Line(Type typeOfLine) : typeOfLine(typeOfLine) { }
-    Line(const std::list<Symbol> &symbols, Type typeOfLine) : symbols(symbols), typeOfLine(typeOfLine) { }
+    Line(const ListOfSymbols &symbols, Type typeOfLine) : symbols(symbols), typeOfLine(typeOfLine) { }
     Line() { }
     /***********************/
     /*** End Contructors ***/
@@ -31,17 +32,17 @@ public:
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const std::list<Symbol> & getSymbols() const
+    const ListOfSymbols & getSymbols() const
     {
         return symbols;
     }
 
-    void setSymbols(const std::list<Symbol> & symbols)
+    void setSymbols(const ListOfSymbols & symbols)
     {
         this->symbols = symbols;
     }
 
-    void addSymbol(Symbol & symbolsToAdd)
+    void addSymbol(Symbol * symbolsToAdd)
     {
         this->symbols.push_back(symbolsToAdd);
     }
@@ -58,6 +59,16 @@ public:
     /***********************/
     /* End Getters/Setters */
     /***********************/
+
+
+    /************************/
+    /** Override operators **/
+    /************************/
+    friend std::ostream & operator<<(std::ostream& os, const Line & line);
+    /************************/
+    /*End Override operators /
+    /************************/
+
 };
 
 

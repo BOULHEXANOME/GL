@@ -11,25 +11,33 @@
 
 class ReadTerminal : public Symbol{
 private:
-    Variable variableToReadFromUser;
+    Variable * variableToReadFromUser;
 public:
 
-    ReadTerminal(const Variable &variableToReadFromUser) : variableToReadFromUser(variableToReadFromUser) { }
+    ReadTerminal(Variable *variableToReadFromUser) : variableToReadFromUser(variableToReadFromUser) { }
 
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const Variable & getVariableToReadFromUser() const
+    Variable * getVariableToReadFromUser() const
     {
         return variableToReadFromUser;
     }
 
-    void setVariableToReadFromUser(const Variable & variableToReadFromUser)
+    void setVariableToReadFromUser(Variable * variableToReadFromUser)
     {
         ReadTerminal::variableToReadFromUser = variableToReadFromUser;
     }
     /***********************/
     /* End Getters/Setters */
+    /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
     /***********************/
 };
 

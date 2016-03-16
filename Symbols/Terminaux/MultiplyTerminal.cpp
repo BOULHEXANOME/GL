@@ -4,6 +4,7 @@
 
 #include "MultiplyTerminal.h"
 
-int MultiplyTerminal::getType() {
+int MultiplyTerminal::getType() const
+{
     return MULTIPLY;
 }

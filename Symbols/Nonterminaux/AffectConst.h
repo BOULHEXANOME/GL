@@ -10,39 +10,49 @@
 #include "Constant.h"
 #include "Number.h"
 
-class AffectConst : public Symbol {
+class AffectConst : public Symbol
+{
 private:
-    Constant constToDeclare;
-    Number numberToAffect;
+    Constant * constToDeclare;
+    Number * numberToAffect;
 public:
-    AffectConst(const Constant & constToDeclare,
-                const Number & numberToAffect) : constToDeclare(constToDeclare),
-                                                 numberToAffect(numberToAffect) { }
+    AffectConst(Constant * constToDeclare,
+                Number * numberToAffect) : constToDeclare(constToDeclare),
+                                           numberToAffect(numberToAffect) { }
 
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const Number & getNumberToAffect() const
+    Number * getNumberToAffect() const
     {
         return numberToAffect;
     }
 
-    void setNumberToAffect(const Number & numberToAffect)
+    void setNumberToAffect(Number * numberToAffect)
     {
         AffectConst::numberToAffect = numberToAffect;
     }
 
-    const Constant & getConstToDeclare() const {
+    Constant * getConstToDeclare() const {
         return constToDeclare;
     }
 
-    void setConstToDeclare(const Constant & constToDeclare)
+    void setConstToDeclare(Constant * constToDeclare)
     {
         AffectConst::constToDeclare = constToDeclare;
     }
     /***********************/
     /* End Getters/Setters */
     /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
+    /***********************/
+
 };
 
 
