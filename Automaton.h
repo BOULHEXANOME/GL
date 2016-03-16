@@ -2,12 +2,17 @@
 // Created by hdelval on 08/03/16.
 //
 
+class Automaton;
 #ifndef GL_AUTOMATON_H
 #define GL_AUTOMATON_H
 
 
 #include "Symbols/Line.h"
-#include "States/DefaultState.h"
+#include "Symbols/Symbol.h"
+//#include "States/DefaultState.h"
+
+
+class DefaultState;
 
 class Automaton {
 private:

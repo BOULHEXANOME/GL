@@ -1,92 +1,94 @@
-bool DefaultState::transition (Automaton * automaton, Symbol * s) {
+#include "DefaultState.h"
 
+bool DefaultState::transition (Automaton * automaton, Symbol * s) {
+	std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
 	switch(s->getType()) {
 		case PLUS :
-			transitionPlus(Automaton * automaton, Symbol * s);
+			transitionPlus(automaton, s);
 			return true;
 		case MINUS :
-			transitionMinus(Automaton * automaton, Symbol * s);
+			transitionMinus(automaton, s);
 			return true;
 		case MULTIPLY :
-			transitionMultiply(Automaton * automaton, Symbol * s);
+			transitionMultiply(automaton, s);
 			return true;
 		case DIVIDE :
-			transitionDivide(Automaton * automaton, Symbol * s);
+			transitionDivide(automaton, s);
 			return true;
 		case WRITE :
-			transitionWrite(Automaton * automaton, Symbol * s);
+			transitionWrite(automaton, s);
 			return true;
 		case READ :
-			transitionRead(Automaton * automaton, Symbol * s);
+			transitionRead(automaton, s);
 			return true;
 		case AFFECTDECLARE :
-			transitionAffectDeclare(Automaton * automaton, Symbol * s);
+			transitionAffectDeclare(automaton, s);
 			return true;
 		case AFFECTINSTRUCT :
-			transitionAffectInstruct(Automaton * automaton, Symbol * s);
+			transitionAffectInstruct(automaton, s);
 			return true;
 		case OPENPARENTHESIS :
-			transitionOpenParenthesis(Automaton * automaton, Symbol * s);
+			transitionOpenParenthesis(automaton, s);
 			return true;
 		case CLOSEPARENTHESIS :
-			transitionCloseParenthesis(Automaton * automaton, Symbol * s);
+			transitionCloseParenthesis(automaton, s);
 			return true;
 		case VAR :
-			transitionVar(Automaton * automaton, Symbol * s);
+			transitionVar(automaton, s);
 			return true;
 		case VAL :
-			transitionVal(Automaton * automaton, Symbol * s);
+			transitionVal(automaton, s);
 			return true;
 		case DOLLAR :
-			transitionDollar(Automaton * automaton, Symbol * s);
+			transitionDollar(automaton, s);
 			return true;
 		case COMMA :
-			transitionComma(Automaton * automaton, Symbol * s);
+			transitionComma(automaton, s);
 			return true;
 		case SEMICOLON :
-			transitionSemicolon(Automaton * automaton, Symbol * s);
+			transitionSemicolon(automaton, s);
 			return true;
 		case ID :
-			transitionId(Automaton * automaton, Symbol * s);
+			transitionId(automaton, s);
 			return true;
 		case P :
-			transitionP(Automaton * automaton, Symbol * s);
+			transitionP(automaton, s);
 			return true;
 		case D :
-			transitionD(Automaton * automaton, Symbol * s);
+			transitionD(automaton, s);
 			return true;
 		case D_PRIME :
-			transitionD_Prime(Automaton * automaton, Symbol * s);
+			transitionD_Prime(automaton, s);
 			return true;
 		case ID_LISTE :
-			transitionId_Liste(Automaton * automaton, Symbol * s);
+			transitionId_Liste(automaton, s);
 			return true;
 		case AFF :
-			transitionAff(Automaton * automaton, Symbol * s);
+			transitionAff(automaton, s);
 			return true;
 		case I :
-			transitionI(Automaton * automaton, Symbol * s);
+			transitionI(automaton, s);
 			return true;
 		case I_PRIME :
-			transitionI_Prime(Automaton * automaton, Symbol * s);
+			transitionI_Prime(automaton, s);
 			return true;
 		case E :
-			transitionE(Automaton * automaton, Symbol * s);
+			transitionE(automaton, s);
 			return true;
 		case T :
-			transitionT(Automaton * automaton, Symbol * s);
+			transitionT(automaton, s);
 			return true;
 		case F :
-			transitionF(Automaton * automaton, Symbol * s);
+			transitionF(automaton, s);
 			return true;
 		case OPA :
-			transitionOpA(Automaton * automaton, Symbol * s);
+			transitionOpA(automaton, s);
 			return true;
 		case OPM :
-			transitionOpM(Automaton * automaton, Symbol * s);
+			transitionOpM(automaton, s);
 			return true;
 		case ERROR :
-			transitionError(Automaton * automaton, Symbol * s);
+			transitionError(automaton, s);
 			return true;
 			
 		default :
@@ -154,7 +156,7 @@ bool DefaultState::transitionComma(Automaton * automaton, Symbol * s){
 	return false;
 }
 
-bool DefaultState::transitionSemilicon(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionSemicolon(Automaton * automaton, Symbol * s){
 	return false;
 }
 

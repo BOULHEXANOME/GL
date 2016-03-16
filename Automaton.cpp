@@ -24,50 +24,49 @@
 #include "Symbols/Terminaux/Dollar.h"
 
 #include "States/E0.h"
-/*
-#include "E1.h"
-#include "E2.h"
-#include "E3.h"
-#include "E4.h"
-#include "E5.h"
-#include "E6.h"
-#include "E7.h"
-#include "E8.h"
-#include "E9.h"
-#include "E10.h"
-#include "E11.h"
-#include "E12.h"
-#include "E13.h"
-#include "E14.h"
-#include "E15.h"
-#include "E16.h"
-#include "E17.h"
-#include "E18.h"
-#include "E19.h"
-#include "E20.h"
-#include "E21.h"
-#include "E22.h"
-#include "E23.h"
-#include "E24.h"
-#include "E25.h"
-#include "E26.h"
-#include "E27.h"
-#include "E28.h"
-#include "E29.h"
-#include "E30.h"
-#include "E31.h"
-#include "E32.h"
-#include "E33.h"
-#include "E34.h"
-#include "E35.h"
-#include "E36.h"
-#include "E37.h"
-#include "E38.h"
-#include "E39.h"
-#include "E40.h"
-#include "E41.h"
-#include "E42.h"
-#include "E43.h"*/
+#include "States/E1.h"
+#include "States/E2.h"
+/*#include "States/E3.h"
+#include "States/E4.h"
+#include "States/E5.h"
+#include "States/E6.h"
+#include "States/E7.h"
+#include "States/E8.h"
+#include "States/E9.h"
+#include "States/E10.h"
+#include "States/E11.h"
+#include "States/E12.h"
+#include "States/E13.h"
+#include "States/E14.h"*/
+#include "States/E15.h"/*
+#include "States/E16.h"
+#include "States/E17.h"
+#include "States/E18.h"
+#include "States/E19.h"
+#include "States/E20.h"
+#include "States/E21.h"
+#include "States/E22.h"
+#include "States/E23.h"
+#include "States/E24.h"
+#include "States/E25.h"
+#include "States/E26.h"
+#include "States/E27.h"
+#include "States/E28.h"
+#include "States/E29.h"
+#include "States/E30.h"
+#include "States/E31.h"
+#include "States/E32.h"
+#include "States/E33.h"
+#include "States/E34.h"
+#include "States/E35.h"
+#include "States/E36.h"
+#include "States/E37.h"
+#include "States/E38.h"
+#include "States/E39.h"
+#include "States/E40.h"
+#include "States/E41.h"
+#include "States/E42.h"
+#include "States/E43.h"*/
 
 void Automaton::createAndDeleteSomeLines()
 {
@@ -165,10 +164,13 @@ void Automaton::createSomeLines()
 void Automaton::testStates()
 {
 	VarTerminal* varTerminal = new VarTerminal();
+	varTerminal->setType(VAR);
     IdTerminal* idTerminal = new IdTerminal("i");
+	idTerminal->setType(ID);
     Semicolon* semicolon = new Semicolon();
+	semicolon->setType(SEMICOLON);
     Dollar* dollar = new Dollar();
-    
+    dollar->setType(DOLLAR);
     
     this->programme.push_front(dollar);
     this->programme.push_front(semicolon);
@@ -176,13 +178,13 @@ void Automaton::testStates()
     this->programme.push_front(varTerminal);
     
     Symbol * sym = this->programme.front();
-    std::cout << "punkt 1" << std::endl;
+	
 	this->programme.pop_front();
-    std::cout << "punkt 2" << std::endl;
+	
 	DefaultState * e0 = new E0();
-    std::cout << "punkt 3" << std::endl;
-    this->pushState(sym, e0);
-    std::cout << "punkt 4" << std::endl;
+	this->states.push_front(e0);
+	this->CurrentState=e0;
+	e0->transition(this, sym);
 }
 
 void Automaton::printCode()
@@ -195,6 +197,8 @@ void Automaton::printCode()
 
 void Automaton::pushState(Symbol* s, DefaultState * e)
 {
+	
+    std::cout << "push State : " << e->state<< std::endl;
 	this->symbols.push_front(s);
 	this->states.push_front(e);
 	
@@ -205,7 +209,8 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
 	Symbol * sym = this->programme.front();
 	this->programme.pop_front();
 	
-	//this->CurrentState.transition(&Automaton::instance(), sym);
+	//TODO ici, un current state utilise a modifier peut etre
+	this->CurrentState->transition(this, sym);
 }
 
 void Automaton::popState()

@@ -2,7 +2,6 @@
 #define STATE_H
 
 #include "../Automaton.h"
-class Automaton;
 
 class State {
     public:
@@ -29,7 +28,7 @@ class State {
         virtual bool transitionDollar(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionConst(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionComma(Automaton * automaton, Symbol * s) = 0;
-        virtual bool transitionSemilicon(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionSemicolon(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionId(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionError(Automaton * automaton, Symbol * s) = 0;
         //Symboles non terminaux
@@ -49,7 +48,6 @@ class State {
         
         
 
-    protected:
         int state;
 };
 

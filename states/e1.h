@@ -6,12 +6,12 @@
 class E1 : public DefaultState
 {
     public:
-        E1():E1(){this->state = 1;};
-        ~E1();
-        bool transitionRead(Automaton * automaton, Symbol * s);
+        E1();
+        ~E1(){};
+        /*bool transitionRead(Automaton * automaton, Symbol * s);
 		bool transitionWrite(Automaton * automaton, Symbol * s);
 		bool transitionId(Automaton * automaton, Symbol * s);
-		bool transitionConst(Automaton * automaton, Symbol * s);
+		bool transitionConst(Automaton * automaton, Symbol * s);*/
 		bool transitionVar(Automaton * automaton, Symbol * s);
 };
 
