@@ -8,7 +8,7 @@ class E15 : public DefaultState
     public:
         E15();
         ~E15(){};
-		bool transitionSemilocon(Automaton * automaton, Symbol * s);
+		bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 
 #endif

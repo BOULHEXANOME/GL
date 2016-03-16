@@ -4,11 +4,9 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 	std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
 	switch(s->getType()) {
 		case PLUS :
-			transitionPlus(automaton, s);
-			return true;
+			return transitionPlus(automaton, s);
 		case MINUS :
-			transitionMinus(automaton, s);
-			return true;
+			return transitionMinus(automaton, s);
 		case MULTIPLY :
 			transitionMultiply(automaton, s);
 			return true;

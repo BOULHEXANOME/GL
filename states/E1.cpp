@@ -1,7 +1,7 @@
 #include "E1.h"
 #include "E2.h"
 
-//TODO decommenter (sans oublier le .h et E2)
+//TODO decommenter (sans oublier le .h et E2 et E3)
 /*#include "E3.h"
 #include "E4.h"
 #include "E5.h"
@@ -10,8 +10,8 @@
 #include "E11.h"
 #include "E9.h"*/
 
-
-/*bool E1::transitionI(Automaton * automaton, Symbol * s) {
+/*
+bool E1::transitionI(Automaton * automaton, Symbol * s) {
 	automaton->pushState(s, new E3());
 	return true;
 }

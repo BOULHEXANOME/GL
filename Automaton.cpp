@@ -23,50 +23,50 @@
 #include "Symbols/Terminaux/Semicolon.h"
 #include "Symbols/Terminaux/Dollar.h"
 
-#include "States/E0.h"
-#include "States/E1.h"
-#include "States/E2.h"
-/*#include "States/E3.h"
-#include "States/E4.h"
-#include "States/E5.h"
-#include "States/E6.h"
-#include "States/E7.h"
-#include "States/E8.h"
-#include "States/E9.h"
-#include "States/E10.h"
-#include "States/E11.h"
-#include "States/E12.h"
-#include "States/E13.h"
-#include "States/E14.h"*/
-#include "States/E15.h"/*
-#include "States/E16.h"
-#include "States/E17.h"
-#include "States/E18.h"
-#include "States/E19.h"
-#include "States/E20.h"
-#include "States/E21.h"
-#include "States/E22.h"
-#include "States/E23.h"
-#include "States/E24.h"
-#include "States/E25.h"
-#include "States/E26.h"
-#include "States/E27.h"
-#include "States/E28.h"
-#include "States/E29.h"
-#include "States/E30.h"
-#include "States/E31.h"
-#include "States/E32.h"
-#include "States/E33.h"
-#include "States/E34.h"
-#include "States/E35.h"
-#include "States/E36.h"
-#include "States/E37.h"
-#include "States/E38.h"
-#include "States/E39.h"
-#include "States/E40.h"
-#include "States/E41.h"
-#include "States/E42.h"
-#include "States/E43.h"*/
+#include "states/E0.h"
+#include "states/E1.h"
+#include "states/E2.h"
+#include "states/E3.h"
+/*#include "states/E4.h"
+#include "states/E5.h"
+#include "states/E6.h"
+#include "states/E7.h"
+#include "states/E8.h"
+#include "states/E9.h"*/
+#include "states/E10.h"/*
+#include "states/E11.h"
+#include "states/E12.h"
+#include "states/E13.h"
+#include "states/E14.h"*/
+#include "states/E15.h"/*
+#include "states/E16.h"
+#include "states/E17.h"
+#include "states/E18.h"
+#include "states/E19.h"
+#include "states/E20.h"
+#include "states/E21.h"
+#include "states/E22.h"
+#include "states/E23.h"
+#include "states/E24.h"
+#include "states/E25.h"
+#include "states/E26.h"
+#include "states/E27.h"
+#include "states/E28.h"
+#include "states/E29.h"
+#include "states/E30.h"
+#include "states/E31.h"
+#include "states/E32.h"
+#include "states/E33.h"
+#include "states/E34.h"
+#include "states/E35.h"
+#include "states/E36.h"
+#include "states/E37.h"
+#include "states/E38.h"
+#include "states/E39.h"
+#include "states/E40.h"
+#include "states/E41.h"
+#include "states/E42.h"
+#include "states/E43.h"*/
 
 void Automaton::createAndDeleteSomeLines()
 {
@@ -216,6 +216,7 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
 void Automaton::popState()
 {
 	this->states.pop_front();
+	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
 	//TODO ici, un current state utilise a modifier peut etre
 	this->CurrentState = states.front();
 }

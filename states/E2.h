@@ -8,7 +8,7 @@ class E2 : public DefaultState
     public:
         E2();
         ~E2(){};
-		/*bool transitionId_Liste(Automaton * automaton, Symbol * s);*/
+		bool transitionId_Liste(Automaton * automaton, Symbol * s);
 		bool transitionId(Automaton * automaton, Symbol * s);
 };
 
