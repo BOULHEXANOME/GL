@@ -49,8 +49,8 @@ static std::pair<int, boost::regex> regexesList[] = {
     std::make_pair(MINUS, boost::regex("\\A(-)")),                                         // MinusTerminal
     std::make_pair(MULTIPLY, boost::regex("\\A(\\*)")),                                    // MultiplyTerminal
     std::make_pair(DIVIDE, boost::regex("\\A(/)")),                                        // DivideTerminal
-    std::make_pair(OPENPARENTHESIS,  boost::regex("\\A(\\()")),                            // OpenP
-    std::make_pair(CLOSEPARENTHESIS,  boost::regex("\\A(\\))")),                           // 
+    std::make_pair(OPENPARENTHESIS,  boost::regex("\\A(\\()")),                            // ParenthesisTerminal(opening)
+    std::make_pair(CLOSEPARENTHESIS,  boost::regex("\\A(\\))")),                           // ParenthesisTerminal(closing)
     std::make_pair(VAR, boost::regex("\\A(var)\\s+")),                                     // VarTerminal
     std::make_pair(CONST, boost::regex("\\A(const)\\s+")),                                 // ConstTerminal
     std::make_pair(WRITE,   boost::regex("\\A(ecrire)\\s+")),                              // WriteTerminal
@@ -72,7 +72,8 @@ Lexer::Lexer(std::string path) {
   fileContentStr = stream.str();
 
   file.close();
-    std::cout << fileContentStr << std::endl << std::endl;
+  
+  //std::cout << "Contenu du fichier lu : " << std::endl << fileContentStr << std::endl << std::endl;
 
   currentLine = 1;
   currentPosition = 1;
