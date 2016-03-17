@@ -9,7 +9,8 @@
 #include "StockageUnit.h"
 #include "../../exceptions.h"
 
-class Constant : public StockageUnit{
+class Constant : public StockageUnit
+{
 public:
     Constant(std::string theName) : StockageUnit(theName) { }
     /***********************/

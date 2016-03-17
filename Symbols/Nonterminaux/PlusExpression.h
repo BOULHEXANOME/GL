@@ -8,9 +8,18 @@
 
 #include "BinaryExpression.h"
 
-class PlusExpression : public BinaryExpression{
+class PlusExpression : public BinaryExpression
+{
 public:
-    PlusExpression(const Expression & leftExpr, const Expression & rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
+    PlusExpression(Expression * leftExpr, Expression * rigthExpr) : BinaryExpression(leftExpr,rigthExpr){  }
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
+    /***********************/
 };
 
 

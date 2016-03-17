@@ -8,16 +8,17 @@
 
 #include "Expression.h"
 
-class Parenthesis : public Expression{
+class Parenthesis : public Expression
+{
 private:
-    Expression exprParenthesised;
+    Expression * exprParenthesised;
 
 public:
 
     /***********************/
     /***** Contructors *****/
     /***********************/
-    Parenthesis(const Expression &exprParenthesised) : exprParenthesised(exprParenthesised) { }
+    Parenthesis(Expression *exprParenthesised) : exprParenthesised(exprParenthesised) { }
     /***********************/
     /*** End Contructors ***/
     /***********************/
@@ -25,17 +26,25 @@ public:
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const Expression & getExprParenthesised() const
+    Expression * getExprParenthesised() const
     {
         return exprParenthesised;
     }
 
-    void setExprParenthesised(const Expression & exprParenthesised)
+    void setExprParenthesised(Expression * exprParenthesised)
     {
         Parenthesis::exprParenthesised = exprParenthesised;
     }
     /***********************/
     /* End Getters/Setters */
+    /***********************/
+
+    /***********************/
+    /******** Methods ******/
+    /***********************/
+    virtual std::string print() const;
+    /***********************/
+    /****** End Methods ****/
     /***********************/
 };
 

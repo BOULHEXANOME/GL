@@ -8,11 +8,12 @@
 
 #include "../Symbol.h"
 
-class Semicolon : public Symbol{
+class Semicolon : public Symbol
+{
 
 public:
     Semicolon() { }
-    virtual int getType();
+    virtual int getType() const;
 };
 
 

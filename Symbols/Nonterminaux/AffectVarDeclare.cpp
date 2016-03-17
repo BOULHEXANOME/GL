@@ -3,3 +3,8 @@
 //
 
 #include "AffectVarDeclare.h"
+
+std::string AffectVarDeclare::print() const
+{
+    return "var " + this->variableToDeclare->print() + " = " + this->numberToAffect->print();
+}

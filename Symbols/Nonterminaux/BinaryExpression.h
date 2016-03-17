@@ -8,35 +8,36 @@
 
 #include "Expression.h"
 
-class BinaryExpression : public Expression{
+class BinaryExpression : public Expression
+{
 protected:
-    Expression leftExpr;
-    Expression rigthExpr;
+    Expression* leftExpr;
+    Expression* rigthExpr;
 
-    BinaryExpression(const Expression &leftExpr, const Expression &rigthExpr) : rigthExpr(rigthExpr),
-                                                                                leftExpr(leftExpr) { }
+    BinaryExpression(Expression *leftExpr, Expression *rigthExpr) : rigthExpr(rigthExpr),
+                                                                    leftExpr(leftExpr) { }
 
 public:
 
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const Expression & getRigthExpr() const
+    Expression * getRigthExpr() const
     {
         return rigthExpr;
     }
 
-    void setRigthExpr(const Expression & rigthExpr)
+    void setRigthExpr(Expression * rigthExpr)
     {
         BinaryExpression::rigthExpr = rigthExpr;
     }
 
-    const Expression & getLeftExpr() const
+    Expression * getLeftExpr() const
     {
         return leftExpr;
     }
 
-    void setLeftExpr(const Expression & leftExpr)
+    void setLeftExpr(Expression * leftExpr)
     {
         BinaryExpression::leftExpr = leftExpr;
     }

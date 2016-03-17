@@ -3,3 +3,8 @@
 //
 
 #include "AffectConst.h"
+
+std::string AffectConst::print() const
+{
+    return "const " + this->constToDeclare->print() + " = " + this->numberToAffect->print();
+}

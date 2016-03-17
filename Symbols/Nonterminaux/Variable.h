@@ -9,7 +9,8 @@
 #include "StockageUnit.h"
 #include <string>
 
-class Variable : public StockageUnit{
+class Variable : public StockageUnit
+{
 public:
     Variable(std::string theName) : StockageUnit(theName) { }
     /***********************/

@@ -4,6 +4,7 @@
 
 #include "IdTerminal.h"
 
-int IdTerminal::getType() {
+int IdTerminal::getType() const
+{
     return ID;
 }

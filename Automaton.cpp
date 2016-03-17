@@ -2,6 +2,7 @@
 // Created by hdelval on 08/03/16.
 //
 
+#include <iostream>
 #include "Automaton.h"
 #include "Symbols/Nonterminaux/Variable.h"
 #include "Symbols/Nonterminaux/Number.h"
@@ -17,6 +18,7 @@
 #include "Symbols/Terminaux/ParenthesisTerminal.h"
 #include "Symbols/Terminaux/PlusTerminal.h"
 #include "Symbols/Terminaux/MinusTerminal.h"
+#include "Symbols/Nonterminaux/Parenthesis.h"
 
 
 void Automaton::createAndDeleteSomeLines()
@@ -24,35 +26,35 @@ void Automaton::createAndDeleteSomeLines()
     // create Line corresponding to :
     // var myVar=10;
     // before automaton (after lexer) :
-    Line declaractionBefore = Line();
-    VarTerminal varTerminal = VarTerminal();
-    AffectDeclareTerminal equalSign = AffectDeclareTerminal();
-    Number toAffect = Number(10);
+    Line declaractionBefore;
+    VarTerminal* varTerminal = new VarTerminal();
+    AffectDeclareTerminal* equalSign = new AffectDeclareTerminal();
+    Number* toAffect = new Number(10);
     declaractionBefore.addSymbol(varTerminal);
     declaractionBefore.addSymbol(equalSign);
     declaractionBefore.addSymbol(toAffect);
     // after automaton (ready to execute) :
     Line declaractionAfter = Line(Type::declaration);
-    Variable declarationVar = Variable("myVar");
+    Variable *declarationVar = new Variable("myVar");
     // Number toAffect = Number(10); // already set
-    AffectVarDeclare declarationAction = AffectVarDeclare(declarationVar, toAffect);
+    AffectVarDeclare * declarationAction = new AffectVarDeclare(declarationVar, toAffect);
     declaractionAfter.addSymbol(declarationAction);
 
     // create Line corresponding to :
     // myVar := 5 * (1 + 3) - myVar;
     // before automaton (after lexer) :
     Line operationsBefore = Line();
-    VarTerminal varTerminal1 = VarTerminal();
-    AffectInstructTerminal theAffectationSign = AffectInstructTerminal();
-    Number numberFive = Number(5);
-    MultiplyTerminal multSign = MultiplyTerminal();
-    ParenthesisTerminal openingParenthesis = ParenthesisTerminal(TypeOfParenthesis::opening);
-    Number numberOne = Number(1);
-    PlusTerminal plusSymbol = PlusTerminal();
-    Number numberThree = Number(3);
-    ParenthesisTerminal closingParenthesis = ParenthesisTerminal(TypeOfParenthesis::closing);
-    MinusTerminal minusSign = MinusTerminal();
-    VarTerminal varTerminal2 = VarTerminal(); // pour l'instant on ne sait pas que c'est la meme que au dessus
+    VarTerminal *varTerminal1 = new VarTerminal();
+    AffectInstructTerminal *theAffectationSign = new AffectInstructTerminal();
+    Number *numberFive = new Number(5);
+    MultiplyTerminal *multSign = new MultiplyTerminal();
+    ParenthesisTerminal *openingParenthesis = new ParenthesisTerminal(TypeOfParenthesis::opening);
+    Number *numberOne = new Number(1);
+    PlusTerminal *plusSymbol = new PlusTerminal();
+    Number *numberThree = new Number(3);
+    ParenthesisTerminal *closingParenthesis = new ParenthesisTerminal(TypeOfParenthesis::closing);
+    MinusTerminal *minusSign = new MinusTerminal();
+    VarTerminal *varTerminal2 = new VarTerminal(); // pour l'instant on ne sait pas que c'est la meme que au dessus
     operationsBefore.addSymbol(varTerminal1);
     operationsBefore.addSymbol(theAffectationSign);
     operationsBefore.addSymbol(numberFive);
@@ -66,14 +68,54 @@ void Automaton::createAndDeleteSomeLines()
     operationsBefore.addSymbol(varTerminal2);
     // after automaton (ready to execute) :
     Line operationsAfter = Line(Type::instruction);
-    Number opRigthPlus = Number(3);
-    Number opLeftPlus = Number(1);
-    Number opLeftMult = Number(5);
-    Variable varToSubstract = Variable("myVar");
-    PlusExpression instructAdd = PlusExpression(opLeftPlus, opRigthPlus);
-    MultiplyExpression instructMult = MultiplyExpression(opLeftMult, instructAdd);
-    MinusExpression finalExpression = MinusExpression(instructMult, varToSubstract);
-    AffectInstruct instructAffectResult = AffectInstruct(varToSubstract, finalExpression);
+    Number *opRigthPlus = new Number(3);
+    Number *opLeftPlus = new Number(1);
+    Number *opLeftMult = new Number(5);
+    Variable *varToSubstract = new Variable("myVar");
+    PlusExpression *instructAdd = new PlusExpression(opLeftPlus, opRigthPlus);
+    MultiplyExpression *instructMult = new MultiplyExpression(opLeftMult, instructAdd);
+    MinusExpression *finalExpression = new MinusExpression(instructMult, varToSubstract);
+    AffectInstruct *instructAffectResult = new AffectInstruct(varToSubstract, finalExpression);
     operationsAfter.addSymbol(instructAffectResult);
 
+
+    for(std::list<Symbol*>::const_iterator i = operationsBefore.getSymbols().begin() ; i != operationsBefore.getSymbols().end() ; ++i)
+    {
+        std::cout << (*i)->getType() << std::endl;
+    }
+}
+
+
+void Automaton::createSomeLines()
+{
+    // var myVar=10;
+    Line declaractionAfter = Line(Type::declaration);
+    Variable *declarationVar = new Variable("myVar");
+    Number *toAffect = new Number(10); // already set
+    AffectVarDeclare * declarationAction = new AffectVarDeclare(declarationVar, toAffect);
+    declaractionAfter.addSymbol(declarationAction);
+
+    // myVar := 5 * (1 + 3) - myVar;
+    Line operationsAfter = Line(Type::instruction);
+    Number *opRigthPlus = new Number(3);
+    Number *opLeftPlus = new Number(1);
+    Number *opLeftMult = new Number(5);
+    Variable *varToSubstract = new Variable("myVar");
+    PlusExpression *instructAdd = new PlusExpression(opLeftPlus, opRigthPlus);
+    Parenthesis *parenthesisedExpr = new Parenthesis(instructAdd);
+    MultiplyExpression *instructMult = new MultiplyExpression(opLeftMult, parenthesisedExpr);
+    MinusExpression *finalExpression = new MinusExpression(instructMult, varToSubstract);
+    AffectInstruct *instructAffectResult = new AffectInstruct(varToSubstract, finalExpression);
+    operationsAfter.addSymbol(instructAffectResult);
+
+    this->programLines.push_back(declaractionAfter);
+    this->programLines.push_back(operationsAfter);
+}
+
+void Automaton::printCode()
+{
+    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    {
+        std::cout << (*cLineIterator) << ";" << std::endl;
+    }
 }
