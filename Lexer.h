@@ -2,6 +2,7 @@
 #define LEXER_H
 
 #include <string>
+#include <vector>
 #include <memory>
 #include "symbolTypes.h"
 #include "Symbols/Symbol.h"
@@ -23,10 +24,11 @@ class Lexer {
   public:
     Lexer(std::string path);
     Symbol* getSymbol();
-    void shift();
+    std::vector<std::string> getStringVector();
+    
+    //void shift();
   
   private:
-
     int currentLine;
     int currentPosition;
     std::string fileContentStr;

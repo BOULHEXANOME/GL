@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Lexer.h"
 
+#include <boost/algorithm/string.hpp>
+
 #include "Symbols/Terminaux/AffectDeclareTerminal.h"
 #include "Symbols/Terminaux/AffectInstructTerminal.h"
 #include "Symbols/Terminaux/Coma.h"
@@ -39,7 +41,8 @@
 #include "Symbols/Nonterminaux/Number.h"
 
 // TODO:
-// gérer les espaces, tab et retour ligne avant et apres les symboles : esp tab retour_ligne VAR esp tab retour_ligne
+// - Vérifier le cas esp tab retour_ligne VAR esp tab retour_ligne
+// - Ecrire fonction qui retourn
 static std::pair<int, boost::regex> regexesList[] = {
     std::make_pair(AFFECTINSTRUCT, boost::regex("\\A(:=)")),                               // AffectInstructTerminal
     std::make_pair(SEMICOLON,  boost::regex("\\A(;)")),                                    // Semicolon
@@ -94,14 +97,15 @@ Symbol* Lexer::getSymbol() {
     
     // Chercher un mot identifiable par reg.second dans fileContentStr et le met dans stringResult
     if(boost::regex_search(fileContentStr, stringResult, reg.second)) {
-		
 		// Si une regex a reconnu un motif
-      
-      // On crée le symbole associé à la regex avec un switch sur le type de symbole
-      // TODO : Gros switch case
-
-        std::cout << "RegIndex : "<< reg.first << std::endl << std::endl;
-
+		
+		   int symbolLength = stringResult[1].length();
+		   currentPosition += symbolLength;
+		   std::cout << "Pos dans la ligne : " << currentPosition << std::endl;
+		   
+		   std::cout << "RegIndex : "<< reg.first << std::endl << std::endl;
+        
+        // On crée le symbole associé à la regex avec un switch sur le type de symbole
         switch(reg.first) {
 			
 			case PLUS:
@@ -163,13 +167,11 @@ Symbol* Lexer::getSymbol() {
                 break;
         }
       
-
-      int symbolLength = stringResult[1].length();
+      // Ligne et colonne d'occurence du Symbole dans le fichier source
+      currentSymbol->setColumnWhereSymbolOccurs(currentPosition);
+      currentSymbol->setLineWhereSymbolOccurs(currentLine);
       
-      currentPosition += symbolLength;
-      
-      std::cout << "Pos dans la ligne : " << currentPosition << std::endl;
-      
+      // On supprimer le symbole du StringStream pour passer au suivant
       fileContentStr.erase(0, symbolLength);
 
 	// On retourne le symbole
@@ -207,5 +209,23 @@ void Lexer::trim() {
 
     }
   }
-  
 }
+  
+std::vector<std::string> Lexer::getStringVector() {
+	
+	std::vector<std::string> stringVector; // Empty vector of Strings
+	
+	// Remplit stringVector avec des string en splittant sur chaque \n trouvé (avec Boost)
+	boost::split(stringVector, fileContentStr, boost::is_any_of("\n"), boost::token_compress_on);
+	
+	// Display content for test
+	/*
+	for(int i = 0; i < stringVector.size(); i++)
+    {
+        std::cout << "Ligne " << i << " : " << stringVector[i] << std::endl;
+    }
+	*/
+	
+	return stringVector;
+}
+  

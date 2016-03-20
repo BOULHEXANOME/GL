@@ -47,11 +47,11 @@ int main(int argc, char **argv) {
 
     if (argc < MIN_ARGS)
     {
-        default_behaviour();
-        /*
+        //default_behaviour();
+        
 		print_usage();
 		exit(ERROR_NOT_ENOUGH_ARGS);
-		 */
+		
 	}
     
 	if (argc > MAX_ARGS)
@@ -60,6 +60,7 @@ int main(int argc, char **argv) {
 		exit(ERROR_TOO_MANY_ARGS);
 	}
 	
+	// Filepath est le dernier argument
 	file_path = argv[argc-1];
     
     int opt,a,b,c;
@@ -104,8 +105,11 @@ int main(int argc, char **argv) {
 		exit(ERROR_BAD_INPUT);
 	} else {
 		
-		// Instanciation du Lexer -> A changer de place possiblement
+		// Instancition du Lexer -> A changer de place possiblement
 		Lexer lexer(file_path);
+		
+		//lexer.getStringVector();
+		
 		Symbol* symbol;		
 		
 		// Parcourt le fichier et ajoute les symboles à la pile
@@ -142,9 +146,10 @@ int main(int argc, char **argv) {
     return 0;
 }
 
+/*
 void default_behaviour()
 {
     Automaton::instance().createSomeLines();
     Automaton::instance().printCode();
 }
-
+*/
