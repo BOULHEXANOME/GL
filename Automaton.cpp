@@ -200,7 +200,7 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
     std::cout << "push State : " << e->state<< std::endl;
 	this->symbolsAutomaton.push_front(s);
 	this->states.push_front(e);
-    this->currentState++;
+    this->currentState = states.begin();
 	
 	//TODO il faudra savoir si on push front/push back dans le programme renvoyé par le lexer
 	Symbol * sym = this->programFromLexer.front();
