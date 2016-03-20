@@ -8,3 +8,13 @@ std::string AffectConst::print() const
 {
     return "const " + this->constToDeclare->print() + " = " + this->numberToAffect->print();
 }
+
+int AffectConst::execute() const
+{
+    if(! Automaton::instance().declareAndAffectConst(this->constToDeclare->getTheName(), this->numberToAffect->getTheValue()))
+    {
+        // TODO
+        std::cerr << "error declare const ! print line number&column" << std::endl;
+    }
+    return 0;
+}

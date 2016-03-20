@@ -11,3 +11,8 @@ std::string Number::print() const
     convertToString << theValue;
     return convertToString.str();
 }
+
+int Number::execute() const
+{
+    return theValue;
+}

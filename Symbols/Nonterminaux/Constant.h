@@ -12,14 +12,15 @@
 class Constant : public StockageUnit
 {
 public:
-    Constant(std::string theName) : StockageUnit(theName) { }
+    Constant(std::string theName/*, int theValue*/) : StockageUnit(theName/*, theValue*/) { }
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    void setTheName(std::string theName)
+    /*virtual void setTheValue(int theValue)
     {
         throw TRYING_TO_MODIFY_CONST;
-    }
+    }*/
+    virtual int execute() const;
     /***********************/
     /* End Getters/Setters */
     /***********************/

@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "Line.h"
+#include "../Automaton.h"
 
 std::ostream & operator<<(std::ostream &os, const Line &line)
 {
@@ -12,4 +13,14 @@ std::ostream & operator<<(std::ostream &os, const Line &line)
         os << (*cSymbolIterator)->print();
     }
     return os;
+}
+
+void Line::execute() const
+{
+    for(Line::ListOfSymbols::const_iterator cSymbolIterator = symbols.begin() ; cSymbolIterator != symbols.end() ; ++cSymbolIterator)
+    {
+
+        (*cSymbolIterator)->execute();
+    }
+
 }

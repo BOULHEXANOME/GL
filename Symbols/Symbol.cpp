@@ -17,3 +17,8 @@ std::string Symbol::print() const
 {
     return "unknown";
 }
+
+int Symbol::execute() const
+{
+    std::cout << "Cannot execute abstract symbol class." << std::endl;
+}

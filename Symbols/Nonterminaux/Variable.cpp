@@ -4,3 +4,13 @@
 
 #include "Variable.h"
 
+int Variable::execute() const
+{
+    var* theStockageUnit = new var;
+    if(! Automaton::instance().accessVariable(theName, theStockageUnit))
+    {
+        // TODO
+        std::cerr << "error execute variable ! print line number&column" << std::endl;
+    }
+    return theStockageUnit->theValue;
+}

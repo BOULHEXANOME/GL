@@ -8,3 +8,14 @@ std::string AffectInstruct::print() const
 {
     return variableToChange->print() + " := " + expressionToAffect->print();
 }
+
+int AffectInstruct::execute() const
+{
+    if(! Automaton::instance().affectVariable(this->variableToChange->getTheName(), this->expressionToAffect->execute()))
+    {
+        // TODO
+        std::cerr << "error affect instruct ! print line number&column" << std::endl;
+    }
+
+    return 0;
+}

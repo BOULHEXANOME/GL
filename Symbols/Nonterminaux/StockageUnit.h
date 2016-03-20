@@ -13,10 +13,11 @@ class StockageUnit : public Expression
 {
 protected:
     std::string theName;
-
-    StockageUnit(const std::string &theName) : theName(theName) { }
+//    int theValue;
 
 public:
+    StockageUnit(const std::string &theName/*, int theValue*/) : theName(theName)/*, theValue(theValue)*/ { }
+
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
@@ -24,7 +25,15 @@ public:
     {
         return theName;
     }
-    virtual void setTheName(std::string theName) = 0;
+    void setTheName(std::string theName){
+        this->theName = theName;
+    }
+
+/*    int getTheValue() const
+    {
+        return theValue;
+    }
+    virtual void setTheValue(int theValue) = 0;*/
     /***********************/
     /* End Getters/Setters */
     /***********************/
@@ -33,6 +42,7 @@ public:
     /******** Methods ******/
     /***********************/
     virtual std::string print() const;
+    virtual int execute() const;
     /***********************/
     /****** End Methods ****/
     /***********************/

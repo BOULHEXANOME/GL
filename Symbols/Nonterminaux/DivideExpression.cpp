@@ -8,3 +8,8 @@ std::string DivideExpression::print() const
 {
     return leftExpr->print() + " / " + rigthExpr->print();
 }
+
+int DivideExpression::execute() const
+{
+    return this->leftExpr->execute() / this->rigthExpr->execute();
+}

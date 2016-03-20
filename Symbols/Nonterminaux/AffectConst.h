@@ -49,6 +49,7 @@ public:
     /******** Methods ******/
     /***********************/
     virtual std::string print() const;
+    virtual int execute() const;
     /***********************/
     /****** End Methods ****/
     /***********************/

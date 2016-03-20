@@ -12,7 +12,7 @@
 #define ERROR_BAD_INPUT 1
 #define ERROR_INCORRECT_PROGRAM 1
 
-void default_behaviour();
+void defaultBehaviour();
 
 using namespace std;
 
@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
 
     if (argc < MIN_ARGS)
     {
-        default_behaviour();
+        defaultBehaviour();
         /*
 		print_usage();
 		exit(ERROR_NOT_ENOUGH_ARGS);
@@ -125,11 +125,12 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void default_behaviour()
+void defaultBehaviour()
 {
     Automaton::instance().createSomeLines();
-//    Automaton::instance().printCode();
+    Automaton::instance().printCode();
 
     Automaton::instance().analyse();
+    Automaton::instance().execute();
 }
 

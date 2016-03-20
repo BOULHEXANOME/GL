@@ -19,6 +19,11 @@
 #include "Symbols/Terminaux/PlusTerminal.h"
 #include "Symbols/Terminaux/MinusTerminal.h"
 #include "Symbols/Nonterminaux/Parenthesis.h"
+#include "exceptions.h"
+#include "Symbols/Nonterminaux/Constant.h"
+#include "Symbols/Nonterminaux/Write.h"
+#include "Symbols/Nonterminaux/AffectConst.h"
+#include "Symbols/Nonterminaux/Read.h"
 
 
 void Automaton::createAndDeleteSomeLines()
@@ -91,13 +96,27 @@ void Automaton::createSomeLines()
     // var myVar=10;
     Line declaractionAfter = Line(Type::declaration);
     Variable *declarationVar = new Variable("myVar");
-    Number *toAffect = new Number(10); // already set
+    var theVarDeclared;
+    theVarDeclared.isIntancied = false;
+    Number *toAffect = new Number(10);
     AffectVarDeclare * declarationAction = new AffectVarDeclare(declarationVar, toAffect);
     declaractionAfter.addSymbol(declarationAction);
 
-    // myVar := 5 * (1 + 3) - myVar;
+    // const myConst=5;
+    Line declaractionConstAfter = Line(Type::declaration);
+    Constant *declarationConst = new Constant("myConst");
+    Number *toAffectConst = new Number(5);
+    AffectConst * declarationConstAction = new AffectConst(declarationConst, toAffectConst);
+    declaractionConstAfter.addSymbol(declarationConstAction);
+
+    // ?? comment remplir les tables de symboles ???
+    // TODO
+    this->theVariables["myVar"] = theVarDeclared;
+    this->theConstants["myConst"] = 5;
+
+    // myVar := 5 * (1 + 4) - myVar;
     Line operationsAfter = Line(Type::instruction);
-    Number *opRigthPlus = new Number(3);
+    Number *opRigthPlus = new Number(4);
     Number *opLeftPlus = new Number(1);
     Number *opLeftMult = new Number(5);
     Variable *varToSubstract = new Variable("myVar");
@@ -108,8 +127,23 @@ void Automaton::createSomeLines()
     AffectInstruct *instructAffectResult = new AffectInstruct(varToSubstract, finalExpression);
     operationsAfter.addSymbol(instructAffectResult);
 
+    // write myVar;
+    Line writeVar = Line(Type::instruction);
+    Write *writeAction = new Write(new StockageUnit("myVar"));
+    writeVar.addSymbol(writeAction);
+
+    // read myVar;
+    Line readVar = Line(Type::instruction);
+    Read *readAction = new Read(new Variable("myVar"));
+    readVar.addSymbol(readAction);
+
     this->programLines.push_back(declaractionAfter);
+    this->programLines.push_back(declaractionConstAfter);
+    this->programLines.push_back(writeVar);
     this->programLines.push_back(operationsAfter);
+    this->programLines.push_back(writeVar);
+    this->programLines.push_back(readVar);
+    this->programLines.push_back(writeVar);
 }
 
 void Automaton::printCode()
@@ -122,5 +156,106 @@ void Automaton::printCode()
 
 void Automaton::analyse()
 {
-    // TODO
+    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    {
+        // TODO
+    }
+}
+
+void Automaton::execute()
+{
+    this->clearTables();
+    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    {
+        cLineIterator->execute();
+    }
+
+}
+
+void Automaton::clearTables()
+{
+    this->theConstants.clear();
+    this->theVariables.clear();
+}
+
+bool Automaton::declareVariable(std::string theName)
+{
+    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    {
+        std::cerr << "Error declaring variable : name already exists" << std::endl;
+        return false;
+    }
+    else
+    {
+        var newVariable;
+        newVariable.isIntancied = false;
+        theVariables[theName] = newVariable;
+        return true;
+    }
+}
+
+bool Automaton::declareAndAffectConst(std::string theName, int theValue)
+{
+    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    {
+        std::cerr << "Error declaring constant : name already exists" << std::endl;
+        return false;
+    }
+    else
+    {
+        theConstants[theName] = theValue;
+        return true;
+    }
+}
+
+bool Automaton::affectVariable(std::string theName, int theValue)
+{
+    if(theVariables.find(theName) != theVariables.end())
+    {
+        var newVariable;
+        newVariable.theValue = theValue;
+        newVariable.isIntancied = true;
+        theVariables[theName] = newVariable;
+        return true;
+    }
+    else
+    {
+        std::cerr << "Error affecting value to variable : variable has not been declared." << std::endl;
+        return false;
+    }
+}
+
+bool Automaton::accessVariable(std::string theName, var * toComplete)
+{
+    if(theVariables.find(theName) != theVariables.end())
+    {
+        if(theVariables[theName].isIntancied)
+        {
+            *toComplete = theVariables[theName];
+            return true;
+        }
+        else
+        {
+            std::cerr << "Error accessing variable : variable has not been instancied yet." << std::endl;
+            return false;
+        }
+    }
+    else
+    {
+        std::cerr << "Error accessing variable : variable has not been declared." << std::endl;
+        return false;
+    }
+}
+
+int Automaton::accessConstant(std::string theName)
+{
+    if(theConstants.find(theName) != theConstants.end())
+    {
+        return theConstants[theName];
+    }
+    else
+    {
+        std::cerr << "Error accessing constant : constant has not been declared (nor initialised)." << std::endl;
+        throw CONST_DOES_NOT_EXISTS;
+    }
 }

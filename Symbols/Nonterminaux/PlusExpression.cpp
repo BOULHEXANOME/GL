@@ -8,3 +8,8 @@ std::string PlusExpression::print() const
 {
     return leftExpr->print() + " + " + rigthExpr->print();
 }
+
+int PlusExpression::execute() const
+{
+    return leftExpr->execute() + rigthExpr->execute();
+}

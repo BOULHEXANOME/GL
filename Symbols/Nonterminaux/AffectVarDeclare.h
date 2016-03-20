@@ -48,7 +48,8 @@ public:
         isEmpty = false;
     }
 
-    bool isIsEmpty() const {
+    bool isIsEmpty() const
+    {
         return isEmpty;
     }
     /***********************/
@@ -59,10 +60,11 @@ public:
     /******** Methods ******/
     /***********************/
     virtual std::string print() const;
+    virtual int execute() const;
+    virtual int getType() const;
     /***********************/
     /****** End Methods ****/
     /***********************/
 };
-
 
 #endif //GL_AFFECTVARDECLARE_H

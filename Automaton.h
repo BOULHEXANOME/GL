@@ -7,13 +7,25 @@
 
 
 #include "Symbols/Line.h"
+#include <map>
+class Line;
+
+struct var {
+    int theValue;
+    bool isIntancied = false;
+};
 
 class Automaton {
 private:
     typedef std::list<Line> Programm;
-    Programm programLines;
+    typedef std::map<std::string, int> AllTheConstants;
+    typedef std::map<std::string, var> AllTheVariables;
 
     Automaton() { }
+
+    Programm programLines;
+    AllTheConstants theConstants;
+    AllTheVariables theVariables;
 
 public:
     // this two lines forbid copy of singleton
@@ -63,6 +75,42 @@ public:
      * alert the user if errors occurs
      */
     void analyse();
+
+    /*
+     * Method used to execute the code in memory, and eventually
+     * alert the user if errors occurs
+     */
+    void execute();
+
+    /*
+     * Method used to add a variable declaration to the table of symbols
+     */
+    bool declareVariable(std::string theName);
+
+    /*
+     * Method used to add a constant declaration to the table of symbols
+     */
+    bool declareAndAffectConst(std::string theName, int theValue);
+
+    /*
+     * Method used to change the value of a variable in the table of symbols
+     */
+    bool affectVariable(std::string theName, int theValue);
+
+    /*
+     * Method used to access the value of a variable in the table of symbols
+     */
+    bool accessVariable(std::string theName, var * toComplete);
+
+    /*
+     * Method used to access the value of a constant in the table of symbols
+     */
+    int accessConstant(std::string theName);
+
+    /*
+     * Method used to clear the table of symbols
+     */
+    void clearTables();
 
     /*
      * Method singleton

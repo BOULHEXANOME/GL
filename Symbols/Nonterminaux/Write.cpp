@@ -8,3 +8,9 @@ std::string Write::print() const
 {
     return "ecrire " + toWrite->print();
 }
+
+int Write::execute() const
+{
+    std::cout << toWrite->execute() << std::endl;
+    return 0;
+}

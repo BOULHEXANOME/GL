@@ -6,7 +6,9 @@
 #define GL_SYMBOL_H
 
 #include "../symbolTypes.h"
+#include "../Automaton.h"
 #include <iostream>
+class Automaton;
 
 class Symbol
 {
@@ -15,8 +17,6 @@ protected:
     int lineWhereSymbolOccurs = -1;
 
 public:
-    virtual int getType() const;
-    virtual std::string print() const;
 
     /***********************/
     /*** Getters/Setters ***/
@@ -52,6 +52,21 @@ public:
     /************************/
     /*End Override operators /
     /************************/
+
+    /***********************/
+    /******* Methods *******/
+    /***********************/
+
+    /*
+     * Execute symbol
+     */
+    virtual int execute() const;
+
+    virtual int getType() const;
+    virtual std::string print() const;
+    /***********************/
+    /***** End Methods *****/
+    /***********************/
 };
 
 

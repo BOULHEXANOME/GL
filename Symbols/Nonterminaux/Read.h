@@ -9,12 +9,12 @@
 #include "../Symbol.h"
 #include "Variable.h"
 
-class ReadTerminal : public Symbol{
+class Read : public Symbol{
 private:
     Variable * variableToReadFromUser;
 public:
 
-    ReadTerminal(Variable *variableToReadFromUser) : variableToReadFromUser(variableToReadFromUser) { }
+    Read(Variable *variableToReadFromUser) : variableToReadFromUser(variableToReadFromUser) { }
 
     /***********************/
     /*** Getters/Setters ***/
@@ -26,7 +26,7 @@ public:
 
     void setVariableToReadFromUser(Variable * variableToReadFromUser)
     {
-        ReadTerminal::variableToReadFromUser = variableToReadFromUser;
+        Read::variableToReadFromUser = variableToReadFromUser;
     }
     /***********************/
     /* End Getters/Setters */
@@ -36,6 +36,7 @@ public:
     /******** Methods ******/
     /***********************/
     virtual std::string print() const;
+    virtual int execute() const;
     /***********************/
     /****** End Methods ****/
     /***********************/

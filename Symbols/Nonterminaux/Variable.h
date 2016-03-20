@@ -12,14 +12,15 @@
 class Variable : public StockageUnit
 {
 public:
-    Variable(std::string theName) : StockageUnit(theName) { }
+    Variable(std::string theName/*, int theValue=0*/) : StockageUnit(theName/*, theValue*/) { }
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    void setTheName(std::string theName)
+/*    virtual void setTheValue(int theValue)
     {
-        StockageUnit::theName = theName;
-    }
+        StockageUnit::theValue = theValue;
+    }*/
+    virtual int execute() const;
     /***********************/
     /* End Getters/Setters */
     /***********************/

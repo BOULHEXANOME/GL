@@ -8,10 +8,14 @@
 #include <list>
 #include <string>
 #include "Symbol.h"
+#include "../Automaton.h"
+class Symbol;
+class Automaton;
 
 enum Type {declaration, instruction};
 
-class Line {
+class Line
+{
 protected:
     typedef std::list<Symbol*> ListOfSymbols;
     ListOfSymbols symbols;
@@ -69,6 +73,18 @@ public:
     /*End Override operators /
     /************************/
 
+    /***********************/
+    /******* Methods *******/
+    /***********************/
+
+    /*
+     * Execute all symbols in Line (just one normally)
+     */
+    void execute() const;
+
+    /***********************/
+    /***** End Methods *****/
+    /***********************/
 };
 
 

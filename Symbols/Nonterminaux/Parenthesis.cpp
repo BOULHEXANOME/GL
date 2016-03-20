@@ -8,3 +8,8 @@ std::string Parenthesis::print() const
 {
     return "(" + exprParenthesised->print() + ")";
 }
+
+int Parenthesis::execute() const
+{
+    return exprParenthesised->execute();
+}
