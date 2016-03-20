@@ -11,10 +11,10 @@ bool E10::transitionSemicolon(Automaton * automaton, Symbol * s) {
 	Symbol * s2 = automaton->popSymbol();
 	Symbol * dprime =  new Symbol(s1,s2);
 	dprime->setType(D_PRIME);
-	automaton->programme.push_front(s);
+	automaton->programFromLexer.push_front(s);
 	automaton->popState();
 	automaton->popState();
-	automaton->CurrentState->transition(automaton, dprime);
+	(*automaton->currentState)->transition(automaton, dprime);
 	return true;
 }
 

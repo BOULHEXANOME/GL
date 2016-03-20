@@ -4,9 +4,9 @@ bool E15::transitionSemicolon(Automaton * automaton, Symbol * s) {
 	Symbol * s1 = automaton->popSymbol();
 	Symbol * id =  new Symbol(s1);
 	id->setType(ID_LISTE);
-	automaton->programme.push_front(s);
+	automaton->programFromLexer.push_front(s);
 	automaton->popState();
-	automaton->CurrentState->transition(automaton,id);
+	(*automaton->currentState)->transition(automaton,id);
 	return true;
 }
 E15::E15()

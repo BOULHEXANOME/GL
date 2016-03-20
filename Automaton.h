@@ -9,6 +9,7 @@ class Automaton;
 
 #include "Symbols/Line.h"
 #include "Symbols/Symbol.h"
+#include "states/DefaultState.h"
 //#include "States/DefaultState.h"
 
 
@@ -16,22 +17,42 @@ class DefaultState;
 
 class Automaton {
 private:
-    typedef std::list<Line> Programm;
-    Programm programLines;
-	
+    typedef std::list<Line> Program;
+    typedef std::list<Symbol *> SymbolsStack;
+    typedef std::list<DefaultState*> StatesStack;
+    Program programLines;
+
+    //Liste de symboles lus par le lexer
+    SymbolsStack programFromLexer;
+    //Pile de symbole utilisée par l'automate
+    SymbolsStack symbolsAutomaton;
+    //Pile d'etat de l'automate
+    StatesStack states;
+    //Etat courant de l'automate (haut de la pile d'etat)
+    StatesStack::iterator currentState;
+
+    friend class DefaultState;
+    friend class E0;
+    friend class E1;
+    friend class E2;
+    friend class E3;
+    friend class E4;
+    friend class E5;
+    friend class E6;
+    friend class E7;
+    friend class E8;
+    friend class E9;
+    friend class E10;
+    friend class E11;
+    friend class E12;
+    friend class E13;
+    friend class E14;
+    friend class E15;
+
+
     Automaton() { }
 
 public:
-
-	//Liste de symboles lus par le lexer
-	std::list <Symbol*> programme;
-	//Pile de symbole utilisée par l'automate
-	std::list <Symbol*> symbols;
-	//Pile d'etat de l'automate
-	std::list <DefaultState*> states;
-	//Etat courant de l'automate (haut de la pile d'etat) => choix de conception actuel a modifier peut-etre
-	DefaultState *CurrentState;
-	
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
     void operator=(Automaton const&) = delete;

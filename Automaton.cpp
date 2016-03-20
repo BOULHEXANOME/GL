@@ -172,24 +172,23 @@ void Automaton::testStates()
     Dollar* dollar = new Dollar();
     dollar->setType(DOLLAR);
     
-    this->programme.push_front(dollar);
-    this->programme.push_front(semicolon);
-    this->programme.push_front(idTerminal);
-    this->programme.push_front(varTerminal);
+    this->programFromLexer.push_front(dollar);
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(varTerminal);
     
-    Symbol * sym = this->programme.front();
-	
-	this->programme.pop_front();
+    Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
 	
 	DefaultState * e0 = new E0();
 	this->states.push_front(e0);
-	this->CurrentState=e0;
+	this->currentState = this->states.begin();
 	e0->transition(this, sym);
 }
 
 void Automaton::printCode()
 {
-    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    for(Program::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
     {
         std::cout << (*cLineIterator) << ";" << std::endl;
     }
@@ -199,32 +198,28 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
 {
 	
     std::cout << "push State : " << e->state<< std::endl;
-	this->symbols.push_front(s);
+	this->symbolsAutomaton.push_front(s);
 	this->states.push_front(e);
-	
-	//TODO ici, un current state utilise a modifier peut etre
-	this->CurrentState = e;
+    this->currentState++;
 	
 	//TODO il faudra savoir si on push front/push back dans le programme renvoyé par le lexer
-	Symbol * sym = this->programme.front();
-	this->programme.pop_front();
+	Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
 	
-	//TODO ici, un current state utilise a modifier peut etre
-	this->CurrentState->transition(this, sym);
+    (*this->currentState)->transition(this, sym);
 }
 
 void Automaton::popState()
 {
 	this->states.pop_front();
 	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
-	//TODO ici, un current state utilise a modifier peut etre
-	this->CurrentState = states.front();
+	this->currentState--;
 }
 
 Symbol * Automaton::popSymbol()
 {
-	Symbol * s = this->symbols.front();
-	this->symbols.pop_front();
+	Symbol * s = this->symbolsAutomaton.front();
+	this->symbolsAutomaton.pop_front();
 	return s;
 }
 
