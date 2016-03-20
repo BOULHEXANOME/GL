@@ -4,7 +4,3 @@
 
 #include "SyntaxError.h"
 
-int SyntaxError::getType() const
-{
-    return ERROR;
-}

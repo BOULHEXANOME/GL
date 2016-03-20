@@ -4,7 +4,3 @@
 
 #include "PlusTerminal.h"
 
-int PlusTerminal::getType() const
-{
-    return PLUS;
-}

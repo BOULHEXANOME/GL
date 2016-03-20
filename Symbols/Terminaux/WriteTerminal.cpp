@@ -3,8 +3,3 @@
 //
 
 #include "WriteTerminal.h"
-
-int Write::getType() const
-{
-    return WRITE;
-}

@@ -13,7 +13,6 @@ class ConstTerminal : public Symbol
 
 public:
     ConstTerminal() { }
-    virtual int getType() const;
 };
 
 

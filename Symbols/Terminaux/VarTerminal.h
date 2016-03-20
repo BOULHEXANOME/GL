@@ -13,7 +13,6 @@ class VarTerminal : public Symbol
 public:
 
     VarTerminal() { }
-    virtual int getType() const;
 };
 
 

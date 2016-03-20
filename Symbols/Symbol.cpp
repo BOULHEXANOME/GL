@@ -3,9 +3,19 @@
 //
 
 #include "Symbol.h"
-
+/*
 int Symbol::getType() const {
-    return NON_TERMINAL;
+    return symbolType;
+}
+*/
+int Symbol::getType() const
+{
+	return this->symbolType;
+}
+
+void Symbol::setType(int T)
+{
+	this->symbolType = T;
 }
 
 std::ostream &operator<<(std::ostream &os, const Symbol &s)

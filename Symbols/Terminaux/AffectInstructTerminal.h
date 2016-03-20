@@ -13,7 +13,6 @@ class AffectInstructTerminal : public Symbol
 
 public:
     AffectInstructTerminal() { }
-    virtual int getType() const;
 };
 
 

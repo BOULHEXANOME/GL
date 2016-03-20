@@ -4,7 +4,3 @@
 
 #include "MinusTerminal.h"
 
-int MinusTerminal::getType() const
-{
-    return MINUS;
-}

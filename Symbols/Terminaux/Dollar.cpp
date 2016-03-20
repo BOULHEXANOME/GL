@@ -4,7 +4,3 @@
 
 #include "Dollar.h"
 
-int Dollar::getType() const
-{
-    return DOLLAR;
-}

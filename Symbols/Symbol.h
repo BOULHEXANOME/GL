@@ -8,19 +8,22 @@
 #include "../symbolTypes.h"
 #include "../Automaton.h"
 #include <iostream>
-class Automaton;
+#include <list>
 
 class Symbol
 {
 protected:
     int columnWhereSymbolOccurs = -1;
     int lineWhereSymbolOccurs = -1;
+    int symbolType;
+    std::list <Symbol*> symbols;
 
 public:
 
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
+
     int getColumnWhereSymbolOccurs() const
     {
         return columnWhereSymbolOccurs;
@@ -62,8 +65,9 @@ public:
      */
     virtual int execute() const;
 
-    virtual int getType() const;
+    int getType() const;
     virtual std::string print() const;
+    void setType(int type);
     /***********************/
     /***** End Methods *****/
     /***********************/

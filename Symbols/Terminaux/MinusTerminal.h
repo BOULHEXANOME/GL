@@ -13,7 +13,6 @@ class MinusTerminal : public Symbol
 
 public:
     MinusTerminal() { }
-    virtual int getType() const;
 };
 
 

@@ -3,8 +3,3 @@
 //
 
 #include "ReadTerminal.h"
-
-int ReadTerminal::getType() const
-{
-    return READ;
-}

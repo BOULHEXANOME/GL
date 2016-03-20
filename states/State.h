@@ -1,39 +1,52 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <string>
-#include <ostream>
-#include <memory>
-#include "../ast/symbol.h"
-#include "../statemachine.h"
+#include "../Automaton.h"
+class Symbol;
 
 class State {
     public:
-        //State(int s) : state(s) {};
-        //virtual ~State() {};
+        //State(){};
+        virtual ~State(){};
+        int getState() { return state; }
 
-        virtual bool transition(Automaton & automaton, Symbol & s) = 0; // fction de transition entre les états
-        int state() { return state; }
-        virtual bool transitionPlus() = 0;
-        virtual bool transitionMinus() = 0;
-        virtual bool transitionMultiply() = 0;
-        virtual bool transitionDivide() = 0;
-        virtual bool transitionWrite() = 0;
-        virtual bool transitionRead() = 0;
-        virtual bool transitionAffectDeclare() = 0;
-        virtual bool transitionAffectInstruct() = 0;
-        virtual bool transitionOpenParenthesis() = 0;
-        virtual bool transitionCloseParenthesis() = 0;
-        virtual bool transitionVar() = 0;
-        virtual bool transitionVal() = 0;
-        virtual bool transitionDollar() = 0;
-        virtual bool transitionConst() = 0;
-        virtual bool transitionComma() = 0;
-        virtual bool transitionSemilicon() = 0;
-        virtual bool transitionId() = 0;
-        virtual bool transitionError() = 0;
+		
+        virtual bool transition(Automaton * automaton, Symbol * s) = 0; // fction de transition entre les états
+        
+        //Symboles Terminaux
+        virtual bool transitionPlus(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionMinus(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionMultiply(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionDivide(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionWrite(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionRead(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionAffectDeclare(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionAffectInstruct(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionVar(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionVal(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionDollar(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionConst(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionComma(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionSemicolon(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionId(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionError(Automaton * automaton, Symbol * s) = 0;
+        //Symboles non terminaux
+        virtual bool transitionP(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionD(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionD_Prime(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionIdList(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionAff(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionI(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionI_Prime(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionE(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionT(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionF(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionOpA(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionOpM(Automaton * automaton, Symbol * s) = 0;
 
-    protected:
+
         int state;
 };
 

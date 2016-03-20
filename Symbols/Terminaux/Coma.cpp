@@ -4,7 +4,3 @@
 
 #include "Coma.h"
 
-int Coma::getType() const
-{
-    return COMMA;
-}

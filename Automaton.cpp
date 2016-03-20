@@ -10,6 +10,7 @@
 #include "Symbols/Nonterminaux/MultiplyExpression.h"
 #include "Symbols/Nonterminaux/AffectVarDeclare.h"
 #include "Symbols/Terminaux/VarTerminal.h"
+#include "Symbols/Terminaux/IdTerminal.h"
 #include "Symbols/Terminaux/AffectDeclareTerminal.h"
 #include "Symbols/Nonterminaux/MinusExpression.h"
 #include "Symbols/Nonterminaux/AffectInstruct.h"
@@ -24,7 +25,10 @@
 #include "Symbols/Nonterminaux/Write.h"
 #include "Symbols/Nonterminaux/AffectConst.h"
 #include "Symbols/Nonterminaux/Read.h"
-
+#include "Symbols/Terminaux/Semicolon.h"
+#include "Symbols/Terminaux/Dollar.h"
+#include "states/E0.h"
+#include "Symbols/Terminaux/WriteTerminal.h"
 
 void Automaton::createAndDeleteSomeLines()
 {
@@ -32,6 +36,7 @@ void Automaton::createAndDeleteSomeLines()
     // var myVar=10;
     // before automaton (after lexer) :
     Line declaractionBefore;
+    
     VarTerminal* varTerminal = new VarTerminal();
     AffectDeclareTerminal* equalSign = new AffectDeclareTerminal();
     Number* toAffect = new Number(10);
@@ -146,9 +151,44 @@ void Automaton::createSomeLines()
     this->programLines.push_back(writeVar);
 }
 
+
+void Automaton::testStates()
+{
+	VarTerminal* varTerminal = new VarTerminal();
+	varTerminal->setType(VAR);
+    IdTerminal* idTerminal = new IdTerminal("i");
+	idTerminal->setType(ID);
+    Semicolon* semicolon = new Semicolon();
+	semicolon->setType(SEMICOLON);
+    Semicolon* semicolon2 = new Semicolon();
+	semicolon2->setType(SEMICOLON);
+    Number* numberToWrite = new Number(3);
+    numberToWrite->setType(VAL);
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
+    Dollar* dollar = new Dollar();
+    dollar->setType(DOLLAR);
+    
+    this->programFromLexer.push_front(dollar);
+    this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(numberToWrite);
+    this->programFromLexer.push_front(writeTerm);
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(varTerminal);
+    
+    Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
+	
+	DefaultState * e0 = new E0();
+	this->states.push_front(e0);
+
+	e0->transition(this, sym);
+}
+
 void Automaton::printCode()
 {
-    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    for(Program::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
     {
         std::cout << (*cLineIterator) << ";" << std::endl;
     }
@@ -156,7 +196,7 @@ void Automaton::printCode()
 
 void Automaton::analyse()
 {
-    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    for(Program::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
     {
         // TODO
     }
@@ -165,7 +205,7 @@ void Automaton::analyse()
 void Automaton::execute()
 {
     this->clearTables();
-    for(Programm::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
+    for(Program::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
     {
         cLineIterator->execute();
     }
@@ -247,15 +287,44 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
     }
 }
 
-int Automaton::accessConstant(std::string theName)
-{
-    if(theConstants.find(theName) != theConstants.end())
-    {
+int Automaton::accessConstant(std::string theName) {
+    if (theConstants.find(theName) != theConstants.end()) {
         return theConstants[theName];
     }
-    else
-    {
+    else {
         std::cerr << "Error accessing constant : constant has not been declared (nor initialised)." << std::endl;
         throw CONST_DOES_NOT_EXISTS;
     }
+}
+
+void Automaton::pushState(Symbol* s, DefaultState * e)
+{
+	
+    std::cout << "push State : " << e->state<< std::endl;
+	this->symbolsAutomaton.push_front(s);
+	this->states.push_front(e);
+	
+	//TODO il faudra savoir si on push front/push back dans le programme renvoyé par le lexer
+	Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
+	
+    (*this->states.begin())->transition(this, sym);
+}
+
+void Automaton::popState()
+{
+	this->states.pop_front();
+	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
+}
+
+Symbol * Automaton::popSymbol()
+{
+	Symbol * s = this->symbolsAutomaton.front();
+	this->symbolsAutomaton.pop_front();
+	return s;
+}
+
+void Automaton::accept()
+{
+	std::cout << "Youpi, ca marche !" << std::endl;
 }

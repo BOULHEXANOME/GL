@@ -3,8 +3,3 @@
 //
 
 #include "IdTerminal.h"
-
-int IdTerminal::getType() const
-{
-    return ID;
-}

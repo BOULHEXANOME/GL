@@ -8,12 +8,11 @@
 
 #include "../Symbol.h"
 
-class Write : public Symbol
+class WriteTerminal : public Symbol
 {
 
 public:
-    Write() { }
-    virtual int getType() const ;
+    WriteTerminal() { }
 };
 
 

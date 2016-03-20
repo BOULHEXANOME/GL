@@ -13,7 +13,6 @@ class Semicolon : public Symbol
 
 public:
     Semicolon() { }
-    virtual int getType() const;
 };
 
 

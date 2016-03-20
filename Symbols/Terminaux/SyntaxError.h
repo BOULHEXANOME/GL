@@ -35,8 +35,6 @@ public:
     /***********************/
     /* End Getters/Setters */
     /***********************/
-
-    virtual int getType() const;
 };
 
 
