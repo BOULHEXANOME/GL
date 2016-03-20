@@ -28,8 +28,6 @@ private:
     SymbolsStack symbolsAutomaton;
     //Pile d'etat de l'automate
     StatesStack states;
-    //Etat courant de l'automate (haut de la pile d'etat)
-    StatesStack::iterator currentState;
 
     friend class DefaultState;
     friend class E0;
@@ -48,6 +46,34 @@ private:
     friend class E13;
     friend class E14;
     friend class E15;
+    friend class E16;
+    friend class E17;
+    friend class E18;
+    friend class E19;
+    friend class E20;
+    friend class E21;
+    friend class E22;
+    friend class E23;
+    friend class E24;
+    friend class E25;
+    friend class E26;
+    friend class E27;
+    friend class E28;
+    friend class E29;
+    friend class E30;
+    friend class E31;
+    friend class E32;
+    friend class E33;
+    friend class E34;
+    friend class E35;
+    friend class E36;
+    friend class E37;
+    friend class E38;
+    friend class E39;
+    friend class E40;
+    friend class E41;
+    friend class E42;
+    friend class E43;
 
 
     Automaton() { }

@@ -59,7 +59,7 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 			transitionD_Prime(automaton, s);
 			return true;
 		case ID_LISTE :
-			transitionId_Liste(automaton, s);
+			transitionIdList(automaton, s);
 			return true;
 		case AFF :
 			transitionAff(automaton, s);
@@ -90,127 +90,158 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 			return true;
 			
 		default :
+			std::cerr << "Transition impossible" << std::endl;
 			return false;
     }
 }
 
 bool DefaultState::transitionPlus(Automaton * automaton, Symbol * s) {
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionMinus(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionMultiply(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionDivide(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionWrite(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionRead(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionAffectDeclare(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionAffectInstruct(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionOpenParenthesis(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionCloseParenthesis(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionVar(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionVal(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionDollar(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionConst(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionComma(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionSemicolon(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionP(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionD(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionD_Prime(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
-bool DefaultState::transitionId_Liste(Automaton * automaton, Symbol * s){
+bool DefaultState::transitionIdList(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionAff(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionI(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionI_Prime(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionE(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionT(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionF(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionOpA(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
 bool DefaultState::transitionOpM(Automaton * automaton, Symbol * s){
+	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 

@@ -67,6 +67,7 @@
 #include "states/E41.h"
 #include "states/E42.h"
 #include "states/E43.h"*/
+#include "Symbols/Terminaux/WriteTerminal.h"
 
 void Automaton::createAndDeleteSomeLines()
 {
@@ -169,10 +170,19 @@ void Automaton::testStates()
 	idTerminal->setType(ID);
     Semicolon* semicolon = new Semicolon();
 	semicolon->setType(SEMICOLON);
+    Semicolon* semicolon2 = new Semicolon();
+	semicolon2->setType(SEMICOLON);
+    Number* numberToWrite = new Number(3);
+    numberToWrite->setType(VAL);
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
     Dollar* dollar = new Dollar();
     dollar->setType(DOLLAR);
     
     this->programFromLexer.push_front(dollar);
+    this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(numberToWrite);
+    this->programFromLexer.push_front(writeTerm);
     this->programFromLexer.push_front(semicolon);
     this->programFromLexer.push_front(idTerminal);
     this->programFromLexer.push_front(varTerminal);
@@ -182,7 +192,7 @@ void Automaton::testStates()
 	
 	DefaultState * e0 = new E0();
 	this->states.push_front(e0);
-	this->currentState = this->states.begin();
+
 	e0->transition(this, sym);
 }
 
@@ -200,20 +210,18 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
     std::cout << "push State : " << e->state<< std::endl;
 	this->symbolsAutomaton.push_front(s);
 	this->states.push_front(e);
-    this->currentState = states.begin();
 	
 	//TODO il faudra savoir si on push front/push back dans le programme renvoyé par le lexer
 	Symbol * sym = this->programFromLexer.front();
 	this->programFromLexer.pop_front();
 	
-    (*this->currentState)->transition(this, sym);
+    (*this->states.begin())->transition(this, sym);
 }
 
 void Automaton::popState()
 {
 	this->states.pop_front();
 	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
-	this->currentState = states.begin();
 }
 
 Symbol * Automaton::popSymbol()

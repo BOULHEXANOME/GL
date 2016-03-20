@@ -8,8 +8,9 @@ class E10 : public DefaultState
     public:
         E10();
         ~E10(){};
-		//bool transitionComma(Automaton * automaton, Symbol * s);
-		bool transitionSemicolon(Automaton * automaton, Symbol * s);
+		//virtual bool transitionComma(Automaton * automaton, Symbol * s);
+		virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
+		virtual bool transitionWrite(Automaton * automaton, Symbol * s);
 };
 
 #endif

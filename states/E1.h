@@ -5,17 +5,17 @@
 
 class E1 : public DefaultState
 {
-    public:
-        E1();
-        ~E1(){};
-        /*bool transitionRead(Automaton * automaton, Symbol * s);
-		bool transitionWrite(Automaton * automaton, Symbol * s);
-		bool transitionId(Automaton * automaton, Symbol * s);
-		bool transitionConst(Automaton * automaton, Symbol * s);
-		bool transitionI_Prime(Automaton * automaton, Symbol * s);
-		bool transitionD_Prime(Automaton * automaton, Symbol * s);
-		bool transitionI(Automaton * automaton, Symbol * s);*/
-		bool transitionVar(Automaton * automaton, Symbol * s);
+public:
+	E1();
+	~E1(){};
+	//virtual bool transitionRead(Automaton * automaton, Symbol * s);
+	virtual bool transitionWrite(Automaton * automaton, Symbol * s);
+	/*virtual bool transitionId(Automaton * automaton, Symbol * s);
+	virtual bool transitionConst(Automaton * automaton, Symbol * s);*/
+	virtual bool transitionI_Prime(Automaton * automaton, Symbol * s);
+	virtual bool transitionD_Prime(Automaton * automaton, Symbol * s);
+	virtual bool transitionI(Automaton * automaton, Symbol * s);
+	virtual bool transitionVar(Automaton * automaton, Symbol * s);
 };
 
 #endif

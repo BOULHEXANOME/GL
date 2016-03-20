@@ -8,12 +8,12 @@ class E0 : public DefaultState
     public:
         E0();
         ~E0(){};
-        bool transitionD(Automaton * automaton, Symbol * s);
-        bool transitionRead(Automaton * automaton, Symbol * s);
-		bool transitionWrite(Automaton * automaton, Symbol * s);
-		bool transitionId(Automaton * automaton, Symbol * s);
-		bool transitionConst(Automaton * automaton, Symbol * s);
-		bool transitionVar(Automaton * automaton, Symbol * s);
+        virtual bool transitionD(Automaton * automaton, Symbol * s);
+        virtual bool transitionRead(Automaton * automaton, Symbol * s);
+		virtual bool transitionWrite(Automaton * automaton, Symbol * s);
+		virtual bool transitionId(Automaton * automaton, Symbol * s);
+		virtual bool transitionConst(Automaton * automaton, Symbol * s);
+		virtual bool transitionVar(Automaton * automaton, Symbol * s);
 };
 
 #endif

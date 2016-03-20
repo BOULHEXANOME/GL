@@ -24,8 +24,9 @@ bool transitionI_Prime(Automaton * automaton, Symbol * s) {
 	return true;
 }*/
 
-bool E3::transitionDollar(Automaton * automaton, Symbol * s) {
+bool E3::transitionDollar(Automaton * automaton, Symbol * dollar) {
 	automaton->accept();
+
 	return true;
 }
 

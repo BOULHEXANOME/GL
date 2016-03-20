@@ -5,10 +5,11 @@
 
 class E15 : public DefaultState
 {
-    public:
-        E15();
-        ~E15(){};
-		bool transitionSemicolon(Automaton * automaton, Symbol * s);
+public:
+    E15();
+    ~E15(){};
+    // FIXME transition coma ??????
+    virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 
 #endif

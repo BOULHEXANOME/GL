@@ -35,7 +35,7 @@ class State {
         virtual bool transitionP(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionD(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionD_Prime(Automaton * automaton, Symbol * s) = 0;
-        virtual bool transitionId_Liste(Automaton * automaton, Symbol * s) = 0;
+        virtual bool transitionIdList(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionAff(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionI(Automaton * automaton, Symbol * s) = 0;
         virtual bool transitionI_Prime(Automaton * automaton, Symbol * s) = 0;

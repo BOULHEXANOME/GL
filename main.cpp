@@ -127,8 +127,9 @@ int main(int argc, char **argv) {
 
 void default_behaviour()
 {
-    Automaton::instance().createSomeLines();
-    Automaton::instance().printCode();
+//    Automaton::instance().createSomeLines();
+//    Automaton::instance().printCode();
     Automaton::instance().testStates();
+
 }
 
