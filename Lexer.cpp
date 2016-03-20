@@ -42,7 +42,6 @@
 
 // TODO:
 // - Vérifier le cas esp tab retour_ligne VAR esp tab retour_ligne
-// - Ecrire fonction qui retourn
 static std::pair<int, boost::regex> regexesList[] = {
     std::make_pair(AFFECTINSTRUCT, boost::regex("\\A(:=)")),                               // AffectInstructTerminal
     std::make_pair(SEMICOLON,  boost::regex("\\A(;)")),                                    // Semicolon

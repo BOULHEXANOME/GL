@@ -117,7 +117,8 @@ int main(int argc, char **argv) {
 			symbol = lexer.getSymbol();
 			
 			// Ajouter le symbole à la pile des symboles
-			//symbolsStack.push(symbol);
+			// Truc du genre à implémenter : Automaton.pushSymbol(symbol);
+			// 
 
 		} while(symbol->getType() != DOLLAR);
 		
