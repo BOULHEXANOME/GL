@@ -213,7 +213,7 @@ void Automaton::popState()
 {
 	this->states.pop_front();
 	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
-	this->currentState--;
+	this->currentState = states.begin();
 }
 
 Symbol * Automaton::popSymbol()
