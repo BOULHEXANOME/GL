@@ -7,6 +7,7 @@
 #include "E31.h"
 #include "E29.h"
 #include "E18.h"
+#include "E34.h"
 
 E9::E9()
 {
@@ -31,5 +32,10 @@ bool E9::transitionT(Automaton *automaton, Symbol *t) {
 bool E9::transitionE(Automaton *automaton, Symbol *e)
 {
     automaton->pushState(e, new E18());
+    return true;
+}
+bool E9::transitionId(Automaton * automaton, Symbol * id)
+{
+	automaton->pushState(id, new E34());
     return true;
 }

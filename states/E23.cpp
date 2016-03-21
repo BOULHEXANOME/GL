@@ -6,12 +6,17 @@ E23::E23()
     state = 23;
 }
 
-bool transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
-	//PAS FINI DU TOUT
-	Symbol * s1 = automaton->popSymbol();
-	Symbol * s2 = automaton->popSymbol();
-	Symbol * s3 = automaton->popSymbol();
-	automaton->CurrentState->transition(automaton,new I_Prime(s3,s2,s1));
+bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
+	Symbol * e = automaton->popSymbol();
+	Symbol * affectInstruct = automaton->popSymbol();
+	Symbol * id = automaton->popSymbol();
+	automaton->programFromLexer.push_front(semicolon);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState(); 
+    Symbol *i_prime = new Symbol(id, e, affectInstruct);
+    i_prime->setType(I_PRIME);
+	(*automaton->states.begin())->transition(automaton, i_prime);
 	return true;
 }
 
