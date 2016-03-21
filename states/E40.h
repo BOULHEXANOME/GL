@@ -14,6 +14,7 @@ public:
     E40();
     ~E40(){};
     virtual bool transitionWrite(Automaton * a, Symbol * s);
+    virtual bool transitionId(Automaton * a, Symbol * s);
 };
 
 

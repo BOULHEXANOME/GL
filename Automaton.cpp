@@ -137,7 +137,7 @@ void Automaton::createAndDeleteSomeLines()
 
 void Automaton::createSomeLines()
 {
-    // var myVar=10;
+    // var myVar=10; => faux faux archifaux
     Line declaractionAfter = Line(Type::declaration);
     Variable *declarationVar = new Variable("myVar");
     Number *toAffect = new Number(10); // already set
@@ -162,8 +162,66 @@ void Automaton::createSomeLines()
 }
 
 
+void Automaton::testStates2()
+{
+	//var i;
+	VarTerminal* varTerminal = new VarTerminal();
+	varTerminal->setType(VAR);
+    IdTerminal* idTerminal = new IdTerminal("i");
+	idTerminal->setType(ID);
+    Semicolon* semicolon = new Semicolon();
+	semicolon->setType(SEMICOLON);
+	
+	//i := 3;
+    IdTerminal* idTerminal2 = new IdTerminal("i");
+	idTerminal2->setType(ID);
+	AffectInstructTerminal* affectInstruct = new AffectInstructTerminal();
+	affectInstruct->setType(AFFECTINSTRUCT);
+    Number* numberToAffect = new Number(3);
+    numberToAffect->setType(VAL);
+    Semicolon* semicolon2 = new Semicolon();
+	semicolon2->setType(SEMICOLON);
+    
+	//ecrire i;
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
+    IdTerminal* idTerminal3 = new IdTerminal("i");
+	idTerminal3->setType(ID);
+    Semicolon* semicolon3 = new Semicolon();
+	semicolon3->setType(SEMICOLON);
+    
+    //Fin de programme
+    Dollar* dollar = new Dollar();
+    dollar->setType(DOLLAR);
+    
+    this->programFromLexer.push_front(dollar);
+    
+    this->programFromLexer.push_front(semicolon3);
+    this->programFromLexer.push_front(idTerminal3);
+    this->programFromLexer.push_front(writeTerm);
+    
+    this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(numberToAffect);
+    this->programFromLexer.push_front(affectInstruct);
+    this->programFromLexer.push_front(idTerminal2);
+    
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(varTerminal);
+    
+    Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
+	
+	DefaultState * e0 = new E0();
+	this->states.push_front(e0);
+
+	e0->transition(this, sym);
+}
+
 void Automaton::testStates()
 {
+	//var i;
+	//ecrire 3;
 	VarTerminal* varTerminal = new VarTerminal();
 	varTerminal->setType(VAR);
     IdTerminal* idTerminal = new IdTerminal("i");

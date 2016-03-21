@@ -35,8 +35,3 @@ E10::E10()
 {
 	this->state = 10;
 }
-
-bool E10::transitionWrite(Automaton *automaton, Symbol *s)
-{
-	return DefaultState::transitionWrite(automaton, s);
-}

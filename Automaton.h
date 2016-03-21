@@ -117,6 +117,7 @@ public:
     void createSomeLines();
     
     void testStates();
+    void testStates2();
 
     /*
      * Method used to print the code in memory
