@@ -132,6 +132,7 @@ public:
      * Method
      */
     void pushState(Symbol * s, DefaultState * e);
+    void pushSymbol(Symbol * s);
     Symbol* popSymbol();
     void popState();
     void accept();

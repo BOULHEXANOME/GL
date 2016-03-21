@@ -276,6 +276,12 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
     (*this->states.begin())->transition(this, sym);
 }
 
+void Automaton::pushSymbol(Symbol * s) {
+	
+	std::cout << "Push Symbol: " << s << std::endl;
+	this->programFromLexer.push_front(s);
+}
+
 void Automaton::popState()
 {
 	this->states.pop_front();

@@ -47,10 +47,10 @@ int main(int argc, char **argv) {
 
     if (argc < MIN_ARGS)
     {
-        default_behaviour();
+        //default_behaviour();
         
-		//print_usage();
-		//exit(ERROR_NOT_ENOUGH_ARGS);
+		print_usage();
+		exit(ERROR_NOT_ENOUGH_ARGS);
 		
 	}
     
@@ -107,18 +107,21 @@ int main(int argc, char **argv) {
 		
 		// Instancition du Lexer -> A changer de place possiblement
 		Lexer lexer(file_path);
-		
+		 suis 
 		//lexer.getStringVector();
 		
 		Symbol* symbol;		
-		
+
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
 			symbol = lexer.getSymbol();
 			
 			// Ajouter le symbole à la pile des symboles
-			// Truc du genre à implémenter : Automaton.pushSymbol(symbol);
-			// 
+			/*
+			Automaton::instance().pushSymbol(symbol);
+			std::cout << "SymbolType : " << symbol->getType() << std::endl;
+			std::cout << lexer.getStringVector()[0] << std::endl;
+			* */
 
 		} while(symbol->getType() != DOLLAR);
 		
