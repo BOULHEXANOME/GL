@@ -107,7 +107,6 @@ int main(int argc, char **argv) {
 		
 		// Instancition du Lexer -> A changer de place possiblement
 		Lexer lexer(file_path);
-		 suis 
 		//lexer.getStringVector();
 		
 		Symbol* symbol;		
@@ -117,11 +116,10 @@ int main(int argc, char **argv) {
 			symbol = lexer.getSymbol();
 			
 			// Ajouter le symbole à la pile des symboles
-			/*
+			
 			Automaton::instance().pushSymbol(symbol);
-			std::cout << "SymbolType : " << symbol->getType() << std::endl;
-			std::cout << lexer.getStringVector()[0] << std::endl;
-			* */
+			//std::cout << "SymbolType : " << symbol->getType() << std::endl;
+			//std::cout << lexer.getStringVector()[0] << std::endl;
 
 		} while(symbol->getType() != DOLLAR);
 		
