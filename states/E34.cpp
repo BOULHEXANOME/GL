@@ -10,6 +10,7 @@ bool E34::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	automaton->programFromLexer.push_front(semicolon);
     automaton->popState(); 
     Symbol *f = new Symbol(id);
+    f->setType(F);
 	(*automaton->states.begin())->transition(automaton,f);
 	return true;
 }

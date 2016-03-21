@@ -1,8 +1,8 @@
 #include "E3.h"
-/*#include "E11.h"
-#include "E6.h"
 #include "E9.h"
 #include "E41.h"
+/*#include "E11.h"
+#include "E6.h"
 
 bool transitionId(Automaton * automaton, Symbol * s) {
 	automaton->pushState(s, new E11());
@@ -14,19 +14,19 @@ bool transitionRead(Automaton * automaton, Symbol * s) {
 	return true;
 }
 
-bool transitionWrite(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E9());
+*/
+bool E3::transitionI_Prime(Automaton * automaton, Symbol * iprime) {
+	automaton->pushState(iprime, new E41());
 	return true;
 }
 
-bool transitionI_Prime(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E41());
-	return true;
-}*/
-
 bool E3::transitionDollar(Automaton * automaton, Symbol * dollar) {
 	automaton->accept();
+	return true;
+}
 
+bool E3::transitionWrite(Automaton * automaton, Symbol * write) {
+	automaton->pushState(write, new E9());
 	return true;
 }
 
