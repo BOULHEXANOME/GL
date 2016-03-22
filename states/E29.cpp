@@ -18,3 +18,53 @@ bool E29::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     (*automaton->states.begin())->transition(automaton, t);
     return true;
 }
+
+bool E29::transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis)
+{
+    Symbol * t = automaton->popSymbol();
+    t->setType(E);
+    automaton->programFromLexer.push_front(closeParenthesis);
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, t);
+    return true;
+}
+
+bool E29::transitionPlus(Automaton * automaton, Symbol * plus)
+{
+    Symbol * t = automaton->popSymbol();
+    t->setType(E);
+    automaton->programFromLexer.push_front(plus);
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, t);
+    return true;
+}
+
+bool E29::transitionMinus(Automaton * automaton, Symbol * minus)
+{
+    Symbol * t = automaton->popSymbol();
+    t->setType(E);
+    automaton->programFromLexer.push_front(minus);
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, t);
+    return true;
+}
+
+bool E29::transitionDivide(Automaton * automaton, Symbol * divide)
+{
+    Symbol * t = automaton->popSymbol();
+    t->setType(E);
+    automaton->programFromLexer.push_front(divide);
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, t);
+    return true;
+}
+
+bool E29::transitionMultiply(Automaton * automaton, Symbol * multiply)
+{
+    Symbol * t = automaton->popSymbol();
+    t->setType(E);
+    automaton->programFromLexer.push_front(multiply);
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, t);
+    return true;
+}
