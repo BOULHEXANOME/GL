@@ -4,3 +4,8 @@
 
 #include "ConstTerminal.h"
 
+ConstTerminal::ConstTerminal()
+{
+	symbolType = CONST;
+}
+

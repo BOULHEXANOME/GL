@@ -12,7 +12,7 @@ class AffectInstructTerminal : public Symbol
 {
 
 public:
-    AffectInstructTerminal() { }
+    AffectInstructTerminal();
 };
 
 

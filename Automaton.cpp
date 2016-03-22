@@ -286,6 +286,103 @@ void Automaton::testStates2()
 	e0->transition(this, sym);
 }
 
+
+void Automaton::testStates4()
+{
+	//var i;
+	VarTerminal* varTerminal = new VarTerminal();
+	varTerminal->setType(VAR);
+    IdTerminal* idTerminal = new IdTerminal("i");
+	idTerminal->setType(ID);
+    Semicolon* semicolon = new Semicolon();
+	semicolon->setType(SEMICOLON);
+
+	//var j;
+	VarTerminal* varTerminal2 = new VarTerminal();
+	varTerminal2->setType(VAR);
+    IdTerminal* idTerminal2 = new IdTerminal("j");
+	idTerminal2->setType(ID);
+    Semicolon* semicolon2 = new Semicolon();
+	semicolon2->setType(SEMICOLON);
+	
+	//i := 3;
+    IdTerminal* idTerminal3 = new IdTerminal("i");
+	idTerminal3->setType(ID);
+	AffectInstructTerminal* affectInstruct = new AffectInstructTerminal();
+	affectInstruct->setType(AFFECTINSTRUCT);
+    Number* numberToAffect = new Number(3);
+    numberToAffect->setType(VAL);
+    Semicolon* semicolon3 = new Semicolon();
+	semicolon3->setType(SEMICOLON);
+    
+    //i := j;
+    IdTerminal* idTerminal4 = new IdTerminal("j");
+	idTerminal4->setType(ID);
+	AffectInstructTerminal* affectInstruct2 = new AffectInstructTerminal();
+	affectInstruct2->setType(AFFECTINSTRUCT);
+    IdTerminal* idTerminal7 = new IdTerminal("i");
+	idTerminal7->setType(ID);
+    Semicolon* semicolon4 = new Semicolon();
+	semicolon4->setType(SEMICOLON);
+    
+	//ecrire i;	
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
+    IdTerminal* idTerminal5 = new IdTerminal("i");
+	idTerminal5->setType(ID);
+    Semicolon* semicolon5 = new Semicolon();
+	semicolon5->setType(SEMICOLON);
+	
+	//ecrire j;	
+    WriteTerminal* writeTerm2 = new WriteTerminal();
+    writeTerm2->setType(WRITE);
+    IdTerminal* idTerminal6 = new IdTerminal("j");
+	idTerminal6->setType(ID);
+    Semicolon* semicolon6 = new Semicolon();
+	semicolon6->setType(SEMICOLON);
+   
+    //Fin de programme
+    Dollar* dollar = new Dollar();
+    dollar->setType(DOLLAR);
+    
+    this->programFromLexer.push_front(dollar);
+  
+    this->programFromLexer.push_front(semicolon6);
+    this->programFromLexer.push_front(idTerminal6);
+    this->programFromLexer.push_front(writeTerm2);
+    
+    this->programFromLexer.push_front(semicolon5);
+    this->programFromLexer.push_front(idTerminal5);
+    this->programFromLexer.push_front(writeTerm);
+    
+    this->programFromLexer.push_front(semicolon4);
+    this->programFromLexer.push_front(idTerminal7);
+    this->programFromLexer.push_front(affectInstruct2);
+    this->programFromLexer.push_front(idTerminal4);
+    
+    this->programFromLexer.push_front(semicolon3);
+    this->programFromLexer.push_front(numberToAffect);
+    this->programFromLexer.push_front(affectInstruct);
+    this->programFromLexer.push_front(idTerminal3);
+    
+    this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(idTerminal2);
+    this->programFromLexer.push_front(varTerminal2);
+    
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(varTerminal);	
+    
+    Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
+	
+	DefaultState * e0 = new E0();
+	this->states.push_front(e0);
+
+	e0->transition(this, sym);
+}
+
+
 void Automaton::testStates()
 {
 	//var i;

@@ -12,7 +12,7 @@ class Comma : public Symbol
 {
 
 public:
-    Comma() { }
+    Comma();
 };
 
 

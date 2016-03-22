@@ -16,7 +16,7 @@ private:
 private:
 
 public:
-    SyntaxError(const std::string &theWrongSymbol) : theWrongSymbol(theWrongSymbol) { }
+    SyntaxError(const std::string &theWrongSymbol);
     SyntaxError() { }
 
 

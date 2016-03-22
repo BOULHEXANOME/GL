@@ -3,3 +3,8 @@
 //
 
 #include "AffectDeclareTerminal.h"
+
+AffectDeclareTerminal::AffectDeclareTerminal()
+{
+	symbolType = AFFECTDECLARE;
+}

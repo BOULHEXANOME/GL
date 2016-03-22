@@ -12,9 +12,8 @@ class E14 : public DefaultState
 		bool transitionF(Automaton * automaton, Symbol * s);
 		bool transitionT(Automaton * automaton, Symbol * s);
 		bool transitionE(Automaton * automaton, Symbol * s);
-		/*
 		bool transitionId(Automaton * automaton, Symbol * s);
-		bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);*/
+		//bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
 };
 
 #endif

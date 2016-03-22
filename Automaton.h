@@ -127,6 +127,7 @@ public:
     
     void testStates();
     void testStates2();
+    void testStates4();
     void testStates3();
 
     /*

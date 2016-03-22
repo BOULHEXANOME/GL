@@ -37,6 +37,21 @@ bool E40::transitionId(Automaton *automaton, Symbol *id)
     return true;
 }
 
+
+bool E40::transitionVar(Automaton *automaton, Symbol *var)
+{
+	Symbol * semicolon = automaton->popSymbol();
+    Symbol * dPrime = automaton->popSymbol();
+    Symbol * d = automaton->popSymbol();
+    d->setType(D);
+    automaton->programFromLexer.push_front(var);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, d);
+    return true;
+}
+
 bool E40::transitionRead(Automaton *automaton, Symbol *read)
 {
     Symbol * semicolon = automaton->popSymbol();

@@ -113,17 +113,16 @@ int main(int argc, char **argv) {
 
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
+			// Recupère le symbole suivant auprès du Lexer
 			symbol = lexer.getSymbol();
 			
+			//std::cout << "Symbole à pusher : " << symbol->getType() << std::endl;
+			//std::cout << "Ligne : " << symbol->getLineWhereSymbolOccurs() << std::endl;
+			//std::cout << "Colonne : " << symbol->getColumnWhereSymbolOccurs() << std::endl;
+			
 			// Ajouter le symbole à la pile des symboles
-			
 			Automaton::instance().pushSymbol(symbol);
-			//std::cout << "SymbolType : " << symbol->getType() << std::endl;
-			//std::cout << lexer.getStringVector()[0] << std::endl;
-			
-			std::cout << symbol->getType() << std::endl;
-			std::cout << DOLLAR << std::endl;
-			
+						
 		} while(symbol->getType() != DOLLAR);
 		
 	}
@@ -155,7 +154,9 @@ void defaultBehaviour()
 {
 //    Automaton::instance().createSomeLines();
 //    Automaton::instance().printCode();
-    Automaton::instance().testLire();
+//    Automaton::instance().testStates();
+    Automaton::instance().testStates4();
+    //Automaton::instance().testLire();
     Automaton::instance().execute();
 
 }

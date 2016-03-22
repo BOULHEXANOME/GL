@@ -12,7 +12,7 @@ class MultiplyTerminal : public Symbol
 {
 
 public:
-    MultiplyTerminal() { }
+    MultiplyTerminal();
 };
 
 

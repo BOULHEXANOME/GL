@@ -16,6 +16,7 @@ public:
     virtual bool transitionRead(Automaton * a, Symbol * s);
     virtual bool transitionWrite(Automaton * a, Symbol * s);
     virtual bool transitionId(Automaton * a, Symbol * s);
+    virtual bool transitionVar(Automaton * a, Symbol * s);
     virtual bool transitionConst(Automaton * a, Symbol * s);
 };
 

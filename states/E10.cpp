@@ -12,7 +12,7 @@ bool E10::transitionComma(Automaton * automaton, Symbol * comma) {
 bool E10::transitionSemicolon(Automaton * automaton, Symbol * s)
 {
 	Symbol * id = automaton->popSymbol();
-	/*Symbol * var = */automaton->popSymbol();
+	automaton->popSymbol();
 
     IdTerminal * variableToDeclare = (IdTerminal*) (id);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
