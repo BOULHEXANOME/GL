@@ -129,6 +129,8 @@ public:
     void testStates2();
     void testStates4();
     void testStates3();
+    void testStates5();
+    void testStates6();
 
     /*
      * Method test "lire"

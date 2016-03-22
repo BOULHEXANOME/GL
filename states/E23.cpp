@@ -1,4 +1,7 @@
 #include "E23.h"
+#include "E38.h"
+#include "E39.h"
+#include "E21.h"
 #include "../Symbols/Nonterminaux/AffectInstruct.h"
 #include "../Symbols/Nonterminaux/Expression.h"
 #include "../Symbols/Terminaux/IdTerminal.h"
@@ -32,20 +35,20 @@ bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	return true;
 }
 
-/*
-bool transitionOpA(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E21());
+
+bool transitionOpA(Automaton * automaton, Symbol * opa) {
+	automaton->pushState(opa, new E21());
 	return true;
 }
 
-bool transitionPlus(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E38());
+
+bool E23::transitionPlus(Automaton * automaton, Symbol * plus) {
+	automaton->pushState(plus, new E38());
 	return true;
 }
 
-bool transitionMinus(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E39());
+bool E23::transitionMinus(Automaton * automaton, Symbol * minus) {
+	automaton->pushState(minus, new E39());
 	return true;
 }
 
-*/

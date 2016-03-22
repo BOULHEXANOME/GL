@@ -13,8 +13,12 @@ class E35 : public DefaultState
 public:
     E35();
     ~E35(){};
-    // FIXME transitions
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
+    virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
+    virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
+    virtual bool transitionDivide(Automaton * automaton, Symbol * divide);
+    virtual bool transitionMultiply(Automaton * automaton, Symbol * multiply);
 };
 
 

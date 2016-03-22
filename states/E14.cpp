@@ -4,6 +4,7 @@
 #include "E23.h"
 #include "E29.h"
 #include "E34.h"
+#include "E36.h"
 
 E14::E14()
 {
@@ -42,12 +43,10 @@ bool transitionId(Automaton * automaton, Symbol * s){
 	automaton->pushState(s, E34());
 	return true;
 }
+*/
 
-
-bool transitionOpenParenthesis(Automaton * automaton, Symbol * s){
-	automaton->pushState(s, E36());
+bool E14::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis){
+	automaton->pushState(openParenthesis, new E36());
 	return true;
 }
 
-
-*/
