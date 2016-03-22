@@ -156,7 +156,7 @@ void defaultBehaviour()
 //    Automaton::instance().createSomeLines();
 //    Automaton::instance().printCode();
 //    Automaton::instance().testStates();
-    Automaton::instance().testStates2();
+    Automaton::instance().testStates3();
     Automaton::instance().execute();
 
 }

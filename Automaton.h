@@ -127,6 +127,7 @@ public:
     
     void testStates();
     void testStates2();
+    void testStates3();
 
     /*
      * Method used to print the code in memory

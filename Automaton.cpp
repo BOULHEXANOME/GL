@@ -27,6 +27,7 @@
 #include "Symbols/Nonterminaux/Read.h"
 #include "Symbols/Terminaux/Semicolon.h"
 #include "Symbols/Terminaux/Dollar.h"
+#include "Symbols/Terminaux/Coma.h"
 #include "states/E0.h"
 #include "Symbols/Terminaux/WriteTerminal.h"
 
@@ -151,6 +152,67 @@ void Automaton::createSomeLines()
     this->programLines.push_back(writeVar);
 }
 
+void Automaton::testStates3()
+{
+	//var i,j;
+	VarTerminal* varTerminal = new VarTerminal();
+	varTerminal->setType(VAR);
+    IdTerminal* idTerminal = new IdTerminal("i");
+	idTerminal->setType(ID);
+    Coma* comma = new Coma();
+	comma->setType(COMMA);
+    IdTerminal* idTerminal4 = new IdTerminal("j");
+	idTerminal4->setType(ID);
+    Semicolon* semicolon = new Semicolon();
+	semicolon->setType(SEMICOLON);
+	
+	//i := 3;
+    IdTerminal* idTerminal2 = new IdTerminal("j");
+	idTerminal2->setType(ID);
+	AffectInstructTerminal* affectInstruct = new AffectInstructTerminal();
+	affectInstruct->setType(AFFECTINSTRUCT);
+    Number* numberToAffect = new Number(4);
+    numberToAffect->setType(VAL);
+    Semicolon* semicolon2 = new Semicolon();
+	semicolon2->setType(SEMICOLON);
+    
+	//ecrire i;	
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
+    IdTerminal* idTerminal3 = new IdTerminal("j");
+	idTerminal3->setType(ID);
+    Semicolon* semicolon3 = new Semicolon();
+	semicolon3->setType(SEMICOLON);
+    
+    //Fin de programme
+    Dollar* dollar = new Dollar();
+    dollar->setType(DOLLAR);
+    
+    this->programFromLexer.push_front(dollar);
+    
+    this->programFromLexer.push_front(semicolon3);
+    this->programFromLexer.push_front(idTerminal3);
+    this->programFromLexer.push_front(writeTerm);
+    
+    this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(numberToAffect);
+    this->programFromLexer.push_front(affectInstruct);
+    this->programFromLexer.push_front(idTerminal2);
+    
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(idTerminal4);
+    this->programFromLexer.push_front(comma);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(varTerminal);
+    
+    Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
+	
+	DefaultState * e0 = new E0();
+	this->states.push_front(e0);
+
+	e0->transition(this, sym);
+}
 
 void Automaton::testStates2()
 {
