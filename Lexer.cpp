@@ -7,23 +7,7 @@
 
 #include "Symbols/Terminaux/AffectDeclareTerminal.h"
 #include "Symbols/Terminaux/AffectInstructTerminal.h"
-#include "Symbols/Terminaux/Coma.h"
-#include "Symbols/Terminaux/ConstTerminal.h"
-#include "Symbols/Terminaux/DivideTerminal.h"
-#include "Symbols/Terminaux/Dollar.h"
-#include "Symbols/Terminaux/IdTerminal.h"
-#include "Symbols/Terminaux/MinusTerminal.h"
-#include "Symbols/Terminaux/MultiplyTerminal.h"
-#include "Symbols/Terminaux/ParenthesisTerminal.h"
-#include "Symbols/Terminaux/PlusTerminal.h"
-#include "Symbols/Terminaux/ReadTerminal.h"
-#include "Symbols/Terminaux/Semicolon.h"
-#include "Symbols/Terminaux/SyntaxError.h"
-#include "Symbols/Terminaux/VarTerminal.h"
-#include "Symbols/Terminaux/WriteTerminal.h"
-#include "Symbols/Terminaux/AffectDeclareTerminal.h"
-#include "Symbols/Terminaux/AffectInstructTerminal.h"
-#include "Symbols/Terminaux/Coma.h"
+#include "Symbols/Terminaux/Comma.h"
 #include "Symbols/Terminaux/ConstTerminal.h"
 #include "Symbols/Terminaux/DivideTerminal.h"
 #include "Symbols/Terminaux/Dollar.h"
@@ -45,7 +29,7 @@
 static std::pair<int, boost::regex> regexesList[] = {
     std::make_pair(AFFECTINSTRUCT, boost::regex("\\A(:=)")),                               // AffectInstructTerminal
     std::make_pair(SEMICOLON,  boost::regex("\\A(;)")),                                    // Semicolon
-    std::make_pair(COMMA,  boost::regex("\\A(,)")),                                        // Coma
+    std::make_pair(COMMA,  boost::regex("\\A(,)")),                                        // Comma
     std::make_pair(AFFECTDECLARE,  boost::regex("\\A(=)")),                                // AffectDeclareTerminal
     std::make_pair(PLUS, boost::regex("\\A(\\+)")),                              		   // PlusTerminal
     std::make_pair(MINUS, boost::regex("\\A(-)")),                                         // MinusTerminal
@@ -150,7 +134,7 @@ Symbol* Lexer::getSymbol() {
 				currentSymbol = new ConstTerminal();
 				break;
 			case COMMA:
-				currentSymbol = new Coma();
+				currentSymbol = new Comma();
 				break;	                                                                         
             case SEMICOLON:	
                 currentSymbol = new Semicolon();

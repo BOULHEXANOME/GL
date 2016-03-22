@@ -128,6 +128,12 @@ public:
     void testStates();
     void testStates2();
     void testStates4();
+    void testStates3();
+
+    /*
+     * Method test "lire"
+     */
+    void testLire();
 
     /*
      * Method used to print the code in memory
@@ -176,22 +182,19 @@ public:
      */
     void clearTables();
 
-    /*
-     * Method singleton
-     */
      
     /*
-     * Method
+     * Methods managing states and symbols
      */
     void pushState(Symbol * s, DefaultState * e);
     void pushSymbol(Symbol * s);
     Symbol* popSymbol();
     void popState();
     void accept();
-    
+
     /*
-     * 
-     */ 
+     * Method singleton
+     */
     static Automaton & instance()
     {
         static Automaton automatonInstance;

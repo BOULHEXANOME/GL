@@ -2,13 +2,12 @@
 #include "../Symbols/Terminaux/IdTerminal.h"
 #include "../Symbols/Nonterminaux/Variable.h"
 #include "../Symbols/Nonterminaux/AffectVarDeclare.h"
+#include "E17.h"
 
-/*#include "E17.h"
-
-bool E10::transitionComma(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E17());
+bool E10::transitionComma(Automaton * automaton, Symbol * comma) {
+	automaton->pushState(comma, new E17());
 	return true;
-}*/
+}
 
 bool E10::transitionSemicolon(Automaton * automaton, Symbol * s)
 {

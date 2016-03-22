@@ -13,9 +13,11 @@ class E40 : public DefaultState
 public:
     E40();
     ~E40(){};
+    virtual bool transitionRead(Automaton * a, Symbol * s);
     virtual bool transitionWrite(Automaton * a, Symbol * s);
     virtual bool transitionId(Automaton * a, Symbol * s);
     virtual bool transitionVar(Automaton * a, Symbol * s);
+    virtual bool transitionConst(Automaton * a, Symbol * s);
 };
 
 
