@@ -1,7 +1,7 @@
 #include "E20.h"
 #include "../Symbols/Terminaux/IdTerminal.h"
 #include "../Symbols/Nonterminaux/Variable.h"
-#include "../Symbols/Nonterminaux/AffectVarDeclare.h"
+#include "../Symbols/Nonterminaux/VarDeclare.h"
 
 bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
 {
@@ -14,7 +14,7 @@ bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
 	
 	IdTerminal * variableToDeclare = (IdTerminal*) (grosID);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
-    AffectVarDeclare * actionDeclareVariable = new AffectVarDeclare(varDeclared);
+    VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
@@ -25,6 +25,7 @@ bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
 	(*automaton->states.begin())->transition(automaton, id);
 	return true;
 }
+
 bool E20::transitionComma(Automaton * automaton, Symbol * comma)
 {
 	Symbol * id = automaton->popSymbol();
@@ -37,7 +38,7 @@ bool E20::transitionComma(Automaton * automaton, Symbol * comma)
 	
 	IdTerminal * variableToDeclare = (IdTerminal*) (grosID);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
-    AffectVarDeclare * actionDeclareVariable = new AffectVarDeclare(varDeclared);
+    VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);

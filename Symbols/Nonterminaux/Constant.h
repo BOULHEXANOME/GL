@@ -6,24 +6,32 @@
 #define GL_CONSTANT_H
 
 
-#include "StockageUnit.h"
 #include "../../exceptions.h"
+#include "../Symbol.h"
+#include "Expression.h"
 
-class Constant : public StockageUnit
+class Constant : public Expression
 {
+private:
+    std::string theName;
 public:
-    Constant(std::string theName/*, int theValue*/) : StockageUnit(theName/*, theValue*/) { }
+    Constant(std::string theName) : theName(theName) { }
+
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    /*virtual void setTheValue(int theValue)
-    {
-        throw TRYING_TO_MODIFY_CONST;
-    }*/
-    virtual int execute() const;
+    const std::string &getTheName() const {
+        return theName;
+    }
+
+    void setTheName(const std::string &theName) {
+        Constant::theName = theName;
+    }
     /***********************/
     /* End Getters/Setters */
     /***********************/
+
+    virtual int execute() const;
 };
 
 

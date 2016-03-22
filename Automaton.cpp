@@ -8,7 +8,7 @@
 #include "Symbols/Nonterminaux/Number.h"
 #include "Symbols/Nonterminaux/PlusExpression.h"
 #include "Symbols/Nonterminaux/MultiplyExpression.h"
-#include "Symbols/Nonterminaux/AffectVarDeclare.h"
+#include "Symbols/Nonterminaux/VarDeclare.h"
 #include "Symbols/Terminaux/VarTerminal.h"
 #include "Symbols/Terminaux/IdTerminal.h"
 #include "Symbols/Terminaux/AffectDeclareTerminal.h"
@@ -49,7 +49,7 @@ void Automaton::createAndDeleteSomeLines()
     Line declaractionAfter = Line(Type::declaration);
     Variable *declarationVar = new Variable("myVar");
     // Number toAffect = Number(10); // already set
-    AffectVarDeclare * declarationAction = new AffectVarDeclare(declarationVar, toAffect);
+    VarDeclare * declarationAction = new VarDeclare(declarationVar);
     declaractionAfter.addSymbol(declarationAction);
 
     // create Line corresponding to :
@@ -106,7 +106,7 @@ void Automaton::createSomeLines()
     var theVarDeclared;
     theVarDeclared.isIntancied = false;
     Number *toAffect = new Number(10);
-    AffectVarDeclare * declarationAction = new AffectVarDeclare(declarationVar, toAffect);
+    VarDeclare * declarationAction = new VarDeclare(declarationVar);
     declaractionAfter.addSymbol(declarationAction);
 
     // const myConst=5;
@@ -136,7 +136,7 @@ void Automaton::createSomeLines()
 
     // write myVar;
     Line writeVar = Line(Type::instruction);
-    Write *writeAction = new Write(new StockageUnit("myVar"));
+    Write *writeAction = new Write(new Variable("myVar"));
     writeVar.addSymbol(writeAction);
 
     // read myVar;
@@ -396,7 +396,14 @@ bool Automaton::affectVariable(std::string theName, int theValue)
     }
     else
     {
-        std::cerr << "Error affecting value to variable : variable has not been declared." << std::endl;
+        if(theConstants.find(theName) != theConstants.end())
+        {
+            std::cerr << "Error : cannot affect variable to a constant." << std::endl;
+        }
+        else
+        {
+            std::cerr << "Error affecting value to variable : variable has not been declared." << std::endl;
+        }
         return false;
     }
 }

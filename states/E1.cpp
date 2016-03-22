@@ -6,6 +6,7 @@
 #include "E3.h"
 #include "E11.h"
 #include "E6.h"
+#include "E7.h"
 
 //TODO decommenter (sans oublier le .h et E2 et E3)
 /*#include "E3.h"
@@ -69,5 +70,11 @@ bool E1::transitionI(Automaton *automaton, Symbol *i)
 bool E1::transitionRead(Automaton *automaton, Symbol *readS)
 {
     automaton->pushState(readS, new E6());
+    return true;
+}
+
+bool E1::transitionConst(Automaton *automaton, Symbol *constS)
+{
+    automaton->pushState(constS, new E7());
     return true;
 }

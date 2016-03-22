@@ -1,7 +1,7 @@
 #include "E10.h"
 #include "../Symbols/Terminaux/IdTerminal.h"
 #include "../Symbols/Nonterminaux/Variable.h"
-#include "../Symbols/Nonterminaux/AffectVarDeclare.h"
+#include "../Symbols/Nonterminaux/VarDeclare.h"
 #include "E17.h"
 
 bool E10::transitionComma(Automaton * automaton, Symbol * comma) {
@@ -16,7 +16,7 @@ bool E10::transitionSemicolon(Automaton * automaton, Symbol * s)
 
     IdTerminal * variableToDeclare = (IdTerminal*) (id);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
-    AffectVarDeclare * actionDeclareVariable = new AffectVarDeclare(varDeclared);
+    VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);

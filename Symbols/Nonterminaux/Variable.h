@@ -6,24 +6,25 @@
 #define GL_VARIABLE_H
 
 
-#include "StockageUnit.h"
 #include <string>
+#include "../Symbol.h"
+#include "Expression.h"
 
-class Variable : public StockageUnit
+class Variable : public Expression
 {
+private:
+    std::string theName;
 public:
-    Variable(std::string theName/*, int theValue=0*/) : StockageUnit(theName/*, theValue*/) { }
-    /***********************/
-    /*** Getters/Setters ***/
-    /***********************/
-/*    virtual void setTheValue(int theValue)
-    {
-        StockageUnit::theValue = theValue;
-    }*/
+    Variable(std::string theName) : theName(theName) { }
     virtual int execute() const;
-    /***********************/
-    /* End Getters/Setters */
-    /***********************/
+
+    const std::string &getTheName() const {
+        return theName;
+    }
+
+    void setTheName(const std::string &theName) {
+        Variable::theName = theName;
+    }
 };
 
 
