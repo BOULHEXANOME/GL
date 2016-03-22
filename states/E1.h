@@ -8,7 +8,7 @@ class E1 : public DefaultState
 public:
 	E1();
 	~E1(){};
-	//virtual bool transitionRead(Automaton * automaton, Symbol * s);
+	virtual bool transitionRead(Automaton * automaton, Symbol * s);
 	virtual bool transitionWrite(Automaton * automaton, Symbol * s);
 	virtual bool transitionId(Automaton * automaton, Symbol * s);
 	//virtual bool transitionConst(Automaton * automaton, Symbol * s);
