@@ -27,7 +27,7 @@
 #include "Symbols/Nonterminaux/Read.h"
 #include "Symbols/Terminaux/Semicolon.h"
 #include "Symbols/Terminaux/Dollar.h"
-#include "Symbols/Terminaux/Coma.h"
+#include "Symbols/Terminaux/Comma.h"
 #include "states/E0.h"
 #include "Symbols/Terminaux/WriteTerminal.h"
 
@@ -159,7 +159,7 @@ void Automaton::testStates3()
 	varTerminal->setType(VAR);
     IdTerminal* idTerminal = new IdTerminal("i");
 	idTerminal->setType(ID);
-    Coma* comma = new Coma();
+    Comma* comma = new Comma();
 	comma->setType(COMMA);
     IdTerminal* idTerminal4 = new IdTerminal("j");
 	idTerminal4->setType(ID);
