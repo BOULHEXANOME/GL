@@ -3,6 +3,8 @@
 #include <getopt.h>
 #include <string.h>
 #include "Automaton.h"
+#include "Lexer.h"
+#include "Symbols/Symbol.h"
 
 #define MIN_ARGS 2
 #define MAX_ARGS 5
@@ -46,10 +48,9 @@ int main(int argc, char **argv) {
     if (argc < MIN_ARGS)
     {
         defaultBehaviour();
-        /*
-		print_usage();
-		exit(ERROR_NOT_ENOUGH_ARGS);
-		 */
+        
+		//print_usage();
+		//exit(ERROR_NOT_ENOUGH_ARGS);
 	}
     
 	if (argc > MAX_ARGS)
@@ -58,6 +59,7 @@ int main(int argc, char **argv) {
 		exit(ERROR_TOO_MANY_ARGS);
 	}
 	
+	// Filepath est le dernier argument
 	file_path = argv[argc-1];
     
     int opt,a,b,c;
@@ -100,6 +102,25 @@ int main(int argc, char **argv) {
     {
 		cerr << "Erreur a l'ouverture du fichier " << file_path << endl;
 		exit(ERROR_BAD_INPUT);
+	} else {
+		
+		// Instancition du Lexer -> A changer de place possiblement
+		Lexer lexer(file_path);
+		
+		//lexer.getStringVector();
+		
+		Symbol* symbol;		
+		
+		// Parcourt le fichier et ajoute les symboles à la pile
+		do {
+			symbol = lexer.getSymbol();
+			
+			// Ajouter le symbole à la pile des symboles
+			// Truc du genre à implémenter : Automaton.pushSymbol(symbol);
+			// 
+
+		} while(symbol->getType() != DOLLAR);
+		
 	}
 
 	if(opt_analyse)

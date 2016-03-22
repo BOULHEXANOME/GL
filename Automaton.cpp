@@ -328,3 +328,15 @@ void Automaton::accept()
 {
 	std::cout << "Youpi, ca marche !" << std::endl;
 }
+/*
+void Automaton::printError(Symbol* problematicSymbol) {
+	
+	std::vector<std::String> stringsOfTheFile = lexer.getStringVector();
+	std::cout << "Error : invalid symbol at line " << problematicSymbol->getLineWhereSymbolOccurs() << ", column " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
+	std::cout << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs()] << std::endl;
+	for (int i=0; i< problematicSymbol->getColumnWhereSymbolOccurs(); i++) {
+		std::cout << " ";
+	}
+	std::cout << "^" << std::endl;
+	
+} */
