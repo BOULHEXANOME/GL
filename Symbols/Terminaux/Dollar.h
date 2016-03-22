@@ -12,7 +12,7 @@ class Dollar : public Symbol
 {
 
 public:
-    Dollar() { }
+    Dollar();
 };
 
 

@@ -5,8 +5,8 @@
 bool E15::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	Symbol * id = automaton->popSymbol();
 	// Symbol * id2 =  new Symbol(s1);
+	
     id->setType(ID_LIST);
-
 	automaton->programFromLexer.push_front(semicolon);
 	automaton->popState();
 	(*automaton->states.begin())->transition(automaton, id);

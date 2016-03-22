@@ -126,6 +126,7 @@ public:
     void createSomeLines();
     
     void testStates();
+    void testStates2();
 
     /*
      * Method used to print the code in memory
@@ -182,6 +183,7 @@ public:
      * Method
      */
     void pushState(Symbol * s, DefaultState * e);
+    void pushSymbol(Symbol * s);
     Symbol* popSymbol();
     void popState();
     void accept();

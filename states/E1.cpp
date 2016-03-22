@@ -4,6 +4,7 @@
 #include "E9.h"
 #include "E5.h"
 #include "E3.h"
+#include "E11.h"
 
 //TODO decommenter (sans oublier le .h et E2 et E3)
 /*#include "E3.h"
@@ -11,39 +12,14 @@
 #include "E5.h"
 #include "E6.h"
 #include "E7.h"
-#include "E11.h"
 #include "E9.h"*/
 
 /*
-bool E1::transitionI(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E3());
-	return true;
-}
-
-bool E1::transitionD_Prime(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E4());
-	return true;
-}
-
-bool E1::transitionI_Prime(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E5());
-	return true;
-}
-
 bool E1::transitionRead(Automaton * automaton, Symbol * s) {
 	automaton->pushState(s, new E6());
 	return true;
 }
 
-bool E1::transitionWrite(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E9());
-	return true;
-}
-
-bool E1::transitionId(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E11());
-	return true;
-}
 
 bool E1::transitionConst(Automaton * automaton, Symbol * s) {
 	automaton->pushState(s, new E7());
@@ -52,6 +28,11 @@ bool E1::transitionConst(Automaton * automaton, Symbol * s) {
 
 bool E1::transitionVar(Automaton * automaton, Symbol * var) {
 	automaton->pushState(var, new E2());
+	return true;
+}
+
+bool E1::transitionId(Automaton * automaton, Symbol * s) {
+	automaton->pushState(s, new E11());
 	return true;
 }
 

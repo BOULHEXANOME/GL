@@ -16,6 +16,7 @@ bool E18::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     Symbol * write = automaton->popSymbol();
 
     Write* writeInstruction = new Write(e);
+    
     Line writeInstruct(Type::instruction);
     writeInstruct.addSymbol(writeInstruction);
     automaton->addProgramLine(writeInstruct);

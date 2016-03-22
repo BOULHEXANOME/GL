@@ -4,3 +4,7 @@
 
 #include "Dollar.h"
 
+Dollar::Dollar()
+{
+	symbolType = DOLLAR;
+}

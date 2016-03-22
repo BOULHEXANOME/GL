@@ -3,3 +3,10 @@
 //
 
 #include "Expression.h"
+
+int Expression::execute() const
+{
+	
+    std::cerr <<"Error, cannot execute Expression."<<std::endl;
+	return 0;
+}

@@ -10,7 +10,8 @@
 
 class Expression : public Symbol
 {
-
+public:
+		virtual int execute() const;
 };
 
 

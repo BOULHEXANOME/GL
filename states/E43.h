@@ -14,6 +14,7 @@ public:
     E43();
     ~E43(){};
     virtual bool transitionDollar(Automaton * automaton, Symbol * dollar);
+    virtual bool transitionWrite(Automaton * automaton, Symbol * write);
 };
 
 
