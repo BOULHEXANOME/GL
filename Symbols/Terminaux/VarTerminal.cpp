@@ -4,3 +4,7 @@
 
 #include "VarTerminal.h"
 
+VarTerminal::VarTerminal()
+{
+	symbolType = VAR;
+}

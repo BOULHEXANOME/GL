@@ -62,7 +62,7 @@ Lexer::Lexer(std::string path) {
   //std::cout << "Contenu du fichier lu : " << std::endl << fileContentStr << std::endl << std::endl;
 
   currentLine = 1;
-  currentPosition = 1;
+  currentPosition = 0;
 }
 
 Symbol* Lexer::getSymbol() {
@@ -84,8 +84,8 @@ Symbol* Lexer::getSymbol() {
 		
 		   int symbolLength = stringResult[1].length();
 		   currentPosition += symbolLength;
-		   std::cout << "Pos dans la ligne : " << currentPosition << std::endl;
 		   
+		   //std::cout << "Pos dans la ligne : " << currentPosition << std::endl;
 		   std::cout << "RegIndex : "<< reg.first << std::endl << std::endl;
         
         // On crée le symbole associé à la regex avec un switch sur le type de symbole
@@ -156,7 +156,7 @@ Symbol* Lexer::getSymbol() {
       
       // On supprimer le symbole du StringStream pour passer au suivant
       fileContentStr.erase(0, symbolLength);
-
+      
 	// On retourne le symbole
       return currentSymbol;
     }
@@ -182,7 +182,7 @@ void Lexer::trim() {
         currentLine++;
         std::cout << "Ligne actuelle : " << currentLine << std::endl;
         // Reset le curseur au début de la ligne
-        currentPosition = 1;
+        currentPosition = 0;
       }
       else {
         currentPosition++;

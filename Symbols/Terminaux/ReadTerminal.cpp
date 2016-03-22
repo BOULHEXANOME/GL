@@ -3,3 +3,8 @@
 //
 
 #include "ReadTerminal.h"
+
+ReadTerminal::ReadTerminal()
+{
+	symbolType = READ;
+}

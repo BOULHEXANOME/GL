@@ -4,3 +4,7 @@
 
 #include "DivideTerminal.h"
 
+DivideTerminal::DivideTerminal()
+{
+	symbolType = DIVIDE;
+}

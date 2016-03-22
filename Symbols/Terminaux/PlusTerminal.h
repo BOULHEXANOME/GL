@@ -12,7 +12,7 @@ class PlusTerminal : public Symbol
 {
 
 public:
-    PlusTerminal() { }
+    PlusTerminal();
 };
 
 

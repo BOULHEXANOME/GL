@@ -4,3 +4,7 @@
 
 #include "Comma.h"
 
+Comma::Comma()
+{
+	symbolType = COMMA;
+}
