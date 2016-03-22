@@ -12,8 +12,7 @@ class Dollar : public Symbol
 {
 
 public:
-    Dollar() { }
-    virtual int getType() const;
+    Dollar();
 };
 
 

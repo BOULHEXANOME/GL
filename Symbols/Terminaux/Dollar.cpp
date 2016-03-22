@@ -4,7 +4,7 @@
 
 #include "Dollar.h"
 
-int Dollar::getType() const
+Dollar::Dollar()
 {
-    return DOLLAR;
+	symbolType = DOLLAR;
 }

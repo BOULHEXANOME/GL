@@ -120,7 +120,10 @@ int main(int argc, char **argv) {
 			Automaton::instance().pushSymbol(symbol);
 			//std::cout << "SymbolType : " << symbol->getType() << std::endl;
 			//std::cout << lexer.getStringVector()[0] << std::endl;
-
+			
+			std::cout << symbol->getType() << std::endl;
+			std::cout << DOLLAR << std::endl;
+			
 		} while(symbol->getType() != DOLLAR);
 		
 	}

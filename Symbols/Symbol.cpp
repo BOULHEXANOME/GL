@@ -8,7 +8,7 @@ int Symbol::getType() const {
     return symbolType;
 }
 */
-int Symbol::getType()
+int Symbol::getType() const
 {
 	return this->symbolType;
 }

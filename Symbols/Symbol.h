@@ -18,7 +18,7 @@ protected:
     std::list <Symbol*> symbols;
 
 public:
-    //virtual int getType() const;
+    int getType() const;
     virtual std::string print() const;
 
 	//Constructors
