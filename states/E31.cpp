@@ -18,3 +18,13 @@ bool E31::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     (*automaton->states.begin())->transition(automaton, f);
     return true;
 }
+
+bool E31::transitionCloseParenthesis(Automaton *automaton, Symbol *closeParenthesis)
+{
+    Symbol * f = automaton->popSymbol();
+    f->setType(T);
+    automaton->programFromLexer.push_front(closeParenthesis);
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, f);
+    return true;
+}

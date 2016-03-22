@@ -15,6 +15,7 @@ public:
     ~E35(){};
     // FIXME transitions
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
 };
 
 
