@@ -4,3 +4,7 @@
 
 #include "SyntaxError.h"
 
+SyntaxError::SyntaxError(const std::string &wrongSymbol)
+{
+	theWrongSymbol = wrongSymbol;
+}

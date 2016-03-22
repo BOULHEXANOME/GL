@@ -4,3 +4,7 @@
 
 #include "MinusTerminal.h"
 
+MinusTerminal::MinusTerminal()
+{
+	symbolType = MINUS;
+}

@@ -4,3 +4,7 @@
 
 #include "MultiplyTerminal.h"
 
+MultiplyTerminal::MultiplyTerminal()
+{
+	symbolType = MULTIPLY;
+}

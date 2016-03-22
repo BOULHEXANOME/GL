@@ -12,7 +12,7 @@ class WriteTerminal : public Symbol
 {
 
 public:
-    WriteTerminal() { }
+    WriteTerminal();
 };
 
 

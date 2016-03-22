@@ -4,3 +4,7 @@
 
 #include "PlusTerminal.h"
 
+PlusTerminal::PlusTerminal()
+{
+	symbolType = PLUS;
+}
