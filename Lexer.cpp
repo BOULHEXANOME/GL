@@ -25,7 +25,10 @@
 #include "Symbols/Nonterminaux/Number.h"
 
 // TODO:
-// - Vérifier le cas esp tab retour_ligne VAR esp tab retour_ligne
+// Gérer les espaces, tab et retours à la ligne indésirables - OK
+// 
+//
+
 static std::pair<int, boost::regex> regexesList[] = {
     std::make_pair(AFFECTINSTRUCT, boost::regex("\\A(:=)")),                               // AffectInstructTerminal
     std::make_pair(SEMICOLON,  boost::regex("\\A(;)")),                                    // Semicolon
@@ -69,9 +72,6 @@ Symbol* Lexer::getSymbol() {
 
 
   trim();
-  
-  // Le symbole à renvoyer
-  //Symbol* currentSymbol;
   
   // Parcourt la liste des Regex : pour chaque regex :
   for(const auto& reg: regexesList) {
@@ -159,11 +159,25 @@ Symbol* Lexer::getSymbol() {
       
 	// On retourne le symbole
       return currentSymbol;
-    }
-  }
+      
+    } // Fin if regex trouvée
+    
+    
+  } // Fin for pour toutes les Regex
   
   // Si aucun symbole n'a été identifié par la regex, on retourne un symbole inconnu
- 
+  std::string erreur(1, fileContentStr[0]);
+  currentSymbol = new SyntaxError(erreur);
+  
+  // Ligne et colonne d'occurence de l'erreur dans le fichier source
+  currentSymbol->setColumnWhereSymbolOccurs(currentPosition);
+  currentSymbol->setLineWhereSymbolOccurs(currentLine);
+  currentPosition++;
+  
+  // On supprimer l'erreur du fichier source
+  fileContentStr.erase(0, 1);
+  
+  std::cerr << "ERROR : unknown symbol : " << erreur << std::endl;
   return currentSymbol;
 
 }

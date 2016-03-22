@@ -109,7 +109,8 @@ int main(int argc, char **argv) {
 		Lexer lexer(file_path);
 		//lexer.getStringVector();
 		
-		Symbol* symbol;		
+		Symbol* symbol;
+		int i = 0;
 
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
@@ -124,6 +125,7 @@ int main(int argc, char **argv) {
 			Automaton::instance().pushSymbol(symbol);
 						
 		} while(symbol->getType() != DOLLAR);
+		
 		
 	}
 
