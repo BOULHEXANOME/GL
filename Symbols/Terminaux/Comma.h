@@ -8,11 +8,11 @@
 
 #include "../Symbol.h"
 
-class Coma : public Symbol
+class Comma : public Symbol
 {
 
 public:
-    Coma() { }
+    Comma() { }
 };
 
 
