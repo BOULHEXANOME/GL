@@ -31,7 +31,8 @@ bool E0::transitionId(Automaton * automaton, Symbol * s) {
 	return true;
 }
 
-bool E0::transitionConst(Automaton * automaton, Symbol * s) {
+bool E0::transitionConst(Automaton * automaton, Symbol * s)
+{
 	Symbol * s2 =  new Symbol();
 	s2->setType(D);
 	automaton->programFromLexer.push_front(s);

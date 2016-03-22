@@ -136,6 +136,11 @@ public:
     void testLire();
 
     /*
+     * Method test "const"
+     */
+    void testConst();
+
+    /*
      * Method used to print the code in memory
      */
     void printCode();

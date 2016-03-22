@@ -32,6 +32,7 @@ public:
     /***********************/
 
     virtual int execute() const;
+    virtual std::string print() const;
 };
 
 

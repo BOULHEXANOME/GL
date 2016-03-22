@@ -23,3 +23,7 @@ int Constant::execute() const
     }
     return 0;
 }
+
+std::string Constant::print() const {
+    return theName;
+}

@@ -31,6 +31,7 @@
 #include "states/E0.h"
 #include "Symbols/Terminaux/WriteTerminal.h"
 #include "Symbols/Terminaux/ReadTerminal.h"
+#include "Symbols/Terminaux/ConstTerminal.h"
 
 void Automaton::createAndDeleteSomeLines()
 {
@@ -234,16 +235,6 @@ void Automaton::testStates2()
     numberToAffect->setType(VAL);
     Semicolon* semicolon2 = new Semicolon();
 	semicolon2->setType(SEMICOLON);
-	/*
-	//i := i;
-    IdTerminal* idTerminal4 = new IdTerminal("i");
-	idTerminal4->setType(ID);
-	AffectInstructTerminal* affectInstruct2 = new AffectInstructTerminal();
-	affectInstruct2->setType(AFFECTINSTRUCT);
-    IdTerminal* idTerminal5 = new IdTerminal("i");
-    idTerminal5->setType(ID);
-    Semicolon* semicolon4 = new Semicolon();
-	semicolon4->setType(SEMICOLON);*/
     
 	//ecrire i;	
     WriteTerminal* writeTerm = new WriteTerminal();
@@ -522,6 +513,11 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
     }
     else
     {
+        if(theConstants.find(theName) != theConstants.end())
+        {
+            toComplete->theValue = theConstants[theName];
+            return true;
+        }
         std::cerr << "Error accessing variable : variable has not been declared." << std::endl;
         return false;
     }
@@ -634,5 +630,52 @@ void Automaton::testLire()
     DefaultState * e0 = new E0();
     this->states.push_front(e0);
 
+    e0->transition(this, sym);
+}
+
+void Automaton::testConst()
+{
+
+    //const i=4;
+    ConstTerminal* constTerminal = new ConstTerminal();
+    constTerminal->setType(CONST);
+    IdTerminal* idTerminal = new IdTerminal("i");
+    idTerminal->setType(ID);
+    AffectDeclareTerminal * equalDeclare = new AffectDeclareTerminal();
+    equalDeclare->setType(AFFECTDECLARE);
+    Number* numberToAffect = new Number(4);
+    numberToAffect->setType(VAL);
+    Semicolon* semicolon = new Semicolon();
+    semicolon->setType(SEMICOLON);
+
+    //ecrire i;
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
+    IdTerminal* idTerminal3 = new IdTerminal("i");
+    idTerminal3->setType(ID);
+    Semicolon* semicolon3 = new Semicolon();
+    semicolon3->setType(SEMICOLON);
+
+    //Fin de programme
+    Dollar* dollar = new Dollar();
+    dollar->setType(DOLLAR);
+
+    this->programFromLexer.push_front(dollar);
+
+    this->programFromLexer.push_front(semicolon3);
+    this->programFromLexer.push_front(idTerminal3);
+    this->programFromLexer.push_front(writeTerm);
+
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(numberToAffect);
+    this->programFromLexer.push_front(equalDeclare);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(constTerminal);
+
+    Symbol * sym = this->programFromLexer.front();
+    this->programFromLexer.pop_front();
+
+    DefaultState * e0 = new E0();
+    this->states.push_front(e0);
     e0->transition(this, sym);
 }

@@ -8,87 +8,61 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 		case MINUS :
 			return transitionMinus(automaton, s);
 		case MULTIPLY :
-			transitionMultiply(automaton, s);
-			return true;
+            return transitionMultiply(automaton, s);
 		case DIVIDE :
-			transitionDivide(automaton, s);
-			return true;
+            return transitionDivide(automaton, s);
 		case WRITE :
-			transitionWrite(automaton, s);
-			return true;
+            return transitionWrite(automaton, s);
 		case READ :
-			transitionRead(automaton, s);
-			return true;
+            return transitionRead(automaton, s);
 		case AFFECTDECLARE :
-			transitionAffectDeclare(automaton, s);
-			return true;
+            return transitionAffectDeclare(automaton, s);
 		case AFFECTINSTRUCT :
-			transitionAffectInstruct(automaton, s);
-			return true;
+            return transitionAffectInstruct(automaton, s);
 		case OPENPARENTHESIS :
-			transitionOpenParenthesis(automaton, s);
-			return true;
+            return transitionOpenParenthesis(automaton, s);
 		case CLOSEPARENTHESIS :
-			transitionCloseParenthesis(automaton, s);
-			return true;
+            return transitionCloseParenthesis(automaton, s);
 		case VAR :
-			transitionVar(automaton, s);
-			return true;
+            return transitionVar(automaton, s);
 		case VAL :
-			transitionVal(automaton, s);
-			return true;
+            return transitionVal(automaton, s);
 		case DOLLAR :
-			transitionDollar(automaton, s);
-			return true;
+            return transitionDollar(automaton, s);
 		case COMMA :
-			transitionComma(automaton, s);
-			return true;
+            return transitionComma(automaton, s);
 		case SEMICOLON :
-			transitionSemicolon(automaton, s);
-			return true;
+            return transitionSemicolon(automaton, s);
 		case ID :
-			transitionId(automaton, s);
-			return true;
+            return transitionId(automaton, s);
 		case P :
-			transitionP(automaton, s);
-			return true;
+            return transitionP(automaton, s);
 		case D :
-			transitionD(automaton, s);
-			return true;
+            return transitionD(automaton, s);
 		case D_PRIME :
-			transitionD_Prime(automaton, s);
-			return true;
+            return transitionD_Prime(automaton, s);
 		case ID_LIST :
-			transitionIdList(automaton, s);
-			return true;
+            return transitionIdList(automaton, s);
 		case AFF :
-			transitionAff(automaton, s);
-			return true;
+            return transitionAff(automaton, s);
 		case I :
-			transitionI(automaton, s);
-			return true;
+            return transitionI(automaton, s);
 		case I_PRIME :
-			transitionI_Prime(automaton, s);
-			return true;
+            return transitionI_Prime(automaton, s);
 		case E :
-			transitionE(automaton, s);
-			return true;
+            return transitionE(automaton, s);
 		case T :
-			transitionT(automaton, s);
-			return true;
+            return transitionT(automaton, s);
 		case F :
-			transitionF(automaton, s);
-			return true;
+            return transitionF(automaton, s);
 		case OPA :
-			transitionOpA(automaton, s);
-			return true;
+            return transitionOpA(automaton, s);
 		case OPM :
-			transitionOpM(automaton, s);
-			return true;
+            return transitionOpM(automaton, s);
 		case ERROR :
-			transitionError(automaton, s);
-			return true;
-			
+            return transitionError(automaton, s);
+		case CONST:
+            return transitionConst(automaton, s);
 		default :
 			std::cerr << "Transition impossible" << std::endl;
 			return false;

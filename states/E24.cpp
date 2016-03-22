@@ -3,15 +3,16 @@
 //
 
 #include "E24.h"
-#include "E28.h"
+#include "E25.h"
 
 E24::E24()
 {
     state = 24;
 }
 
-bool E24::transitionId(Automaton *automaton, Symbol *val)
+bool E24::transitionVal(Automaton *automaton, Symbol *val)
 {
-    automaton->pushState(val, new E28());
+    automaton->pushState(val, new E25());
     return true;
 }
+
