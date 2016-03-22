@@ -12,6 +12,18 @@ bool E15::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	(*automaton->states.begin())->transition(automaton, id);
 	return true;
 }
+
+bool E15::transitionComma(Automaton * automaton, Symbol * comma) {
+	Symbol * id = automaton->popSymbol();
+	// Symbol * id2 =  new Symbol(s1);
+	
+    id->setType(ID_LIST);
+	automaton->programFromLexer.push_front(comma);
+	automaton->popState();
+	(*automaton->states.begin())->transition(automaton, id);
+	return true;
+}
+
 E15::E15()
 {
 	this->state = 15;
