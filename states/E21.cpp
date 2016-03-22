@@ -1,6 +1,7 @@
 #include "E21.h"
 #include "E27.h"
-#include "E21.h"
+#include "E31.h"
+#include "E35.h"
 
 bool E21::transitionVal(Automaton * automaton, Symbol * val){
 	automaton->pushState(val, new E35());
