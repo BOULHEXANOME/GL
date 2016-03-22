@@ -161,7 +161,8 @@ void defaultBehaviour()
 //    Automaton::instance().testStates5();
   //  Automaton::instance().testStates4();
     //Automaton::instance().testLire();
-    Automaton::instance().testConst();
+    //Automaton::instance().testConst();
+    Automaton::instance().testStates6();
     Automaton::instance().execute();
 
 }

@@ -79,3 +79,17 @@ bool E40::transitionConst(Automaton *automaton, Symbol *constantS)
     (*automaton->states.begin())->transition(automaton, d);
     return true;
 }
+
+bool E40::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
+{
+    Symbol * f = automaton->popSymbol();
+    Symbol * e = automaton->popSymbol();
+    Symbol * f2 = automaton->popSymbol();
+    f2->setType(F);
+    automaton->programFromLexer.push_front(semicolon);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, f2);
+    return true;
+}
