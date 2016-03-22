@@ -3,3 +3,8 @@
 //
 
 #include "Semicolon.h"
+
+Semicolon::Semicolon()
+{
+	symbolType = SEMICOLON;
+}

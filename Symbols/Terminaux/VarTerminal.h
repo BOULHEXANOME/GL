@@ -12,7 +12,7 @@ class VarTerminal : public Symbol
 {
 public:
 
-    VarTerminal() { }
+    VarTerminal();
 };
 
 

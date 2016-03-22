@@ -4,3 +4,7 @@
 
 #include "AffectInstructTerminal.h"
 
+AffectInstructTerminal::AffectInstructTerminal()
+{
+	symbolType = AFFECTINSTRUCT;
+}

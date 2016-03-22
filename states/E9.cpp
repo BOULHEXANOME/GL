@@ -14,17 +14,20 @@ E9::E9()
     state = 9;
 }
 
-bool E9::transitionVal(Automaton *automaton, Symbol *val) {
+bool E9::transitionVal(Automaton *automaton, Symbol *val)
+{
     automaton->pushState(val, new E35());
     return true;
 }
 
-bool E9::transitionF(Automaton *automaton, Symbol *f) {
+bool E9::transitionF(Automaton *automaton, Symbol *f)
+{
     automaton->pushState(f, new E31());
     return true;
 }
 
-bool E9::transitionT(Automaton *automaton, Symbol *t) {
+bool E9::transitionT(Automaton *automaton, Symbol *t)
+{
     automaton->pushState(t, new E29());
     return true;
 }

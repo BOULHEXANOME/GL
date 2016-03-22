@@ -15,7 +15,7 @@ private:
     std::string theName;
 public:
 
-    IdTerminal(const std::string & theName) : theName(theName) { }
+    IdTerminal(const std::string & theName);
 
     /***********************/
     /*** Getters/Setters ***/

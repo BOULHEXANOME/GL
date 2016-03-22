@@ -14,7 +14,6 @@ public:
     E5();
     ~E5(){};
     virtual bool transitionSemicolon(Automaton * a, Symbol * s);
-
 };
 
 

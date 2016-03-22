@@ -3,6 +3,8 @@
 #include "E31.h"
 #include "E23.h"
 #include "E29.h"
+#include "E34.h"
+#include "E36.h"
 
 E14::E14()
 {
@@ -28,6 +30,12 @@ bool E14::transitionT(Automaton * automaton, Symbol * t){
 	automaton->pushState(t, new E29());
 	return true;
 }
+
+bool E14::transitionId(Automaton * automaton, Symbol * id){
+	automaton->pushState(id, new E34());
+	return true;
+}
+
 /*
 
 
@@ -35,12 +43,10 @@ bool transitionId(Automaton * automaton, Symbol * s){
 	automaton->pushState(s, E34());
 	return true;
 }
+*/
 
-
-bool transitionOpenParenthesis(Automaton * automaton, Symbol * s){
-	automaton->pushState(s, E36());
+bool E14::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis){
+	automaton->pushState(openParenthesis, new E36());
 	return true;
 }
 
-
-*/

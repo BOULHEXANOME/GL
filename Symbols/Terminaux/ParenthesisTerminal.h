@@ -16,7 +16,7 @@ private:
     TypeOfParenthesis typeOfParenthesis;
 
 public:
-    ParenthesisTerminal(const TypeOfParenthesis &typeOfParenthesis) : typeOfParenthesis(typeOfParenthesis) { }
+    ParenthesisTerminal(const TypeOfParenthesis &typeOfParenthesis);
 
     /***********************/
     /*** Getters/Setters ***/

@@ -5,6 +5,7 @@
 #include "E5.h"
 #include "E3.h"
 #include "E11.h"
+#include "E6.h"
 
 //TODO decommenter (sans oublier le .h et E2 et E3)
 /*#include "E3.h"
@@ -62,5 +63,11 @@ bool E1::transitionI_Prime(Automaton *automaton, Symbol *iPrime)
 bool E1::transitionI(Automaton *automaton, Symbol *i)
 {
     automaton->pushState(i, new E3());
+    return true;
+}
+
+bool E1::transitionRead(Automaton *automaton, Symbol *readS)
+{
+    automaton->pushState(readS, new E6());
     return true;
 }

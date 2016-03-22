@@ -12,7 +12,7 @@ class Semicolon : public Symbol
 {
 
 public:
-    Semicolon() { }
+    Semicolon();
 };
 
 

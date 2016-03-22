@@ -12,7 +12,7 @@ class AffectDeclareTerminal : public Symbol
 {
 
 public:
-    AffectDeclareTerminal() { }
+    AffectDeclareTerminal();
 };
 
 
