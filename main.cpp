@@ -166,6 +166,7 @@ void defaultBehaviour()
 //    Automaton::instance().testStates6();
     Automaton::instance().analyse();
     Automaton::instance().execute();
+    Automaton::instance().printCode();
 
 }
 
