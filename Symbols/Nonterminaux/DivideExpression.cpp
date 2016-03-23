@@ -13,3 +13,7 @@ int DivideExpression::execute() const
 {
     return this->leftExpr->execute() / this->rigthExpr->execute();
 }
+
+bool DivideExpression::analyse() const {
+    return leftExpr->analyse() && rigthExpr->analyse();
+}

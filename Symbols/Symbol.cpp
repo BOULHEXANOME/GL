@@ -32,3 +32,9 @@ int Symbol::execute() const
 {
     std::cout << "Cannot execute abstract symbol class." << std::endl;
 }
+
+bool Symbol::analyse() const
+{
+    std::cout << "Cannot analyse abstract symbol class." << std::endl;
+    return false;
+}

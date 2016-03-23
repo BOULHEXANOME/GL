@@ -16,3 +16,8 @@ int Number::execute() const
 {
     return theValue;
 }
+
+bool Number::analyse() const
+{
+    return true;
+}

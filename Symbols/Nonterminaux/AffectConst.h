@@ -50,6 +50,7 @@ public:
     /***********************/
     virtual std::string print() const;
     virtual int execute() const;
+    virtual bool analyse() const;
     /***********************/
     /****** End Methods ****/
     /***********************/

@@ -91,11 +91,6 @@ void Automaton::createAndDeleteSomeLines()
     AffectInstruct *instructAffectResult = new AffectInstruct(varToSubstract, finalExpression);
     operationsAfter.addSymbol(instructAffectResult);
 
-
-    for(std::list<Symbol*>::const_iterator i = operationsBefore.getSymbols().begin() ; i != operationsBefore.getSymbols().end() ; ++i)
-    {
-        std::cout << (*i)->getType() << std::endl;
-    }
 }
 
 
@@ -549,12 +544,17 @@ void Automaton::printCode()
     }
 }
 
-void Automaton::analyse()
+bool Automaton::analyse()
 {
+    bool isCoherent = true;
     for(Program::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
     {
-        // TODO
+        isCoherent = (*cLineIterator).getTheSymbol()->analyse();
+        if(!isCoherent)
+            return isCoherent;
     }
+    std::cout << "Program is coherent !" << std::endl;
+    return isCoherent;
 }
 
 void Automaton::execute()
@@ -809,4 +809,94 @@ void Automaton::testConst()
     DefaultState * e0 = new E0();
     this->states.push_front(e0);
     e0->transition(this, sym);
+}
+
+bool Automaton::analyseDeclareAndAffectConst(std::string theName)
+{
+    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    {
+        std::cerr << "Error declaring constant : name already exists" << std::endl;
+        return false;
+    }
+    else
+    {
+        theConstants[theName] = -1;
+        return true;
+    }
+}
+
+bool Automaton::analyseDeclareVariable(std::string theName)
+{
+    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    {
+        std::cerr << "Error declaring variable : name already exists" << std::endl;
+        return false;
+    }
+    else
+    {
+        var newVariable;
+        newVariable.isIntancied = false;
+        theVariables[theName] = newVariable;
+        return true;
+    }
+}
+
+bool Automaton::analyseAffectVariable(std::string theName)
+{
+    if(theVariables.find(theName) != theVariables.end())
+    {
+        var newVariable;
+        newVariable.theValue = -1;
+        newVariable.isIntancied = true;
+        theVariables[theName] = newVariable;
+        return true;
+    }
+    else
+    {
+        if(theConstants.find(theName) != theConstants.end())
+        {
+            std::cerr << "Error : cannot affect variable to a constant." << std::endl;
+        }
+        else
+        {
+            std::cerr << "Error affecting value to variable : variable has not been declared." << std::endl;
+        }
+        return false;
+    }
+}
+
+bool Automaton::analyseAccessVariable(std::string theName)
+{
+    if(theVariables.find(theName) != theVariables.end())
+    {
+        if(theVariables[theName].isIntancied)
+        {
+            return true;
+        }
+        else
+        {
+            std::cerr << "Error accessing variable : variable has not been instancied yet." << std::endl;
+            return false;
+        }
+    }
+    else
+    {
+        if(theConstants.find(theName) != theConstants.end())
+        {
+            return true;
+        }
+        std::cerr << "Error accessing variable : variable has not been declared." << std::endl;
+        return false;
+    }
+}
+
+bool Automaton::analyseAccessConstant(std::string theName)
+{
+    if (theConstants.find(theName) != theConstants.end()) {
+        return true;
+    }
+    else {
+        std::cerr << "Error accessing constant : constant has not been declared (nor initialised)." << std::endl;
+        throw CONST_DOES_NOT_EXISTS;
+    }
 }
