@@ -11,7 +11,7 @@
 class E36 : public DefaultState
 {
 protected:
-	std::string expectedSymbols = "id, val, factor, term, expression";
+	std::string expectedSymbols = "id, val, factor, term, expression";//TODO MISSING PARENTHESIS ?
 
 public:
     E36();

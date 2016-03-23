@@ -18,7 +18,7 @@ bool E40::transitionWrite(Automaton *automaton, Symbol *write)
     Symbol * semicolon = automaton->popSymbol();
     Symbol * dPrime = automaton->popSymbol();
     Symbol * d = automaton->popSymbol();
-    d->setType(D);//A quoi ca sert ?? et ou est instancié le D avec ses symboles dedans ???
+    d->setType(D);
     automaton->programFromLexer.push_front(write);
     automaton->popState();
     automaton->popState();
