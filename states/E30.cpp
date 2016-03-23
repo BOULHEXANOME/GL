@@ -14,7 +14,7 @@ bool E30::transitionVal(Automaton * automaton, Symbol * val) {
 	return true;
 }
 
-bool E30::transitionOpeningParenthesis(Automaton * automaton, Symbol * openingParenthesis) {
+bool E30::transitionOpenParenthesis(Automaton * automaton, Symbol * openingParenthesis) {
 	automaton->pushState(openingParenthesis, new E36());
 	return true;
 }

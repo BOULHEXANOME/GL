@@ -10,7 +10,7 @@ class E38 : public DefaultState
 		~E38(){};
 		virtual bool transitionId(Automaton * automaton, Symbol * s);
 		virtual bool transitionVal(Automaton * automaton, Symbol * s);
-		virtual bool transitionOpeningParenthesis(Automaton * automaton, Symbol * s);
+		virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
 };
 
 #endif

@@ -49,3 +49,77 @@ bool E13::transitionCloseParenthesis(Automaton *automaton, Symbol *closeParenthe
     (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
     return true;
 }
+
+bool E13::transitionMinus(Automaton *automaton, Symbol *minus)
+{ 
+	Symbol * closeParenthesis = automaton->popSymbol();
+	Symbol * e = automaton->popSymbol();
+    Symbol * f = automaton->popSymbol();
+    
+    Expression * expressionToParenthesise = (Expression*) (e);
+    Parenthesis * expressionParenthesised = new Parenthesis(expressionToParenthesise);
+    
+    expressionToParenthesise->setType(F);
+    automaton->programFromLexer.push_front(minus);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
+    return true;
+}
+
+bool E13::transitionPlus(Automaton *automaton, Symbol *plus)
+{ 
+	Symbol * closeParenthesis = automaton->popSymbol();
+	Symbol * e = automaton->popSymbol();
+    Symbol * f = automaton->popSymbol();
+    
+    Expression * expressionToParenthesise = (Expression*) (e);
+    Parenthesis * expressionParenthesised = new Parenthesis(expressionToParenthesise);
+    
+    expressionToParenthesise->setType(F);
+    automaton->programFromLexer.push_front(plus);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
+    return true;
+}
+
+
+bool E13::transitionDivide(Automaton *automaton, Symbol *divide)
+{ 
+	Symbol * closeParenthesis = automaton->popSymbol();
+	Symbol * e = automaton->popSymbol();
+    Symbol * f = automaton->popSymbol();
+    
+    Expression * expressionToParenthesise = (Expression*) (e);
+    Parenthesis * expressionParenthesised = new Parenthesis(expressionToParenthesise);
+    
+    expressionToParenthesise->setType(F);
+    automaton->programFromLexer.push_front(divide);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
+    return true;
+}
+
+
+bool E13::transitionMultiply(Automaton *automaton, Symbol *multiply)
+{ 
+	Symbol * closeParenthesis = automaton->popSymbol();
+	Symbol * e = automaton->popSymbol();
+    Symbol * f = automaton->popSymbol();
+    
+    Expression * expressionToParenthesise = (Expression*) (e);
+    Parenthesis * expressionParenthesised = new Parenthesis(expressionToParenthesise);
+    
+    expressionToParenthesise->setType(F);
+    automaton->programFromLexer.push_front(multiply);
+    automaton->popState();
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
+    return true;
+}

@@ -80,7 +80,7 @@ bool E27::transitionMinus(Automaton * automaton, Symbol * minus) {
 	return true;
 }
 
-bool E27::transitionClosingParenthesis(Automaton * automaton, Symbol * parenthesis) {
+bool E27::transitionCloseParenthesis(Automaton * automaton, Symbol * parenthesis) {
 	
 	Symbol * t = automaton->popSymbol();
 	Symbol * opa = automaton->popSymbol();
@@ -136,3 +136,4 @@ bool E27::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	(*automaton->states.begin())->transition(automaton,opaExpression);
 	return true;
 }
+
