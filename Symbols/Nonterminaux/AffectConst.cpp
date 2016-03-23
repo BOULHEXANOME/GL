@@ -18,3 +18,14 @@ int AffectConst::execute() const
     }
     return 0;
 }
+
+bool AffectConst::analyse() const
+{
+    if(! Automaton::instance().analyseDeclareAndAffectConst(this->constToDeclare->getTheName()))
+    {
+        // TODO
+        std::cerr << "error declare const ! print line number&column" << std::endl;
+        return false;
+    }
+    return true;
+}
