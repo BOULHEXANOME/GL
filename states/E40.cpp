@@ -7,6 +7,7 @@
 #include "../Symbols/Terminaux/ParenthesisTerminal.h"
 #include "../Symbols/Nonterminaux/Parenthesis.h"
 #include "../Symbols/Nonterminaux/Expression.h"
+#include "../Symbols/Terminaux/WriteTerminal.h"
 
 E40::E40()
 {
@@ -85,3 +86,15 @@ bool E40::transitionConst(Automaton *automaton, Symbol *constantS)
     return true;
 }
 
+bool E40::transitionDefault(Automaton *automaton, Symbol *unknown) {
+    std::cerr << "Erreur syntaxique, symbole non attendu";
+    automaton->printError(unknown);
+    std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+    std::cerr << "L'automate assume que un 'ecrire' a été oublié, et continue donc avec ce symbole." << std::endl;
+
+    // on simule une transition sur ecrire
+    automaton->programFromLexer.push_front(unknown);
+    Symbol * ecrire = new WriteTerminal();
+    transitionWrite(automaton, ecrire);
+    return true;
+}

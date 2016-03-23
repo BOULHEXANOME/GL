@@ -11,6 +11,7 @@ public:
 	virtual bool transitionPlus(Automaton * automaton, Symbol * s);
 	virtual bool transitionMinus(Automaton * automaton, Symbol * s);
 	virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

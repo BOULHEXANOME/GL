@@ -16,6 +16,7 @@ public:
     virtual bool transitionOpA(Automaton * automaton, Symbol * opa);
     virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
     virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 
 };
 

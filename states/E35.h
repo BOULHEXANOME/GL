@@ -18,6 +18,7 @@ public:
     virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
     virtual bool transitionDivide(Automaton * automaton, Symbol * divide);
     virtual bool transitionMultiply(Automaton * automaton, Symbol * multiply);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

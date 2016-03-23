@@ -7,6 +7,7 @@
 #include "../Symbols/Terminaux/ParenthesisTerminal.h"
 #include "../Symbols/Nonterminaux/Parenthesis.h"
 #include "../Symbols/Nonterminaux/Expression.h"
+#include "../Symbols/Terminaux/Semicolon.h"
 
 E13::E13()
 {
@@ -115,5 +116,19 @@ bool E13::transitionMultiply(Automaton *automaton, Symbol *multiply)
     automaton->popState();
     automaton->popState();
     (*automaton->states.begin())->transition(automaton, expressionParenthesised);
+    return true;
+}
+
+bool E13::transitionDefault(Automaton *automaton, Symbol *unknown)
+{
+    std::cerr << "Erreur syntaxique, symbole non attendu";
+    automaton->printError(unknown);
+    std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+    std::cerr << "L'automate assume que le point virgule a été oublié, et continue donc avec ce symbole." << std::endl;
+
+    // on simule une transition sur pt virgule
+    automaton->programFromLexer.push_front(unknown);
+    Symbol * semicolon = new Semicolon();
+    transitionSemicolon(automaton, semicolon);
     return true;
 }

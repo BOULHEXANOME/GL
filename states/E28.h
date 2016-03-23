@@ -14,6 +14,7 @@ public:
     E28();
     virtual bool transitionComma(Automaton * automaton, Symbol * comma);
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

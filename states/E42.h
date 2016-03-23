@@ -11,6 +11,7 @@ public:
 	virtual bool transitionWrite(Automaton * automaton, Symbol * s);
 	virtual bool transitionId(Automaton * automaton, Symbol * s);
 	virtual bool transitionDollar(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

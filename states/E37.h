@@ -17,6 +17,7 @@ public:
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
     virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
     virtual bool transitionOpA(Automaton * automaton, Symbol * opA);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

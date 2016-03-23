@@ -19,6 +19,7 @@ public:
     virtual bool transitionE(Automaton * automaton, Symbol * e);
     virtual bool transitionId(Automaton * automaton, Symbol * id);
     virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

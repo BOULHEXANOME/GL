@@ -3,6 +3,7 @@
 #include "../Symbols/Nonterminaux/MultiplyExpression.h"
 #include "../Symbols/Nonterminaux/OpM.h"
 #include "../Symbols/Nonterminaux/Expression.h"
+#include "../Symbols/Terminaux/MinusTerminal.h"
 
 bool E44::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	Symbol * f = automaton->popSymbol();
@@ -177,3 +178,15 @@ E44::E44()
     state = 44;
 }
 
+bool E44::transitionDefault(Automaton *automaton, Symbol *unknown) {
+	std::cerr << "Erreur syntaxique, symbole non attendu";
+	automaton->printError(unknown);
+	std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+	std::cerr << "L'automate assume que un '-' a été oublié, et continue donc avec avec ce symbole." << std::endl;
+
+	// on simule une transition sur ecrire
+	automaton->programFromLexer.push_front(unknown);
+	Symbol * minus = new MinusTerminal();
+	transitionMinus(automaton, minus);
+	return true;
+}

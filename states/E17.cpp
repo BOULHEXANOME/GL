@@ -15,7 +15,6 @@ E17::E17()
 
 bool E17::transitionDefault(Automaton *automaton, Symbol *unknown)
 {
-
     std::cerr << "Erreur syntaxique, symbole non attendu";
     automaton->printError(unknown);
     std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;

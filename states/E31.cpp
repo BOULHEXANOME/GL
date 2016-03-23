@@ -3,6 +3,7 @@
 //
 
 #include "E31.h"
+#include "../Symbols/Terminaux/Semicolon.h"
 
 E31::E31()
 {
@@ -67,5 +68,20 @@ bool E31::transitionMultiply(Automaton * automaton, Symbol * multiply)
     automaton->programFromLexer.push_front(multiply);
     automaton->popState();
     (*automaton->states.begin())->transition(automaton, f);
+    return true;
+}
+
+bool E31::transitionDefault(Automaton *automaton, Symbol *unknown)
+{
+    std::cerr << "Erreur syntaxique, symbole non attendu";
+    automaton->printError(unknown);
+    std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+    std::cerr << "L'automate assume que le point virgule a été oublié, et continue donc avec le symbole ';'." << std::endl;
+
+    // on simule une transition sur semicolon
+    automaton->programFromLexer.push_front(unknown);
+    Symbol * semicolon = new Semicolon();
+    transitionSemicolon(automaton, semicolon);
+
     return true;
 }
