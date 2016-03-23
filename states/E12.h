@@ -16,6 +16,7 @@ protected:
 public:
     E12();
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionComma(Automaton * automaton, Symbol * comma);
 };
 
 

@@ -16,6 +16,7 @@
 #include "Symbols/Nonterminaux/AffectInstruct.h"
 #include "Symbols/Terminaux/AffectInstructTerminal.h"
 #include "Symbols/Terminaux/MultiplyTerminal.h"
+#include "Symbols/Terminaux/DivideTerminal.h"
 #include "Symbols/Terminaux/ParenthesisTerminal.h"
 #include "Symbols/Terminaux/PlusTerminal.h"
 #include "Symbols/Terminaux/MinusTerminal.h"
@@ -170,8 +171,8 @@ void Automaton::testStates5()
     plusTerminal->setType(PLUS);
     Number* numberToAffect2 = new Number(4);
     numberToAffect2->setType(VAL);
-    PlusTerminal* plusTerminal2 = new PlusTerminal();
-    plusTerminal2->setType(PLUS);
+    MinusTerminal* plusTerminal2 = new MinusTerminal();
+    plusTerminal2->setType(MINUS);
     Number* numberToAffect3 = new Number(5);
     numberToAffect3->setType(VAL);
     Semicolon* semicolon2 = new Semicolon();
@@ -679,9 +680,10 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
 }
 
 void Automaton::pushSymbol(Symbol * s) {
-	
+
 	//std::cout << "Push Symbol: " << s << std::endl;
-	this->programFromLexer.push_front(s);
+	this->programFromLexer.push_back(s);
+
 }
 
 void Automaton::popState()
@@ -812,6 +814,86 @@ void Automaton::testConst()
     e0->transition(this, sym);
 }
 
+
+void Automaton::launchProgramFromLexer()
+{
+	Symbol * sym = this->programFromLexer.front();
+    this->programFromLexer.pop_front();
+
+    DefaultState * e0 = new E0();
+    this->states.push_front(e0);
+    e0->transition(this, sym);
+}
+
+void Automaton::testStates7()
+{
+	//var i;
+	VarTerminal* varTerminal = new VarTerminal();
+	varTerminal->setType(VAR);
+    IdTerminal* idTerminal = new IdTerminal("i");
+	idTerminal->setType(ID);
+    Semicolon* semicolon = new Semicolon();
+	semicolon->setType(SEMICOLON);
+	
+	//i := 3 * 4 / 2;
+    IdTerminal* idTerminal2 = new IdTerminal("i");
+	idTerminal2->setType(ID);
+	AffectInstructTerminal* affectInstruct = new AffectInstructTerminal();
+	affectInstruct->setType(AFFECTINSTRUCT);
+    Number* numberToAffect = new Number(3);
+    numberToAffect->setType(VAL);
+    MultiplyTerminal* multiplyTerminal = new MultiplyTerminal();
+    multiplyTerminal->setType(MULTIPLY);
+    Number* numberToAffect2 = new Number(4);
+    numberToAffect2->setType(VAL);
+    DivideTerminal* divideTerminal = new DivideTerminal();
+    divideTerminal->setType(DIVIDE);
+    Number* numberToAffect3 = new Number(2);
+    numberToAffect3->setType(VAL);
+    Semicolon* semicolon2 = new Semicolon();
+	semicolon2->setType(SEMICOLON);
+    
+	//ecrire i;	
+    WriteTerminal* writeTerm = new WriteTerminal();
+    writeTerm->setType(WRITE);
+    IdTerminal* idTerminal3 = new IdTerminal("i");
+	idTerminal3->setType(ID);
+    Semicolon* semicolon3 = new Semicolon();
+	semicolon3->setType(SEMICOLON);
+    
+    //Fin de programme
+    Dollar* dollar = new Dollar();
+    dollar->setType(DOLLAR);
+    
+    this->programFromLexer.push_front(dollar);
+    
+    this->programFromLexer.push_front(semicolon3);
+    this->programFromLexer.push_front(idTerminal3);
+    this->programFromLexer.push_front(writeTerm);
+    
+    this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(numberToAffect3);
+    this->programFromLexer.push_front(divideTerminal); 
+    this->programFromLexer.push_front(numberToAffect2);
+    this->programFromLexer.push_front(multiplyTerminal); 
+    this->programFromLexer.push_front(numberToAffect);
+    this->programFromLexer.push_front(affectInstruct);
+    this->programFromLexer.push_front(idTerminal2);
+    
+    this->programFromLexer.push_front(semicolon);
+    this->programFromLexer.push_front(idTerminal);
+    this->programFromLexer.push_front(varTerminal);
+    
+    Symbol * sym = this->programFromLexer.front();
+	this->programFromLexer.pop_front();
+	
+	DefaultState * e0 = new E0();
+	this->states.push_front(e0);
+
+	e0->transition(this, sym);
+	
+}
+
 bool Automaton::analyseDeclareAndAffectConst(std::string theName)
 {
     if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
@@ -901,3 +983,4 @@ bool Automaton::analyseAccessConstant(std::string theName)
         throw CONST_DOES_NOT_EXISTS;
     }
 }
+

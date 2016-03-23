@@ -1,19 +1,17 @@
-#ifndef E39_H
-#define E39_H
+#ifndef E30_H
+#define E30_H
 
 #include "DefaultState.h"
 
-class E39 : public DefaultState
+class E30 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "id, val, (";
-
     public:
-		E39();
-		~E39(){};
+        E30();
+		~E30(){};
 		virtual bool transitionId(Automaton * automaton, Symbol * s);
 		virtual bool transitionVal(Automaton * automaton, Symbol * s);
 		virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
+		virtual bool transitionF(Automaton * automaton, Symbol * s);
 };
 
 #endif

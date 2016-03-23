@@ -25,3 +25,8 @@ bool Variable::analyse() const
     }
     return true;
 }
+
+std::string Variable::print() const
+{
+    return theName;
+}

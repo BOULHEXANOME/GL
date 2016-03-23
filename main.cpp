@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
 		do {
 			// Recupère le symbole suivant auprès du Lexer
 			symbol = lexer.getSymbol();
-			
+						
 			//std::cout << "Symbole à pusher : " << symbol->getType() << std::endl;
 			//std::cout << "Ligne : " << symbol->getLineWhereSymbolOccurs() << std::endl;
 			//std::cout << "Colonne : " << symbol->getColumnWhereSymbolOccurs() << std::endl;
@@ -152,6 +152,12 @@ int main(int argc, char **argv) {
     {
 
 	}
+	
+	if(!opt_execute && !opt_print && !opt_optimize && !opt_analyse)
+	{
+		Automaton::instance().launchProgramFromLexer();
+		Automaton::instance().execute();
+	}
 
     return 0;
 }
@@ -166,10 +172,13 @@ void defaultBehaviour()
   //  Automaton::instance().testStates4();
     //Automaton::instance().testLire();
     //Automaton::instance().testConst();
-    Automaton::instance().testStates5();
-//    Automaton::instance().testStates6();
-    Automaton::instance().analyse();
+    //Automaton::instance().testStates6();
+    //Automaton::instance().testStates5();
+    //Automaton::instance().testStates5();
+    Automaton::instance().testStates6();
+    //Automaton::instance().analyse();
     Automaton::instance().execute();
+    Automaton::instance().printCode();
 
 }
 

@@ -2,6 +2,7 @@
 #include "E27.h"
 #include "E31.h"
 #include "E35.h"
+#include "E36.h"
 
 bool E21::transitionVal(Automaton * automaton, Symbol * val){
 	automaton->pushState(val, new E35());
@@ -19,17 +20,17 @@ bool E21::transitionT(Automaton * automaton, Symbol * t){
 }
 /*
 bool E21::transitionId(Automaton * automaton, Symbol * s){
-	automaton->pushState(s, E34());
+	automaton->pushState(s, new E34());
 	return true;
 }
-
-bool E21::transitionCloseParenthesis(Automaton * automaton, Symbol * s){
-	automaton->pushState(s, E36());
-	return true;
-}
-
-
 */
+bool E21::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis){
+	automaton->pushState(openParenthesis, new E36());
+	return true;
+}
+
+
+
 E21::E21()
 {
     state = 21;

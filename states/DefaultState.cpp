@@ -164,10 +164,11 @@ bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
 
 bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 	
-	Symbol* s1 = Automaton::instance().popSymbol();
+	Symbol* s1 = Automaton::instance().programFromLexer.front();
+	//automaton->symbolsAutomaton.push_front(s);
 	
-	std::cout << "Symbole s : " << s->getType() << std::endl;
-	std::cout << "Symbole s1 : " << s1->getType() << std::endl;
+	std::cerr << "Symbole s : " << s->getType() << std::endl;
+	std::cerr << "Symbole s1 : " << s1->getType() << std::endl;
 	
 	
 	if (alreadyOneError == false) {
