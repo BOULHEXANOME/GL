@@ -73,6 +73,7 @@ private:
     friend class E41;
     friend class E42;
     friend class E43;
+    friend class E44;
 
     Automaton() { }
 
@@ -131,6 +132,7 @@ public:
     void testStates3();
     void testStates5();
     void testStates6();
+    void testStates7();
 
     /*
      * Method test "lire"
