@@ -1,3 +1,0 @@
-Pile d'etat/symbole ou 2 piles ?
-Comment push/pop les etats et les symboles ?
-=> voir E0/E8
