@@ -1,0 +1,9 @@
+const un=1, deux=2, trois=3, quatre=4, cinq=5;
+var i,j;
+i := deux * trois;
+j := i;
+ecrire j;
+i := (j * (cinq - 4));
+ecrire i;
+i := j * cinq * 2 / quatre;
+ecrire i;

@@ -2,19 +2,19 @@
 #include "E9.h"
 #include "E41.h"
 #include "E11.h"
-//#include "E6.h"
+#include "E6.h"
 
 bool E3::transitionId(Automaton * automaton, Symbol * id) {
 	automaton->pushState(id, new E11());
 	return true;
 }
-/*
-bool transitionRead(Automaton * automaton, Symbol * s) {
+
+bool E3::transitionRead(Automaton * automaton, Symbol * s) {
 	automaton->pushState(s, new E6());
 	return true;
 }
 
-*/
+
 bool E3::transitionI_Prime(Automaton * automaton, Symbol * iprime) {
 	automaton->pushState(iprime, new E41());
 	return true;
