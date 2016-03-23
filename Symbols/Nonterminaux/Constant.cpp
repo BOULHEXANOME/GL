@@ -27,3 +27,7 @@ int Constant::execute() const
 std::string Constant::print() const {
     return theName;
 }
+
+bool Constant::analyse() const {
+    return true;
+}

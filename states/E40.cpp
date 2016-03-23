@@ -4,6 +4,10 @@
 
 #include "E40.h"
 
+#include "../Symbols/Terminaux/ParenthesisTerminal.h"
+#include "../Symbols/Nonterminaux/Parenthesis.h"
+#include "../Symbols/Nonterminaux/Expression.h"
+
 E40::E40()
 {
     state = 40;
@@ -81,15 +85,19 @@ bool E40::transitionConst(Automaton *automaton, Symbol *constantS)
 }
 
 bool E40::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
-{
+{ 
+	Symbol * closeParenthesis = automaton->popSymbol();
+	Symbol * e = automaton->popSymbol();
     Symbol * f = automaton->popSymbol();
-    Symbol * e = automaton->popSymbol();
-    Symbol * f2 = automaton->popSymbol();
-    f2->setType(F);
+    
+    Expression * expressionToParenthesise = (Expression*) (e);
+    Parenthesis * expressionParenthesised = new Parenthesis(expressionToParenthesise);
+    
+    expressionToParenthesise->setType(F);
     automaton->programFromLexer.push_front(semicolon);
     automaton->popState();
     automaton->popState();
     automaton->popState();
-    (*automaton->states.begin())->transition(automaton, f2);
+    (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
     return true;
 }
