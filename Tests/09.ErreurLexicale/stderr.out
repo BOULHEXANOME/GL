@@ -1,1 +1,4 @@
-Erreur lexicale (1:5) caractere _
+Erreur, symbole inconnu à la ligne 1, colonne 5 :
+var _ a,b; 
+    ^
+Essai d'élimination automatique du caractère et récupération.

@@ -6,9 +6,10 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 	{
 		
 		if(automaton->debug)
-		std::cout << "Erreur : passage dans transitionError" << std::endl;
-		
-		
+		{
+			std::cout << "Erreur : passage dans transitionError" << std::endl;
+		}
+
 		return transitionError(automaton, s);
 	}
 	
@@ -176,14 +177,12 @@ bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 	
 	Symbol* s1 = Automaton::instance().programFromLexer.front();
 	Automaton::instance().programFromLexer.pop_front();
-	//automaton->symbolsAutomaton.push_front(s);
+
 	
-	std::cerr << "Symbole s : " << s->getType() << std::endl;
-	std::cerr << "Symbole s1 : " << s1->getType() << std::endl;
-	
-	
-	if (alreadyOneError == false) {
-		std::cerr << "Essai avec le symbole suivant" << std::endl;
+	if (!alreadyOneError) {
+		std::cerr << "Erreur, symbole inconnu" ;
+		automaton->printError(s);
+		std::cerr << "Essai d'élimination automatique du caractère et récupération." << std::endl;
 		
 		alreadyOneError = true;
 		return (*automaton->states.begin())->transition(automaton, s1);
