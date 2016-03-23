@@ -35,4 +35,5 @@ bool E21::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthe
 E21::E21()
 {
     state = 21;
+	expectedSymbols = "id, val, (, factor, term";
 }

@@ -13,5 +13,6 @@ bool E4::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
 
 E4::E4()
 {
+    expectedSymbols = ";";
     state = 4;
 }

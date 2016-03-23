@@ -8,5 +8,6 @@ bool E17::transitionId(Automaton * automaton, Symbol * id) {
 
 E17::E17()
 {
+	expectedSymbols = "id";
     state = 17;
 }

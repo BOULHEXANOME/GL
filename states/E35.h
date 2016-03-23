@@ -10,11 +10,8 @@
 
 class E35 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "*, /, ;, +, -, )";
 public:
     E35();
-    ~E35(){};
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
     virtual bool transitionPlus(Automaton * automaton, Symbol * plus);

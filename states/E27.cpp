@@ -7,6 +7,7 @@
 E27::E27()
 {
     state = 27;
+	expectedSymbols = "*, /, +, -, ), ;, multiplicative or dividing operation";
 }
 /*
 bool transitionMultiply(Automaton * automaton, Symbol * s) {

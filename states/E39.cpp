@@ -37,4 +37,5 @@ bool E39::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthe
 E39::E39()
 {
     state = 39;
+	expectedSymbols = "id, val, (";
 }

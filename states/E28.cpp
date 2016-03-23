@@ -10,6 +10,7 @@
 E28::E28()
 {
     state = 28;
+    expectedSymbols = "comma, ;";
 }
 
 bool E28::transitionComma(Automaton *automaton, Symbol *comma)

@@ -10,6 +10,7 @@
 E25::E25()
 {
     state = 25;
+    expectedSymbols = "comma, ;";
 }
 
 bool E25::transitionSemicolon(Automaton *automaton, Symbol *semicolon)

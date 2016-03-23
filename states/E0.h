@@ -5,9 +5,6 @@
 
 class E0 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "declarative paragraph, read, write, id, var, const";
-		
     public:
         E0();
         ~E0(){};

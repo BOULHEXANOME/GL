@@ -7,6 +7,7 @@
 E43::E43()
 {
     state = 43;
+    expectedSymbols = "read, write, id, endOfProgram";
 }
 
 bool E43::transitionDollar(Automaton *automaton, Symbol *dollar)

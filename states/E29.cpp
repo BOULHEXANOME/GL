@@ -10,6 +10,7 @@
 E29::E29()
 {
     state = 29;
+    expectedSymbols = "*, /, ;, +, -, ), multiplicative or dividing operation";
 }
 
 bool E29::transitionSemicolon(Automaton *automaton, Symbol *semicolon)

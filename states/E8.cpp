@@ -27,5 +27,6 @@ bool E8::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
 
 E8::E8()
 {
+    expectedSymbols = "write, read, id, endOfProgram";
     state = 8;
 }

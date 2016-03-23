@@ -10,12 +10,8 @@
 
 class E29 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "*, /, ;, +, -, ), multiplicative or dividing operation";
-	
 public:
     E29();
-    ~E29(){};
     // FIXME transitions
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);

@@ -51,4 +51,5 @@ bool E0::transitionVar(Automaton * automaton, Symbol * s) {
 E0::E0()
 {
 	this->state = 0;
+	expectedSymbols = "declarative paragraph, read, write, id, var, const";
 }

@@ -8,6 +8,7 @@
 E35::E35()
 {
     state = 35;
+    expectedSymbols = "*, /, ;, +, -, )";
 }
 
 bool E35::transitionSemicolon(Automaton *automaton, Symbol *semicolon)

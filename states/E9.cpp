@@ -12,6 +12,7 @@
 
 E9::E9()
 {
+    expectedSymbols = "id, val, (, expression, term, factor";
     state = 9;
 }
 

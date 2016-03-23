@@ -10,12 +10,8 @@
 
 class E40 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "read, write, id, var, const";
-
 public:
     E40();
-    ~E40(){};
     virtual bool transitionRead(Automaton * a, Symbol * s);
     virtual bool transitionWrite(Automaton * a, Symbol * s);
     virtual bool transitionId(Automaton * a, Symbol * s);

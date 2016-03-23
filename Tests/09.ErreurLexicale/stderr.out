@@ -2,3 +2,4 @@ Erreur, symbole inconnu à la ligne 1, colonne 5 :
 var _ a,b; 
     ^
 Essai d'élimination automatique du caractère et récupération.
+Un de ces symboles était attendu : [one or many id]

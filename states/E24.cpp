@@ -8,6 +8,7 @@
 E24::E24()
 {
     state = 24;
+    expectedSymbols = "val";
 }
 
 bool E24::transitionVal(Automaton *automaton, Symbol *val)

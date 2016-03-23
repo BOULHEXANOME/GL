@@ -12,7 +12,6 @@ class E37 : public DefaultState
 {
 public:
     E37();
-    ~E37(){};
    
     virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);

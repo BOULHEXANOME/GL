@@ -32,5 +32,6 @@ bool E3::transitionWrite(Automaton * automaton, Symbol * write) {
 
 E3::E3()
 {
+	expectedSymbols = "instructions paragraph, read, write, id, endOfProgramm";
 	this->state = 3;
 }

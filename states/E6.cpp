@@ -13,5 +13,6 @@ bool E6::transitionId(Automaton *automaton, Symbol *id)
 
 E6::E6()
 {
+    expectedSymbols = "id";
     state = 6;
 }

@@ -9,6 +9,7 @@
 E7::E7()
 {
     state = 7;
+    expectedSymbols = "id, one or many affectations";
 }
 
 bool E7::transitionId(Automaton *automaton, Symbol *id)

@@ -7,6 +7,7 @@
 E31::E31()
 {
     state = 31;
+    expectedSymbols = "*, /, ;, +, -, )";
 }
 
 bool E31::transitionSemicolon(Automaton *automaton, Symbol *semicolon)

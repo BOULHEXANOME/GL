@@ -11,6 +11,7 @@
 E40::E40()
 {
     state = 40;
+    expectedSymbols = "read, write, id, var, const";
 }
 
 bool E40::transitionWrite(Automaton *automaton, Symbol *write)

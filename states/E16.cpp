@@ -7,6 +7,7 @@
 
 E16::E16()
 {
+    expectedSymbols = "=";
     state = 16;
 }
 

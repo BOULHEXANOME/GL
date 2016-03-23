@@ -39,6 +39,7 @@ public:
 	virtual bool transitionId(Automaton * automaton, Symbol * s);
 
 	virtual bool transitionError(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * s);
 
 	virtual bool transitionP(Automaton * automaton, Symbol * s);
 	virtual bool transitionD(Automaton * automaton, Symbol * s);

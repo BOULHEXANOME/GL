@@ -5,6 +5,7 @@
 E34::E34()
 {
     state = 34;
+	expectedSymbols = "*, /, ;, +, -, )";
 }
 
 bool E34::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {

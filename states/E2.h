@@ -6,9 +6,6 @@
 class E2 : public DefaultState
 {
 	
-protected:
-	std::string expectedSymbols = "one or many id";
-	
 public:
 	E2();
 	~E2(){};

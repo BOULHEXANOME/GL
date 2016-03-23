@@ -13,6 +13,7 @@
 E36::E36()
 {
     state = 36;
+    expectedSymbols = "id, val, factor, term, expression";
 }
 
 bool E36::transitionVal(Automaton *automaton, Symbol *val)

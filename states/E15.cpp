@@ -26,5 +26,6 @@ bool E15::transitionComma(Automaton * automaton, Symbol * comma) {
 
 E15::E15()
 {
+	expectedSymbols = "comma, ;";
 	this->state = 15;
 }

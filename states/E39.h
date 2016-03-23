@@ -5,15 +5,11 @@
 
 class E39 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "id, val, (";
-
-    public:
-		E39();
-		~E39(){};
-		virtual bool transitionId(Automaton * automaton, Symbol * s);
-		virtual bool transitionVal(Automaton * automaton, Symbol * s);
-		virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
+public:
+	E39();
+	virtual bool transitionId(Automaton * automaton, Symbol * s);
+	virtual bool transitionVal(Automaton * automaton, Symbol * s);
+	virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
 };
 
 #endif

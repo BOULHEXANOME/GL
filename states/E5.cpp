@@ -7,6 +7,7 @@
 
 E5::E5()
 {
+    expectedSymbols = ";";
     state = 5;
 }
 

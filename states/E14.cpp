@@ -8,6 +8,7 @@
 
 E14::E14()
 {
+	expectedSymbols = "(, expression, factor";
     state = 14;
 }
 

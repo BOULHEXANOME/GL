@@ -2,6 +2,7 @@
 E42::E42()
 {
 	this->state = 42;
+	expectedSymbols = "read, write, id, endOfProgram";
 }
 
 

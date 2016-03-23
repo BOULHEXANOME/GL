@@ -7,6 +7,7 @@
 
 E18::E18()
 {
+    expectedSymbols = "+, -, ;, additive or subtractive operation";
     state = 18;
 }
 

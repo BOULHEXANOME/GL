@@ -5,17 +5,13 @@
 
 class E21 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "id, val, (, factor, term";
-	
-    public:
-		E21();
-		~E21(){};
-		virtual bool transitionVal(Automaton * automaton, Symbol * s);
-		virtual bool transitionF(Automaton * automaton, Symbol * s);
-		virtual bool transitionT(Automaton * automaton, Symbol * s);
-		virtual bool transitionId(Automaton * automaton, Symbol * s);
-		virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
+public:
+	E21();
+	virtual bool transitionVal(Automaton * automaton, Symbol * s);
+	virtual bool transitionF(Automaton * automaton, Symbol * s);
+	virtual bool transitionT(Automaton * automaton, Symbol * s);
+	virtual bool transitionId(Automaton * automaton, Symbol * s);
+	virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
 };
 
 #endif

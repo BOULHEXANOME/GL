@@ -20,6 +20,7 @@ bool E1::transitionId(Automaton * automaton, Symbol * s) {
 
 E1::E1()
 {
+    expectedSymbols = "var, const, id, write, read, instruction line, declarative line, instruction paragraph";
 	this->state = 1;
 }
 

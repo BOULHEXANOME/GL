@@ -5,9 +5,6 @@
 
 class E1 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "var, const, id, write, read, instruction line, declarative line, instruction paragraph";
-		
 	public:
 		E1();
 		~E1(){};

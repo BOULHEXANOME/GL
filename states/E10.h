@@ -5,12 +5,10 @@
 
 class E10 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "one or many id, ;";
-    public:
-        E10();
-        ~E10(){};
-		virtual bool transitionComma(Automaton * automaton, Symbol * s);
+public:
+	E10();
+	~E10(){};
+	virtual bool transitionComma(Automaton * automaton, Symbol * s);
 		virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 

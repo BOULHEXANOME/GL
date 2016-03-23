@@ -10,12 +10,8 @@
 
 class E36 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "id, val, factor, term, expression";
-
 public:
     E36();
-    ~E36(){};
    
     virtual bool transitionVal(Automaton * automaton, Symbol * val);
     virtual bool transitionF(Automaton * automaton, Symbol * f);

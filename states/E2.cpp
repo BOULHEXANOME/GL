@@ -13,5 +13,6 @@ bool E2::transitionIdList(Automaton * automaton, Symbol * idList) {
 }
 E2::E2()
 {
+	expectedSymbols = "one or many id";
 	this->state = 2;
 }

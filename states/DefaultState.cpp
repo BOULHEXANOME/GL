@@ -79,102 +79,87 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 		case CONST:
             return transitionConst(automaton, s);
 		default :
-			std::cerr << "Transition impossible" << std::endl;
-			//2e fois si deja erreur avant
+			std::cerr << "Symbole inconnu" << std::endl;
 			return false;
     }
     
 }
 
 bool DefaultState::transitionPlus(Automaton * automaton, Symbol * s) {
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionMinus(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionMultiply(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionDivide(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionWrite(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionRead(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionAffectDeclare(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionAffectInstruct(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionOpenParenthesis(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionCloseParenthesis(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionVar(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionVal(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionDollar(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionConst(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionComma(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionSemicolon(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	return transitionDefault(automaton, s);
 }
 
 bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
+	return transitionDefault(automaton, s);
+}
+
+bool DefaultState::transitionDefault(Automaton *automaton, Symbol *s) {
 	std::cerr << "Transition impossible" << std::endl;
 	return false;
 }
 
-bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
-	
-	//Automaton::instance().popSymbol();
-	
+bool DefaultState::transitionError(Automaton * automaton, Symbol * s)
+{
 	Symbol* s1 = Automaton::instance().programFromLexer.front();
 	Automaton::instance().programFromLexer.pop_front();
 
@@ -183,14 +168,18 @@ bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 		std::cerr << "Erreur, symbole inconnu" ;
 		automaton->printError(s);
 		std::cerr << "Essai d'élimination automatique du caractère et récupération." << std::endl;
+		std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
 		
 		alreadyOneError = true;
 		return (*automaton->states.begin())->transition(automaton, s1);
 	}
-	else {
-		std::cerr << "Erreur" << std::endl;
-		Automaton::instance().printError(s1);
-		std::cerr << "Symboles attendus : " << expectedSymbols << std::endl;
+	else
+	{
+		std::cerr << "Erreur, symbole inconnu" ;
+		automaton->printError(s);
+		std::cerr << "L'essai d'élimination automatique du caractère et de récupération a échoué !" << std::endl;
+		std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+		std::cerr << "Quitte." << std::endl;
 		
 		return false;
 	}
@@ -265,3 +254,4 @@ DefaultState::DefaultState(){
 DefaultState::~DefaultState(){
 	
 }
+

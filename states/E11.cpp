@@ -8,5 +8,6 @@ bool E11::transitionAffectInstruct(Automaton * automaton, Symbol * affectInstruc
 
 E11::E11()
 {
+	expectedSymbols = ":=";
     state = 11;
 }

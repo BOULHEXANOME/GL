@@ -7,6 +7,7 @@
 
 E12::E12()
 {
+    expectedSymbols = "comma, ;";
     state = 12;
 }
 

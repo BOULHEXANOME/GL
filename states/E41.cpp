@@ -8,4 +8,5 @@ bool E41::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 E41::E41()
 {
 	this->state = 41;
+	expectedSymbols = ";";
 }

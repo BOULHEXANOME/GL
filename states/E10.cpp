@@ -32,5 +32,6 @@ bool E10::transitionSemicolon(Automaton * automaton, Symbol * s)
 
 E10::E10()
 {
+	expectedSymbols = "one or many id, ;";
 	this->state = 10;
 }

@@ -10,6 +10,7 @@
 E23::E23()
 {
     state = 23;
+	expectedSymbols = "+, -, ;, additive or subtractive operator";
 }
 
 bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
