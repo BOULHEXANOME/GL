@@ -36,15 +36,6 @@ bool E14::transitionId(Automaton * automaton, Symbol * id){
 	return true;
 }
 
-/*
-
-
-bool transitionId(Automaton * automaton, Symbol * s){
-	automaton->pushState(s, E34());
-	return true;
-}
-*/
-
 bool E14::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis){
 	automaton->pushState(openParenthesis, new E36());
 	return true;
