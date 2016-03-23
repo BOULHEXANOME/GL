@@ -5,6 +5,9 @@
 
 class E23 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "+, -, ;, additive or subtractive operator";
+	
     public:
 		E23();
 		~E23(){};/*

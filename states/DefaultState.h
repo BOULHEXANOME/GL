@@ -1,10 +1,14 @@
 #ifndef DEFAULTSTATE_H
 #define DEFAULTSTATE_H
 
+#include <string>
 #include "State.h"
 
 class DefaultState : public State
 {
+	protected:
+		std::string expectedSymbols = "None.";
+		
     public:
         DefaultState();
         ~DefaultState();
@@ -42,6 +46,18 @@ class DefaultState : public State
         virtual bool transitionF(Automaton * automaton, Symbol * s);
         virtual bool transitionOpA(Automaton * automaton, Symbol * s);
         virtual bool transitionOpM(Automaton * automaton, Symbol * s);
+        
+        /***********************/
+		/*** Getters/Setters ***/
+		/***********************/
+		std::string getExpectedSymbols() const
+		{
+			return expectedSymbols;
+		}
+		/************************/
+		/** End Getters/Setters */
+		/************************/
+     
 };
 
 #endif

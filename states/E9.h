@@ -10,6 +10,9 @@
 
 class E9 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "id, val, (, expression, term, factor";
+	
 public:
     E9();
     ~E9(){};

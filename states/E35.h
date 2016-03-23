@@ -10,6 +10,8 @@
 
 class E35 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "*, /, ;, +, -, )";
 public:
     E35();
     ~E35(){};

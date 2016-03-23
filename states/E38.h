@@ -5,6 +5,9 @@
 
 class E38 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "id, val, (";
+
     public:
 		E38();
 		~E38(){};

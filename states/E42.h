@@ -5,6 +5,9 @@
 
 class E42 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "read, write, id, endOfProgram";
+
     public:
 		E42();
 		~E42(){};

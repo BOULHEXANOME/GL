@@ -5,6 +5,8 @@
 
 class E11 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = ":=";
     public:
 		E11();
 		~E11(){};

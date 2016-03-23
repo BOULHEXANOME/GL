@@ -10,6 +10,9 @@
 
 class E36 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "id, val, factor, term, expression";
+
 public:
     E36();
     ~E36(){};
