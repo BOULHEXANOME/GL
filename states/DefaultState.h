@@ -6,6 +6,9 @@
 
 class DefaultState : public State
 {
+	private:
+		bool alreadyOneError;
+	
 	protected:
 		std::string expectedSymbols = "None.";
 		

@@ -2,6 +2,14 @@
 
 bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 	std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
+	
+	if (s->getType() == ERROR)
+	{
+		return transitionError(automaton, s);
+	}
+	
+	alreadyOneError = false;
+		
 	switch(s->getType()) {
 		case PLUS :
 			return transitionPlus(automaton, s);
@@ -59,8 +67,6 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
             return transitionOpA(automaton, s);
 		case OPM :
             return transitionOpM(automaton, s);
-		case ERROR :
-            return transitionError(automaton, s);
 		case CONST:
             return transitionConst(automaton, s);
 		default :
@@ -68,6 +74,7 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
 			//2e fois si deja erreur avant
 			return false;
     }
+    
 }
 
 bool DefaultState::transitionPlus(Automaton * automaton, Symbol * s) {
@@ -156,9 +163,27 @@ bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
 }
 
 bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	// Essaye le cara suivant un fois et affiche une erreur en indiquant le caractère attendu
-	return false;
+	
+	Symbol* s1 = Automaton::instance().popSymbol();
+	
+	std::cout << "Symbole s : " << s->getType() << std::endl;
+	std::cout << "Symbole s1 : " << s1->getType() << std::endl;
+	
+	
+	if (alreadyOneError == false) {
+		std::cerr << "Essai avec le symbole suivant" << std::endl;
+		
+		alreadyOneError = true;
+		return transition(automaton, s1);
+	}
+	else {
+		std::cerr << "Erreur" << std::endl;
+		Automaton::instance().printError(s1);
+		std::cerr << "Symboles attendus : " << expectedSymbols << std::endl;
+		
+		return false;
+	}
+	
 }
 
 bool DefaultState::transitionP(Automaton * automaton, Symbol * s){
@@ -222,6 +247,7 @@ bool DefaultState::transitionOpM(Automaton * automaton, Symbol * s){
 }
 
 DefaultState::DefaultState(){
+	this->alreadyOneError = false;
 	this->state = -1;
 }
 

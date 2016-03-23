@@ -234,7 +234,7 @@ public:
     /*
      * Error Handling
      */
-     void printError(Symbol* problematicSymbol);
+     void printError(const Symbol* problematicSymbol);
 
     /*
      * Method singleton

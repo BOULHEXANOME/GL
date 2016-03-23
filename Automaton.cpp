@@ -703,7 +703,7 @@ void Automaton::accept()
 }
 
 
-void Automaton::printError(Symbol* problematicSymbol) {
+void Automaton::printError(const Symbol* problematicSymbol) {
 	
 	std::cout << " at line " << problematicSymbol->getLineWhereSymbolOccurs() << ", column " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
 	

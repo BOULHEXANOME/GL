@@ -195,7 +195,7 @@ void Lexer::trim() {
 	// Nouvelle ligne
       if (stringResult[i] == "\n") {
         currentLine++;
-        std::cout << "Ligne actuelle : " << currentLine << std::endl;
+        //std::cout << "Ligne actuelle : " << currentLine << std::endl;
         // Reset le curseur au début de la ligne
         currentPosition = 0;
       }
