@@ -114,7 +114,6 @@ void Automaton::createSomeLines()
     declaractionConstAfter.addSymbol(declarationConstAction);
 
     // ?? comment remplir les tables de symboles ???
-    // TODO
     this->theVariables["myVar"] = theVarDeclared;
     this->theConstants["myConst"] = 5;
 
