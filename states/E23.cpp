@@ -24,7 +24,6 @@ bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
     // TODO faire remonter le I_prime
     IdTerminal * variableToDeclare = (IdTerminal*) (id);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
-    std::cout << std::endl << expr->getType() << std::endl<< std::endl;
     AffectInstruct * actionInstruct = new AffectInstruct(varDeclared, expr);
     Line lineAffect = Line(Type::instruction);
     lineAffect.addSymbol(actionInstruct);

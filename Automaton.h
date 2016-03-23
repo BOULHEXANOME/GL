@@ -75,8 +75,6 @@ private:
     friend class E43;
     friend class E44;
 
-    Automaton() { }
-
     Program programLines;
     AllTheConstants theConstants;
     AllTheVariables theVariables;
@@ -87,7 +85,13 @@ private:
     SymbolsStack symbolsAutomaton;
     //Pile d'etat de l'automate
     StatesStack states;
+    bool debug = false;
 
+
+    Automaton()
+    {
+        debug = false;
+    }
 public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
@@ -109,6 +113,12 @@ public:
     void addProgramLine(Line & lineToAdd)
     {
         this->programLines.push_back(lineToAdd);
+    }
+
+
+    bool isDebug() const
+    {
+        return debug;
     }
     
     /***********************/

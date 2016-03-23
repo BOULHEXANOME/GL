@@ -1,7 +1,8 @@
 #include "DefaultState.h"
 
 bool DefaultState::transition (Automaton * automaton, Symbol * s) {
-	std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
+	if(automaton->debug)
+		std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
 	switch(s->getType()) {
 		case PLUS :
 			return transitionPlus(automaton, s);

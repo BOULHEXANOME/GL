@@ -6,7 +6,7 @@
 
 std::string DivideExpression::print() const
 {
-    return leftExpr->print() + " / " + rigthExpr->print();
+    return leftExpr->print() + "/" + rigthExpr->print();
 }
 
 int DivideExpression::execute() const
