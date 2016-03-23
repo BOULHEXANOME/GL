@@ -16,8 +16,10 @@ protected:
 public:
     E18();
     ~E18(){};
-    // FIXME transitions
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionOpA(Automaton * automaton, Symbol * opa);
+    virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
+    virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
 
 };
 
