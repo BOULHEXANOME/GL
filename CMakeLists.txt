@@ -45,8 +45,7 @@ Symbols/Terminaux/DivideTerminal.cpp Symbols/Terminaux/DivideTerminal.h
 Symbols/Terminaux/MultiplyTerminal.cpp Symbols/Terminaux/MultiplyTerminal.h 
 Symbols/Terminaux/ParenthesisTerminal.cpp Symbols/Terminaux/ParenthesisTerminal.h 
 Symbols/Terminaux/AffectDeclareTerminal.cpp Symbols/Terminaux/AffectDeclareTerminal.h 
-Symbols/Terminaux/AffectInstructTerminal.cpp Symbols/Terminaux/AffectInstructTerminal.h 
-states/State.h 
+Symbols/Terminaux/AffectInstructTerminal.cpp Symbols/Terminaux/AffectInstructTerminal.h
 states/DefaultState.cpp states/DefaultState.h 
 states/E0.cpp states/E0.h 
 states/E1.cpp states/E1.h 
