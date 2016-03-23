@@ -12,7 +12,6 @@ class E13 : public DefaultState
 {
 public:
     E13();
-    ~E13(){};
     
     virtual bool transitionSemicolon(Automaton * a, Symbol * s);
     virtual bool transitionCloseParenthesis(Automaton * a, Symbol * s);

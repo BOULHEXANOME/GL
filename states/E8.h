@@ -13,7 +13,6 @@ class E8 : public DefaultState
 	
 public:
     E8();
-    ~E8(){};
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 

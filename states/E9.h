@@ -13,7 +13,6 @@ class E9 : public DefaultState
 	
 public:
     E9();
-    ~E9(){};
     virtual bool transitionT(Automaton * automaton, Symbol * s);
     virtual bool transitionF(Automaton * automaton, Symbol * s);
     virtual bool transitionVal(Automaton * automaton, Symbol * s);

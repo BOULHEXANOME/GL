@@ -12,7 +12,6 @@ class E18 : public DefaultState
 {
 public:
     E18();
-    ~E18(){};
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
     virtual bool transitionOpA(Automaton * automaton, Symbol * opa);
     virtual bool transitionPlus(Automaton * automaton, Symbol * plus);

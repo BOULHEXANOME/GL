@@ -5,9 +5,9 @@
 
 class E26 : public DefaultState
 {
-    public:
-        E26();
-		virtual bool transitionVal(Automaton * automaton, Symbol * val);
+public:
+	E26();
+	virtual bool transitionVal(Automaton * automaton, Symbol * val);
 };
 
 #endif
