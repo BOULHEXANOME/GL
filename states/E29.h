@@ -12,7 +12,6 @@ class E29 : public DefaultState
 {
 public:
     E29();
-    // FIXME transitions
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
     virtual bool transitionPlus(Automaton * automaton, Symbol * plus);

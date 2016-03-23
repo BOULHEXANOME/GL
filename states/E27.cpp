@@ -1,4 +1,7 @@
 #include "E27.h"
+#include "E32.h"
+#include "E33.h"
+#include "E30.h"
 #include "../Symbols/Nonterminaux/PlusExpression.h"
 #include "../Symbols/Nonterminaux/MinusExpression.h"
 #include "../Symbols/Nonterminaux/OpA.h"
@@ -9,21 +12,21 @@ E27::E27()
     state = 27;
 	expectedSymbols = "*, /, +, -, ), ;, multiplicative or dividing operation";
 }
-/*
-bool transitionMultiply(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E32());
+
+bool E27::transitionMultiply(Automaton * automaton, Symbol * multiply) {
+	automaton->pushState(multiply, new E32());
 	return true;
 }
 
-bool transitionDivide(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E33());
+bool E27::transitionDivide(Automaton * automaton, Symbol * divide) {
+	automaton->pushState(divide, new E33());
 	return true;
 }
 
-bool transitionOpM(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, E30());
+bool E27::transitionOpM(Automaton * automaton, Symbol * opm) {
+	automaton->pushState(opm, new E30());
 	return true;
-}*/
+}
 
 bool E27::transitionPlus(Automaton * automaton, Symbol * plus) {
 	Symbol * t = automaton->popSymbol();

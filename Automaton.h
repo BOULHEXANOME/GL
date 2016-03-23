@@ -140,31 +140,6 @@ public:
     /***********************/
 
     /*
-     * Method used to test the creation and deletion of symbols
-     * (just to test)
-     */
-    void createAndDeleteSomeLines();
-    void createSomeLines();
-    
-    void testStates();
-    void testStates2();
-    void testStates4();
-    void testStates3();
-    void testStates5();
-    void testStates6();
-    void testStates7();
-
-    /*
-     * Method test "lire"
-     */
-    void testLire();
-
-    /*
-     * Method test "const"
-     */
-    void testConst();
-
-    /*
      * Method used to print the code in memory
      */
     void printCode();

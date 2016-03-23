@@ -7,10 +7,9 @@ class E27 : public DefaultState
 {
 public:
 	E27();
-	/*
 	bool transitionMultiply(Automaton * automaton, Symbol * s);
 	bool transitionDivide(Automaton * automaton, Symbol * s);
-	bool transitionOpM(Automaton * automaton, Symbol * s);*/
+	bool transitionOpM(Automaton * automaton, Symbol * s);
 
 	bool transitionPlus(Automaton * automaton, Symbol * s);
 	bool transitionMinus(Automaton * automaton, Symbol * s);

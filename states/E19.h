@@ -5,9 +5,9 @@
 
 class E19 : public DefaultState
 {
-    public:
-        E19();
-		virtual bool transitionId(Automaton * automaton, Symbol * id);
+public:
+	E19();
+	virtual bool transitionId(Automaton * automaton, Symbol * id);
 };
 
 #endif
