@@ -13,8 +13,7 @@ int VarDeclare::execute() const
 {
     if(! Automaton::instance().declareVariable(this->variableToDeclare->getTheName()))
     {
-        // TODO
-        std::cerr << "error declare ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
     }
     return 0;
 }
@@ -23,8 +22,7 @@ bool VarDeclare::analyse() const
 {
     if(! Automaton::instance().analyseDeclareVariable(this->variableToDeclare->getTheName()))
     {
-        // TODO
-        std::cerr << "error declare ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
         return false;
     }
     return true;

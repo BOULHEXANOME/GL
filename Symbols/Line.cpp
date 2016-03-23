@@ -16,3 +16,9 @@ void Line::execute() const
 {
     theSymbol->execute();
 }
+
+void Line::addSymbol(Symbol *symbolsToAdd)
+{
+    theSymbol = symbolsToAdd;
+    theSymbol->analyse();
+}

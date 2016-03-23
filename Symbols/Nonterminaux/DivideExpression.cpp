@@ -11,7 +11,14 @@ std::string DivideExpression::print() const
 
 int DivideExpression::execute() const
 {
-    return this->leftExpr->execute() / this->rigthExpr->execute();
+    int diviser = this->rigthExpr->execute();
+    if(diviser == 0)
+    {
+        std::cerr << "Erreur, division par 0 impossible ";
+        Automaton::instance().printError(this);
+        return 0;
+    }
+    return this->leftExpr->execute() / diviser;
 }
 
 bool DivideExpression::analyse() const {

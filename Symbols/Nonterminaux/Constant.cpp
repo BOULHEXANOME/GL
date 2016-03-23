@@ -13,12 +13,12 @@ int Constant::execute() const
     catch(const int e) {
         if(e == CONST_DOES_NOT_EXISTS)
         {
-            // TODO
-            std::cerr << "error accessing const ! print line number&column" << std::endl;
+            Automaton::instance().printError(this);
         }
         else
         {
-            std::cerr << "unknown error ! print line number&column" << std::endl;
+            std::cerr << "Erreur inconnue ";
+            Automaton::instance().printError(this);
         }
     }
     return 0;

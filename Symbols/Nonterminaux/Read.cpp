@@ -16,8 +16,7 @@ int Read::execute() const
     std::cin >> numberFromUser;
     if(! Automaton::instance().affectVariable(this->variableToReadFromUser->getTheName(), numberFromUser))
     {
-        // TODO
-        std::cerr << "error declare ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
     }
     return 0;
 }
@@ -26,8 +25,7 @@ bool Read::analyse() const
 {
     if(! Automaton::instance().analyseAffectVariable(this->variableToReadFromUser->getTheName()))
     {
-        // TODO
-        std::cerr << "error declare ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
         return false;
     }
     return true;

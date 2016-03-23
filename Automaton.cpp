@@ -48,7 +48,7 @@ bool Automaton::declareVariable(std::string theName)
 {
     if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
-        std::cerr << "Error declaring variable : name already exists" << std::endl;
+        std::cerr << "Erreur lors de la declaration de la variable : '"<< theName << "' existe déjà." << std::endl;
         return false;
     }
     else
@@ -64,7 +64,7 @@ bool Automaton::declareAndAffectConst(std::string theName, int theValue)
 {
     if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
-        std::cerr << "Error declaring constant : name already exists" << std::endl;
+        std::cerr << "Erreur lors de la declaration de la constante : '"<< theName << "' existe déjà." << std::endl;
         return false;
     }
     else
@@ -88,11 +88,11 @@ bool Automaton::affectVariable(std::string theName, int theValue)
     {
         if(theConstants.find(theName) != theConstants.end())
         {
-            std::cerr << "Error : cannot affect variable to a constant." << std::endl;
+            std::cerr << "Erreur : impossible d'affecter une valeur à une constante." << std::endl;
         }
         else
         {
-            std::cerr << "Error affecting value to variable : variable has not been declared." << std::endl;
+            std::cerr << "Erreur lors de l'affectation de la variable : '"<< theName << "', la variable n'a pas été déclarée." << std::endl;
         }
         return false;
     }
@@ -109,7 +109,7 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
         }
         else
         {
-            std::cerr << "Error accessing variable : variable has not been instancied yet." << std::endl;
+            std::cerr << "Erreur lors de l'accès à la variable : '"<< theName << "', la variable n'a pas été instanciée." << std::endl;
             return false;
         }
     }
@@ -120,7 +120,7 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
             toComplete->theValue = theConstants[theName];
             return true;
         }
-        std::cerr << "Error accessing variable : variable has not been declared." << std::endl;
+        std::cerr << "Erreur lors de l'accès à la variable : '"<< theName << "', la variable n'a pas été déclarée." << std::endl;
         return false;
     }
 }
@@ -130,7 +130,7 @@ int Automaton::accessConstant(std::string theName) {
         return theConstants[theName];
     }
     else {
-        std::cerr << "Error accessing constant : constant has not been declared (nor initialised)." << std::endl;
+        std::cerr << "Erreur d'accès à la constante : '" << theName << "' n'a pas été déclarée (ni initialisée)." << std::endl;
         throw CONST_DOES_NOT_EXISTS;
     }
 }
@@ -141,8 +141,7 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
         std::cout << "push State : " << e->state<< std::endl;
 	this->symbolsAutomaton.push_front(s);
 	this->states.push_front(e);
-	
-	//TODO il faudra savoir si on push front/push back dans le programme renvoyé par le lexer
+
 	Symbol * sym = this->programFromLexer.front();
 	this->programFromLexer.pop_front();
 	
@@ -206,7 +205,7 @@ bool Automaton::analyseDeclareAndAffectConst(std::string theName)
 {
     if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
-        std::cerr << "Error declaring constant : name already exists" << std::endl;
+        std::cerr << "Erreur lors de la declaration de la constante : '"<< theName << "' existe déjà." << std::endl;
         return false;
     }
     else
@@ -220,7 +219,7 @@ bool Automaton::analyseDeclareVariable(std::string theName)
 {
     if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
-        std::cerr << "Error declaring variable : name already exists" << std::endl;
+        std::cerr << "Erreur lors de la declaration de la variable : '"<< theName << "' existe déjà." << std::endl;
         return false;
     }
     else
@@ -246,11 +245,11 @@ bool Automaton::analyseAffectVariable(std::string theName)
     {
         if(theConstants.find(theName) != theConstants.end())
         {
-            std::cerr << "Error : cannot affect variable to a constant." << std::endl;
+            std::cerr << "Erreur : impossible d'affecter une valeur à une constante." << std::endl;
         }
         else
         {
-            std::cerr << "Error affecting value to variable : variable has not been declared." << std::endl;
+            std::cerr << "Erreur lors de l'affectation de la variable : '"<< theName << "', la variable n'a pas été déclarée." << std::endl;
         }
         return false;
     }
@@ -266,7 +265,7 @@ bool Automaton::analyseAccessVariable(std::string theName)
         }
         else
         {
-            std::cerr << "Error accessing variable : variable has not been instancied yet." << std::endl;
+            std::cerr << "Erreur lors de l'accès à la variable : '"<< theName << "', la variable n'a pas été instanciée." << std::endl;
             return false;
         }
     }
@@ -276,7 +275,7 @@ bool Automaton::analyseAccessVariable(std::string theName)
         {
             return true;
         }
-        std::cerr << "Error accessing variable : variable has not been declared." << std::endl;
+        std::cerr << "Erreur lors de l'accès à la variable : '"<< theName << "', la variable n'a pas été déclarée." << std::endl;
         return false;
     }
 }
@@ -286,8 +285,9 @@ bool Automaton::analyseAccessConstant(std::string theName)
     if (theConstants.find(theName) != theConstants.end()) {
         return true;
     }
-    else {
-        std::cerr << "Error accessing constant : constant has not been declared (nor initialised)." << std::endl;
+    else
+    {
+        std::cerr << "Erreur d'accès à la constante : '" << theName << "' n'a pas été déclarée (ni initialisée)." << std::endl;
         throw CONST_DOES_NOT_EXISTS;
     }
 }
