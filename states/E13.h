@@ -16,6 +16,10 @@ public:
     
     virtual bool transitionSemicolon(Automaton * a, Symbol * s);
     virtual bool transitionCloseParenthesis(Automaton * a, Symbol * s);
+    virtual bool transitionMinus(Automaton * a, Symbol * s);
+    virtual bool transitionPlus(Automaton * a, Symbol * s);
+    virtual bool transitionDivide(Automaton * a, Symbol * s);
+    virtual bool transitionMultiply(Automaton * a, Symbol * s);
 };
 
 

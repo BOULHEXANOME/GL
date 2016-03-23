@@ -60,7 +60,7 @@ bool E44::transitionDivide(Automaton * automaton, Symbol * divide) {
 	return true;
 }
 
-bool E44::transitionClosingParenthesis(Automaton * automaton, Symbol * closingParenthesis) {
+bool E44::transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis) {
 	Symbol * f = automaton->popSymbol();
 	Symbol * opm = automaton->popSymbol();
 	Symbol * t = automaton->popSymbol();
@@ -82,7 +82,7 @@ bool E44::transitionClosingParenthesis(Automaton * automaton, Symbol * closingPa
 	
 	opmExpression->setType(T);
 		
-	automaton->programFromLexer.push_front(closingParenthesis);
+	automaton->programFromLexer.push_front(closeParenthesis);
 	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
