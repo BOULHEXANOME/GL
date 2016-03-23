@@ -46,6 +46,6 @@ bool E9::transitionId(Automaton * automaton, Symbol * id)
 
 bool E9::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis)
 {
-	automaton->pushState(id, new E36());
+	automaton->pushState(openParenthesis, new E36());
     return true;
 }
