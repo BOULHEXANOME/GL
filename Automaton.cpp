@@ -164,7 +164,7 @@ void Automaton::testStates5()
     Semicolon* semicolon = new Semicolon();
 	semicolon->setType(SEMICOLON);
 	
-	//i := 3 + 4;
+	//i := 3 + 4 + 5;
     IdTerminal* idTerminal2 = new IdTerminal("i");
 	idTerminal2->setType(ID);
 	AffectInstructTerminal* affectInstruct = new AffectInstructTerminal();
@@ -175,6 +175,10 @@ void Automaton::testStates5()
     plusTerminal->setType(PLUS);
     Number* numberToAffect2 = new Number(4);
     numberToAffect2->setType(VAL);
+    PlusTerminal* plusTerminal2 = new PlusTerminal();
+    plusTerminal2->setType(PLUS);
+    Number* numberToAffect3 = new Number(5);
+    numberToAffect3->setType(VAL);
     Semicolon* semicolon2 = new Semicolon();
 	semicolon2->setType(SEMICOLON);
     
@@ -197,6 +201,8 @@ void Automaton::testStates5()
     this->programFromLexer.push_front(writeTerm);
     
     this->programFromLexer.push_front(semicolon2);
+    this->programFromLexer.push_front(numberToAffect3);
+    this->programFromLexer.push_front(plusTerminal2); 
     this->programFromLexer.push_front(numberToAffect2);
     this->programFromLexer.push_front(plusTerminal); 
     this->programFromLexer.push_front(numberToAffect);
