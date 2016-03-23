@@ -7,14 +7,14 @@ class E27 : public DefaultState
 {
 public:
 	E27();
-	bool transitionMultiply(Automaton * automaton, Symbol * s);
-	bool transitionDivide(Automaton * automaton, Symbol * s);
-	bool transitionOpM(Automaton * automaton, Symbol * s);
+	virtual bool transitionMultiply(Automaton * automaton, Symbol * s);
+	virtual bool transitionDivide(Automaton * automaton, Symbol * s);
+	virtual bool transitionOpM(Automaton * automaton, Symbol * s);
 
-	bool transitionPlus(Automaton * automaton, Symbol * s);
-	bool transitionMinus(Automaton * automaton, Symbol * s);
-	bool transitionCloseParenthesis(Automaton * automaton, Symbol * s);
-	bool transitionSemicolon(Automaton * automaton, Symbol * s);
+	virtual bool transitionPlus(Automaton * automaton, Symbol * s);
+	virtual bool transitionMinus(Automaton * automaton, Symbol * s);
+	virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * s);
+	virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 
 #endif

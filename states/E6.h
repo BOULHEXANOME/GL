@@ -13,6 +13,7 @@ class E6 : public DefaultState
 public:
     E6();
     virtual bool transitionId(Automaton * automaton, Symbol * s);
+    virtual bool transitionDefault(Automaton *automaton, Symbol *unknown);
 };
 
 

@@ -7,7 +7,8 @@ class E41 : public DefaultState
 {
 public:
 	E41();
-	bool transitionSemicolon(Automaton * automaton, Symbol * s);
+	bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+	bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

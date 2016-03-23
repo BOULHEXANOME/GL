@@ -7,10 +7,10 @@ class E23 : public DefaultState
 {
 public:
 	E23();
-	bool transitionOpA(Automaton * automaton, Symbol * s);
-	bool transitionPlus(Automaton * automaton, Symbol * s);
-	bool transitionMinus(Automaton * automaton, Symbol * s);
-	bool transitionSemicolon(Automaton * automaton, Symbol * s);
+	virtual bool transitionOpA(Automaton * automaton, Symbol * s);
+	virtual bool transitionPlus(Automaton * automaton, Symbol * s);
+	virtual bool transitionMinus(Automaton * automaton, Symbol * s);
+	virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 
 #endif

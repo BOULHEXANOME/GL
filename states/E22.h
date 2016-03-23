@@ -8,6 +8,7 @@ class E22 : public DefaultState
 public:
 	E22();
 	virtual bool transitionAffectDeclare(Automaton * automaton, Symbol * affectDeclare);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

@@ -13,6 +13,7 @@ class E16 : public DefaultState
 public:
     E16();
     virtual bool transitionAffectDeclare(Automaton * automaton, Symbol * equalSign);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

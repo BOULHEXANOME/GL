@@ -7,7 +7,8 @@ class E11 : public DefaultState
 {
 public:
 	E11();
-	bool transitionAffectInstruct(Automaton * automaton, Symbol * s);
+	virtual bool transitionAffectInstruct(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton *automaton, Symbol *unknown);
 };
 
 #endif

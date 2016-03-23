@@ -181,7 +181,7 @@ void Automaton::accept()
 
 void Automaton::printError(const Symbol* problematicSymbol) {
 	
-	std::cerr << " à la ligne " << problematicSymbol->getLineWhereSymbolOccurs() << ", colonne " << problematicSymbol->getColumnWhereSymbolOccurs() + 1 << " :" << std::endl;
+	std::cerr << " à la ligne " << problematicSymbol->getLineWhereSymbolOccurs() << ", colonne " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
 	
 	// -1 because vector first element is 0 while first line is 1
 	std::cerr << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs() -1] << std::endl;

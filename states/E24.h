@@ -13,6 +13,7 @@ class E24 : public DefaultState
 public:
     E24();
     virtual bool transitionVal(Automaton * automaton, Symbol * val);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

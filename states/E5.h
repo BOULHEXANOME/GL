@@ -13,6 +13,7 @@ class E5: public DefaultState
 public:
     E5();
     virtual bool transitionSemicolon(Automaton * a, Symbol * s);
+    virtual bool transitionDefault(Automaton *automaton, Symbol *unknown);
 };
 
 

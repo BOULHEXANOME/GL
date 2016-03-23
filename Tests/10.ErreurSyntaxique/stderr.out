@@ -1,3 +1,15 @@
-Erreur syntaxique (1:7) symbole , attendu
-Erreur syntaxique (4:1) symbole ; attendu
-Erreur syntaxique (8:4) operateur := attendu
+Erreur syntaxique, symbole non attendu à la ligne 1, colonne 6 :
+var a b; 
+      ^
+Un de ces symboles était attendu : [comma, ;]
+L'automate assume que la virgule a été oubliée, et continue donc avec ce symbole.
+Erreur syntaxique, symbole non attendu à la ligne 4, colonne 0 :
+var e;
+^
+Un de ces symboles était attendu : [comma, ;]
+L'automate assume que le point virgule a été oublié, et continue donc avec ce symbole.
+Erreur syntaxique, symbole non attendu à la ligne 8, colonne 3 :
+e  b+d;
+   ^
+Un de ces symboles était attendu : [:=]
+L'automate assume que le ':=' a été oublié, et continue donc avec ce symbole.

@@ -14,7 +14,7 @@ class E4 : public DefaultState
 public:
     E4();
     virtual bool transitionSemicolon(Automaton * a, Symbol * s);
-
+    virtual bool transitionDefault(Automaton * automaton, Symbol * s);
 };
 
 

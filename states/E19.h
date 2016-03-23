@@ -8,6 +8,7 @@ class E19 : public DefaultState
 public:
 	E19();
 	virtual bool transitionId(Automaton * automaton, Symbol * id);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif
