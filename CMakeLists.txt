@@ -84,6 +84,10 @@ states/E12.h states/E12.cpp
 states/E24.h states/E24.cpp
 states/E25.h states/E25.cpp
 states/E37.h states/E37.cpp
+states/E32.h states/E32.cpp
+states/E33.h states/E33.cpp
+states/E30.h states/E30.cpp
+states/E44.h states/E44.cpp
 )
 
 add_executable(lut ${SOURCE_FILES})
