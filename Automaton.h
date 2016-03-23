@@ -109,6 +109,7 @@ public:
     {
         this->programLines.push_back(lineToAdd);
     }
+    
     /***********************/
     /* End Getters/Setters */
     /***********************/
@@ -158,6 +159,12 @@ public:
      * alert the user if errors occurs
      */
     void execute();
+    
+    /*
+     * 
+     * 
+     */
+    void launchProgramFromLexer();
 
     /*
      * Method used to add a variable declaration to the table of symbols

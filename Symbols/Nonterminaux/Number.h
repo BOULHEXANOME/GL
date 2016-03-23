@@ -14,7 +14,7 @@ private:
     int theValue;
 
 public:
-    Number(int theValue) : theValue(theValue) { }
+    Number(int theValue);
 
     /***********************/
     /*** Getters/Setters ***/

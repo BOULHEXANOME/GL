@@ -84,20 +84,3 @@ bool E40::transitionConst(Automaton *automaton, Symbol *constantS)
     return true;
 }
 
-bool E40::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
-{ 
-	Symbol * closeParenthesis = automaton->popSymbol();
-	Symbol * e = automaton->popSymbol();
-    Symbol * f = automaton->popSymbol();
-    
-    Expression * expressionToParenthesise = (Expression*) (e);
-    Parenthesis * expressionParenthesised = new Parenthesis(expressionToParenthesise);
-    
-    expressionToParenthesise->setType(F);
-    automaton->programFromLexer.push_front(semicolon);
-    automaton->popState();
-    automaton->popState();
-    automaton->popState();
-    (*automaton->states.begin())->transition(automaton, expressionToParenthesise);
-    return true;
-}

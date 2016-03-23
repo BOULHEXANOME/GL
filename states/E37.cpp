@@ -3,7 +3,7 @@
 //
 
 #include "E37.h"
-#include "E40.h"
+#include "E13.h"
 
 
 E37::E37()
@@ -13,7 +13,7 @@ E37::E37()
 
 bool E37::transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis)
 {
-    automaton->pushState(closeParenthesis, new E40());
+    automaton->pushState(closeParenthesis, new E13());
 	return true;
 }
 

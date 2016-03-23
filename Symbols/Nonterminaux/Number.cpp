@@ -12,6 +12,12 @@ std::string Number::print() const
     return convertToString.str();
 }
 
+Number::Number(int value)
+{
+	symbolType = VAL;
+	theValue = value;
+}
+
 int Number::execute() const
 {
     return theValue;

@@ -39,3 +39,9 @@ bool E36::transitionE(Automaton *automaton, Symbol *E)
 	return true;
 }
 
+bool E36::transitionOpenParenthesis(Automaton *automaton, Symbol *openParenthesis)
+{
+    automaton->pushState(openParenthesis, new E36());
+	return true;
+}
+

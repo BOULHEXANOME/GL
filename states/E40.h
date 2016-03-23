@@ -18,7 +18,6 @@ public:
     virtual bool transitionId(Automaton * a, Symbol * s);
     virtual bool transitionVar(Automaton * a, Symbol * s);
     virtual bool transitionConst(Automaton * a, Symbol * s);
-    virtual bool transitionSemicolon(Automaton * a, Symbol * s);
 };
 
 

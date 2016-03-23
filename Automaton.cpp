@@ -175,8 +175,8 @@ void Automaton::testStates5()
     plusTerminal->setType(PLUS);
     Number* numberToAffect2 = new Number(4);
     numberToAffect2->setType(VAL);
-    PlusTerminal* plusTerminal2 = new PlusTerminal();
-    plusTerminal2->setType(PLUS);
+    MinusTerminal* plusTerminal2 = new MinusTerminal();
+    plusTerminal2->setType(MINUS);
     Number* numberToAffect3 = new Number(5);
     numberToAffect3->setType(VAL);
     Semicolon* semicolon2 = new Semicolon();
@@ -681,7 +681,7 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
 void Automaton::pushSymbol(Symbol * s) {
 	
 	std::cout << "Push Symbol: " << s << std::endl;
-	this->programFromLexer.push_front(s);
+	this->programFromLexer.push_back(s);
 }
 
 void Automaton::popState()
@@ -810,3 +810,14 @@ void Automaton::testConst()
     this->states.push_front(e0);
     e0->transition(this, sym);
 }
+
+void Automaton::launchProgramFromLexer()
+{
+	Symbol * sym = this->programFromLexer.front();
+    this->programFromLexer.pop_front();
+
+    DefaultState * e0 = new E0();
+    this->states.push_front(e0);
+    e0->transition(this, sym);
+}
+
