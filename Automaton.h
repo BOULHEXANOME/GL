@@ -241,6 +241,12 @@ public:
         static Automaton automatonInstance;
         return automatonInstance;
     }
+
+    /*
+     * Method to optimize
+     */
+    void optimize();
+
     /***********************/
     /***** End Methods *****/
     /***********************/

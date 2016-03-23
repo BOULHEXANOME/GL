@@ -70,6 +70,11 @@ public:
      */
     virtual bool analyse() const;
 
+    /*
+     * Optimize Symbol
+     */
+    virtual void optimize();
+
     int getType() const;
     virtual std::string print() const;
     void setType(int type);

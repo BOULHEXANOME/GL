@@ -16,3 +16,7 @@ void Line::execute() const
 {
     theSymbol->execute();
 }
+
+void Line::optimize(){
+    this->getTheSymbol()->optimize();
+}

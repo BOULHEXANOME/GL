@@ -38,6 +38,8 @@ public:
     virtual std::string print() const;
     virtual int execute() const;
     virtual bool analyse() const;
+    Expression* optimizeExpression();
+    int getType();
     /***********************/
     /****** End Methods ****/
     /***********************/

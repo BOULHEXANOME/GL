@@ -31,3 +31,8 @@ std::string Constant::print() const {
 bool Constant::analyse() const {
     return true;
 }
+
+int Constant::getType()
+{
+    return CONST;
+}

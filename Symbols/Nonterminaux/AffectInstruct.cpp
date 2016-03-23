@@ -30,3 +30,8 @@ bool AffectInstruct::analyse() const
     }
     return true;
 }
+
+void AffectInstruct::optimize()
+{
+    this->setExpressionToAffect(this->getExpressionToAffect()->optimizeExpression());
+}

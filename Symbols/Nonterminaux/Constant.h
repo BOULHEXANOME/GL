@@ -34,6 +34,7 @@ public:
     virtual int execute() const;
     virtual bool analyse() const;
     virtual std::string print() const;
+    int getType();
 };
 
 

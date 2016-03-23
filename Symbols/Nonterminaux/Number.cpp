@@ -27,3 +27,13 @@ bool Number::analyse() const
 {
     return true;
 }
+
+Expression* Number::optimizeExpression()
+{
+    return this;
+}
+
+int Number::getType()
+{
+    return VAL;
+}

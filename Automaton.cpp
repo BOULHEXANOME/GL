@@ -982,3 +982,11 @@ bool Automaton::analyseAccessConstant(std::string theName)
     }
 }
 
+void Automaton::optimize()
+{
+    for (Program::iterator cProgramLines = this->programLines.begin(); cProgramLines != this->programLines.end(); cProgramLines++)
+    {
+        cProgramLines->optimize();
+    }
+}
+

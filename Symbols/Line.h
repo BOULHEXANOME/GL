@@ -77,6 +77,11 @@ public:
      */
     void execute() const;
 
+    /*
+     * Optimize line
+     */
+    void optimize();
+
     /***********************/
     /***** End Methods *****/
     /***********************/

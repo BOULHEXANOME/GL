@@ -38,3 +38,8 @@ bool Symbol::analyse() const
     std::cout << "Cannot analyse abstract symbol class." << std::endl;
     return false;
 }
+
+void optimize()
+{
+    //do nothing
+}

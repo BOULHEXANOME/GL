@@ -19,3 +19,8 @@ bool Write::analyse() const
 {
     return toWrite->analyse();
 }
+
+void Write::optimize()
+{
+    this->setToWrite(this->getToWrite()->optimizeExpression());
+}
