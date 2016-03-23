@@ -3,6 +3,7 @@
 //
 
 #include "E12.h"
+#include "E19.h"
 
 E12::E12()
 {
@@ -21,4 +22,8 @@ bool E12::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     automaton->popState();
     automaton->popState();
     (*automaton->states.begin())->transition(automaton, dprime);
+}
+bool E12::transitionComma(Automaton * automaton, Symbol * comma) {
+	automaton->pushState(comma, new E19());
+	return true;
 }

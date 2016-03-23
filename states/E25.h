@@ -13,6 +13,7 @@ class E25 : public DefaultState
 public:
     E25();
     virtual bool transitionSemicolon(Automaton * automaton, Symbol* semicolon);
+    virtual bool transitionComma(Automaton * automaton, Symbol* comma);
 };
 
 
