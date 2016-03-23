@@ -109,16 +109,23 @@ int main(int argc, char **argv) {
 		
 		// Instancition du Lexer -> A changer de place possiblement
 		Lexer lexer(file_path);
-		//lexer.getStringVector();
+		
+		// Donne le Texte du fichier source à l'automate
+		Automaton::instance().setStringsOfTheFile( lexer.getStringVector() );
 		
 		Symbol* symbol;
+
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
 			// Recupère le symbole suivant auprès du Lexer
 			symbol = lexer.getSymbol();
 
 			// Ajouter le symbole à la pile des symboles
+			
 			Automaton::instance().pushSymbol(symbol);
+
+			//Automaton::instance().printError(symbol);
+
 		} while(symbol->getType() != DOLLAR);
 	}
 

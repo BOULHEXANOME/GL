@@ -10,6 +10,9 @@
 
 class E5: public DefaultState
 {
+protected:
+	std::string expectedSymbols = ";";
+
 public:
     E5();
     ~E5(){};

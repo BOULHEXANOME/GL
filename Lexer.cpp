@@ -68,114 +68,118 @@ Lexer::Lexer(std::string path) {
     currentPosition = 0;
 }
 
-Symbol *Lexer::getSymbol() {
+Symbol* Lexer::getSymbol() {
 
 
-    trim();
-
-    // Parcourt la liste des Regex : pour chaque regex :
-    for (const auto &reg: regexesList) {
-
-        boost::smatch stringResult;
-
-        // Chercher un mot identifiable par reg.second dans fileContentStr et le met dans stringResult
-        if (boost::regex_search(fileContentStr, stringResult, reg.second)) {
-            // Si une regex a reconnu un motif
-
-            int symbolLength = stringResult[1].length();
-            currentPosition += symbolLength;
-
-            // On crée le symbole associé à la regex avec un switch sur le type de symbole
-            switch (reg.first) {
-
-                case PLUS:
-                    currentSymbol = new PlusTerminal();
-                    break;
-                case MINUS:
-                    currentSymbol = new MinusTerminal();
-                    break;
-                case MULTIPLY:
-                    currentSymbol = new MultiplyTerminal();
-                    break;
-                case DIVIDE:
-                    currentSymbol = new DivideTerminal();
-                    break;
-                case WRITE:
-                    currentSymbol = new WriteTerminal();
-                    break;
-                case READ:
-                    currentSymbol = new ReadTerminal();
-                    break;
-                case AFFECTDECLARE:
-                    currentSymbol = new AffectDeclareTerminal();
-                    break;
-                case AFFECTINSTRUCT:
-                    currentSymbol = new AffectInstructTerminal();
-                    break;
-                case OPENPARENTHESIS:
-                    currentSymbol = new ParenthesisTerminal(opening);
-                    break;
-                case CLOSEPARENTHESIS:
-                    currentSymbol = new ParenthesisTerminal(closing);
-                    break;
-                case VAR:
-                    currentSymbol = new VarTerminal();
-                    break;
-                case VAL:
-                    currentSymbol = new Number(stoi(stringResult[1]));
-                    break;
-                case DOLLAR:
-                    currentSymbol = new Dollar();
-                    break;
-                case CONST:
-                    currentSymbol = new ConstTerminal();
-                    break;
-                case COMMA:
-                    currentSymbol = new Comma();
-                    break;
-                case SEMICOLON:
-                    currentSymbol = new Semicolon();
-                    break;
-                case ID:
-                    currentSymbol = new IdTerminal(stringResult[1]);
-                    break;
-                case ERROR:
-                    currentSymbol = new SyntaxError(stringResult[1]);
-                    break;
-                default:
-                    currentSymbol = new SyntaxError(stringResult[1]);
-                    break;
-            }
-
-            // Ligne et colonne d'occurence du Symbole dans le fichier source
-            currentSymbol->setColumnWhereSymbolOccurs(currentPosition);
-            currentSymbol->setLineWhereSymbolOccurs(currentLine);
-
-            // On supprimer le symbole du StringStream pour passer au suivant
-            fileContentStr.erase(0, symbolLength);
-
-            // On retourne le symbole
-            return currentSymbol;
-
-        } // Fin if regex trouvée
-
-
-    } // Fin for pour toutes les Regex
-
-    // Si aucun symbole n'a été identifié par la regex, on retourne un symbole inconnu
-    std::string erreur(1, fileContentStr[0]);
-    currentSymbol = new SyntaxError(erreur);
-
-    // Ligne et colonne d'occurence de l'erreur dans le fichier source
-    currentSymbol->setColumnWhereSymbolOccurs(currentPosition);
-    currentSymbol->setLineWhereSymbolOccurs(currentLine);
-    currentPosition++;
-
-    // On supprimer l'erreur du fichier source
-    fileContentStr.erase(0, 1);
-
-    std::cerr << "ERROR : unknown symbol : " << erreur << std::endl;
-    return currentSymbol;
+  trim();
+  
+  // Parcourt la liste des Regex : pour chaque regex :
+  for(const auto& reg: regexesList) {
+	  
+    boost::smatch stringResult;
+    
+    // Chercher un mot identifiable par reg.second dans fileContentStr et le met dans stringResult
+    if(boost::regex_search(fileContentStr, stringResult, reg.second)) {
+		// Si une regex a reconnu un motif
+		
+		   int symbolLength = stringResult[1].length();
+		   currentPosition += symbolLength;
+		   
+		   //std::cout << "Pos dans la ligne : " << currentPosition << std::endl;
+		   //std::cout << "RegIndex : "<< reg.first << std::endl << std::endl;
+        
+        // On crée le symbole associé à la regex avec un switch sur le type de symbole
+        switch(reg.first) {
+			
+			case PLUS:
+				currentSymbol = new PlusTerminal();
+				break;
+			case MINUS:
+				currentSymbol = new MinusTerminal();
+				break;
+			case MULTIPLY:
+				currentSymbol = new MultiplyTerminal();
+				break;
+			case DIVIDE:
+				currentSymbol = new DivideTerminal();
+				break;
+			case WRITE:
+				currentSymbol = new WriteTerminal();
+				break;
+			case READ:
+				currentSymbol = new ReadTerminal();
+				break;
+			case AFFECTDECLARE:
+				currentSymbol =  new AffectDeclareTerminal();
+				break;
+			case AFFECTINSTRUCT:
+				currentSymbol = new AffectInstructTerminal();
+				break;
+			case OPENPARENTHESIS:
+				currentSymbol = new ParenthesisTerminal(opening);
+				break;
+			case CLOSEPARENTHESIS:
+				currentSymbol = new ParenthesisTerminal(closing);
+				break;
+			case VAR:
+				currentSymbol = new VarTerminal();
+				break;
+			case VAL:
+				currentSymbol = new Number(stoi(stringResult[1]));
+				break;
+			case DOLLAR:
+				currentSymbol = new Dollar();
+				break;
+			case CONST:
+				currentSymbol = new ConstTerminal();
+				break;
+			case COMMA:
+				currentSymbol = new Comma();
+				break;	                                                                         
+            case SEMICOLON:	
+                currentSymbol = new Semicolon();
+                break;
+            case ID:
+				currentSymbol = new IdTerminal(stringResult[1]);
+				break;
+			case ERROR:
+				currentSymbol = new SyntaxError(stringResult[1]);
+				break;
+            default:
+				currentSymbol = new SyntaxError(stringResult[1]);
+                break;
+        }
+      
+      // Ligne et colonne d'occurence du Symbole dans le fichier source
+      currentSymbol->setColumnWhereSymbolOccurs(currentPosition);
+      currentSymbol->setLineWhereSymbolOccurs(currentLine);
+      
+      // On supprimer le symbole du StringStream pour passer au suivant
+      fileContentStr.erase(0, symbolLength);
+      
+	// On retourne le symbole
+      return currentSymbol;
+      
+    } // Fin if regex trouvée
+    
+    
+  } // Fin for pour toutes les Regex
+  
+  // Si aucun symbole n'a été identifié par la regex, on retourne un symbole inconnu
+  std::string erreur(1, fileContentStr[0]);
+  currentSymbol = new SyntaxError(erreur);
+  
+  // Ligne et colonne d'occurence de l'erreur dans le fichier source
+  currentSymbol->setColumnWhereSymbolOccurs(currentPosition);
+  currentSymbol->setLineWhereSymbolOccurs(currentLine);
+  currentPosition++;
+  
+  // On supprimer l'erreur du fichier source
+  fileContentStr.erase(0, 1);
+  
+  //std::cerr << "ERROR : unknown symbol : " << erreur << std::endl;
+  
+  return currentSymbol;
 
 }
 

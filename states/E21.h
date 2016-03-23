@@ -5,6 +5,9 @@
 
 class E21 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "id, val, (, factor, term";
+	
     public:
 		E21();
 		~E21(){};

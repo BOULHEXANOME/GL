@@ -5,6 +5,9 @@
 
 class E15 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "comma, ;";
+	
 public:
     E15();
     ~E15(){};

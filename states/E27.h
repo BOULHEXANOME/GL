@@ -5,6 +5,9 @@
 
 class E27 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "*, /, +, -, ), ;, multiplicative or dividing operation";
+	
     public:
 		E27();
 		~E27(){};/*

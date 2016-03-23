@@ -5,6 +5,9 @@
 
 class E39 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "id, val, (";
+
     public:
 		E39();
 		~E39(){};

@@ -5,6 +5,9 @@
 
 class E34 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "*, /, ;, +, -, )";
+	
     public:
 		E34();
 		~E34(){};

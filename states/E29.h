@@ -10,6 +10,9 @@
 
 class E29 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "*, /, ;, +, -, ), multiplicative or dividing operation";
+	
 public:
     E29();
     ~E29(){};

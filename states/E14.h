@@ -5,6 +5,9 @@
 
 class E14 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "(, expression, factor";
+	
     public:
 		E14();
 		~E14(){};

@@ -6,9 +6,9 @@ class Automaton;
 #ifndef GL_AUTOMATON_H
 #define GL_AUTOMATON_H
 
-
-#include "Symbols/Line.h"
 #include <map>
+#include <vector>
+#include "Symbols/Line.h"
 #include "Symbols/Symbol.h"
 #include "states/DefaultState.h"
 
@@ -85,7 +85,11 @@ private:
     SymbolsStack symbolsAutomaton;
     //Pile d'etat de l'automate
     StatesStack states;
-    bool debug = false;
+
+    //Fichier texte lu par le Lexer
+    std::vector<std::string> stringsOfTheFile;
+
+    bool debug;
 
 
     Automaton()
@@ -121,6 +125,11 @@ public:
         return debug;
     }
     
+    void setStringsOfTheFile(std::vector<std::string> theStringsOfTheFile)
+    {
+		this->stringsOfTheFile = theStringsOfTheFile;
+	}
+
     /***********************/
     /* End Getters/Setters */
     /***********************/
@@ -242,6 +251,11 @@ public:
     Symbol* popSymbol();
     void popState();
     void accept();
+    
+    /*
+     * Error Handling
+     */
+     void printError(const Symbol* problematicSymbol);
 
     /*
      * Method singleton

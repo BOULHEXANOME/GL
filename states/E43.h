@@ -10,6 +10,9 @@
 
 class E43 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "read, write, id, endOfProgram";
+
 public:
     E43();
     ~E43(){};
