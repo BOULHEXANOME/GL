@@ -576,7 +576,7 @@ void Automaton::clearTables()
 
 bool Automaton::declareVariable(std::string theName)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring variable : name already exists" << std::endl;
         return false;
@@ -592,7 +592,7 @@ bool Automaton::declareVariable(std::string theName)
 
 bool Automaton::declareAndAffectConst(std::string theName, int theValue)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring constant : name already exists" << std::endl;
         return false;
@@ -897,7 +897,7 @@ void Automaton::testStates7()
 
 bool Automaton::analyseDeclareAndAffectConst(std::string theName)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring constant : name already exists" << std::endl;
         return false;
@@ -911,7 +911,7 @@ bool Automaton::analyseDeclareAndAffectConst(std::string theName)
 
 bool Automaton::analyseDeclareVariable(std::string theName)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring variable : name already exists" << std::endl;
         return false;
