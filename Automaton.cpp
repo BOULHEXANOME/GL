@@ -705,7 +705,7 @@ void Automaton::accept()
 
 void Automaton::printError(Symbol* problematicSymbol) {
 	
-	std::cout << "Error : invalid symbol at line " << problematicSymbol->getLineWhereSymbolOccurs() << ", column " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
+	std::cout << " at line " << problematicSymbol->getLineWhereSymbolOccurs() << ", column " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
 	
 	// -1 because vector first element is 0 while first line is 1
 	std::cout << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs() -1] << std::endl;
