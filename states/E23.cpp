@@ -36,7 +36,7 @@ bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 }
 
 
-bool transitionOpA(Automaton * automaton, Symbol * opa) {
+bool E23::transitionOpA(Automaton * automaton, Symbol * opa) {
 	automaton->pushState(opa, new E21());
 	return true;
 }
