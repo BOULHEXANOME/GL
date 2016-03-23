@@ -18,11 +18,17 @@ class Line;
 struct var {
     int theValue;
     bool isIntancied = false;
+    bool isUsed = false;
+};
+
+struct constant {
+    int theValue;
+    bool isUsed = false;
 };
 
 class Automaton {
 private:
-    typedef std::map<std::string, int> AllTheConstants;
+    typedef std::map<std::string, constant> AllTheConstants;
     typedef std::map<std::string, var> AllTheVariables;
     typedef std::list<Line> Program;
     typedef std::list<Symbol *> SymbolsStack;

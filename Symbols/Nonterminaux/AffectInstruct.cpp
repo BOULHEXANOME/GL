@@ -26,5 +26,5 @@ bool AffectInstruct::analyse() const
         Automaton::instance().printError(this);
         return false;
     }
-    return true;
+    return expressionToAffect->analyse();
 }

@@ -20,11 +20,33 @@ bool Automaton::analyse()
     bool isCoherent = true;
     for(Program::const_iterator cLineIterator = this->programLines.begin() ; cLineIterator != this->programLines.end() ; ++cLineIterator)
     {
-        isCoherent = (*cLineIterator).getTheSymbol()->analyse();
-        if(!isCoherent)
-            return isCoherent;
+        if(!(*cLineIterator).getTheSymbol()->analyse())
+            isCoherent = false;
     }
-    std::cout << "Program is coherent !" << std::endl;
+
+    for(AllTheVariables::const_iterator cVariablesIterator = theVariables.begin() ; cVariablesIterator != theVariables.end() ; ++cVariablesIterator)
+    {
+        if(!(*cVariablesIterator).second.isIntancied)
+        {
+            isCoherent = false;
+            std::cerr << "Erreur lors de l'analyse statique : la variable '" << (*cVariablesIterator).first << "' n'est jamais affectée." << std::endl;
+        }
+        if(!(*cVariablesIterator).second.isUsed)
+        {
+            isCoherent = false;
+            std::cerr << "Erreur lors de l'analyse statique : la variable '" << (*cVariablesIterator).first << "' n'est jamais utilisée." << std::endl;
+        }
+    }
+
+    for(AllTheConstants::const_iterator cConstantesIterator = theConstants.begin() ; cConstantesIterator != theConstants.end() ; ++cConstantesIterator)
+    {
+        if(!(*cConstantesIterator).second.isUsed)
+        {
+            isCoherent = false;
+            std::cerr << "Erreur lors de l'analyse statique : la constante '" << (*cConstantesIterator).first << "' n'est jamais utilisée." << std::endl;
+        }
+    }
+
     return isCoherent;
 }
 
@@ -69,7 +91,9 @@ bool Automaton::declareAndAffectConst(std::string theName, int theValue)
     }
     else
     {
-        theConstants[theName] = theValue;
+        constant newConst;
+        newConst.theValue = theValue;
+        theConstants[theName] = newConst;
         return true;
     }
 }
@@ -104,6 +128,7 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
     {
         if(theVariables[theName].isIntancied)
         {
+            theVariables[theName].isUsed = true;
             *toComplete = theVariables[theName];
             return true;
         }
@@ -117,7 +142,8 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
     {
         if(theConstants.find(theName) != theConstants.end())
         {
-            toComplete->theValue = theConstants[theName];
+            theConstants[theName].isUsed = true;
+            toComplete->theValue = theConstants[theName].theValue;
             return true;
         }
         std::cerr << "Erreur lors de l'accès à la variable : '"<< theName << "', la variable n'a pas été déclarée." << std::endl;
@@ -127,7 +153,8 @@ bool Automaton::accessVariable(std::string theName, var * toComplete)
 
 int Automaton::accessConstant(std::string theName) {
     if (theConstants.find(theName) != theConstants.end()) {
-        return theConstants[theName];
+        theConstants[theName].isUsed = true;
+        return theConstants[theName].theValue;
     }
     else {
         std::cerr << "Erreur d'accès à la constante : '" << theName << "' n'a pas été déclarée (ni initialisée)." << std::endl;
@@ -199,6 +226,7 @@ void Automaton::launchProgramFromLexer()
     DefaultState * e0 = new E0();
     this->states.push_front(e0);
     e0->transition(this, sym);
+    clearTables();
 }
 
 bool Automaton::analyseDeclareAndAffectConst(std::string theName)
@@ -210,7 +238,9 @@ bool Automaton::analyseDeclareAndAffectConst(std::string theName)
     }
     else
     {
-        theConstants[theName] = -1;
+        constant newConst;
+        newConst.theValue = -1;
+        theConstants[theName] = newConst;
         return true;
     }
 }
@@ -261,6 +291,7 @@ bool Automaton::analyseAccessVariable(std::string theName)
     {
         if(theVariables[theName].isIntancied)
         {
+            theVariables[theName].isUsed = true;
             return true;
         }
         else
@@ -273,6 +304,7 @@ bool Automaton::analyseAccessVariable(std::string theName)
     {
         if(theConstants.find(theName) != theConstants.end())
         {
+            theConstants[theName].isUsed = true;
             return true;
         }
         std::cerr << "Erreur lors de l'accès à la variable : '"<< theName << "', la variable n'a pas été déclarée." << std::endl;
@@ -283,6 +315,7 @@ bool Automaton::analyseAccessVariable(std::string theName)
 bool Automaton::analyseAccessConstant(std::string theName)
 {
     if (theConstants.find(theName) != theConstants.end()) {
+        theConstants[theName].isUsed = true;
         return true;
     }
     else

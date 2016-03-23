@@ -28,6 +28,7 @@ std::string Constant::print() const {
     return theName;
 }
 
-bool Constant::analyse() const {
-    return true;
+bool Constant::analyse() const
+{
+    return Automaton::instance().analyseAccessConstant(theName);
 }

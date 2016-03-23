@@ -125,7 +125,10 @@ int main(int argc, char **argv) {
 
 	if(opt_analyse)
     {
-        Automaton::instance().analyse();
+        if(Automaton::instance().analyse())
+        {
+            cout << "Le programme semble cohérent." << endl;
+        }
 	}
 
 	if(opt_optimize)
