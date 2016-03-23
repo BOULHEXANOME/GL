@@ -107,10 +107,11 @@ int main(int argc, char **argv) {
 		
 		// Instancition du Lexer -> A changer de place possiblement
 		Lexer lexer(file_path);
-		//lexer.getStringVector();
+		
+		// Donne le Texte du fichier source à l'automate
+		Automaton::instance().setStringsOfTheFile( lexer.getStringVector() );
 		
 		Symbol* symbol;
-		int i = 0;
 
 		// Parcourt le fichier et ajoute les symboles à la pile
 		do {
@@ -122,7 +123,10 @@ int main(int argc, char **argv) {
 			//std::cout << "Colonne : " << symbol->getColumnWhereSymbolOccurs() << std::endl;
 			
 			// Ajouter le symbole à la pile des symboles
+			
 			Automaton::instance().pushSymbol(symbol);
+			
+			//Automaton::instance().printError(symbol);
 						
 		} while(symbol->getType() != DOLLAR);
 		

@@ -65,6 +65,7 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
             return transitionConst(automaton, s);
 		default :
 			std::cerr << "Transition impossible" << std::endl;
+			//2e fois si deja erreur avant
 			return false;
     }
 }
@@ -156,6 +157,7 @@ bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
 
 bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 	std::cerr << "Transition impossible" << std::endl;
+	// Essaye le cara suivant un fois et affiche une erreur en indiquant le caractère attendu
 	return false;
 }
 

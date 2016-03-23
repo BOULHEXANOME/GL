@@ -674,7 +674,7 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
 
 void Automaton::pushSymbol(Symbol * s) {
 	
-	std::cout << "Push Symbol: " << s << std::endl;
+	//std::cout << "Push Symbol: " << s << std::endl;
 	this->programFromLexer.push_front(s);
 }
 
@@ -696,18 +696,19 @@ void Automaton::accept()
 	std::cout << "Youpi, ca marche !" << std::endl;
 }
 
-/*
+
 void Automaton::printError(Symbol* problematicSymbol) {
 	
-	std::vector<std::String> stringsOfTheFile = lexer.getStringVector();
 	std::cout << "Error : invalid symbol at line " << problematicSymbol->getLineWhereSymbolOccurs() << ", column " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
-	std::cout << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs()] << std::endl;
+	
+	// -1 because vector first element is 0 while first line is 1
+	std::cout << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs() -1] << std::endl;
 	for (int i=0; i< problematicSymbol->getColumnWhereSymbolOccurs(); i++) {
 		std::cout << " ";
 	}
 	std::cout << "^" << std::endl;
 	
-} */
+}
 
 void Automaton::testLire()
 {

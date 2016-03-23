@@ -86,7 +86,7 @@ Symbol* Lexer::getSymbol() {
 		   currentPosition += symbolLength;
 		   
 		   //std::cout << "Pos dans la ligne : " << currentPosition << std::endl;
-		   std::cout << "RegIndex : "<< reg.first << std::endl << std::endl;
+		   //std::cout << "RegIndex : "<< reg.first << std::endl << std::endl;
         
         // On crée le symbole associé à la regex avec un switch sur le type de symbole
         switch(reg.first) {
@@ -177,7 +177,8 @@ Symbol* Lexer::getSymbol() {
   // On supprimer l'erreur du fichier source
   fileContentStr.erase(0, 1);
   
-  std::cerr << "ERROR : unknown symbol : " << erreur << std::endl;
+  //std::cerr << "ERROR : unknown symbol : " << erreur << std::endl;
+  
   return currentSymbol;
 
 }
