@@ -13,3 +13,8 @@ int Parenthesis::execute() const
 {
     return exprParenthesised->execute();
 }
+
+bool Parenthesis::analyse() const
+{
+    return exprParenthesised->analyse();
+}

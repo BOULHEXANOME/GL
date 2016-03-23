@@ -17,8 +17,7 @@ enum Type {declaration, instruction};
 class Line
 {
 protected:
-    typedef std::list<Symbol*> ListOfSymbols;
-    ListOfSymbols symbols;
+    Symbol * theSymbol;
     Type typeOfLine;
 
 public:
@@ -27,7 +26,7 @@ public:
     /***** Contructors *****/
     /***********************/
     Line(Type typeOfLine) : typeOfLine(typeOfLine) { }
-    Line(const ListOfSymbols &symbols, Type typeOfLine) : symbols(symbols), typeOfLine(typeOfLine) { }
+    Line(Type typeOfLine, Symbol* s) : typeOfLine(typeOfLine), theSymbol(theSymbol) { }
     Line() { }
     /***********************/
     /*** End Contructors ***/
@@ -36,19 +35,15 @@ public:
     /***********************/
     /*** Getters/Setters ***/
     /***********************/
-    const ListOfSymbols & getSymbols() const
-    {
-        return symbols;
-    }
 
-    void setSymbols(const ListOfSymbols & symbols)
+    Symbol *getTheSymbol() const
     {
-        this->symbols = symbols;
+        return theSymbol;
     }
 
     void addSymbol(Symbol * symbolsToAdd)
     {
-        this->symbols.push_back(symbolsToAdd);
+        this->theSymbol = symbolsToAdd;
     }
 
     const Type & getTypeOfLine() const

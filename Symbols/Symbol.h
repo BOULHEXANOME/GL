@@ -65,6 +65,11 @@ public:
      */
     virtual int execute() const;
 
+    /*
+     * Check if coherent
+     */
+    virtual bool analyse() const;
+
     int getType() const;
     virtual std::string print() const;
     void setType(int type);

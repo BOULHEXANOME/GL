@@ -16,6 +16,8 @@ public:
    
     virtual bool transitionVal(Automaton * automaton, Symbol * val);
     virtual bool transitionF(Automaton * automaton, Symbol * F);
+    virtual bool transitionT(Automaton * automaton, Symbol * T);
+    virtual bool transitionE(Automaton * automaton, Symbol * E);
 };
 
 

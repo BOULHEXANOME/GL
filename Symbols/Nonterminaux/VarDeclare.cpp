@@ -19,3 +19,13 @@ int VarDeclare::execute() const
     return 0;
 }
 
+bool VarDeclare::analyse() const
+{
+    if(! Automaton::instance().analyseDeclareVariable(this->variableToDeclare->getTheName()))
+    {
+        // TODO
+        std::cerr << "error declare ! print line number&column" << std::endl;
+        return false;
+    }
+    return true;
+}

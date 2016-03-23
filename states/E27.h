@@ -10,12 +10,12 @@ class E27 : public DefaultState
 		~E27(){};/*
 		bool transitionMultiply(Automaton * automaton, Symbol * s);
 		bool transitionDivide(Automaton * automaton, Symbol * s);
-		bool transitionOpM(Automaton * automaton, Symbol * s);
+		bool transitionOpM(Automaton * automaton, Symbol * s);*/
 		
 		bool transitionPlus(Automaton * automaton, Symbol * s);
 		bool transitionMinus(Automaton * automaton, Symbol * s);
 		bool transitionClosingParenthesis(Automaton * automaton, Symbol * s);
-		bool transitionSemicolon(Automaton * automaton, Symbol * s);*/
+		bool transitionSemicolon(Automaton * automaton, Symbol * s);
 };
 
 #endif

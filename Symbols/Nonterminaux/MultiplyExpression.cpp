@@ -13,3 +13,7 @@ int MultiplyExpression::execute() const
 {
     return leftExpr->execute() * rigthExpr->execute();
 }
+
+bool MultiplyExpression::analyse() const {
+    return leftExpr->analyse() && rigthExpr->analyse();
+}

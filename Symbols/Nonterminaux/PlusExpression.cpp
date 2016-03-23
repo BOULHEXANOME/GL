@@ -13,3 +13,8 @@ int PlusExpression::execute() const
 {
     return leftExpr->execute() + rigthExpr->execute();
 }
+
+bool PlusExpression::analyse() const
+{
+    return leftExpr->analyse() && rigthExpr->analyse();
+}
