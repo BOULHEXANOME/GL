@@ -8,26 +8,6 @@
 #include "E6.h"
 #include "E7.h"
 
-//TODO decommenter (sans oublier le .h et E2 et E3)
-/*#include "E3.h"
-#include "E4.h"
-#include "E5.h"
-#include "E6.h"
-#include "E7.h"
-#include "E9.h"*/
-
-/*
-bool E1::transitionRead(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E6());
-	return true;
-}
-
-
-bool E1::transitionConst(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E7());
-	return true;
-}*/
-
 bool E1::transitionVar(Automaton * automaton, Symbol * var) {
 	automaton->pushState(var, new E2());
 	return true;
