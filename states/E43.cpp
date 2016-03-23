@@ -33,6 +33,18 @@ bool E43::transitionWrite(Automaton *automaton, Symbol *write)
     return true;
 }
 
+bool E43::transitionRead(Automaton *automaton, Symbol *read)
+{
+    Symbol * semicolonPopped = automaton->popSymbol();
+    Symbol * iPrime = automaton->popSymbol();
+    iPrime->setType(I);
+    automaton->programFromLexer.push_front(read);
+    automaton->popState();
+    automaton->popState();
+    (*automaton->states.begin())->transition(automaton, iPrime);
+    return true;
+}
+
 bool E43::transitionId(Automaton *automaton, Symbol *id)
 {
     Symbol * semicolonPopped = automaton->popSymbol();

@@ -7,6 +7,7 @@
 #include "E31.h"
 #include "E29.h"
 #include "E37.h"
+#include "E34.h"
 #include "../Symbols/Nonterminaux/Parenthesis.h"
 
 E36::E36()
@@ -17,6 +18,12 @@ E36::E36()
 bool E36::transitionVal(Automaton *automaton, Symbol *val)
 {
     automaton->pushState(val, new E35());
+	return true;
+}
+
+bool E36::transitionId(Automaton *automaton, Symbol *id)
+{
+    automaton->pushState(id, new E34());
 	return true;
 }
 

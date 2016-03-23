@@ -17,34 +17,59 @@ bool E34::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
 }
-/*
-bool transitionMultiply(Automaton * automaton, Symbol * s) {
-	Symbol * s1 = automaton->popSymbol();
-	automaton->CurrentState->transition(automaton,new F(s1));
+
+bool E34::transitionMultiply(Automaton * automaton, Symbol * multiply) {
+	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
+	Variable* variable = new Variable(id->getTheName());
+	variable->setType(F);
+	automaton->programFromLexer.push_front(multiply);
+    automaton->popState();
+    
+	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
 }
 
-bool transitionDivide(Automaton * automaton, Symbol * s) {
-	Symbol * s1 = automaton->popSymbol();
-	automaton->CurrentState->transition(automaton,new F(s1));
+bool E34::transitionDivide(Automaton * automaton, Symbol * divide) {
+	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
+	Variable* variable = new Variable(id->getTheName());
+	variable->setType(F);
+	automaton->programFromLexer.push_front(divide);
+    automaton->popState();
+    
+	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
 }
 
-bool transitionClosingParenthesis(Automaton * automaton, Symbol * s) {
-	Symbol * s1 = automaton->popSymbol();
-	automaton->CurrentState->transition(automaton,new F(s1));
+bool E34::transitionCloseParenthesis(Automaton * automaton, Symbol * closingParenthesis) {
+	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
+	Variable* variable = new Variable(id->getTheName());
+	variable->setType(F);
+	automaton->programFromLexer.push_front(closingParenthesis);
+    automaton->popState();
+    
+	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
 }
 
-bool transitionPlus(Automaton * automaton, Symbol * s) {
-	Symbol * s1 = automaton->popSymbol();
-	automaton->CurrentState->transition(automaton,new F(s1));
+bool E34::transitionPlus(Automaton * automaton, Symbol * plus) {
+	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
+	Variable* variable = new Variable(id->getTheName());
+	variable->setType(F);
+	automaton->programFromLexer.push_front(plus);
+    automaton->popState();
+    
+	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
 }
 
-bool transitionMinus(Automaton * automaton, Symbol * s) {
-	Symbol * s1 = automaton->popSymbol();
-	automaton->CurrentState->transition(automaton,new F(s1));
+bool E34::transitionMinus(Automaton * automaton, Symbol * minus) {
+	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
+	Variable* variable = new Variable(id->getTheName());
+	variable->setType(F);
+	automaton->programFromLexer.push_front(minus);
+    automaton->popState();
+    
+	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
 }
-*/
+
