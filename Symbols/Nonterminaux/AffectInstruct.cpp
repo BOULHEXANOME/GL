@@ -19,3 +19,14 @@ int AffectInstruct::execute() const
 
     return 0;
 }
+
+bool AffectInstruct::analyse() const
+{
+    if(! Automaton::instance().analyseAffectVariable(this->variableToChange->getTheName()))
+    {
+        // TODO
+        std::cerr << "error affect instruct ! print line number&column" << std::endl;
+        return false;
+    }
+    return true;
+}

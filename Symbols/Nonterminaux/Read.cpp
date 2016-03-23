@@ -21,3 +21,14 @@ int Read::execute() const
     }
     return 0;
 }
+
+bool Read::analyse() const
+{
+    if(! Automaton::instance().analyseAffectVariable(this->variableToReadFromUser->getTheName()))
+    {
+        // TODO
+        std::cerr << "error declare ! print line number&column" << std::endl;
+        return false;
+    }
+    return true;
+}

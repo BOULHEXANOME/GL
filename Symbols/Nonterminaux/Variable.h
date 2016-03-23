@@ -17,6 +17,8 @@ private:
 public:
     Variable(std::string theName) : theName(theName) { }
     virtual int execute() const;
+    virtual bool analyse() const;
+    virtual std::string print() const;
 
     const std::string &getTheName() const {
         return theName;

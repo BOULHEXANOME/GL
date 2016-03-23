@@ -14,3 +14,19 @@ int Variable::execute() const
     }
     return theStockageUnit->theValue;
 }
+
+bool Variable::analyse() const
+{
+    if(! Automaton::instance().analyseAccessVariable(theName))
+    {
+        // TODO
+        std::cerr << "error execute variable ! print line number&column" << std::endl;
+        return false;
+    }
+    return true;
+}
+
+std::string Variable::print() const
+{
+    return theName;
+}

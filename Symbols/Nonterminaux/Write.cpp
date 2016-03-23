@@ -14,3 +14,8 @@ int Write::execute() const
     std::cout << toWrite->execute() << std::endl;
     return 0;
 }
+
+bool Write::analyse() const
+{
+    return toWrite->analyse();
+}

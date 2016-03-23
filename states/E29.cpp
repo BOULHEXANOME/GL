@@ -3,6 +3,9 @@
 //
 
 #include "E29.h"
+#include "E32.h"
+#include "E33.h"
+#include "E30.h"
 
 E29::E29()
 {
@@ -51,20 +54,18 @@ bool E29::transitionMinus(Automaton * automaton, Symbol * minus)
 
 bool E29::transitionDivide(Automaton * automaton, Symbol * divide)
 {
-    Symbol * t = automaton->popSymbol();
-    t->setType(E);
-    automaton->programFromLexer.push_front(divide);
-    automaton->popState();
-    (*automaton->states.begin())->transition(automaton, t);
-    return true;
+	automaton->pushState(divide, new E33());
+	return true;
 }
 
 bool E29::transitionMultiply(Automaton * automaton, Symbol * multiply)
 {
-    Symbol * t = automaton->popSymbol();
-    t->setType(E);
-    automaton->programFromLexer.push_front(multiply);
-    automaton->popState();
-    (*automaton->states.begin())->transition(automaton, t);
-    return true;
+	automaton->pushState(multiply, new E32());
+	return true;
+}
+
+bool E29::transitionOpM(Automaton * automaton, Symbol * opm)
+{
+	automaton->pushState(opm, new E30());
+	return true;
 }

@@ -73,6 +73,7 @@ private:
     friend class E41;
     friend class E42;
     friend class E43;
+    friend class E44;
 
     Automaton() { }
 
@@ -132,6 +133,7 @@ public:
     void testStates3();
     void testStates5();
     void testStates6();
+    void testStates7();
 
     /*
      * Method test "lire"
@@ -152,7 +154,32 @@ public:
      * Method used to analyse the code in memory, and eventually
      * alert the user if errors occurs
      */
-    void analyse();
+    bool analyse();
+
+    /*
+     * Method used to add a variable declaration to the table of symbols
+     */
+    bool analyseDeclareVariable(std::string theName);
+
+    /*
+     * Method used to add a constant declaration to the table of symbols
+     */
+    bool analyseDeclareAndAffectConst(std::string theName);
+
+    /*
+     * Method used to change the value of a variable in the table of symbols
+     */
+    bool analyseAffectVariable(std::string theName);
+
+    /*
+     * Method used to access the value of a variable in the table of symbols
+     */
+    bool analyseAccessVariable(std::string theName);
+
+    /*
+     * Method used to access the value of a constant in the table of symbols
+     */
+    bool analyseAccessConstant(std::string theName);
 
     /*
      * Method used to execute the code in memory, and eventually
