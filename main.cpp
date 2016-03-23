@@ -18,13 +18,14 @@ void defaultBehaviour();
 
 using namespace std;
 
-void print_usage() {
-  cerr << "  Utilisation :" << std::endl;
-  cerr << "    ../lut [-p] [-a] [-e] [-o] source.lt" << endl;
-  cerr << "      [-p] affiche le code source reconnu" << endl;
-  cerr << "      [-a] analyse le programme de maniere statique" << endl;
-  cerr << "      [-e] execute interactivement le programme" << endl;
-  cerr << "      [-o] optimise les expressions et instructions" << endl;
+void print_usage()
+{
+    cerr << "  Utilisation :" << std::endl;
+    cerr << "    ../lut [-p] [-a] [-e] [-o] source.lt" << endl;
+    cerr << "      [-p] affiche le code source reconnu" << endl;
+    cerr << "      [-a] analyse le programme de maniere statique" << endl;
+    cerr << "      [-e] execute interactivement le programme" << endl;
+    cerr << "      [-o] optimise les expressions et instructions" << endl;
 }
 
 inline bool file_exists (const string& name) {
@@ -47,13 +48,19 @@ int main(int argc, char **argv) {
 
     if (argc < MIN_ARGS)
     {
-        defaultBehaviour();
-        return 0;
-//		print_usage();
-	//	exit(ERROR_NOT_ENOUGH_ARGS);
-		
-	}
-    
+        if(Automaton::instance().isDebug())
+        {
+            defaultBehaviour();
+            return 0;
+        }
+        else
+        {
+            cerr << "Erreur, veuillez specifier des arguments" << endl;
+		    print_usage();
+            exit(ERROR_NOT_ENOUGH_ARGS);
+        }
+    }
+
 	if (argc > MAX_ARGS)
     {
 		print_usage();
@@ -63,30 +70,25 @@ int main(int argc, char **argv) {
 	// Filepath est le dernier argument
 	file_path = argv[argc-1];
     
-    int opt,a,b,c;
+    int opt;
     
     while ((opt = getopt(argc,argv,"paeo")) != EOF)
     {
         switch(opt)
         {
             case 'p': 
-				cout << "Affichage du programme" << endl;
 				opt_print = true;
 				break;
             
             case 'a':
-				cout << "Analyse statique du programme" << endl; 
 				opt_analyse = true;
 				break;
-				
             
             case 'e':
-				cout << "Execution du programme" << endl ; 
 				opt_execute = true;
 				break;
             
             case 'o':
-				cout << "Simplification du programme " << endl ; 
 				opt_optimize = true;
 				break;
             
@@ -117,30 +119,26 @@ int main(int argc, char **argv) {
 		do {
 			// Recupère le symbole suivant auprès du Lexer
 			symbol = lexer.getSymbol();
-						
-			//std::cout << "Symbole à pusher : " << symbol->getType() << std::endl;
-			//std::cout << "Ligne : " << symbol->getLineWhereSymbolOccurs() << std::endl;
-			//std::cout << "Colonne : " << symbol->getColumnWhereSymbolOccurs() << std::endl;
-			
+
 			// Ajouter le symbole à la pile des symboles
 			
 			Automaton::instance().pushSymbol(symbol);
-			
+
 			//Automaton::instance().printError(symbol);
-						
+
 		} while(symbol->getType() != DOLLAR);
-		
-		
 	}
+
+	Automaton::instance().launchProgramFromLexer();
 
 	if(opt_analyse)
     {
-
+        Automaton::instance().analyse();
 	}
 
 	if(opt_optimize)
     {
-
+//        Automaton::instance().optimyse();
 	}
 
 	if(opt_print)
@@ -150,13 +148,7 @@ int main(int argc, char **argv) {
 
 	if(opt_execute)
     {
-
-	}
-	
-	if(!opt_execute && !opt_print && !opt_optimize && !opt_analyse)
-	{
-		Automaton::instance().launchProgramFromLexer();
-		Automaton::instance().execute();
+        Automaton::instance().execute();
 	}
 
     return 0;
@@ -164,17 +156,6 @@ int main(int argc, char **argv) {
 
 void defaultBehaviour()
 {
-//    Automaton::instance().createSomeLines();
-//    Automaton::instance().printCode();
-//    Automaton::instance().testStates();
-//    Automaton::instance().testStates4();
-//    Automaton::instance().testStates5();
-  //  Automaton::instance().testStates4();
-    //Automaton::instance().testLire();
-    //Automaton::instance().testConst();
-    //Automaton::instance().testStates6();
-    //Automaton::instance().testStates5();
-    //Automaton::instance().testStates5();
     Automaton::instance().testStates6();
     //Automaton::instance().analyse();
     Automaton::instance().execute();

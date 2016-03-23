@@ -75,8 +75,6 @@ private:
     friend class E43;
     friend class E44;
 
-    Automaton() { }
-
     Program programLines;
     AllTheConstants theConstants;
     AllTheVariables theVariables;
@@ -87,9 +85,17 @@ private:
     SymbolsStack symbolsAutomaton;
     //Pile d'etat de l'automate
     StatesStack states;
+
     //Fichier texte lu par le Lexer
     std::vector<std::string> stringsOfTheFile;
 
+    bool debug;
+
+
+    Automaton()
+    {
+        debug = false;
+    }
 public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
@@ -111,6 +117,12 @@ public:
     void addProgramLine(Line & lineToAdd)
     {
         this->programLines.push_back(lineToAdd);
+    }
+
+
+    bool isDebug() const
+    {
+        return debug;
     }
     
     void setStringsOfTheFile(std::vector<std::string> theStringsOfTheFile)

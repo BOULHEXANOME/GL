@@ -11,12 +11,12 @@ class E34 : public DefaultState
     public:
 		E34();
 		~E34(){};
-		bool transitionSemicolon(Automaton * automaton, Symbol * s);/*
-		bool transitionMultiply(Automaton * automaton, Symbol * s);
-		bool transitionDivide(Automaton * automaton, Symbol * s);
-		bool transitionClosingParenthesis(Automaton * automaton, Symbol * s);
-		bool transitionPlus(Automaton * automaton, Symbol * s);
-		bool transitionMinus(Automaton * automaton, Symbol * s);*/
+		virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
+		virtual bool transitionMultiply(Automaton * automaton, Symbol * s);
+		virtual bool transitionDivide(Automaton * automaton, Symbol * s);
+		virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * s);
+		virtual bool transitionPlus(Automaton * automaton, Symbol * s);
+		virtual bool transitionMinus(Automaton * automaton, Symbol * s);
 };
 
 #endif

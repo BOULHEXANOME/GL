@@ -6,7 +6,7 @@
 
 std::string MultiplyExpression::print() const
 {
-    return leftExpr->print() + " * " + rigthExpr->print();
+    return leftExpr->print() + "*" + rigthExpr->print();
 }
 
 int MultiplyExpression::execute() const

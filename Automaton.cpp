@@ -667,8 +667,8 @@ int Automaton::accessConstant(std::string theName) {
 
 void Automaton::pushState(Symbol* s, DefaultState * e)
 {
-	
-    std::cout << "push State : " << e->state<< std::endl;
+	if(debug)
+        std::cout << "push State : " << e->state<< std::endl;
 	this->symbolsAutomaton.push_front(s);
 	this->states.push_front(e);
 	
@@ -679,9 +679,11 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
     (*this->states.begin())->transition(this, sym);
 }
 
-void Automaton::pushSymbol(Symbol * s) {
 
-	//std::cout << "Push Symbol: " << s << std::endl;
+void Automaton::pushSymbol(Symbol * s)
+{
+	if(debug)
+    	std::cout << "Push Symbol: " << s << std::endl;
 	this->programFromLexer.push_back(s);
 
 }
@@ -689,7 +691,8 @@ void Automaton::pushSymbol(Symbol * s) {
 void Automaton::popState()
 {
 	this->states.pop_front();
-	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
+	if(debug)
+        std::cout << "pop State, current State : " << states.front()->state<< std::endl;
 }
 
 Symbol * Automaton::popSymbol()
@@ -701,7 +704,8 @@ Symbol * Automaton::popSymbol()
 
 void Automaton::accept()
 {
-	std::cout << "Youpi, ca marche !" << std::endl;
+    if(debug)
+    	std::cout << "Youpi, ca marche !" << std::endl;
 }
 
 

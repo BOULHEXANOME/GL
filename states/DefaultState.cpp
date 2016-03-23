@@ -1,15 +1,23 @@
 #include "DefaultState.h"
 
 bool DefaultState::transition (Automaton * automaton, Symbol * s) {
-	std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
 	
 	if (s->getType() == ERROR)
 	{
+		
+		if(automaton->debug)
+		std::cout << "Erreur : passage dans transitionError" << std::endl;
+		
+		
 		return transitionError(automaton, s);
 	}
 	
 	alreadyOneError = false;
 		
+
+	if(automaton->debug)
+		std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
+
 	switch(s->getType()) {
 		case PLUS :
 			return transitionPlus(automaton, s);
@@ -164,7 +172,10 @@ bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
 
 bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 	
+	//Automaton::instance().popSymbol();
+	
 	Symbol* s1 = Automaton::instance().programFromLexer.front();
+	Automaton::instance().programFromLexer.pop_front();
 	//automaton->symbolsAutomaton.push_front(s);
 	
 	std::cerr << "Symbole s : " << s->getType() << std::endl;
@@ -175,7 +186,7 @@ bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
 		std::cerr << "Essai avec le symbole suivant" << std::endl;
 		
 		alreadyOneError = true;
-		return transition(automaton, s1);
+		return (*automaton->states.begin())->transition(automaton, s1);
 	}
 	else {
 		std::cerr << "Erreur" << std::endl;

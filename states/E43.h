@@ -18,6 +18,7 @@ public:
     ~E43(){};
     virtual bool transitionDollar(Automaton * automaton, Symbol * dollar);
     virtual bool transitionWrite(Automaton * automaton, Symbol * write);
+    virtual bool transitionRead(Automaton * automaton, Symbol * write);
     virtual bool transitionId(Automaton * automaton, Symbol * id);
 };
 
