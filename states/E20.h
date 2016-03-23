@@ -5,6 +5,9 @@
 
 class E20 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "comma,;";
+	
     public:
 		E20();
 		~E20(){};

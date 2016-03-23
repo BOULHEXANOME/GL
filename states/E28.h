@@ -10,6 +10,8 @@
 
 class E28 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "comma, ;";
 public:
     E28();
     virtual bool transitionComma(Automaton * automaton, Symbol * comma);

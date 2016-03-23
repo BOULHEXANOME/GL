@@ -5,6 +5,9 @@
 
 class E3 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "instructions paragraph, read, write, id, endOfProgramm";
+
     public:
         E3();
         ~E3(){};

@@ -10,6 +10,9 @@
 
 class E18 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "+, -, ;, additive or subtractive operation";
+	
 public:
     E18();
     ~E18(){};

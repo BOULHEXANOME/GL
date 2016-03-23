@@ -5,6 +5,8 @@
 
 class E10 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "one or many id, ;";
     public:
         E10();
         ~E10(){};
