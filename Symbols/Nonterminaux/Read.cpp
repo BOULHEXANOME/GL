@@ -12,7 +12,7 @@ std::string Read::print() const
 int Read::execute() const
 {
     int numberFromUser;
-    std::cout << variableToReadFromUser->getTheName() << " = ?";
+    std::cout << variableToReadFromUser->getTheName() << " = ?" << std::endl;
     std::cin >> numberFromUser;
     if(! Automaton::instance().affectVariable(this->variableToReadFromUser->getTheName(), numberFromUser))
     {

@@ -6,7 +6,7 @@
 
 std::string PlusExpression::print() const
 {
-    return leftExpr->print() + " + " + rigthExpr->print();
+    return leftExpr->print() + "+" + rigthExpr->print();
 }
 
 int PlusExpression::execute() const

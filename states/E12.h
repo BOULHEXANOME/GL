@@ -10,9 +10,13 @@
 
 class E12 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "comma, ;";
+	
 public:
     E12();
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionComma(Automaton * automaton, Symbol * comma);
 };
 
 

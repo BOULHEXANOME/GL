@@ -14,7 +14,10 @@ public:
     E37();
     ~E37(){};
    
+    virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
+    virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
+    virtual bool transitionOpA(Automaton * automaton, Symbol * opA);
 };
 
 

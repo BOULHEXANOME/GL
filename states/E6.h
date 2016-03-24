@@ -10,6 +10,8 @@
 
 class E6 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "id";
 public:
     E6();
     ~E6(){};

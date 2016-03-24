@@ -1,7 +1,24 @@
 #include "DefaultState.h"
 
 bool DefaultState::transition (Automaton * automaton, Symbol * s) {
-	std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
+	
+	if (s->getType() == ERROR)
+	{
+		
+		if(automaton->debug)
+		{
+			std::cout << "Erreur : passage dans transitionError" << std::endl;
+		}
+
+		return transitionError(automaton, s);
+	}
+	
+	alreadyOneError = false;
+		
+
+	if(automaton->debug)
+		std::cout << "On va faire la transition avec le symbole : " << s->getType()<< std::endl;
+
 	switch(s->getType()) {
 		case PLUS :
 			return transitionPlus(automaton, s);
@@ -59,14 +76,14 @@ bool DefaultState::transition (Automaton * automaton, Symbol * s) {
             return transitionOpA(automaton, s);
 		case OPM :
             return transitionOpM(automaton, s);
-		case ERROR :
-            return transitionError(automaton, s);
 		case CONST:
             return transitionConst(automaton, s);
 		default :
 			std::cerr << "Transition impossible" << std::endl;
+			//2e fois si deja erreur avant
 			return false;
     }
+    
 }
 
 bool DefaultState::transitionPlus(Automaton * automaton, Symbol * s) {
@@ -155,8 +172,29 @@ bool DefaultState::transitionId(Automaton * automaton, Symbol * s){
 }
 
 bool DefaultState::transitionError(Automaton * automaton, Symbol * s){
-	std::cerr << "Transition impossible" << std::endl;
-	return false;
+	
+	//Automaton::instance().popSymbol();
+	
+	Symbol* s1 = Automaton::instance().programFromLexer.front();
+	Automaton::instance().programFromLexer.pop_front();
+
+	
+	if (!alreadyOneError) {
+		std::cerr << "Erreur, symbole inconnu" ;
+		automaton->printError(s);
+		std::cerr << "Essai d'élimination automatique du caractère et récupération." << std::endl;
+		
+		alreadyOneError = true;
+		return (*automaton->states.begin())->transition(automaton, s1);
+	}
+	else {
+		std::cerr << "Erreur" << std::endl;
+		Automaton::instance().printError(s1);
+		std::cerr << "Symboles attendus : " << expectedSymbols << std::endl;
+		
+		return false;
+	}
+	
 }
 
 bool DefaultState::transitionP(Automaton * automaton, Symbol * s){
@@ -220,6 +258,7 @@ bool DefaultState::transitionOpM(Automaton * automaton, Symbol * s){
 }
 
 DefaultState::DefaultState(){
+	this->alreadyOneError = false;
 	this->state = -1;
 }
 

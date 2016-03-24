@@ -10,6 +10,9 @@
 
 class E8 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "write, read, id, endOfProgram";
+	
 public:
     E8();
     ~E8(){};

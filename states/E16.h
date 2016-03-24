@@ -10,6 +10,9 @@
 
 class E16 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "=";
+	
 public:
     E16();
     virtual bool transitionAffectDeclare(Automaton * automaton, Symbol * equalSign);

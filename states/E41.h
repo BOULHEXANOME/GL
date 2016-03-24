@@ -5,6 +5,9 @@
 
 class E41 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = ";";
+
     public:
 		E41();
 		~E41(){};

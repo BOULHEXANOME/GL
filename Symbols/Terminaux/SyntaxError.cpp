@@ -6,5 +6,6 @@
 
 SyntaxError::SyntaxError(const std::string &wrongSymbol)
 {
+	this->symbolType = ERROR;
 	theWrongSymbol = wrongSymbol;
 }

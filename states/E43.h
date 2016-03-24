@@ -10,11 +10,15 @@
 
 class E43 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = "read, write, id, endOfProgram";
+
 public:
     E43();
     ~E43(){};
     virtual bool transitionDollar(Automaton * automaton, Symbol * dollar);
     virtual bool transitionWrite(Automaton * automaton, Symbol * write);
+    virtual bool transitionRead(Automaton * automaton, Symbol * write);
     virtual bool transitionId(Automaton * automaton, Symbol * id);
 };
 

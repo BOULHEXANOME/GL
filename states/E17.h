@@ -5,6 +5,9 @@
 
 class E17 : public DefaultState
 {
+	protected:
+		std::string expectedSymbols = "id";
+	
     public:
 		E17();
 		~E17(){};

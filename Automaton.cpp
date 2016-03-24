@@ -576,7 +576,7 @@ void Automaton::clearTables()
 
 bool Automaton::declareVariable(std::string theName)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring variable : name already exists" << std::endl;
         return false;
@@ -592,7 +592,7 @@ bool Automaton::declareVariable(std::string theName)
 
 bool Automaton::declareAndAffectConst(std::string theName, int theValue)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring constant : name already exists" << std::endl;
         return false;
@@ -667,8 +667,8 @@ int Automaton::accessConstant(std::string theName) {
 
 void Automaton::pushState(Symbol* s, DefaultState * e)
 {
-	
-    std::cout << "push State : " << e->state<< std::endl;
+	if(debug)
+        std::cout << "push State : " << e->state<< std::endl;
 	this->symbolsAutomaton.push_front(s);
 	this->states.push_front(e);
 	
@@ -679,16 +679,20 @@ void Automaton::pushState(Symbol* s, DefaultState * e)
     (*this->states.begin())->transition(this, sym);
 }
 
-void Automaton::pushSymbol(Symbol * s) {
-	
-	std::cout << "Push Symbol: " << s << std::endl;
+
+void Automaton::pushSymbol(Symbol * s)
+{
+	if(debug)
+    	std::cout << "Push Symbol: " << s << std::endl;
 	this->programFromLexer.push_back(s);
+
 }
 
 void Automaton::popState()
 {
 	this->states.pop_front();
-	std::cout << "pop State, current State : " << states.front()->state<< std::endl;
+	if(debug)
+        std::cout << "pop State, current State : " << states.front()->state<< std::endl;
 }
 
 Symbol * Automaton::popSymbol()
@@ -700,21 +704,23 @@ Symbol * Automaton::popSymbol()
 
 void Automaton::accept()
 {
-	std::cout << "Youpi, ca marche !" << std::endl;
+    if(debug)
+    	std::cout << "Youpi, ca marche !" << std::endl;
 }
 
-/*
-void Automaton::printError(Symbol* problematicSymbol) {
+
+void Automaton::printError(const Symbol* problematicSymbol) {
 	
-	std::vector<std::String> stringsOfTheFile = lexer.getStringVector();
-	std::cout << "Error : invalid symbol at line " << problematicSymbol->getLineWhereSymbolOccurs() << ", column " << problematicSymbol->getColumnWhereSymbolOccurs() << " :" << std::endl;
-	std::cout << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs()] << std::endl;
+	std::cerr << " à la ligne " << problematicSymbol->getLineWhereSymbolOccurs() << ", colonne " << problematicSymbol->getColumnWhereSymbolOccurs() + 1 << " :" << std::endl;
+	
+	// -1 because vector first element is 0 while first line is 1
+	std::cerr << stringsOfTheFile[problematicSymbol->getLineWhereSymbolOccurs() -1] << std::endl;
 	for (int i=0; i< problematicSymbol->getColumnWhereSymbolOccurs(); i++) {
-		std::cout << " ";
+        std::cerr << " ";
 	}
-	std::cout << "^" << std::endl;
+	std::cerr << "^" << std::endl;
 	
-} */
+}
 
 void Automaton::testLire()
 {
@@ -894,7 +900,7 @@ void Automaton::testStates7()
 
 bool Automaton::analyseDeclareAndAffectConst(std::string theName)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring constant : name already exists" << std::endl;
         return false;
@@ -908,7 +914,7 @@ bool Automaton::analyseDeclareAndAffectConst(std::string theName)
 
 bool Automaton::analyseDeclareVariable(std::string theName)
 {
-    if(theVariables.find(theName) != theVariables.end() && theConstants.find(theName) != theConstants.end())
+    if(theVariables.find(theName) != theVariables.end() || theConstants.find(theName) != theConstants.end())
     {
         std::cerr << "Error declaring variable : name already exists" << std::endl;
         return false;

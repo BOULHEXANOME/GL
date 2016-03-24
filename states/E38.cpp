@@ -23,13 +23,13 @@ bool E38::transitionVal(Automaton * automaton, Symbol * val) {
 	return true;
 }
 
-bool E38::transitionOpeningParenthesis(Automaton * automaton, Symbol * openingParenthesis) {
+bool E38::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis) {
 	Symbol * plus = automaton->popSymbol();
 	OpA * opA = new OpA();
 	opA->setOp(PLUS);
 	opA->setType(OPA);
 	automaton->popState();
-	automaton->programFromLexer.push_front(openingParenthesis);
+	automaton->programFromLexer.push_front(openParenthesis);
 	(*automaton->states.begin())->transition(automaton,opA);
 	return true;
 }

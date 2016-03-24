@@ -23,13 +23,13 @@ bool E33::transitionVal(Automaton * automaton, Symbol * val) {
 	return true;
 }
 
-bool E33::transitionOpeningParenthesis(Automaton * automaton, Symbol * openingParenthesis) {
+bool E33::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis) {
 	Symbol * divide = automaton->popSymbol();
 	OpM * opM = new OpM();
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
-	automaton->programFromLexer.push_front(openingParenthesis);
+	automaton->programFromLexer.push_front(openParenthesis);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;
 }

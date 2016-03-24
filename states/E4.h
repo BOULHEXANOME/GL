@@ -10,6 +10,9 @@
 
 class E4 : public DefaultState
 {
+protected:
+	std::string expectedSymbols = ";";
+
 public:
     E4();
     ~E4(){};
