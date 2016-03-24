@@ -19,6 +19,7 @@ public:
     virtual std::string print() const;
     virtual int execute() const;
     virtual bool analyse() const;
+    virtual Expression* optimizeExpression();
     /***********************/
     /****** End Methods ****/
     /***********************/

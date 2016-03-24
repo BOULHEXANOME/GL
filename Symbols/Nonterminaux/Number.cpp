@@ -30,7 +30,7 @@ bool Number::analyse() const
 
 Expression* Number::optimizeExpression()
 {
-    std::cout <<  "Number opti"<< std::endl;
+    this->setType(VAL);
     return this;
 }
 

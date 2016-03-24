@@ -3,6 +3,7 @@
 //
 
 #include "Constant.h"
+#include "Number.h"
 
 int Constant::execute() const
 {
@@ -35,4 +36,9 @@ bool Constant::analyse() const {
 int Constant::getType()
 {
     return CONST;
+}
+
+Expression *Constant::optimizeExpression()
+{
+    return new Number(execute());
 }

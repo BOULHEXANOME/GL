@@ -18,3 +18,18 @@ bool MinusExpression::analyse() const
 {
     return leftExpr->analyse() && rigthExpr->analyse();
 }
+
+Expression *MinusExpression::optimizeExpression()
+{
+    leftExpr = leftExpr->optimizeExpression();
+    rigthExpr = rigthExpr->optimizeExpression();
+    if(leftExpr->getType() == VAL && rigthExpr->getType() == VAL)
+    {
+        return new Number(leftExpr->execute() - rigthExpr->execute());
+    }
+    else if(rigthExpr->getType() == VAL && rigthExpr->execute() == 0)
+    {
+        return leftExpr;
+    }
+    return this;
+}

@@ -992,8 +992,8 @@ void Automaton::optimize()
 {
     for (Program::iterator cProgramLines = this->programLines.begin(); cProgramLines != this->programLines.end(); ++cProgramLines)
     {
-        std::cout << "iteration" << std::endl;
         cProgramLines->optimize();
     }
+    clearTables();
 }
 

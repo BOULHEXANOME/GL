@@ -22,5 +22,5 @@ bool Write::analyse() const
 
 void Write::optimize()
 {
-    this->setToWrite(this->getToWrite()->optimizeExpression());
+    toWrite = toWrite->optimizeExpression();
 }

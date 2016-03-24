@@ -18,3 +18,9 @@ bool Parenthesis::analyse() const
 {
     return exprParenthesised->analyse();
 }
+
+Expression *Parenthesis::optimizeExpression()
+{
+    exprParenthesised = exprParenthesised->optimizeExpression();
+    return this;
+}

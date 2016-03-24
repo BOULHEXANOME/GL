@@ -29,3 +29,8 @@ bool AffectConst::analyse() const
     }
     return true;
 }
+
+void AffectConst::optimize()
+{
+    execute();
+}

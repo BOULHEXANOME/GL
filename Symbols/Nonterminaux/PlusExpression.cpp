@@ -18,3 +18,22 @@ bool PlusExpression::analyse() const
 {
     return leftExpr->analyse() && rigthExpr->analyse();
 }
+
+Expression *PlusExpression::optimizeExpression()
+{
+    leftExpr = leftExpr->optimizeExpression();
+    rigthExpr = rigthExpr->optimizeExpression();
+    if(leftExpr->getType() == VAL && rigthExpr->getType() == VAL)
+    {
+        return new Number(leftExpr->execute() + rigthExpr->execute());
+    }
+    else if(rigthExpr->getType() == VAL && rigthExpr->execute() == 0)
+    {
+        return leftExpr;
+    }
+    else if(leftExpr->getType() == VAL && leftExpr->execute() == 0)
+    {
+        return rigthExpr;
+    }
+    return this;
+}

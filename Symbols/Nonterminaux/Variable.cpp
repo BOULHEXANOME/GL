@@ -30,3 +30,8 @@ std::string Variable::print() const
 {
     return theName;
 }
+
+Expression *Variable::optimizeExpression()
+{
+    return Expression::optimizeExpression();
+}
