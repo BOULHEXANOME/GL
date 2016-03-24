@@ -1,1 +1,4 @@
-la variable a n'a pas ete declaree.
+Erreur lors de l'affectation de la variable : 'a', la variable n'a pas été déclarée.
+ à la ligne 1, colonne 5 :
+lire a;
+     ^

@@ -13,14 +13,19 @@ bool E10::transitionComma(Automaton * automaton, Symbol * comma) {
 bool E10::transitionSemicolon(Automaton * automaton, Symbol * s)
 {
 	Symbol * id = automaton->popSymbol();
-	automaton->popSymbol();
+    Symbol * var =automaton->popSymbol();
 
     IdTerminal * variableToDeclare = (IdTerminal*) (id);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
     VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
+    actionDeclareVariable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    actionDeclareVariable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
+
+    delete id;
+    delete var;
 
     Symbol * dprime =  new Symbol();
     dprime->setType(D_PRIME);

@@ -17,9 +17,11 @@ bool E8::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     variableToReadFromUser->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
     
     Read* readSymbolInstruction = new Read(variableToReadFromUser);
-    readSymbolInstruction->setColumnWhereSymbolOccurs(read->getLineWhereSymbolOccurs());
-    readSymbolInstruction->setLineWhereSymbolOccurs(read->getLineWhereSymbolOccurs());
-    
+    readSymbolInstruction->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    readSymbolInstruction->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
+
+    delete id;
+    delete read;
     
     Line readInstruct(Type::instruction);
     readInstruct.addSymbol(readSymbolInstruction);

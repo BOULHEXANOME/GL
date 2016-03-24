@@ -1,6 +1,4 @@
 #include "E15.h"
-#include "../Symbols/Terminaux/IdTerminal.h"
-#include "../Symbols/Nonterminaux/Variable.h"
 #include "../Symbols/Terminaux/Comma.h"
 
 bool E15::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {

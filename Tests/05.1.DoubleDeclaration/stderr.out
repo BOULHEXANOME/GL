@@ -1,1 +1,4 @@
-la variable a est deja declaree
+Erreur lors de la declaration de la variable : 'a' existe déjà.
+ à la ligne 2, colonne 4 :
+var a;
+    ^

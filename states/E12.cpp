@@ -22,6 +22,8 @@ bool E12::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     dprime->setColumnWhereSymbolOccurs(aff->getColumnWhereSymbolOccurs());
     dprime->setLineWhereSymbolOccurs(aff->getLineWhereSymbolOccurs());
 
+    delete aff, constS;
+
     automaton->programFromLexer.push_front(semicolon);
     automaton->popState();
     automaton->popState();
