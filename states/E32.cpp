@@ -6,6 +6,8 @@
 bool E32::transitionId(Automaton * automaton, Symbol * id) {
 	Symbol * multiply = automaton->popSymbol();
 	OpM * opM = new OpM();
+    opM->setColumnWhereSymbolOccurs(multiply->getColumnWhereSymbolOccurs());
+    opM->setLineWhereSymbolOccurs(multiply->getLineWhereSymbolOccurs());
 	opM->setOp(MULTIPLY);
 	opM->setType(OPM);
 	automaton->popState();
@@ -17,6 +19,8 @@ bool E32::transitionId(Automaton * automaton, Symbol * id) {
 bool E32::transitionVal(Automaton * automaton, Symbol * val) {
 	Symbol * multiply = automaton->popSymbol();
 	OpM * opM = new OpM();
+    opM->setColumnWhereSymbolOccurs(multiply->getColumnWhereSymbolOccurs());
+    opM->setLineWhereSymbolOccurs(multiply->getLineWhereSymbolOccurs());
 	opM->setOp(MULTIPLY);
 	opM->setType(OPM);
 	automaton->popState();
@@ -28,6 +32,8 @@ bool E32::transitionVal(Automaton * automaton, Symbol * val) {
 bool E32::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis) {
 	Symbol * multiply = automaton->popSymbol();
 	OpM * opM = new OpM();
+    opM->setColumnWhereSymbolOccurs(multiply->getColumnWhereSymbolOccurs());
+    opM->setLineWhereSymbolOccurs(multiply->getLineWhereSymbolOccurs());
 	opM->setOp(MULTIPLY);
 	opM->setType(OPM);
 	automaton->popState();

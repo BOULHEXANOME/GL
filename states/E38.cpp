@@ -5,6 +5,8 @@
 bool E38::transitionId(Automaton * automaton, Symbol * id) {
 	Symbol * plus = automaton->popSymbol();
 	OpA * opA = new OpA();
+    opA->setColumnWhereSymbolOccurs(plus->getColumnWhereSymbolOccurs());
+    opA->setLineWhereSymbolOccurs(plus->getLineWhereSymbolOccurs());
 	opA->setOp(PLUS);
 	opA->setType(OPA);
 	automaton->popState();
@@ -16,6 +18,8 @@ bool E38::transitionId(Automaton * automaton, Symbol * id) {
 bool E38::transitionVal(Automaton * automaton, Symbol * val) {
 	Symbol * plus = automaton->popSymbol();
 	OpA * opA = new OpA();
+    opA->setColumnWhereSymbolOccurs(plus->getColumnWhereSymbolOccurs());
+    opA->setLineWhereSymbolOccurs(plus->getLineWhereSymbolOccurs());
 	opA->setOp(PLUS);
 	opA->setType(OPA);
 	automaton->popState();
@@ -27,6 +31,8 @@ bool E38::transitionVal(Automaton * automaton, Symbol * val) {
 bool E38::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis) {
 	Symbol * plus = automaton->popSymbol();
 	OpA * opA = new OpA();
+    opA->setColumnWhereSymbolOccurs(plus->getColumnWhereSymbolOccurs());
+    opA->setLineWhereSymbolOccurs(plus->getLineWhereSymbolOccurs());
 	opA->setOp(PLUS);
 	opA->setType(OPA);
 	automaton->popState();

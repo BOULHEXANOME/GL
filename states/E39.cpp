@@ -3,8 +3,10 @@
 #include "../Symbols/Terminaux/IdTerminal.h"
 
 bool E39::transitionId(Automaton * automaton, Symbol * id) {
-	Symbol * plus = automaton->popSymbol();
+	Symbol * minus = automaton->popSymbol();
 	OpA * opA = new OpA();
+    opA->setColumnWhereSymbolOccurs(minus->getColumnWhereSymbolOccurs());
+    opA->setLineWhereSymbolOccurs(minus->getLineWhereSymbolOccurs());
 	opA->setOp(MINUS);
 	opA->setType(OPA);
 	automaton->popState();
@@ -14,8 +16,10 @@ bool E39::transitionId(Automaton * automaton, Symbol * id) {
 }
 
 bool E39::transitionVal(Automaton * automaton, Symbol * val) {
-	Symbol * plus = automaton->popSymbol();
+	Symbol * minus = automaton->popSymbol();
 	OpA * opA = new OpA();
+    opA->setColumnWhereSymbolOccurs(minus->getColumnWhereSymbolOccurs());
+    opA->setLineWhereSymbolOccurs(minus->getLineWhereSymbolOccurs());
 	opA->setOp(MINUS);
 	opA->setType(OPA);
 	automaton->popState();
@@ -25,8 +29,10 @@ bool E39::transitionVal(Automaton * automaton, Symbol * val) {
 }
 
 bool E39::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis) {
-	Symbol * plus = automaton->popSymbol();
+	Symbol * minus = automaton->popSymbol();
 	OpA * opA = new OpA();
+    opA->setColumnWhereSymbolOccurs(minus->getColumnWhereSymbolOccurs());
+    opA->setLineWhereSymbolOccurs(minus->getLineWhereSymbolOccurs());
 	opA->setOp(MINUS);
 	opA->setType(OPA);
 	automaton->popState();

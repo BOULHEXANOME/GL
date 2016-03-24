@@ -12,6 +12,8 @@ E34::E34()
 bool E34::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
 	Variable* variable = new Variable(id->getTheName());
+    variable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
 	variable->setType(F);
 	automaton->programFromLexer.push_front(semicolon);
     automaton->popState();
@@ -23,6 +25,8 @@ bool E34::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 bool E34::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
 	Variable* variable = new Variable(id->getTheName());
+    variable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
 	variable->setType(F);
 	automaton->programFromLexer.push_front(multiply);
     automaton->popState();
@@ -34,6 +38,8 @@ bool E34::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 bool E34::transitionDivide(Automaton * automaton, Symbol * divide) {
 	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
 	Variable* variable = new Variable(id->getTheName());
+    variable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
 	variable->setType(F);
 	automaton->programFromLexer.push_front(divide);
     automaton->popState();
@@ -45,6 +51,8 @@ bool E34::transitionDivide(Automaton * automaton, Symbol * divide) {
 bool E34::transitionCloseParenthesis(Automaton * automaton, Symbol * closingParenthesis) {
 	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
 	Variable* variable = new Variable(id->getTheName());
+    variable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
 	variable->setType(F);
 	automaton->programFromLexer.push_front(closingParenthesis);
     automaton->popState();
@@ -56,6 +64,8 @@ bool E34::transitionCloseParenthesis(Automaton * automaton, Symbol * closingPare
 bool E34::transitionPlus(Automaton * automaton, Symbol * plus) {
 	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
 	Variable* variable = new Variable(id->getTheName());
+    variable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
 	variable->setType(F);
 	automaton->programFromLexer.push_front(plus);
     automaton->popState();
@@ -67,6 +77,8 @@ bool E34::transitionPlus(Automaton * automaton, Symbol * plus) {
 bool E34::transitionMinus(Automaton * automaton, Symbol * minus) {
 	IdTerminal * id = (IdTerminal*)automaton->popSymbol();
 	Variable* variable = new Variable(id->getTheName());
+    variable->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variable->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
 	variable->setType(F);
 	automaton->programFromLexer.push_front(minus);
     automaton->popState();
