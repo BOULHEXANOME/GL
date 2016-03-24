@@ -48,17 +48,17 @@ bool E27::transitionPlus(Automaton * automaton, Symbol * plus) {
 	}else{
 		opaExpression = new PlusExpression(expression, terme);
 	}
-	
+
+	delete opa;
+
 	opaExpression->setType(E);
-		
 	automaton->programFromLexer.push_front(plus);
-	
-	(*automaton->states.begin())->transition(automaton,opaExpression);
+	(*automaton->states.begin())->transition(automaton, opaExpression);
 	return true;
 }
 
 bool E27::transitionMinus(Automaton * automaton, Symbol * minus) {
-		Symbol * t = automaton->popSymbol();
+    Symbol * t = automaton->popSymbol();
 	Symbol * opa = automaton->popSymbol();
 	Symbol * e = automaton->popSymbol();
 	
@@ -76,11 +76,11 @@ bool E27::transitionMinus(Automaton * automaton, Symbol * minus) {
 	}else{
 		opaExpression = new PlusExpression(expression, terme);
 	}
+
+    delete opa;
 	
 	opaExpression->setType(E);
-		
 	automaton->programFromLexer.push_front(minus);
-	
 	(*automaton->states.begin())->transition(automaton,opaExpression);
 	return true;
 }
@@ -105,11 +105,11 @@ bool E27::transitionCloseParenthesis(Automaton * automaton, Symbol * parenthesis
 	}else{
 		opaExpression = new PlusExpression(expression, terme);
 	}
+
+    delete opa;
 	
 	opaExpression->setType(E);
-		
 	automaton->programFromLexer.push_front(parenthesis);
-	
 	(*automaton->states.begin())->transition(automaton,opaExpression);
 	return true;
 }
@@ -133,11 +133,11 @@ bool E27::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	}else{
 		opaExpression = new PlusExpression(expression, terme);
 	}
+
+    delete opa;
 	
 	opaExpression->setType(E);
-		
 	automaton->programFromLexer.push_front(semicolon);
-	
 	(*automaton->states.begin())->transition(automaton,opaExpression);
 	return true;
 }

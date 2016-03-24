@@ -25,6 +25,7 @@ bool E40::transitionWrite(Automaton *automaton, Symbol *write)
     automaton->popState();
     automaton->popState();
     automaton->popState();
+    delete semicolon, dPrime;
     (*automaton->states.begin())->transition(automaton, d);
     return true;
 }
@@ -39,6 +40,7 @@ bool E40::transitionId(Automaton *automaton, Symbol *id)
     automaton->popState();
     automaton->popState();
     automaton->popState();
+    delete semicolon, dPrime;
     (*automaton->states.begin())->transition(automaton, d);
     return true;
 }
@@ -54,6 +56,7 @@ bool E40::transitionVar(Automaton *automaton, Symbol *var)
     automaton->popState();
     automaton->popState();
     automaton->popState();
+    delete semicolon, dPrime;
     (*automaton->states.begin())->transition(automaton, d);
     return true;
 }
@@ -68,6 +71,7 @@ bool E40::transitionRead(Automaton *automaton, Symbol *read)
     automaton->popState();
     automaton->popState();
     automaton->popState();
+    delete semicolon, dPrime;
     (*automaton->states.begin())->transition(automaton, d);
     return true;
 }
@@ -82,6 +86,7 @@ bool E40::transitionConst(Automaton *automaton, Symbol *constantS)
     automaton->popState();
     automaton->popState();
     automaton->popState();
+    delete semicolon, dPrime;
     (*automaton->states.begin())->transition(automaton, d);
     return true;
 }

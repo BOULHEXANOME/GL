@@ -35,7 +35,9 @@ bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
     Line lineAffect = Line(Type::instruction);
     lineAffect.addSymbol(actionInstruct);
     automaton->addProgramLine(lineAffect);
-    
+
+	delete id, affectInstruct;
+
     expr->setType(I_PRIME);
 	(*automaton->states.begin())->transition(automaton, expr);
 	return true;

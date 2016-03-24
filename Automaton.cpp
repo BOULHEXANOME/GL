@@ -186,7 +186,9 @@ void Automaton::pushSymbol(Symbol * s)
 
 void Automaton::popState()
 {
+    DefaultState* e = states.front();
 	this->states.pop_front();
+    delete e;
 	if(debug)
         std::cout << "pop State, current State : " << states.front()->state<< std::endl;
 }
@@ -325,3 +327,18 @@ bool Automaton::analyseAccessConstant(std::string theName)
     }
 }
 
+Automaton::~Automaton()
+{
+    for(StatesStack::iterator statesIterator = states.begin() ; statesIterator != states.end(); ++statesIterator)
+    {
+        delete (*statesIterator);
+    }
+    for(SymbolsStack::iterator symbolIterator = symbolsAutomaton.begin() ; symbolIterator != symbolsAutomaton.end(); ++symbolIterator)
+    {
+        delete (*symbolIterator);
+    }
+    for(SymbolsStack::iterator symbolIterator = programFromLexer.begin() ; symbolIterator != programFromLexer.end(); ++symbolIterator)
+    {
+        delete (*symbolIterator);
+    }
+}

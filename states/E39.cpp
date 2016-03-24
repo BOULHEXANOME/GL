@@ -10,6 +10,7 @@ bool E39::transitionId(Automaton * automaton, Symbol * id) {
 	opA->setOp(MINUS);
 	opA->setType(OPA);
 	automaton->popState();
+	delete minus;
 	automaton->programFromLexer.push_front(id);
 	(*automaton->states.begin())->transition(automaton,opA);
 	return true;
@@ -23,6 +24,7 @@ bool E39::transitionVal(Automaton * automaton, Symbol * val) {
 	opA->setOp(MINUS);
 	opA->setType(OPA);
 	automaton->popState();
+	delete minus;
 	automaton->programFromLexer.push_front(val);
 	(*automaton->states.begin())->transition(automaton,opA);
 	return true;
@@ -36,6 +38,7 @@ bool E39::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthe
 	opA->setOp(MINUS);
 	opA->setType(OPA);
 	automaton->popState();
+	delete minus;
 	automaton->programFromLexer.push_front(openParenthesis);
 	(*automaton->states.begin())->transition(automaton,opA);
 	return true;

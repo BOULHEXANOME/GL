@@ -45,6 +45,8 @@ bool E28::transitionComma(Automaton *automaton, Symbol *comma)
     Symbol * aff = automaton->popSymbol();
     automaton->popState();
     automaton->popState();
+
+    delete commaAff, aff, equal, id;
     
     automaton->programFromLexer.push_front(comma);
     (*automaton->states.begin())->transition(automaton, val);
@@ -82,6 +84,8 @@ bool E28::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     Symbol * aff = automaton->popSymbol();
     automaton->popState();
     automaton->popState();
+
+    delete commaAff, aff, equal, id;
     
     automaton->programFromLexer.push_front(semicolon);
     (*automaton->states.begin())->transition(automaton, val);

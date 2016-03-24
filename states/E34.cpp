@@ -17,6 +17,7 @@ bool E34::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	variable->setType(F);
 	automaton->programFromLexer.push_front(semicolon);
     automaton->popState();
+	delete id;
     
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
@@ -30,6 +31,7 @@ bool E34::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	variable->setType(F);
 	automaton->programFromLexer.push_front(multiply);
     automaton->popState();
+	delete id;
     
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
@@ -43,6 +45,7 @@ bool E34::transitionDivide(Automaton * automaton, Symbol * divide) {
 	variable->setType(F);
 	automaton->programFromLexer.push_front(divide);
     automaton->popState();
+	delete id;
     
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
@@ -56,6 +59,7 @@ bool E34::transitionCloseParenthesis(Automaton * automaton, Symbol * closingPare
 	variable->setType(F);
 	automaton->programFromLexer.push_front(closingParenthesis);
     automaton->popState();
+	delete id;
     
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
@@ -69,6 +73,7 @@ bool E34::transitionPlus(Automaton * automaton, Symbol * plus) {
 	variable->setType(F);
 	automaton->programFromLexer.push_front(plus);
     automaton->popState();
+	delete id;
     
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;
@@ -82,6 +87,7 @@ bool E34::transitionMinus(Automaton * automaton, Symbol * minus) {
 	variable->setType(F);
 	automaton->programFromLexer.push_front(minus);
     automaton->popState();
+	delete id;
     
 	(*automaton->states.begin())->transition(automaton, variable);
 	return true;

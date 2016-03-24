@@ -24,11 +24,10 @@ bool E44::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
+	delete opm;
 	
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(multiply);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -52,11 +51,10 @@ bool E44::transitionDivide(Automaton * automaton, Symbol * divide) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(divide);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -80,11 +78,10 @@ bool E44::transitionCloseParenthesis(Automaton * automaton, Symbol * closeParent
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(closeParenthesis);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -108,11 +105,10 @@ bool E44::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(semicolon);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -136,11 +132,10 @@ bool E44::transitionPlus(Automaton * automaton, Symbol * plus) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(plus);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -164,11 +159,10 @@ bool E44::transitionMinus(Automaton * automaton, Symbol * minus) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(minus);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }

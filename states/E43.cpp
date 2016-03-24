@@ -19,6 +19,7 @@ bool E43::transitionDollar(Automaton *automaton, Symbol *dollar)
     automaton->programFromLexer.push_front(dollar);
     automaton->popState();
     automaton->popState();
+    delete semicolonPopped;
     (*automaton->states.begin())->transition(automaton, iPrime);
     return true;
 }
@@ -31,6 +32,7 @@ bool E43::transitionWrite(Automaton *automaton, Symbol *write)
     automaton->programFromLexer.push_front(write);
     automaton->popState();
     automaton->popState();
+    delete semicolonPopped;
     (*automaton->states.begin())->transition(automaton, iPrime);
     return true;
 }
@@ -43,6 +45,7 @@ bool E43::transitionRead(Automaton *automaton, Symbol *read)
     automaton->programFromLexer.push_front(read);
     automaton->popState();
     automaton->popState();
+    delete semicolonPopped;
     (*automaton->states.begin())->transition(automaton, iPrime);
     return true;
 }
@@ -55,6 +58,7 @@ bool E43::transitionId(Automaton *automaton, Symbol *id)
     automaton->programFromLexer.push_front(id);
     automaton->popState();
     automaton->popState();
+    delete semicolonPopped;
     (*automaton->states.begin())->transition(automaton, iPrime);
     return true;
 }

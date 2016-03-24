@@ -10,6 +10,7 @@ bool E33::transitionId(Automaton * automaton, Symbol * id) {
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
+	delete divide;
 	automaton->programFromLexer.push_front(id);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;
@@ -23,6 +24,7 @@ bool E33::transitionVal(Automaton * automaton, Symbol * val) {
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
+	delete divide;
 	automaton->programFromLexer.push_front(val);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;
@@ -36,6 +38,7 @@ bool E33::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthe
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
+	delete divide;
 	automaton->programFromLexer.push_front(openParenthesis);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;

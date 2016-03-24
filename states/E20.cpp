@@ -25,6 +25,8 @@ bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
+
+	delete comma, grosID;
 	
 	id->setType(ID_LIST);
 	automaton->programFromLexer.push_front(semicolon);

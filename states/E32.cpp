@@ -11,6 +11,7 @@ bool E32::transitionId(Automaton * automaton, Symbol * id) {
 	opM->setOp(MULTIPLY);
 	opM->setType(OPM);
 	automaton->popState();
+	delete multiply;
 	automaton->programFromLexer.push_front(id);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;
@@ -24,6 +25,7 @@ bool E32::transitionVal(Automaton * automaton, Symbol * val) {
 	opM->setOp(MULTIPLY);
 	opM->setType(OPM);
 	automaton->popState();
+    delete multiply;
 	automaton->programFromLexer.push_front(val);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;
@@ -37,6 +39,7 @@ bool E32::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthe
 	opM->setOp(MULTIPLY);
 	opM->setType(OPM);
 	automaton->popState();
+    delete multiply;
 	automaton->programFromLexer.push_front(openParenthesis);
 	(*automaton->states.begin())->transition(automaton,opM);
 	return true;

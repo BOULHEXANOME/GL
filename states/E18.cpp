@@ -24,7 +24,11 @@ bool E18::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     
     Line writeInstruct(Type::instruction);
     writeInstruct.addSymbol(writeInstruction);
+    writeInstruction->setColumnWhereSymbolOccurs(e->getColumnWhereSymbolOccurs());
+    writeInstruction->setLineWhereSymbolOccurs(e->getLineWhereSymbolOccurs());
     automaton->addProgramLine(writeInstruct);
+
+    delete write;
 
     e->setType(I_PRIME);
     automaton->programFromLexer.push_front(semicolon);

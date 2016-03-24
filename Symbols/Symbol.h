@@ -10,6 +10,7 @@
 #include <iostream>
 #include <list>
 
+
 class Symbol
 {
 protected:

@@ -106,6 +106,7 @@ public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
     void operator=(Automaton const&) = delete;
+    ~Automaton();
 
     /***********************/
     /*** Getters/Setters ***/

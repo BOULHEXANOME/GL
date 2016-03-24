@@ -37,6 +37,8 @@ bool E25::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     affectAndDeclareConst.addSymbol(actionDeclareAndAffectConst);
     automaton->addProgramLine(affectAndDeclareConst);
 
+    delete id, equal;
+
     val->setType(AFF);
     automaton->programFromLexer.push_front(semicolon);
     automaton->popState();
@@ -68,6 +70,8 @@ bool E25::transitionComma(Automaton *automaton, Symbol *comma)
     Line affectAndDeclareConst(Type::declaration);
     affectAndDeclareConst.addSymbol(actionDeclareAndAffectConst);
     automaton->addProgramLine(affectAndDeclareConst);
+
+    delete id, equal;
 
     val->setType(AFF);
     automaton->programFromLexer.push_front(comma);

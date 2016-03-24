@@ -17,6 +17,7 @@ bool E42::transitionWrite(Automaton * automaton, Symbol * write) {
     automaton->popState();
     automaton->popState();
     automaton->popState();
+	delete semicolon, iprime;
 	(*automaton->states.begin())->transition(automaton, i);
 	return true;
 }
@@ -30,6 +31,7 @@ bool E42::transitionDollar(Automaton * automaton, Symbol * dollar) {
     automaton->popState();
     automaton->popState();
     automaton->popState();
+	delete semicolon, iprime;
 	(*automaton->states.begin())->transition(automaton, i);
 	return true;
 	
@@ -43,6 +45,7 @@ bool E42::transitionRead(Automaton * automaton, Symbol * read) {
     automaton->popState();
     automaton->popState();
     automaton->popState();
+	delete semicolon, iprime;
 	(*automaton->states.begin())->transition(automaton, i);
 	return true;
 }
@@ -55,6 +58,7 @@ bool E42::transitionId(Automaton * automaton, Symbol * id) {
     automaton->popState();
     automaton->popState();
     automaton->popState();
+	delete semicolon, iprime;
 	(*automaton->states.begin())->transition(automaton, i);
 	return true;
 }
