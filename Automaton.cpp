@@ -447,17 +447,17 @@ void Automaton::testStates6()
     Semicolon* semicolon = new Semicolon();
 	semicolon->setType(SEMICOLON);
 	
-	//i := (3);
+    //i := 4+3;
     IdTerminal* idTerminal2 = new IdTerminal("i");
 	idTerminal2->setType(ID);
 	AffectInstructTerminal* affectInstruct = new AffectInstructTerminal();
 	affectInstruct->setType(AFFECTINSTRUCT);
-	ParenthesisTerminal * openParenthesis = new ParenthesisTerminal(TypeOfParenthesis::opening);
-	openParenthesis->setType(OPENPARENTHESIS);
     Number* numberToAffect = new Number(3);
     numberToAffect->setType(VAL);
-    ParenthesisTerminal * closeParenthesis = new ParenthesisTerminal(TypeOfParenthesis::closing);
-	closeParenthesis->setType(CLOSEPARENTHESIS);
+    PlusTerminal* plus = new PlusTerminal();
+    plus->setType(PLUS);
+    Number* numberToAffectb = new Number(4);
+    numberToAffectb->setType(VAL);
     Semicolon* semicolon2 = new Semicolon();
 	semicolon2->setType(SEMICOLON);
     
@@ -480,9 +480,9 @@ void Automaton::testStates6()
     this->programFromLexer.push_front(writeTerm);
     
     this->programFromLexer.push_front(semicolon2);
-    this->programFromLexer.push_front(closeParenthesis);
     this->programFromLexer.push_front(numberToAffect);
-    this->programFromLexer.push_front(openParenthesis);
+    this->programFromLexer.push_front(plus);
+    this->programFromLexer.push_front(numberToAffectb);
     this->programFromLexer.push_front(affectInstruct);
     this->programFromLexer.push_front(idTerminal2);
     
@@ -984,8 +984,9 @@ bool Automaton::analyseAccessConstant(std::string theName)
 
 void Automaton::optimize()
 {
-    for (Program::iterator cProgramLines = this->programLines.begin(); cProgramLines != this->programLines.end(); cProgramLines++)
+    for (Program::iterator cProgramLines = this->programLines.begin(); cProgramLines != this->programLines.end(); ++cProgramLines)
     {
+        std::cout << "iteration" << std::endl;
         cProgramLines->optimize();
     }
 }

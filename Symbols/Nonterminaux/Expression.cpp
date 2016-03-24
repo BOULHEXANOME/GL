@@ -10,3 +10,9 @@ int Expression::execute() const
     std::cerr <<"Error, cannot execute Expression."<<std::endl;
 	return 0;
 }
+
+Expression* Expression::optimizeExpression()
+{
+    std::cout << "Expression opti" << std::endl;
+    return this;
+}

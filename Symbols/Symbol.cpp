@@ -39,7 +39,8 @@ bool Symbol::analyse() const
     return false;
 }
 
-void optimize()
+void Symbol::optimize()
 {
+    std::cout << "Symbol opti" << std::endl;
     //do nothing
 }

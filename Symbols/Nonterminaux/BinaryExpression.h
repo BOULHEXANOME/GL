@@ -7,6 +7,7 @@
 
 
 #include "Expression.h"
+#include "Number.h"
 
 class BinaryExpression : public Expression
 {

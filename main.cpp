@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
 
 	if(opt_optimize)
     {
-
+        Automaton::instance().optimize();
 	}
 
 	if(opt_print)
@@ -173,6 +173,9 @@ void defaultBehaviour()
     //Automaton::instance().testStates5();
     Automaton::instance().testStates6();
     //Automaton::instance().analyse();
+    Automaton::instance().execute();
+    Automaton::instance().printCode();
+    Automaton::instance().optimize();
     Automaton::instance().execute();
     Automaton::instance().printCode();
 

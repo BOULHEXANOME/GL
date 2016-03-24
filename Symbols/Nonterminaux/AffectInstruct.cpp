@@ -33,5 +33,8 @@ bool AffectInstruct::analyse() const
 
 void AffectInstruct::optimize()
 {
+    std::cout << "Affect opti" << std::endl;
+    std::cout << getExpressionToAffect()->print() << std::endl;
     this->setExpressionToAffect(this->getExpressionToAffect()->optimizeExpression());
+    std::cout << this->print() << std::endl;
 }

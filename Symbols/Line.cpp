@@ -18,5 +18,7 @@ void Line::execute() const
 }
 
 void Line::optimize(){
+    std::cout << "Line opti" << std::endl;
+    std::cout << getTheSymbol()->print() << std::endl;
     this->getTheSymbol()->optimize();
 }

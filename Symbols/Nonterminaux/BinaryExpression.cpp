@@ -6,8 +6,13 @@
 
 Expression* BinaryExpression::optimizeExpression()
 {
-    if (this->getLeftExpr()->getType()==VAL || this->getLeftExpr()->getType()==VAL){
-        if (this->getRigthExpr()->getType()==VAL || this->getRigthExpr()->getType()==VAL){
+    std::cout <<  "binary opti"<< std::endl;
+
+    if (this->getLeftExpr()->getType()==E || this->getLeftExpr()->getType()==CONST){
+        std::cout << this->getRigthExpr()->getType()<< std::endl;
+        if (this->getRigthExpr()->getType()==E || this->getRigthExpr()->getType()==CONST){
+            std::cout << this->getLeftExpr()->getType()<< std::endl;
+            std::cout << "number" << std::endl;
             return new Number(this->execute());
         } else {
             this->setRigthExpr(this->getRigthExpr()->optimizeExpression());
