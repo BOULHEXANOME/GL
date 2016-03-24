@@ -13,7 +13,14 @@ bool E8::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     Symbol * read = automaton->popSymbol();
 
     Variable* variableToReadFromUser = new Variable(id->getTheName());
+    variableToReadFromUser->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    variableToReadFromUser->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
+    
     Read* readSymbolInstruction = new Read(variableToReadFromUser);
+    readSymbolInstruction->setColumnWhereSymbolOccurs(read->getLineWhereSymbolOccurs());
+    readSymbolInstruction->setLineWhereSymbolOccurs(read->getLineWhereSymbolOccurs());
+    
+    
     Line readInstruct(Type::instruction);
     readInstruct.addSymbol(readSymbolInstruction);
     automaton->addProgramLine(readInstruct);
