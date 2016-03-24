@@ -5,6 +5,8 @@
 bool E33::transitionId(Automaton * automaton, Symbol * id) {
 	Symbol * divide = automaton->popSymbol();
 	OpM * opM = new OpM();
+    opM->setColumnWhereSymbolOccurs(divide->getColumnWhereSymbolOccurs());
+    opM->setLineWhereSymbolOccurs(divide->getLineWhereSymbolOccurs());
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
@@ -16,6 +18,8 @@ bool E33::transitionId(Automaton * automaton, Symbol * id) {
 bool E33::transitionVal(Automaton * automaton, Symbol * val) {
 	Symbol * divide = automaton->popSymbol();
 	OpM * opM = new OpM();
+    opM->setColumnWhereSymbolOccurs(divide->getColumnWhereSymbolOccurs());
+    opM->setLineWhereSymbolOccurs(divide->getLineWhereSymbolOccurs());
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
@@ -27,6 +31,8 @@ bool E33::transitionVal(Automaton * automaton, Symbol * val) {
 bool E33::transitionOpenParenthesis(Automaton * automaton, Symbol * openParenthesis) {
 	Symbol * divide = automaton->popSymbol();
 	OpM * opM = new OpM();
+    opM->setColumnWhereSymbolOccurs(divide->getColumnWhereSymbolOccurs());
+    opM->setLineWhereSymbolOccurs(divide->getLineWhereSymbolOccurs());
 	opM->setOp(DIVIDE);
 	opM->setType(OPM);
 	automaton->popState();
