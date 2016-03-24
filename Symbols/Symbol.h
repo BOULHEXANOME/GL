@@ -10,6 +10,7 @@
 #include <iostream>
 #include <list>
 
+
 class Symbol
 {
 protected:
@@ -73,7 +74,7 @@ public:
     /*
      * Optimize Symbol
      */
-    virtual void optimize();
+    virtual bool optimize();
 
     int getType() const;
     virtual std::string print() const;

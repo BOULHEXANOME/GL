@@ -1,1 +1,2 @@
-variable non utilisee : b
+Erreur lors de l'analyse statique : la variable 'b' n'est jamais affectée.
+Erreur lors de l'analyse statique : la variable 'b' n'est jamais utilisée.

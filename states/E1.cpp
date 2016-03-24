@@ -7,26 +7,7 @@
 #include "E11.h"
 #include "E6.h"
 #include "E7.h"
-
-//TODO decommenter (sans oublier le .h et E2 et E3)
-/*#include "E3.h"
-#include "E4.h"
-#include "E5.h"
-#include "E6.h"
-#include "E7.h"
-#include "E9.h"*/
-
-/*
-bool E1::transitionRead(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E6());
-	return true;
-}
-
-
-bool E1::transitionConst(Automaton * automaton, Symbol * s) {
-	automaton->pushState(s, new E7());
-	return true;
-}*/
+#include "../Symbols/Terminaux/WriteTerminal.h"
 
 bool E1::transitionVar(Automaton * automaton, Symbol * var) {
 	automaton->pushState(var, new E2());
@@ -40,6 +21,7 @@ bool E1::transitionId(Automaton * automaton, Symbol * s) {
 
 E1::E1()
 {
+    expectedSymbols = "var, const, id, write, read, instruction line, declarative line, instruction paragraph";
 	this->state = 1;
 }
 
@@ -76,5 +58,19 @@ bool E1::transitionRead(Automaton *automaton, Symbol *readS)
 bool E1::transitionConst(Automaton *automaton, Symbol *constS)
 {
     automaton->pushState(constS, new E7());
+    return true;
+}
+
+bool E1::transitionDefault(Automaton *automaton, Symbol *unknown)
+{
+    std::cerr << "Erreur syntaxique, symbole non attendu";
+    automaton->printError(unknown);
+    std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+    std::cerr << "L'automate assume que un 'ecrire' a été oublié, et continue donc avec ce symbole." << std::endl;
+
+    // on simule une transition sur ecrire
+    automaton->programFromLexer.push_front(unknown);
+    Symbol * ecrire = new WriteTerminal();
+    transitionWrite(automaton, ecrire);
     return true;
 }

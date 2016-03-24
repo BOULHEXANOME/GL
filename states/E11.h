@@ -5,12 +5,10 @@
 
 class E11 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = ":=";
-    public:
-		E11();
-		~E11(){};
-		bool transitionAffectInstruct(Automaton * automaton, Symbol * s);
+public:
+	E11();
+	virtual bool transitionAffectInstruct(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton *automaton, Symbol *unknown);
 };
 
 #endif

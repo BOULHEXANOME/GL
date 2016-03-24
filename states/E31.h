@@ -10,18 +10,15 @@
 
 class E31 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "*, /, ;, +, -, )";
-	
 public:
     E31();
-    ~E31(){};
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
     virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * closeParenthesis);
     virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
     virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
     virtual bool transitionDivide(Automaton * automaton, Symbol * divide);
     virtual bool transitionMultiply(Automaton * automaton, Symbol * multiply);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

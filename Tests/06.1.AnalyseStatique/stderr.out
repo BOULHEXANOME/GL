@@ -1,1 +1,1 @@
-une valeur dans l'expression a*b n'est pas connue.
+Erreur lors de l'analyse statique : la variable 'b' n'est jamais utilisée.

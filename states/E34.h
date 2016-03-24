@@ -5,18 +5,15 @@
 
 class E34 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "*, /, ;, +, -, )";
-	
-    public:
-		E34();
-		~E34(){};
-		virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
-		virtual bool transitionMultiply(Automaton * automaton, Symbol * s);
-		virtual bool transitionDivide(Automaton * automaton, Symbol * s);
-		virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * s);
-		virtual bool transitionPlus(Automaton * automaton, Symbol * s);
-		virtual bool transitionMinus(Automaton * automaton, Symbol * s);
+public:
+	E34();
+	virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
+	virtual bool transitionMultiply(Automaton * automaton, Symbol * s);
+	virtual bool transitionDivide(Automaton * automaton, Symbol * s);
+	virtual bool transitionCloseParenthesis(Automaton * automaton, Symbol * s);
+	virtual bool transitionPlus(Automaton * automaton, Symbol * s);
+	virtual bool transitionMinus(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

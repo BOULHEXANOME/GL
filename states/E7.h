@@ -10,13 +10,11 @@
 
 class E7 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "id, one or many affectations";
-	
 public:
     E7();
     virtual bool transitionId(Automaton * automaton, Symbol * id);
     virtual bool transitionAff(Automaton * automaton, Symbol * aff);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 

@@ -17,6 +17,13 @@ void Line::execute() const
     theSymbol->execute();
 }
 
-void Line::optimize(){
-    this->getTheSymbol()->optimize();
+bool Line::optimize()
+{
+    return theSymbol->optimize();
+}
+
+void Line::addSymbol(Symbol *symbolsToAdd)
+{
+    theSymbol = symbolsToAdd;
+    theSymbol->analyse();
 }

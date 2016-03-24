@@ -3,14 +3,14 @@
 //
 
 #include "Variable.h"
+#include "Number.h"
 
 int Variable::execute() const
 {
     var* theStockageUnit = new var;
     if(! Automaton::instance().accessVariable(theName, theStockageUnit))
     {
-        // TODO
-        std::cerr << "error execute variable ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
     }
     return theStockageUnit->theValue;
 }
@@ -19,8 +19,7 @@ bool Variable::analyse() const
 {
     if(! Automaton::instance().analyseAccessVariable(theName))
     {
-        // TODO
-        std::cerr << "error execute variable ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
         return false;
     }
     return true;
@@ -33,5 +32,13 @@ std::string Variable::print() const
 
 Expression *Variable::optimizeExpression()
 {
-    return Expression::optimizeExpression();
+    try
+    {
+        return new Number(Automaton::instance().accessConstant(theName));
+    }
+    catch (const int e)
+    {
+        return this;
+    }
+
 }

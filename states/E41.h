@@ -5,13 +5,10 @@
 
 class E41 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = ";";
-
-    public:
-		E41();
-		~E41(){};
-		bool transitionSemicolon(Automaton * automaton, Symbol * s);
+public:
+	E41();
+	bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+	bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

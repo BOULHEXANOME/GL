@@ -26,7 +26,6 @@ public:
     /***** Contructors *****/
     /***********************/
     Line(Type typeOfLine) : typeOfLine(typeOfLine) { }
-    Line(Type typeOfLine, Symbol* s) : typeOfLine(typeOfLine), theSymbol(theSymbol) { }
     Line() { }
     /***********************/
     /*** End Contructors ***/
@@ -41,10 +40,7 @@ public:
         return theSymbol;
     }
 
-    void addSymbol(Symbol * symbolsToAdd)
-    {
-        this->theSymbol = symbolsToAdd;
-    }
+    void addSymbol(Symbol * symbolsToAdd);
 
     const Type & getTypeOfLine() const
     {
@@ -80,7 +76,7 @@ public:
     /*
      * Optimize line
      */
-    void optimize();
+    bool optimize();
 
     /***********************/
     /***** End Methods *****/

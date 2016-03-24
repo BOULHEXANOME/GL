@@ -3,6 +3,7 @@
 //
 
 #include "Parenthesis.h"
+#include "Number.h"
 
 std::string Parenthesis::print() const
 {
@@ -22,5 +23,7 @@ bool Parenthesis::analyse() const
 Expression *Parenthesis::optimizeExpression()
 {
     exprParenthesised = exprParenthesised->optimizeExpression();
+    if(exprParenthesised->getType() == VAL)
+        return new Number(exprParenthesised->execute());
     return this;
 }

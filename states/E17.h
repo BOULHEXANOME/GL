@@ -5,13 +5,10 @@
 
 class E17 : public DefaultState
 {
-	protected:
-		std::string expectedSymbols = "id";
-	
-    public:
-		E17();
-		~E17(){};
-		virtual bool transitionId(Automaton * automaton, Symbol * s);
+public:
+	E17();
+	virtual bool transitionId(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton * automaton, Symbol* unknown);
 };
 
 #endif

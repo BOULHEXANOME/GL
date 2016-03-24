@@ -2,6 +2,7 @@
 #include "../Symbols/Terminaux/IdTerminal.h"
 #include "../Symbols/Nonterminaux/Variable.h"
 #include "../Symbols/Nonterminaux/VarDeclare.h"
+#include "../Symbols/Terminaux/Semicolon.h"
 
 bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
 {
@@ -14,10 +15,18 @@ bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
 	
 	IdTerminal * variableToDeclare = (IdTerminal*) (grosID);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
+    varDeclared->setColumnWhereSymbolOccurs(variableToDeclare->getColumnWhereSymbolOccurs());
+    varDeclared->setLineWhereSymbolOccurs(variableToDeclare->getLineWhereSymbolOccurs());
+    
     VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
+    actionDeclareVariable->setColumnWhereSymbolOccurs(varDeclared->getColumnWhereSymbolOccurs());
+    actionDeclareVariable->setLineWhereSymbolOccurs(varDeclared->getLineWhereSymbolOccurs());
+    
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
+
+	delete comma, grosID;
 	
 	id->setType(ID_LIST);
 	automaton->programFromLexer.push_front(semicolon);
@@ -38,7 +47,13 @@ bool E20::transitionComma(Automaton * automaton, Symbol * comma)
 	
 	IdTerminal * variableToDeclare = (IdTerminal*) (grosID);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
+    varDeclared->setColumnWhereSymbolOccurs(variableToDeclare->getColumnWhereSymbolOccurs());
+    varDeclared->setLineWhereSymbolOccurs(variableToDeclare->getLineWhereSymbolOccurs());
+    
     VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
+    actionDeclareVariable->setColumnWhereSymbolOccurs(varDeclared->getColumnWhereSymbolOccurs());
+    actionDeclareVariable->setLineWhereSymbolOccurs(varDeclared->getLineWhereSymbolOccurs());
+    
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
@@ -53,4 +68,19 @@ bool E20::transitionComma(Automaton * automaton, Symbol * comma)
 E20::E20()
 {
     state = 20;
+	expectedSymbols = "comma,;";
+}
+
+bool E20::transitionDefault(Automaton *automaton, Symbol *unknown)
+{
+	std::cerr << "Erreur syntaxique, symbole non attendu";
+	automaton->printError(unknown);
+	std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+	std::cerr << "L'automate assume que le point virgule a été oublié, et continue donc avec ce symbole." << std::endl;
+
+	// on simule une transition sur semicolon
+	automaton->programFromLexer.push_front(unknown);
+	Symbol * semicolon = new Semicolon();
+	transitionSemicolon(automaton, semicolon);
+	return true;
 }

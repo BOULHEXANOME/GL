@@ -3,6 +3,7 @@
 #include "../Symbols/Nonterminaux/MultiplyExpression.h"
 #include "../Symbols/Nonterminaux/OpM.h"
 #include "../Symbols/Nonterminaux/Expression.h"
+#include "../Symbols/Terminaux/MinusTerminal.h"
 
 bool E44::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	Symbol * f = automaton->popSymbol();
@@ -23,11 +24,10 @@ bool E44::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
+	delete opm;
 	
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(multiply);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -51,11 +51,10 @@ bool E44::transitionDivide(Automaton * automaton, Symbol * divide) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(divide);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -79,11 +78,10 @@ bool E44::transitionCloseParenthesis(Automaton * automaton, Symbol * closeParent
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(closeParenthesis);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -107,11 +105,10 @@ bool E44::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(semicolon);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -135,11 +132,10 @@ bool E44::transitionPlus(Automaton * automaton, Symbol * plus) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(plus);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -163,11 +159,10 @@ bool E44::transitionMinus(Automaton * automaton, Symbol * minus) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
-	
+
+	delete opm;
 	opmExpression->setType(T);
-		
 	automaton->programFromLexer.push_front(minus);
-	
 	(*automaton->states.begin())->transition(automaton,opmExpression);
 	return true;
 }
@@ -177,3 +172,15 @@ E44::E44()
     state = 44;
 }
 
+bool E44::transitionDefault(Automaton *automaton, Symbol *unknown) {
+	std::cerr << "Erreur syntaxique, symbole non attendu";
+	automaton->printError(unknown);
+	std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+	std::cerr << "L'automate assume que un '-' a été oublié, et continue donc avec avec ce symbole." << std::endl;
+
+	// on simule une transition sur ecrire
+	automaton->programFromLexer.push_front(unknown);
+	Symbol * minus = new MinusTerminal();
+	transitionMinus(automaton, minus);
+	return true;
+}

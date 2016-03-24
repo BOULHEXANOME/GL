@@ -18,11 +18,17 @@ class Line;
 struct var {
     int theValue;
     bool isIntancied = false;
+    bool isUsed = false;
+};
+
+struct constant {
+    int theValue;
+    bool isUsed = false;
 };
 
 class Automaton {
 private:
-    typedef std::map<std::string, int> AllTheConstants;
+    typedef std::map<std::string, constant> AllTheConstants;
     typedef std::map<std::string, var> AllTheVariables;
     typedef std::list<Line> Program;
     typedef std::list<Symbol *> SymbolsStack;
@@ -100,6 +106,7 @@ public:
     // this two lines forbid copy of singleton
     Automaton(Automaton const&) = delete;
     void operator=(Automaton const&) = delete;
+    ~Automaton();
 
     /***********************/
     /*** Getters/Setters ***/
@@ -138,31 +145,6 @@ public:
     /***********************/
     /******* Methods *******/
     /***********************/
-
-    /*
-     * Method used to test the creation and deletion of symbols
-     * (just to test)
-     */
-    void createAndDeleteSomeLines();
-    void createSomeLines();
-    
-    void testStates();
-    void testStates2();
-    void testStates4();
-    void testStates3();
-    void testStates5();
-    void testStates6();
-    void testStates7();
-
-    /*
-     * Method test "lire"
-     */
-    void testLire();
-
-    /*
-     * Method test "const"
-     */
-    void testConst();
 
     /*
      * Method used to print the code in memory

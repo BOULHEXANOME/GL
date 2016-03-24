@@ -1,0 +1,4 @@
+Erreur lors de l'accès à la variable : 'b', la variable n'a pas été instanciée.
+ à la ligne 6, colonne 9 :
+ecrire a*b;
+         ^

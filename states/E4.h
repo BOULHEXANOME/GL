@@ -10,14 +10,11 @@
 
 class E4 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = ";";
 
 public:
     E4();
-    ~E4(){};
     virtual bool transitionSemicolon(Automaton * a, Symbol * s);
-
+    virtual bool transitionDefault(Automaton * automaton, Symbol * s);
 };
 
 

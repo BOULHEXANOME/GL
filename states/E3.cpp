@@ -3,6 +3,7 @@
 #include "E41.h"
 #include "E11.h"
 #include "E6.h"
+#include "../Symbols/Terminaux/WriteTerminal.h"
 
 bool E3::transitionId(Automaton * automaton, Symbol * id) {
 	automaton->pushState(id, new E11());
@@ -32,5 +33,20 @@ bool E3::transitionWrite(Automaton * automaton, Symbol * write) {
 
 E3::E3()
 {
+	expectedSymbols = "instructions paragraph, read, write, id, endOfProgramm";
 	this->state = 3;
+}
+
+bool E3::transitionDefault(Automaton *automaton, Symbol *unknown)
+{
+    std::cerr << "Erreur syntaxique, symbole non attendu";
+    automaton->printError(unknown);
+    std::cerr << "Un de ces symboles était attendu : [" << expectedSymbols << "]" << std::endl;
+    std::cerr << "L'automate assume que un 'ecrire' a été oublié, et continue donc avec ce symbole." << std::endl;
+
+    // on simule une transition sur ecrire
+    automaton->programFromLexer.push_front(unknown);
+    Symbol * ecrire = new WriteTerminal();
+    transitionWrite(automaton, ecrire);
+    return true;
 }

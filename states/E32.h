@@ -5,12 +5,12 @@
 
 class E32 : public DefaultState
 {
-    public:
-        E32();
-		~E32(){};
-		virtual bool transitionId(Automaton * automaton, Symbol * s);
-		virtual bool transitionVal(Automaton * automaton, Symbol * s);
-		virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
+public:
+	E32();
+	virtual bool transitionId(Automaton * automaton, Symbol * s);
+	virtual bool transitionVal(Automaton * automaton, Symbol * s);
+	virtual bool transitionOpenParenthesis(Automaton * automaton, Symbol * s);
+	virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 };
 
 #endif

@@ -13,7 +13,6 @@ int AffectConst::execute() const
 {
     if(! Automaton::instance().declareAndAffectConst(this->constToDeclare->getTheName(), this->numberToAffect->getTheValue()))
     {
-        std::cerr << "Error declaring const";
         Automaton::instance().printError(this);
     }
     return 0;
@@ -23,14 +22,14 @@ bool AffectConst::analyse() const
 {
     if(! Automaton::instance().analyseDeclareAndAffectConst(this->constToDeclare->getTheName()))
     {
-        std::cerr << "Error declaring const";
         Automaton::instance().printError(this);
         return false;
     }
     return true;
 }
 
-void AffectConst::optimize()
+bool AffectConst::optimize()
 {
     execute();
+    return true;
 }

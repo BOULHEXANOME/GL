@@ -48,17 +48,9 @@ int main(int argc, char **argv) {
 
     if (argc < MIN_ARGS)
     {
-        if(Automaton::instance().isDebug())
-        {
-            defaultBehaviour();
-            return 0;
-        }
-        else
-        {
-            cerr << "Erreur, veuillez specifier des arguments" << endl;
-		    print_usage();
-            exit(ERROR_NOT_ENOUGH_ARGS);
-        }
+        cerr << "Erreur, veuillez specifier des arguments" << endl;
+        print_usage();
+        exit(ERROR_NOT_ENOUGH_ARGS);
     }
 
 	if (argc > MAX_ARGS)
@@ -133,7 +125,10 @@ int main(int argc, char **argv) {
 
 	if(opt_analyse)
     {
-        Automaton::instance().analyse();
+        if(Automaton::instance().analyse())
+        {
+            cout << "Le programme semble cohérent." << endl;
+        }
 	}
 
 	if(opt_optimize)
@@ -153,16 +148,3 @@ int main(int argc, char **argv) {
 
     return 0;
 }
-
-void defaultBehaviour()
-{
-    Automaton::instance().testStates6();
-    //Automaton::instance().analyse();
-    Automaton::instance().execute();
-    Automaton::instance().printCode();
-    Automaton::instance().optimize();
-    Automaton::instance().execute();
-    Automaton::instance().printCode();
-
-}
-

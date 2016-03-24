@@ -20,7 +20,8 @@ bool Write::analyse() const
     return toWrite->analyse();
 }
 
-void Write::optimize()
+bool Write::optimize()
 {
     toWrite = toWrite->optimizeExpression();
+    return false;
 }

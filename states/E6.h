@@ -10,12 +10,10 @@
 
 class E6 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "id";
 public:
     E6();
-    ~E6(){};
     virtual bool transitionId(Automaton * automaton, Symbol * s);
+    virtual bool transitionDefault(Automaton *automaton, Symbol *unknown);
 };
 
 

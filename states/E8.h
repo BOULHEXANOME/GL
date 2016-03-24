@@ -10,13 +10,11 @@
 
 class E8 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "write, read, id, endOfProgram";
 	
 public:
     E8();
-    ~E8(){};
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * s);
+    virtual bool transitionDefault(Automaton *automaton, Symbol *unknown);
 };
 
 

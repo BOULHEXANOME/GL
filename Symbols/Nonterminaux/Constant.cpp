@@ -7,30 +7,22 @@
 
 int Constant::execute() const
 {
-    try
+    var* theStockageUnit = new var;
+    if(! Automaton::instance().accessVariable(theName, theStockageUnit))
     {
-        return Automaton::instance().accessConstant(theName);
+        Automaton::instance().printError(this);
     }
-    catch(const int e) {
-        if(e == CONST_DOES_NOT_EXISTS)
-        {
-            // TODO
-            std::cerr << "error accessing const ! print line number&column" << std::endl;
-        }
-        else
-        {
-            std::cerr << "unknown error ! print line number&column" << std::endl;
-        }
-    }
-    return 0;
+    return theStockageUnit->theValue;
 }
 
-std::string Constant::print() const {
+std::string Constant::print() const
+{
     return theName;
 }
 
-bool Constant::analyse() const {
-    return true;
+bool Constant::analyse() const
+{
+    return Automaton::instance().analyseAccessConstant(theName);
 }
 
 int Constant::getType()

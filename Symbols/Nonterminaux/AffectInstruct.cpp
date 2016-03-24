@@ -13,8 +13,7 @@ int AffectInstruct::execute() const
 {
     if(! Automaton::instance().affectVariable(this->variableToChange->getTheName(), this->expressionToAffect->execute()))
     {
-        // TODO
-        std::cerr << "error affect instruct ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
     }
 
     return 0;
@@ -24,14 +23,14 @@ bool AffectInstruct::analyse() const
 {
     if(! Automaton::instance().analyseAffectVariable(this->variableToChange->getTheName()))
     {
-        // TODO
-        std::cerr << "error affect instruct ! print line number&column" << std::endl;
+        Automaton::instance().printError(this);
         return false;
     }
-    return true;
+    return expressionToAffect->analyse();
 }
 
-void AffectInstruct::optimize()
+bool AffectInstruct::optimize()
 {
     expressionToAffect = expressionToAffect->optimizeExpression();
+    return false;
 }

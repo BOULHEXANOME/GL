@@ -39,6 +39,6 @@ bool Symbol::analyse() const
     return false;
 }
 
-void Symbol::optimize(){
-
+bool Symbol::optimize(){
+    return false;
 }

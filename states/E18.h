@@ -10,14 +10,13 @@
 
 class E18 : public DefaultState
 {
-protected:
-	std::string expectedSymbols = "+, -, ;, additive or subtractive operation";
-	
 public:
     E18();
-    ~E18(){};
-    // FIXME transitions
     virtual bool transitionSemicolon(Automaton * automaton, Symbol * semicolon);
+    virtual bool transitionOpA(Automaton * automaton, Symbol * opa);
+    virtual bool transitionPlus(Automaton * automaton, Symbol * plus);
+    virtual bool transitionMinus(Automaton * automaton, Symbol * minus);
+    virtual bool transitionDefault(Automaton * automaton, Symbol * unknown);
 
 };
 
