@@ -21,7 +21,18 @@ bool E25::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     IdTerminal * id = (IdTerminal*) automaton->popSymbol();
 
     Number * valWithConst = new Number(val->getTheValue());
-    AffectConst * actionDeclareAndAffectConst = new AffectConst(new Constant(id->getTheName()), valWithConst);
+    valWithConst->setColumnWhereSymbolOccurs(val->getColumnWhereSymbolOccurs());
+    valWithConst->setLineWhereSymbolOccurs(val->getLineWhereSymbolOccurs());
+    
+    Constant* theConst = new Constant(id->getTheName());
+    theConst->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    theConst->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
+    
+    
+    AffectConst * actionDeclareAndAffectConst = new AffectConst(theConst, valWithConst);
+    actionDeclareAndAffectConst->setColumnWhereSymbolOccurs(theConst->getColumnWhereSymbolOccurs());
+    actionDeclareAndAffectConst->setLineWhereSymbolOccurs(theConst->getLineWhereSymbolOccurs());
+    
     Line affectAndDeclareConst(Type::declaration);
     affectAndDeclareConst.addSymbol(actionDeclareAndAffectConst);
     automaton->addProgramLine(affectAndDeclareConst);
@@ -42,7 +53,18 @@ bool E25::transitionComma(Automaton *automaton, Symbol *comma)
     IdTerminal * id = (IdTerminal*) automaton->popSymbol();
 
     Number * valWithConst = new Number(val->getTheValue());
-    AffectConst * actionDeclareAndAffectConst = new AffectConst(new Constant(id->getTheName()), valWithConst);
+    valWithConst->setColumnWhereSymbolOccurs(val->getColumnWhereSymbolOccurs());
+    valWithConst->setLineWhereSymbolOccurs(val->getLineWhereSymbolOccurs());
+    
+    Constant* theConst = new Constant(id->getTheName());
+    theConst->setColumnWhereSymbolOccurs(id->getColumnWhereSymbolOccurs());
+    theConst->setLineWhereSymbolOccurs(id->getLineWhereSymbolOccurs());
+    
+    
+    AffectConst * actionDeclareAndAffectConst = new AffectConst(theConst, valWithConst);
+    actionDeclareAndAffectConst->setColumnWhereSymbolOccurs(theConst->getColumnWhereSymbolOccurs());
+    actionDeclareAndAffectConst->setLineWhereSymbolOccurs(theConst->getLineWhereSymbolOccurs());
+    
     Line affectAndDeclareConst(Type::declaration);
     affectAndDeclareConst.addSymbol(actionDeclareAndAffectConst);
     automaton->addProgramLine(affectAndDeclareConst);

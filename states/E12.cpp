@@ -19,6 +19,8 @@ bool E12::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
 
     Symbol * dprime =  new Symbol();
     dprime->setType(D_PRIME);
+    dprime->setColumnWhereSymbolOccurs(aff->getColumnWhereSymbolOccurs());
+    dprime->setLineWhereSymbolOccurs(aff->getLineWhereSymbolOccurs());
 
     automaton->programFromLexer.push_front(semicolon);
     automaton->popState();

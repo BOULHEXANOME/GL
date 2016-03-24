@@ -21,6 +21,8 @@ bool E13::transitionSemicolon(Automaton *automaton, Symbol *semicolon)
     Symbol * f = automaton->popSymbol();
 
     Parenthesis * expressionParenthesised = new Parenthesis((Expression*) (e));
+    expressionParenthesised->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    expressionParenthesised->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
     expressionParenthesised->setType(F);
     automaton->programFromLexer.push_front(semicolon);
@@ -39,6 +41,8 @@ bool E13::transitionCloseParenthesis(Automaton *automaton, Symbol *closeParenthe
     Symbol * f = automaton->popSymbol();
 
     Parenthesis * expressionParenthesised = new Parenthesis((Expression*) (e));
+    expressionParenthesised->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    expressionParenthesised->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
     expressionParenthesised->setType(F);
     automaton->programFromLexer.push_front(closeParenthesis);
@@ -56,6 +60,8 @@ bool E13::transitionMinus(Automaton *automaton, Symbol *minus)
     Symbol * f = automaton->popSymbol();
 
     Parenthesis * expressionParenthesised = new Parenthesis((Expression*) (e));
+    expressionParenthesised->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    expressionParenthesised->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
     expressionParenthesised->setType(F);
     automaton->programFromLexer.push_front(minus);
@@ -73,6 +79,8 @@ bool E13::transitionPlus(Automaton *automaton, Symbol *plus)
     Symbol * f = automaton->popSymbol();
 
     Parenthesis * expressionParenthesised = new Parenthesis((Expression*) (e));
+    expressionParenthesised->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    expressionParenthesised->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
     expressionParenthesised->setType(F);
     automaton->programFromLexer.push_front(plus);
@@ -91,6 +99,8 @@ bool E13::transitionDivide(Automaton *automaton, Symbol *divide)
     Symbol * f = automaton->popSymbol();
 
     Parenthesis * expressionParenthesised = new Parenthesis((Expression*) (e));
+    expressionParenthesised->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    expressionParenthesised->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
     expressionParenthesised->setType(F);
     automaton->programFromLexer.push_front(divide);
@@ -109,6 +119,8 @@ bool E13::transitionMultiply(Automaton *automaton, Symbol *multiply)
     Symbol * f = automaton->popSymbol();
 
     Parenthesis * expressionParenthesised = new Parenthesis((Expression*) (e));
+    expressionParenthesised->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    expressionParenthesised->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
     expressionParenthesised->setType(F);
     automaton->programFromLexer.push_front(multiply);

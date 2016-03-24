@@ -25,7 +25,13 @@ bool E23::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
     
     IdTerminal * variableToDeclare = (IdTerminal*) (id);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
+    varDeclared->setColumnWhereSymbolOccurs(variableToDeclare->getColumnWhereSymbolOccurs());
+    varDeclared->setLineWhereSymbolOccurs(variableToDeclare->getLineWhereSymbolOccurs());
+    
     AffectInstruct * actionInstruct = new AffectInstruct(varDeclared, expr);
+    actionInstruct->setColumnWhereSymbolOccurs(varDeclared->getColumnWhereSymbolOccurs());
+    actionInstruct->setLineWhereSymbolOccurs(varDeclared->getLineWhereSymbolOccurs());
+    
     Line lineAffect = Line(Type::instruction);
     lineAffect.addSymbol(actionInstruct);
     automaton->addProgramLine(lineAffect);

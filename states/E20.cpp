@@ -15,7 +15,13 @@ bool E20::transitionSemicolon(Automaton * automaton, Symbol * semicolon)
 	
 	IdTerminal * variableToDeclare = (IdTerminal*) (grosID);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
+    varDeclared->setColumnWhereSymbolOccurs(variableToDeclare->getColumnWhereSymbolOccurs());
+    varDeclared->setLineWhereSymbolOccurs(variableToDeclare->getLineWhereSymbolOccurs());
+    
     VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
+    actionDeclareVariable->setColumnWhereSymbolOccurs(varDeclared->getColumnWhereSymbolOccurs());
+    actionDeclareVariable->setLineWhereSymbolOccurs(varDeclared->getLineWhereSymbolOccurs());
+    
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
@@ -39,7 +45,13 @@ bool E20::transitionComma(Automaton * automaton, Symbol * comma)
 	
 	IdTerminal * variableToDeclare = (IdTerminal*) (grosID);
     Variable * varDeclared = new Variable(variableToDeclare->getTheName());
+    varDeclared->setColumnWhereSymbolOccurs(variableToDeclare->getColumnWhereSymbolOccurs());
+    varDeclared->setLineWhereSymbolOccurs(variableToDeclare->getLineWhereSymbolOccurs());
+    
     VarDeclare * actionDeclareVariable = new VarDeclare(varDeclared);
+    actionDeclareVariable->setColumnWhereSymbolOccurs(varDeclared->getColumnWhereSymbolOccurs());
+    actionDeclareVariable->setLineWhereSymbolOccurs(varDeclared->getLineWhereSymbolOccurs());
+    
     Line lineDeclaration = Line(Type::declaration);
     lineDeclaration.addSymbol(actionDeclareVariable);
     automaton->addProgramLine(lineDeclaration);
