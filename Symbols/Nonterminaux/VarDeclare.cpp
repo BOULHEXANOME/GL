@@ -27,3 +27,9 @@ bool VarDeclare::analyse() const
     }
     return true;
 }
+
+bool VarDeclare::optimize()
+{
+    Automaton::instance().declareVariable(this->variableToDeclare->getTheName(), true);
+    return false;
+}

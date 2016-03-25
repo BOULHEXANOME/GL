@@ -31,6 +31,7 @@ public:
     virtual std::string print() const;
     virtual int execute() const;
     virtual bool analyse() const;
+    virtual bool optimize();
     /***********************/
     /****** End Methods ****/
     /***********************/

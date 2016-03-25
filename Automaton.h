@@ -197,7 +197,7 @@ public:
     /*
      * Method used to add a variable declaration to the table of symbols
      */
-    bool declareVariable(std::string theName);
+    bool declareVariable(std::string theName, bool quiet=false);
 
     /*
      * Method used to add a constant declaration to the table of symbols
@@ -207,17 +207,13 @@ public:
     /*
      * Method used to change the value of a variable in the table of symbols
      */
-    bool affectVariable(std::string theName, int theValue);
+    bool affectVariable(std::string theName, int theValue, bool quiet=false);
 
     /*
      * Method used to access the value of a variable in the table of symbols
      */
-    bool accessVariable(std::string theName, var * toComplete);
+    bool accessVariable(std::string theName, var * toComplete, bool quiet=false);
 
-    /*
-     * Method used to access the value of a constant in the table of symbols
-     */
-    int accessConstant(std::string theName);
 
     /*
      * Method used to clear the table of symbols

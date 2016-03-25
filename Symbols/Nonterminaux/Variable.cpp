@@ -32,13 +32,10 @@ std::string Variable::print() const
 
 Expression *Variable::optimizeExpression()
 {
-    try
+    var* theStockageUnit = new var;
+    if(Automaton::instance().accessVariable(theName, theStockageUnit, true))
     {
-        return new Number(Automaton::instance().accessConstant(theName));
+        return new Number(theStockageUnit->theValue);
     }
-    catch (const int e)
-    {
-        return this;
-    }
-
+    return this;
 }

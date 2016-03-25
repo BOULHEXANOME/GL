@@ -32,5 +32,9 @@ bool AffectInstruct::analyse() const
 bool AffectInstruct::optimize()
 {
     expressionToAffect = expressionToAffect->optimizeExpression();
+    if(expressionToAffect->getType() == VAL)
+    {
+        Automaton::instance().affectVariable(this->variableToChange->getTheName(), this->expressionToAffect->execute(), true);
+    }
     return false;
 }
