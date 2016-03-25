@@ -14,7 +14,7 @@ int PlusExpression::execute() const
     return leftExpr->execute() + rigthExpr->execute();
 }
 
-bool PlusExpression::analyse() const
+bool PlusExpression::analyse()
 {
     return leftExpr->analyse() && rigthExpr->analyse();
 }

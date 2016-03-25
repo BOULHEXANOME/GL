@@ -37,9 +37,10 @@ public:
     /***********************/
     virtual std::string print() const;
     virtual int execute() const;
-    virtual bool analyse() const;
+    virtual bool analyse();
     Expression* optimizeExpression();
     int getType();
+    virtual void resetType();
     /***********************/
     /****** End Methods ****/
     /***********************/

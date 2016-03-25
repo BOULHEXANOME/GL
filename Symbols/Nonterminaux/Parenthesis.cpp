@@ -15,7 +15,7 @@ int Parenthesis::execute() const
     return exprParenthesised->execute();
 }
 
-bool Parenthesis::analyse() const
+bool Parenthesis::analyse()
 {
     return exprParenthesised->analyse();
 }

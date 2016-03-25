@@ -19,7 +19,7 @@ int AffectInstruct::execute() const
     return 0;
 }
 
-bool AffectInstruct::analyse() const
+bool AffectInstruct::analyse()
 {
     if(! Automaton::instance().analyseAffectVariable(this->variableToChange->getTheName()))
     {

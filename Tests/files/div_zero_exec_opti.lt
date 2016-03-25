@@ -1,0 +1,5 @@
+var a;
+const d = 6;
+a := 3;
+a := (a+d)/(d-3*2);
+ecrire a;

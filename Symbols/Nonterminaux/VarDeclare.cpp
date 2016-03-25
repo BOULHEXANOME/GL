@@ -18,7 +18,7 @@ int VarDeclare::execute() const
     return 0;
 }
 
-bool VarDeclare::analyse() const
+bool VarDeclare::analyse()
 {
     if(! Automaton::instance().analyseDeclareVariable(this->variableToDeclare->getTheName()))
     {

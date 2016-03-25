@@ -20,7 +20,7 @@ std::string Constant::print() const
     return theName;
 }
 
-bool Constant::analyse() const
+bool Constant::analyse()
 {
     return Automaton::instance().analyseAccessConstant(theName);
 }

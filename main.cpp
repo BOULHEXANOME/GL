@@ -113,21 +113,19 @@ int main(int argc, char **argv) {
 			symbol = lexer.getSymbol();
 
 			// Ajouter le symbole à la pile des symboles
-			
 			Automaton::instance().pushSymbol(symbol);
-
-			//Automaton::instance().printError(symbol);
 
 		} while(symbol->getType() != DOLLAR);
 	}
 
-	Automaton::instance().launchProgramFromLexer();
+	Automaton::instance().launchProgramExtraction();
 
 	if(opt_analyse)
     {
         if(Automaton::instance().analyse())
         {
-            cout << "Le programme semble cohérent." << endl;
+            if(Automaton::instance().isDebug())
+                cout << "Le programme semble cohérent." << endl;
         }
 	}
 

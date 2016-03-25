@@ -18,7 +18,7 @@ int AffectConst::execute() const
     return 0;
 }
 
-bool AffectConst::analyse() const
+bool AffectConst::analyse()
 {
     if(! Automaton::instance().analyseDeclareAndAffectConst(this->constToDeclare->getTheName()))
     {

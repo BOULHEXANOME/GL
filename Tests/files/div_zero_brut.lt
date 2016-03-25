@@ -1,0 +1,5 @@
+var a;
+const d = 6;
+a := 3;
+a := (a+d)/0;
+ecrire a;

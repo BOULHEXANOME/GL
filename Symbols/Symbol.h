@@ -69,7 +69,7 @@ public:
     /*
      * Check if coherent
      */
-    virtual bool analyse() const;
+    virtual bool analyse();
 
     /*
      * Optimize Symbol
@@ -79,6 +79,7 @@ public:
     int getType() const;
     virtual std::string print() const;
     void setType(int type);
+    virtual void resetType();
     /***********************/
     /***** End Methods *****/
     /***********************/

@@ -17,7 +17,7 @@ private:
 public:
     Variable(std::string theName) : theName(theName) { }
     virtual int execute() const;
-    virtual bool analyse() const;
+    virtual bool analyse();
     virtual std::string print() const;
     virtual Expression* optimizeExpression();
 

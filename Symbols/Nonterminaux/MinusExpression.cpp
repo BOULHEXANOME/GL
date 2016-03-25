@@ -14,7 +14,7 @@ int MinusExpression::execute() const
     return leftExpr->execute() - rigthExpr->execute();;
 }
 
-bool MinusExpression::analyse() const
+bool MinusExpression::analyse()
 {
     return leftExpr->analyse() && rigthExpr->analyse();
 }

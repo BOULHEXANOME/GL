@@ -1,0 +1,4 @@
+Erreur lors de l'optimisation, division par 0 impossible
+ à la ligne 4, colonne 11 :
+a := (a+d)/(d-3*2);
+           ^

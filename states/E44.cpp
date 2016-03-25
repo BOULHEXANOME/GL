@@ -24,6 +24,11 @@ bool E44::transitionMultiply(Automaton * automaton, Symbol * multiply) {
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
+
+    facteur->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    facteur->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
+    opmExpression->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    opmExpression->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 	delete opm;
 	
 	opmExpression->setType(T);
@@ -52,6 +57,10 @@ bool E44::transitionDivide(Automaton * automaton, Symbol * divide) {
 		opmExpression = new DivideExpression(terme, facteur);
 	}
 
+    facteur->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    facteur->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
+    opmExpression->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    opmExpression->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 	delete opm;
 	opmExpression->setType(T);
 	automaton->programFromLexer.push_front(divide);
@@ -79,6 +88,10 @@ bool E44::transitionCloseParenthesis(Automaton * automaton, Symbol * closeParent
 		opmExpression = new DivideExpression(terme, facteur);
 	}
 
+    facteur->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    facteur->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
+    opmExpression->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    opmExpression->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 	delete opm;
 	opmExpression->setType(T);
 	automaton->programFromLexer.push_front(closeParenthesis);
@@ -106,6 +119,10 @@ bool E44::transitionSemicolon(Automaton * automaton, Symbol * semicolon) {
 		opmExpression = new DivideExpression(terme, facteur);
 	}
 
+    facteur->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    facteur->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
+    opmExpression->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    opmExpression->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 	delete opm;
 	opmExpression->setType(T);
 	automaton->programFromLexer.push_front(semicolon);
@@ -133,6 +150,10 @@ bool E44::transitionPlus(Automaton * automaton, Symbol * plus) {
 		opmExpression = new DivideExpression(terme, facteur);
 	}
 
+    facteur->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    facteur->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
+    opmExpression->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    opmExpression->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 	delete opm;
 	opmExpression->setType(T);
 	automaton->programFromLexer.push_front(plus);
@@ -148,17 +169,22 @@ bool E44::transitionMinus(Automaton * automaton, Symbol * minus) {
 	automaton->popState();
 	automaton->popState();
 	automaton->popState();
-	
+
 	OpM * operateur = (OpM*) (opm);
 	Expression * facteur = (Expression *) (f);
 	Expression * terme = (Expression *) (t);
-	
+
 	Expression * opmExpression;
 	if(operateur->getOp()==MULTIPLY){
 		opmExpression = new MultiplyExpression(terme, facteur);
 	}else{
 		opmExpression = new DivideExpression(terme, facteur);
 	}
+
+    facteur->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    facteur->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
+    opmExpression->setColumnWhereSymbolOccurs(f->getColumnWhereSymbolOccurs());
+    opmExpression->setLineWhereSymbolOccurs(f->getLineWhereSymbolOccurs());
 
 	delete opm;
 	opmExpression->setType(T);

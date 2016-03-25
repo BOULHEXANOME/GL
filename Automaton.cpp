@@ -46,7 +46,7 @@ bool Automaton::analyse()
             std::cerr << "Erreur lors de l'analyse statique : la constante '" << (*cConstantesIterator).first << "' n'est jamais utilisée." << std::endl;
         }
     }
-
+    clearTables();
     return isCoherent;
 }
 
@@ -214,7 +214,7 @@ void Automaton::printError(const Symbol* problematicSymbol) {
 	
 }
 
-void Automaton::launchProgramFromLexer()
+void Automaton::launchProgramExtraction()
 {
 	Symbol * sym = this->programFromLexer.front();
     this->programFromLexer.pop_front();

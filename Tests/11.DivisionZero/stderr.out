@@ -1,0 +1,3 @@
+Erreur, division par 0 impossible à la ligne 4, colonne 11 :
+a := (a+d)/0;
+           ^

@@ -189,10 +189,9 @@ public:
     void execute();
     
     /*
-     * 
-     * 
+     *
      */
-    void launchProgramFromLexer();
+    void launchProgramExtraction();
 
     /*
      * Method used to add a variable declaration to the table of symbols

@@ -15,7 +15,7 @@ int Write::execute() const
     return 0;
 }
 
-bool Write::analyse() const
+bool Write::analyse()
 {
     return toWrite->analyse();
 }

@@ -15,7 +15,7 @@ int Variable::execute() const
     return theStockageUnit->theValue;
 }
 
-bool Variable::analyse() const
+bool Variable::analyse()
 {
     if(! Automaton::instance().analyseAccessVariable(theName))
     {

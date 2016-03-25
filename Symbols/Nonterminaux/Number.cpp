@@ -23,8 +23,9 @@ int Number::execute() const
     return theValue;
 }
 
-bool Number::analyse() const
+bool Number::analyse()
 {
+    setType(VAL);
     return true;
 }
 
@@ -37,4 +38,9 @@ Expression* Number::optimizeExpression()
 int Number::getType()
 {
     return VAL;
+}
+
+void Number::resetType()
+{
+    symbolType = VAL;
 }

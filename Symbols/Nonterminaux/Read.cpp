@@ -21,7 +21,7 @@ int Read::execute() const
     return 0;
 }
 
-bool Read::analyse() const
+bool Read::analyse()
 {
     if(! Automaton::instance().analyseAffectVariable(this->variableToReadFromUser->getTheName()))
     {
