@@ -1,2 +1,2 @@
-../lut ../files/synerror.lt
+../lut -p ../files/synerror.lt
 
