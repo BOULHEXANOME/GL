@@ -1,0 +1,7 @@
+var a;
+var b;
+var e;
+b := 22;
+a := 25;
+e := 47;
+ecrire 47;
