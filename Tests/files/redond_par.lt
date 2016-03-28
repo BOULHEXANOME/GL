@@ -1,0 +1,5 @@
+var b,e;
+const d = 6;
+b := 5*3;
+e := b+d;
+ecrire ((e+8));

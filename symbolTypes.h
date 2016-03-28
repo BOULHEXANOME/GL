@@ -39,6 +39,6 @@ const int T = 27;
 const int F = 28;
 const int OPA = 29;
 const int OPM = 30;
-
+const int EXPR_PAR = 31;
 
 #endif //GL_SYMBOLTYPES_H

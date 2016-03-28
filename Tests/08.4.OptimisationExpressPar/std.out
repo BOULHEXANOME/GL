@@ -1,0 +1,5 @@
+var b;
+var e;
+b := 15;
+e := 21;
+ecrire 29;

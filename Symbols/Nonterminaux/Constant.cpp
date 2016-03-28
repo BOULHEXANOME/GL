@@ -32,5 +32,6 @@ int Constant::getType()
 
 Expression *Constant::optimizeExpression()
 {
+    setType(CONST);
     return new Number(execute());
 }

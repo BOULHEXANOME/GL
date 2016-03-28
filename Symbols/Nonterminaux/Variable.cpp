@@ -32,6 +32,7 @@ std::string Variable::print() const
 
 Expression *Variable::optimizeExpression()
 {
+    setType(VAR);
     var* theStockageUnit = new var;
     if(Automaton::instance().accessVariable(theName, theStockageUnit, true))
     {

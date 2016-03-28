@@ -22,8 +22,11 @@ bool Parenthesis::analyse()
 
 Expression *Parenthesis::optimizeExpression()
 {
+    setType(EXPR_PAR);
     exprParenthesised = exprParenthesised->optimizeExpression();
-    if(exprParenthesised->getType() == VAL)
+    if(exprParenthesised->getType() == VAL || exprParenthesised->getType() == CONST)
         return new Number(exprParenthesised->execute());
+    if(exprParenthesised->getType() == VAR || exprParenthesised->getType() == EXPR_PAR)
+        return exprParenthesised;
     return this;
 }
